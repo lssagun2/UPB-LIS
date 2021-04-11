@@ -1,3 +1,6 @@
+<?php
+  require '../config.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -98,38 +101,46 @@
               <li class = "project__item">
                 <div class = "allmaterials" style = "overflow-x: auto; overflow-y:  auto; height: 500px;">
                   <table id = "allmaterials" style = "border-radius: 1em;">
+                  <thead>
                     <tr>
                       <th width="30%" style = "border-radius: 1em 0 0 0;">Date</th>
                       <th width="70%" style = "border-radius: 0 1em 0 0;">Description</th>
                     </tr>
-                    <tr onclick = "document.getElementById('tableModal').style.display = 'block'">
-                      <td>April 1, 2021</td>
-                      <td>Juan dela Cruz edited material with accession number BC-42525</td>
-                    </tr>
-                    <tr onclick = "document.getElementById('tableModal').style.display = 'block'">
-                      <td>April 1, 2021</td>
-                      <td>Juan dela Cruz edited material with accession number BC-42537</td>
-                    </tr>
-                    <tr onclick = "document.getElementById('tableModal').style.display = 'block'">
-                      <td>April 1, 2021</td>
-                      <td>Juan dela Cruz added material with accession number BC-42634</td>
-                    </tr>
-                    <tr onclick = "document.getElementById('tableModal').style.display = 'block'">
-                      <td>April 1, 2021</td>
-                      <td>Juan dela Cruz edited material with accession number BC-44719</td>
-                    </tr>
-                    <tr onclick = "document.getElementById('tableModal').style.display = 'block'">
-                      <td>April 1, 2021</td>
-                      <td>Juan dela Cruz added material with accession number BC-42617</td>
-                    </tr>
-                    <tr onclick = "document.getElementById('tableModal').style.display = 'block'">
-                      <td>April 1, 2021</td>
-                      <td>Juan dela Cruz added material with accession number BG-7394</td>
-                    </tr>
-                    <tr onclick = "document.getElementById('tableModal').style.display = 'block'">
-                      <td>April 1, 2021</td>
-                      <td>Juan dela Cruz edited material with accession number BC-42666</td>
-                    </tr>
+                  </thead>
+
+                  <tbody>                   
+                    <?php
+                    /*
+                    $sql = "SELECT change_date, change_type FROM CHANGES ORDER BY change_date ASC ";
+                    */ 
+                    
+                    $sql = "SELECT c.change_date, c.change_type, s.staff_firstname,
+                            s.staff_lastname, i.mat_acc_num
+                            FROM CHANGES AS c
+                            LEFT JOIN STAFF AS s ON c.staff_id=s.staff_id
+                            LEFT JOIN INVENTORY AS i ON c.mat_id=i.mat_id
+                            ORDER BY change_date DESC";  
+                    $result = $conn->query($sql);
+
+                    if(mysqli_num_rows($result) > 0)
+                    {   
+                      while($row = mysqli_fetch_array($result))
+                      {
+                        ?>
+                            <tr onclick = "document.getElementById('tableModal').style.display = 'block'">
+                                <td><?php echo $row['change_date']; ?></td>
+                                <td><?php echo $row['staff_firstname'] ." ". $row['staff_lastname'] ." ". $row['change_type'] ."ed material with accession number ".$row['mat_acc_num']; ?></td>
+                            </tr>
+                        <?php
+                      }
+                    }
+                    else 
+                    {
+                        echo "There are no changes yet.";
+                    } 
+                    ?>
+                    </tbody>
+
                   </table>
                 </div>
               </li>
