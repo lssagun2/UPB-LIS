@@ -89,7 +89,7 @@
 	edit($conn, "MATERIAL", $id, $info);
 	$change_info = [
 		"staff_id" => $_SESSION["staff_id"],
-		"mat_id" => $conn->insert_id,
+		"mat_id" => $id,
 		"change_type" => "edit",
 		"change_date" => date("Y-m-d H:i:s"),
 		"change_prev_info" => serialize($row)
