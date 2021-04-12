@@ -128,7 +128,7 @@
                       while($row = $result->fetch_assoc()){
                      ?>
 
-                    <tr>
+                    <tr align="center">
                       <td style="display:none;"><?php echo array_shift($row);?></td>
                       <?php
                         foreach($row as $column=>$value){

@@ -13,7 +13,7 @@
   $result = $conn->query($sql);
   while($row = $result->fetch_assoc()){
 ?>
-<tr>
+<tr align="center">
   <td style="display:none;"><?php echo array_shift($row);?></td>
   <td><?php echo $row["mat_acc_num"]; ?></td>
   <td><?php echo $row["mat_barcode"]; ?></td>

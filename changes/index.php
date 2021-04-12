@@ -128,8 +128,8 @@
                       {
                         ?>
                             <tr onclick = "document.getElementById('tableModal').style.display = 'block'">
-                                <td><?php echo $row['change_date']; ?></td>
-                                <td><?php echo $row['staff_firstname'] ." ". $row['staff_lastname'] ." ". $row['change_type'] ."ed material with accession number ".$row['mat_acc_num']; ?></td>
+                                <td style="text-align: center; vertical-align: middle;"><?php echo $row['change_date']; ?></td>
+                                <td style="text-align: center; vertical-align: middle;"><?php echo $row['staff_firstname'] ." ". $row['staff_lastname'] ." ". $row['change_type'] ."ed material with accession number ".$row['mat_acc_num']; ?></td>
                             </tr>
                         <?php
                       }
