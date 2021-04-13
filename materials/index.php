@@ -101,7 +101,7 @@
             </header>
             <ul class = "project">
               <li class = "project__item">
-                <div class = "allmaterials" style = "overflow-x: auto; overflow-y: auto; height: 500px;">
+                <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto; height: 500px;">
                   <table id = "allmaterials" style = "border-radius: 1em;">
                     <tr>
                       <th style = "border-radius: 1em 0 0 0;">Accession Number</th>
@@ -197,10 +197,10 @@
                 <label for = "type">Type</label>
                 <select id = "type" name = "type" value="">
                   <option value = "none">---none---</option>
-                  <option value = "book">Book</option>
-                  <option value = "reference">Reference</option>
-                  <option value = "journal">Journal</option>
-                  <option value = "article">Article</option>
+                  <option value = "Book">Book</option>
+                  <option value = "Reference">Reference</option>
+                  <option value = "Journal">Journal</option>
+                  <option value = "Article">Article</option>
                   <option value = "Thesis">Thesis</option>
                   <option value = "Reserve">Reserve</option>
                   <option value = "Thesis">Thesis</option>
@@ -209,9 +209,9 @@
                 <label for = "status">Status</label>
                 <select id = "status" name = "status" value="">
                   <option value = "none">---none---</option>
-                  <option value = "shelf">ON SHELF</option>
-                  <option value = "lost">LOST</option>
-                  <option value = "deleted">DELETED</option>
+                  <option value = "Shelf">ON SHELF</option>
+                  <option value = "Lost">LOST</option>
+                  <option value = "Deleted">DELETED</option>
                 </select>
 
                 <label for = "source">Source</label>
