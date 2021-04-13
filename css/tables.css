@@ -267,3 +267,7 @@ h1 {
     width: 100%;
   }
 }
+
+#allmaterials td:nth-child(5){
+ text-align:left;
+}
