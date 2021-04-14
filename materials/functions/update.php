@@ -27,7 +27,7 @@
   while($row = $result->fetch_assoc()){
  ?>
 
-<tr>
+<tr align="center">
   <td style="display:none;"><?php echo array_shift($row);?></td>
   <?php
     foreach($row as $column=>$value){
@@ -35,7 +35,7 @@
     }
   ?>
   <td>
-    <button class = "edit" style = "width: 50px; height: 50px;"><i class = "fas fa-edit"></i></button>
+    <button class = "edit" style = "width: 50px; height: 50px; color: #000;"><i class = "fas fa-edit"></i></button>
   </td>
 </tr>
 <?php } ?>
