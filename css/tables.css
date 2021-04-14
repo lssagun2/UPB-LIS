@@ -249,6 +249,60 @@ h1 {
   cursor: pointer;
 }
 
+#allmaterials td:nth-child(5){
+ text-align:left;
+}
+
+#allmaterials td:nth-child(4){
+ text-align:left;
+}
+
+#allmaterials td:nth-child(2){
+ text-align:left;
+}
+
+#inventory {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  border-collapse: collapse;
+  border-radius: 1em;
+  width: 100%;
+  margin-right: 10px;
+  background: linear-gradient(24deg, rgba(128,0,0,1) 0%, rgba(34,139,34,1) 100%);
+}
+
+#inventory td, #inventory th {
+  border: none;
+  padding: 8px;
+}
+
+#inventory tr th {
+  background-color: #ffcc3d;
+  color: #000;
+}
+
+/* #allmaterials tr:nth-child(even){
+  opacity: 0.9;
+} */
+
+#inventory tr:hover{
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#inventory th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #800000;
+  color: #fff;
+  opacity: 1;
+}
+
+#inventory td {
+  cursor: pointer;
+}
+
 ::-webkit-scrollbar {
   height: 10px;
   width: 10px;
@@ -266,8 +320,4 @@ h1 {
   .cancelbtn .addbtn {
     width: 100%;
   }
-}
-
-#allmaterials td:nth-child(5){
- text-align:left;
 }
