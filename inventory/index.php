@@ -120,7 +120,7 @@
             <ul class = "project">
               <li class = "project__item">
                 <div class = "allmaterials" style = "overflow-x: auto; overflow-y:  auto; height: 500px;">
-                  <table class="inventory" id = "allmaterials" style = "border-radius: 1em;">
+                  <table class="inventory" id = "inventory" style = "border-radius: 1em;">
                     <?php
                       require "functions/update.php"?>
 
