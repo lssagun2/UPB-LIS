@@ -213,7 +213,7 @@ h1 {
   font-size: 0.8em;
   border-collapse: collapse;
   border-radius: 1em;
-  width: 100%;
+  width: 120%;
   margin-right: 10px;
   background: linear-gradient(24deg, rgba(128,0,0,1) 0%, rgba(34,139,34,1) 100%);
 }
@@ -250,7 +250,7 @@ h1 {
 }
 
 #allmaterials td:nth-child(5){
- text-align:left;
+ text-align: left;
 }
 
 #allmaterials td:nth-child(4){
@@ -300,6 +300,48 @@ h1 {
 }
 
 #inventory td {
+  cursor: pointer;
+}
+
+#changes {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  border-collapse: collapse;
+  border-radius: 1em;
+  width: 100%;
+  margin-right: 10px;
+  background: linear-gradient(24deg, rgba(128,0,0,1) 0%, rgba(34,139,34,1) 100%);
+}
+
+#changes td, #changes th {
+  border: none;
+  padding: 8px;
+}
+
+#changes tr th {
+  background-color: #ffcc3d;
+  color: #000;
+}
+
+/* #allmaterials tr:nth-child(even){
+  opacity: 0.9;
+} */
+
+#changes tr:hover{
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#changes th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #800000;
+  color: #fff;
+  opacity: 1;
+}
+
+#changes td {
   cursor: pointer;
 }
 
