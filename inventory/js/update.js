@@ -1,3 +1,3 @@
 function update(){
-	$("table#allmaterials").load(encodeURI("functions/update.php"));
+	$("table#inventory").load(encodeURI("functions/update.php"));
 }
