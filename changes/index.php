@@ -100,7 +100,7 @@
             <ul class = "project">
               <li class = "project__item">
                 <div class = "allmaterials" style = "overflow-x: auto; overflow-y:  auto; height: 500px;">
-                  <table id = "allmaterials" style = "border-radius: 1em;">
+                  <table id = "changes" style = "border-radius: 1em;">
                   <thead>
                     <tr>
                       <th width="30%" style = "border-radius: 1em 0 0 0;">Date</th>
@@ -108,22 +108,22 @@
                     </tr>
                   </thead>
 
-                  <tbody>                   
+                  <tbody>
                     <?php
                     /*
                     $sql = "SELECT change_date, change_type FROM CHANGES ORDER BY change_date ASC ";
-                    */ 
-                    
+                    */
+
                     $sql = "SELECT c.change_date, c.change_type, s.staff_firstname,
                             s.staff_lastname, i.mat_acc_num
                             FROM CHANGES AS c
                             LEFT JOIN STAFF AS s ON c.staff_id=s.staff_id
                             LEFT JOIN INVENTORY AS i ON c.mat_id=i.mat_id
-                            ORDER BY change_date DESC";  
+                            ORDER BY change_date DESC";
                     $result = $conn->query($sql);
 
                     if(mysqli_num_rows($result) > 0)
-                    {   
+                    {
                       while($row = mysqli_fetch_array($result))
                       {
                         ?>
@@ -134,10 +134,10 @@
                         <?php
                       }
                     }
-                    else 
+                    else
                     {
                         echo "There are no changes yet.";
-                    } 
+                    }
                     ?>
                     </tbody>
 
