@@ -188,7 +188,7 @@
                   <option value = "Circulation">Circulation</option>
                   <option value = "Cordillera">Cordillera</option>
                   <option value = "Filipiniana">Filipiniana</option>
-                  <option value = "Howard">Howard Fry Special Collection-Room Use Only</option>
+                  <option value = "HFSC-RUO">Howard Fry Special Collection-Room Use Only</option>
                   <option value = "Periodicals">Periodicals</option>
                   <option value = "Reserve">Reserve</option>
                   <option value = "Thesis">Thesis</option>
@@ -209,9 +209,13 @@
                 <label for = "status">Status</label>
                 <select id = "status" name = "status" value="">
                   <option value = "none">---none---</option>
-                  <option value = "Shelf">ON SHELF</option>
-                  <option value = "Lost">LOST</option>
-                  <option value = "Deleted">DELETED</option>
+                  <option value = "On Shelf">On Shelf</option>
+                  <option value = "On Loan">On Loan</option>
+                  <option value = "In Process">In Process</option>
+                  <option value = "Lost">Lost</option>
+                  <option value = "Long Overdue">Long Overdue</option>
+                  <option value = "Deleted">Deleted</option>
+                  <option value = "Preservation Copy">Preservation Copy</option>
                 </select>
 
                 <label for = "source">Source</label>
