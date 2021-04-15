@@ -150,7 +150,7 @@ session_start();
                       <input type = "text" class = "input" placeholder = "What do you want to do?">
                     </div>
                   </div>
-                  <div class = "container" style = "display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 2rem;"></div>
+                  <div class = "container"></div>
                 </div>
               </li>
             </ul>
@@ -183,7 +183,10 @@ session_start();
               <input type = "text" id = "lastname" name = "lastname" placeholder = "Last Name.." value="<?php echo $row["staff_lastname"] ?>">
 
               <label for = "password">Password</label>
-              <input type = "text" id = "password" name = "password" placeholder = "Password.." value="<?php echo $row["staff_password"] ?>">
+              <input type = "password" id = "password" name = "password" placeholder = "Password.." value="<?php echo $row["staff_password"] ?>">
+
+              <label for = "password">Confirm Password</label>
+              <input type = "password" id = "confirm_password" name = "confirm_password" placeholder = "Confirm Password.." value="<?php echo $row["staff_password"] ?>">
 
               <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
               <button type = "button" class = "modalbtn" id = "submitbtnEditAcc"></button>
