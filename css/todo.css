@@ -25,6 +25,7 @@
   background-color: transparent;
   width: 250px;
   margin: 0.05rem;
+	/* margin-left: -30px; */
   transition: .5s;
   font-size: 1.03rem;
   letter-spacing: 0.1rem;
@@ -34,23 +35,25 @@
   opacity: 0.5;
 }
 
-.add {
+section .team__link .team__header .inputDiv .add {
+	float: none;
+	padding: 0;
+	margin: 0;
 	outline: none;
   border: none;
-  /* height: 30px; */
   border-radius: 25px;
-  /* width: 30px; */
   color: #228b22;
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
   margin: 0.25rem;
+	background-color: transparent;
 }
 
-.add:hover {
+section .team__link .team__header .inputDiv .add:hover {
 	color: #ffcc3d;
 }
 
-.container {
+section .team__link .team__header .container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -74,7 +77,7 @@
 	width: 150px;
 }
 
-.edit {
+.container .edit {
 	background: none;
 	outline: none;
 	border: none;
@@ -85,7 +88,7 @@
 	cursor: pointer;
 }
 
-.remove {
+.container .remove {
 	background: none;
 	outline: none;
 	border: none;
