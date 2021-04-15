@@ -248,6 +248,14 @@ h1 {
   cursor: pointer;
 }
 
+#allmaterials td:nth-child(10){
+ text-align: left;
+}
+
+#allmaterials td:nth-child(6){
+ text-align: left;
+}
+
 #allmaterials td:nth-child(5){
  text-align: left;
 }

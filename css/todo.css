@@ -14,18 +14,19 @@
 }
 
 .input {
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   padding: 0.5rem 1rem;
   outline: none;
   border: none;
 	border-radius: 50px;
 	box-shadow: inset 7px 0 9px -7px rgba(0,0,0,0.4);
-  height: 40px;
+  height: auto;
   background-color: transparent;
-  width: 250px;
+  width: 500px;
   margin: 0.05rem;
-	/* margin-left: -30px; */
+	margin-left: 1rem;
+	margin-right: 0;
   transition: .5s;
   font-size: 1.03rem;
   letter-spacing: 0.1rem;
@@ -35,9 +36,15 @@
   opacity: 0.5;
 }
 
+@media screen and (max-width: 1366px) {
+	.input {
+		width: 400px;
+	}
+}
+
 section .team__link .team__header .inputDiv .add {
-	float: none;
-	padding: 0;
+	float: left;
+	padding: 10px 0;
 	margin: 0;
 	outline: none;
   border: none;
@@ -45,7 +52,7 @@ section .team__link .team__header .inputDiv .add {
   color: #228b22;
   cursor: pointer;
   transition: 0.5s;
-  margin: 0.25rem;
+  /* margin: 0.25rem; */
 	background-color: transparent;
 }
 
@@ -54,6 +61,7 @@ section .team__link .team__header .inputDiv .add:hover {
 }
 
 .item {
+	display: flex;
 	padding: 0.1rem;
 	border-bottom: 2px solid #000;
 	margin-bottom: 1rem;
@@ -65,10 +73,11 @@ section .team__link .team__header .inputDiv .add:hover {
 	border: none;
 	color: #000;
 	font-size: 0.9rem;
-	width: 150px;
+	width: 100%;
 }
 
 .container .edit {
+	float: right;
 	background: none;
 	outline: none;
 	border: none;
@@ -80,6 +89,7 @@ section .team__link .team__header .inputDiv .add:hover {
 }
 
 .container .remove {
+	float: right;
 	background: none;
 	outline: none;
 	border: none;
