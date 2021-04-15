@@ -150,12 +150,13 @@
             <div id = "tableModal" class = "modal">
               <span onclick = "document.getElementById('tableModal').style.display = 'none'" class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
               <form class = "modal-content" action = "">
-                <div class = "container" style = "overflow-y: auto; height: 480px;">
-                  <h1>INFORMATION SKRRRRRRRRRRRRRRRRRRRRT</h1>
-                  <p>SKSKKSKSK</p>
+                <div class = "container" style = "overflow-y: auto; height: 335px;">
+                  <h1>INFORMATION SUMMARY</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+                  </p>
                   <div class = "clearfix">
-                    <button type = "button" onclick = "document.getElementById('tableModal').style.display = 'none'" class = "cancelbtn">Close</button>
+                    <button type = "button" onclick = "document.getElementById('tableModal').style.display = 'none'" class = "modalbtn" id="submitbtn">Close</button>
                   </div>
                 </div>
               </form>
