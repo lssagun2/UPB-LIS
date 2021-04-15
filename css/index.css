@@ -893,7 +893,7 @@ button {
   transition: 0.3s;
 }
 
-.sidebar a:hover, .logout:hover {
+.sidebar a:hover, .logout:hover, .sidebar .editmyaccount:hover {
   color: #f1f1f1;
 }
 
@@ -903,6 +903,18 @@ button {
   left: -40px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+.sidebar .editmyaccount {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  color: #b1b1b1;
+  display: block;
+  transition: 0.3s;
+}
+.sidebar .editmyaccount:focus {
+  outline: none;
+  border: none;
 }
 
 /* Logout */
