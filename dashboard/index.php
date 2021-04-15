@@ -1,4 +1,4 @@
-<?php  
+<?php
 require '../config.php';
 session_start();
  ?>
@@ -15,7 +15,6 @@ session_start();
     <link rel = "stylesheet" href = "../css/normalize.css">
     <link rel = "stylesheet" href ="../css/index.css">
     <link rel = "stylesheet" href ="../css/todo.css">
-    <link rel = "stylesheet" href ="../css/tables.css">
     <link rel = "stylesheet" href ="../css/modals.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,7 +29,7 @@ session_start();
         <h2>Admin</h2>
       </div><br>
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
-      <button class = "editmyaccount"><i class="fas fa-user-alt">Edit My Account</i></button>
+      <button class = "editmyaccount"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit My Account</button>
       <a href = "#"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
       <a href = "#"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
       <a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
@@ -158,60 +157,52 @@ session_start();
           </section>
         </div>
 
+        <div class = "modal" id = "modal2">
+          <?php
+            $staffID =  $_SESSION["staff_id"];
+            $sql = "SELECT * FROM staff WHERE staff_id = '$staffID'";
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+          ?>
+          <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
+          <form class = "modal-content" id = "modal-content2" method = "POST">
+            <div class = "container" style = "overflow-y: auto; height: 480px;">
+              <h1 class = "modal-title"></h1>
+              <input type="hidden" name="function" id = "function" value = "edit">
 
+              <input type = "hidden" id = "id" name = "id" value = "">
+              <input type="hidden" name="table" id = "table" value = "STAFF">
 
-    <div class = "modal" id = "modal2">
-              <?php 
-                  $staffID =  $_SESSION["staff_id"];
-                  $sql = "SELECT * FROM staff WHERE staff_id = '$staffID'";
-                  $result = $conn->query($sql);
-                  $row = $result->fetch_assoc();
-                ?>
-              <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
-              <form class = "modal-content" id = "modal-content2" method = "POST">
-                <div class = "container" style = "overflow-y: auto; height: 480px;">
-                <h1 class = "modal-title"></h1>
-                <input type="hidden" name="function" id = "function" value = "edit">
+              <label for = "username">Username</label>
+              <input type = "text" id = "username" name = "username" value="<?php echo $row["staff_username"] ?>">
 
-                <input type = "hidden" id = "id" name = "id" value = "">
-                <input type="hidden" name="table" id = "table" value = "STAFF">
+              <label for = "firstname">First Name</label>
+              <input type = "text" id = "firstname" name = "firstname" placeholder = "Year.." value="<?php echo $row["staff_firstname"] ?>">
 
-                <label for = "username">Username</label>
-                <input type = "text" id = "username" name = "username" value="<?php echo $row["staff_username"] ?>">
+              <label for = "lastname">Last Name</label>
+              <input type = "text" id = "lastname" name = "lastname" placeholder = "Edition.." value="<?php echo $row["staff_lastname"] ?>">
 
-                <label for = "firstname">First Name</label>
-                <input type = "text" id = "firstname" name = "firstname" placeholder = "Year.." value="<?php echo $row["staff_firstname"] ?>">
+              <label for = "password">Password</label>
+              <input type = "text" id = "password" name = "password" placeholder = "Publisher.." value="<?php echo $row["staff_password"] ?>">
 
-                <label for = "lastname">Last Name</label>
-                <input type = "text" id = "lastname" name = "lastname" placeholder = "Edition.." value="<?php echo $row["staff_lastname"] ?>">
-
-                <label for = "password">Password</label>
-                <input type = "text" id = "password" name = "password" placeholder = "Publisher.." value="<?php echo $row["staff_password"] ?>">
-
-                
-                <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
-                <button type = "button" class = "modalbtn" id = "submitbtnEditAcc"></button>
-                <div class = "clearfix">
-
-                </div>
-              </div>
-              </form>
+              <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
+              <button type = "button" class = "modalbtn" id = "submitbtnEditAcc"></button>
+              <div class = "clearfix"></div>
             </div>
-
+          </form>
+        </div>
       </main>
     </div>
 
-
-
-
     <footer class = "footer">
-      <p style = "float: left; padding-left: 10px; padding-top: 16px;">University of the Philippines - Baguio Library Inventory System</p>
-      <p style = "float: right; padding-right: 10px; padding-top: 16px;">For news and related events visit:
-        <a href = "https://www.facebook.com/OfficialUPB"><i class="fab fa-facebook-f"></i></a>
-        <a href = "https://web.upb.edu.ph/"><i class="fas fa-globe"></i></a>
-        <a href = "https://www.youtube.com/channel/UC1XJ8yRNRuDHmhJXtsLIB_g"><i class="fab fa-youtube"></i></a>
-      </p>
+    <p style = "float: left; padding-left: 10px; padding-top: 16px;">University of the Philippines - Baguio Library Inventory System</p>
+    <p style = "float: right; padding-right: 10px; padding-top: 16px;">For news and related events visit:
+      <a href = "https://www.facebook.com/OfficialUPB"><i class="fab fa-facebook-f"></i></a>
+      <a href = "https://web.upb.edu.ph/"><i class="fas fa-globe"></i></a>
+      <a href = "https://www.youtube.com/channel/UC1XJ8yRNRuDHmhJXtsLIB_g"><i class="fab fa-youtube"></i></a>
+    </p>
     </footer>
+
     <script type = "text/javascript" src = "js/formhandler.js"></script>
     <script type = "text/javascript" src = "js/buttons.js"></script>
     <script src = "../js/script.js"></script>
