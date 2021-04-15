@@ -148,7 +148,7 @@
 
                   <div class = "clearfix">
                     <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
-                    <button type = "button" class = "modalbtn" id = "submitbtn">Submit</button>
+                <button type = "button" class = "modalbtn" id = "submitbtn">Submit</button>
                   </div>
                 </div>
               </form>
