@@ -213,7 +213,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5rem;
+  padding: 0 2rem;
   text-align: center;
   text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
 }
@@ -244,7 +244,7 @@ button {
   }
 
   .month p {
-    font-size: 1.2rem;
+    font-size: 1.0rem;
   }
 }
 
@@ -268,7 +268,7 @@ button {
   font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
-  width: calc(44.2rem / 7);
+  width: calc(50rem / 7);
   display: flex;
   justify-content: center;
   align-items: center;
