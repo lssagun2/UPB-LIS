@@ -53,15 +53,6 @@ section .team__link .team__header .inputDiv .add:hover {
 	color: #ffcc3d;
 }
 
-section .team__link .team__header .container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	margin-top: 2rem;
-}
-
 .item {
 	padding: 0.1rem;
 	border-bottom: 2px solid #000;

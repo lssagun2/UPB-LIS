@@ -95,7 +95,6 @@ h1 {
 
 #submitbtn {
   border-radius: 50px;
-  margin: 5px;
   transition: 0.2s ease;
   background-color: #ffcc3d;
   opacity: 0.9;
@@ -138,7 +137,7 @@ h1 {
 
 .container {
   padding: 16px;
-  text-align: left;
+  /* text-align: left; */
 }
 
 .modal input[type=text], select {
