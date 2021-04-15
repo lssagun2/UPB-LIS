@@ -147,8 +147,8 @@
                   <input type = "text" id = "inventoried_by" name = "inventoriedby" placeholder = "Inventoried by..">
 
                   <div class = "clearfix">
-                    <button type = "button" onclick = "document.getElementById('barcodeModal').style.display = 'none'" class = "cancelbtn">Cancel</button>
-                    <button type = "button" onclick = "document.getElementById('barcodeModal').style.display = 'none'" class = "addbtn">Add Material</button>
+                    <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
+                    <button type = "button" class = "modalbtn" id = "submitbtn">Submit</button>
                   </div>
                 </div>
               </form>
