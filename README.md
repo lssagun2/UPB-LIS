@@ -11,12 +11,15 @@ The following are the list of the goal functionalities for the software:
 -   [x] Initial database structure
 -   [x] Add and edit functions for the materials page
 -   [x] Inventory using accession number
--   [ ] Inventory using barcode scanner
 -   [x] Viewing of the changes in the information of materials
--   [ ] Adding and updating staff information
+-   [ ] Generation of report
+-   [ ] Inventory using barcode scanner
+-   [ ] Adding new staff information
+-   [x] Updating of staff information
 -   [ ] Backup and restore system
 -   [ ] Sorting capabilities for the tables
 -   [ ] Adding table pagination
+-   [ ] Real-time updates for multiple users
 -   [ ] Working to-do list in the dashboard page
 -   [ ] Working forum in the dashboard page
 -   [ ] Improve querying speed
