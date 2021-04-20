@@ -1,5 +1,6 @@
 <?php
-  require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
+  session_start();
+  require '../config.php';
   date_default_timezone_set('Asia/Manila');
   $year = date("Y");
 ?>
@@ -16,6 +17,7 @@
     <link rel = "stylesheet" href = "../css/normalize.css">
     <link rel = "stylesheet" href ="../css/index.css">
     <link rel = "stylesheet" href ="../css/tables.css">
+    <link rel = "stylesheet" href ="../css/modals.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
@@ -28,6 +30,7 @@
         <h2>Admin</h2>
       </div><br>
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
+      <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
       <a href = "#"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
       <a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
@@ -122,13 +125,15 @@
                 <div class = "allmaterials" style = "overflow-x: auto; overflow-y:  auto; height: 500px;">
                   <table class="inventory" id = "inventory" style = "border-radius: 1em;">
                     <?php
-                      require "functions/update.php"?>
-
+                      require "functions/update.php";
+                    ?>
                   </table>
                 </div>
               </li>
             </ul>
-
+            <?php
+              require "../staff/modal.php";
+            ?>
             <div id = "barcodeModal" class = "modal">
               <span onclick = "document.getElementById('barcodeModal').style.display = 'none'" class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
               <form class = "modal-content" action = "">
@@ -168,7 +173,7 @@
     </footer>
     <script type = "text/javascript" src = "js/formhandler.js"></script>
     <script type = "text/javascript" src = "js/update.js"></script>
-    <script>
+    <!-- <script>
       var modal = document.getElementById('barcodeModal');
 
       window.onclick = function(event) {
@@ -176,8 +181,9 @@
           modal.style.display = "none";
         }
       }
-    </script>
-
+    </script> -->
+    <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
+    <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
     <script>
       function openNav() {
         document.getElementById("sidebar").style.width = "500px";

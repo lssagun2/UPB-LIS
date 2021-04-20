@@ -7,7 +7,7 @@
 		$errors["username"] = "Username cannot be empty.";
 	}
 	else{
-		$sql = "SELECT staff_id, staff_password FROM STAFF WHERE staff_username = '$username'";
+		$sql = "SELECT staff_id, staff_password, staff_firstname, staff_lastname FROM STAFF WHERE staff_username = '$username'";
 		$result = $conn->query($sql);
 		echo $conn->error;
 		if($result->num_rows == 0){
@@ -18,6 +18,8 @@
 			if($password === $row["staff_password"]){
 				$_SESSION["logged_in"] = TRUE;
 				$_SESSION["staff_id"] = $row["staff_id"];
+				$_SESSION["staff_firstname"] = $row["staff_firstname"];
+				$_SESSION["staff_lastname"] = $row["staff_lastname"];
 				$link = "../dashboard/index.php";
 			}
 			else{

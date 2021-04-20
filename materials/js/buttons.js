@@ -4,7 +4,6 @@ $(document).ready(function(){
 		var data = $tr.children("td").map(function(){
 			return $(this).text();
 		}).get();
-		console.log(data);
 		$(".modal-title").html("Edit Existing Material");
 		$("button#submitbtn").html("Save Changes");
 		$("#function").val("edit");
@@ -24,23 +23,23 @@ $(document).ready(function(){
 		$('#status').val(data[13]);
 		$('#source').val(data[14]);
 		$('#last_year_inventoried').val(data[15]);
-		$('div.modal').show()
+		$('div#material').show()
 	});
 	$(document).on('click', '.add', function(){
 		$("#function").val("add");
 		$(".modal-title").html("Add New Material");
 		$("button#submitbtn").html("Add Material");
-		$('div.modal').show();
+		$('div#material').show();
 	});
 	$(document).on('click', '#cancelbtn', function(){
-		$("form.modal-content").trigger("reset");
-		$('div.modal').hide();
+		$("form#material").trigger("reset");
+		$('div#material').hide();
 	});
 	$(document).on('click', '#submitbtn', function(){
-		$('form.modal-content').submit()
+		$('form#material').submit()
 	});
 	$(document).on('click', '.close', function(){
-		$("form.modal-content").trigger("reset");
-		$('div.modal').hide();
+		$("form#material").trigger("reset");
+		$('div#material').hide();
 	});
 });

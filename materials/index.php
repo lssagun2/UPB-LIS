@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require '../config.php';
  ?>
 <!DOCTYPE html>
@@ -26,6 +27,7 @@
         <h2>Admin</h2>
       </div><br>
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
+      <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
       <a href = "#"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
       <a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
@@ -145,99 +147,10 @@
               </li>
             </ul>
             <button class = "add">Add</button>
-            <div class = "modal">
-              <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
-              <form class = "modal-content" method = "POST">
-                <div class = "container" style = "overflow-y: auto; height: 480px;">
-                <h1 class = "modal-title"></h1>
-                <input type="hidden" name="function" id = "function" value = "">
-                <input type = "hidden" id = "id" name = "id" value = "">
-                <label for = "acc_num">Accession Number</label>
-                <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Accession Number.." value="">
-
-                <label for = "barcode">Barcode</label>
-                <input type = "text" id = "barcode" name = "barcode" placeholder = "Barcode.." value="">
-
-                <label for = "call_number">Call Number</label>
-                <input type = "text" id = "call_number" name = "call_number" placeholder = "Call Number.." value="">
-
-                <label for = "title">Material Title</label>
-                <input type = "text" id = "title" name = "title" placeholder = "Title.." value="">
-
-                <label for = "author">Material Author</label>
-                <input type = "text" id = "author" name = "author" placeholder = "Author.." value="">
-
-                <label for = "volume">Material Volume</label>
-                <input type = "text" id = "volume" name = "volume" placeholder = "Volume.." value="">
-
-                <label for = "year">Material Year</label>
-                <input type = "text" id = "year" name = "year" placeholder = "Year.." value="">
-
-                <label for = "edition">Material Edition</label>
-                <input type = "text" id = "edition" name = "edition" placeholder = "Edition.." value="">
-
-                <label for = "publisher">Publisher of the Material</label>
-                <input type = "text" id = "publisher" name = "publisher" placeholder = "Publisher.." value="">
-
-                <label for = "pub_year">Year of Publication</label>
-                <input type = "text" id = "pub_year" name = "pub_year" placeholder = "Publication Year.." value="">
-
-                <label for = "circ_type">Circulation Type</label>
-                <select id = "circ_type" name = "circ_type" value="">
-                  <option value = "none">---none---</option>
-                  <option value = "Circulation">Circulation</option>
-                  <option value = "Cordillera">Cordillera</option>
-                  <option value = "Filipiniana">Filipiniana</option>
-                  <option value = "HFSC-RUO">Howard Fry Special Collection-Room Use Only</option>
-                  <option value = "Periodicals">Periodicals</option>
-                  <option value = "Reserve">Reserve</option>
-                  <option value = "Thesis">Thesis</option>
-                </select>
-
-                <label for = "type">Type</label>
-                <select id = "type" name = "type" value="">
-                  <option value = "none">---none---</option>
-                  <option value = "Book">Book</option>
-                  <option value = "Reference">Reference</option>
-                  <option value = "Journal">Journal</option>
-                  <option value = "Article">Article</option>
-                  <option value = "Thesis">Thesis</option>
-                  <option value = "Reserve">Reserve</option>
-                  <option value = "Thesis">Thesis</option>
-                </select>
-
-                <label for = "status">Status</label>
-                <select id = "status" name = "status" value="">
-                  <option value = "none">---none---</option>
-                  <option value = "On Shelf">On Shelf</option>
-                  <option value = "On Loan">On Loan</option>
-                  <option value = "In Process">In Process</option>
-                  <option value = "Lost">Lost</option>
-                  <option value = "Long Overdue">Long Overdue</option>
-                  <option value = "Deleted">Deleted</option>
-                  <option value = "Preservation Copy">Preservation Copy</option>
-                </select>
-
-                <label for = "source">Source</label>
-                <input type = "text" id = "source" name = "source" placeholder = "Material Source.." value="">
-
-                <label for = "last_year_inventoried">Last Year Inventoried</label>
-                <select id = "last_year_inventoried" name = "last_year_inventoried" value="">
-                  <option value = "0" selected>---none---</option>
-                  <option value = "2021">2021</option>
-                  <option value = "2020">2020</option>
-                  <option value = "2019">2019</option>
-                  <option value = "2018">2018</option>
-                  <option value = "2017">2017</option>
-                </select>
-                <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
-                <button type = "button" class = "modalbtn" id = "submitbtn"></button>
-                <div class = "clearfix">
-
-                </div>
-              </div>
-              </form>
-            </div>
+            <?php
+              require "modal.php";
+              require "../staff/modal.php";
+            ?>
           </section>
         </div>
       </main>
@@ -251,71 +164,11 @@
         <a href = "https://www.youtube.com/channel/UC1XJ8yRNRuDHmhJXtsLIB_g"><i class="fab fa-youtube"></i></a>
       </p>
     </footer>
-
-<!-- EDIT MATERIAL CODE LINE -->
-    <!-- Optional JavaScript; choose one of the two! -->
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-   <!--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script> -->
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script> -->
- <!-- EDIT MATERIAL CODE LINE -->
-
-
-   <!--  <script>
-      var modal = document.getElementById('addModal');
-
-      window.onclick = function(event) {
-        if(event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    </script> -->
-
-   <!--  <script>
-      var modal = document.getElementById('editModal');
-
-      window.onclick = function(event) {
-        if(event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    </script> -->
-
-    <!-- <script>
-      $(document).ready(function(){
-        $('.edit').on('click', function(){
-
-          $tr = $(this).closest('tr');
-
-          var data = $tr.children("td").map(function(){
-            return $(this).text();
-          }).get();
-
-          console.log(data);
-          $('#id').val(data[0]);
-          $('#acc_num').val(data[1]);
-          $('#barcode').val(data[2]);
-          $('#call_number').val(data[3]);
-          $('#title').val(data[4]);
-          $('#author').val(data[5])
-          $('#volume').val(data[6]);
-          $('#year').val(data[7]);
-          $('#edition').val(data[8]);
-          $('#publisher').val(data[9]);
-          $('#pub_year').val(data[10]);
-          $('#circ_type').val(data[11])
-          $('#type').val(data[12]);
-          $('#status').val(data[13]);
-          $('#source').val(data[14]);
-          $('#last_year_inventoried').val(data[15]);
-        });
-      });
-    </script> -->
     <script type = "text/javascript" src = "js/formhandler.js"></script>
     <script type = "text/javascript" src = "js/buttons.js"></script>
     <script type = "text/javascript" src = "js/update.js"></script>
+    <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
+    <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
     <script>
       function openNav() {
         document.getElementById("sidebar").style.width = "500px";

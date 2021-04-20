@@ -1,19 +1,17 @@
 $(document).ready(function(){
-	$("form#material").submit(function(event){
+	$("form#staff").submit(function(event){
 		event.preventDefault();
 		$(".input-invalid").hide();
-		var function_name = $("#function").val();
+		var function_name = $("#staff_function").val();
 		$.ajax({
 			type 		: 'POST',
-			url			: 'functions/'+function_name+'.php',
-			data 		: $('form#material').serialize(),
+			url			: '../staff/functions/'+function_name+'.php',
+			data 		: $('form#staff').serialize(),
 			dataType 	: 'json'
 		})
 		.done(function(data){
 			console.log(data);
-			$("form#material").trigger("reset");
 			$('div.modal').hide();
-			update();
 		})
 		.fail(function(data) {
 	      //Server failed to respond - Show an error message
