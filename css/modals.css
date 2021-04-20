@@ -140,7 +140,7 @@ h1 {
   /* text-align: left; */
 }
 
-.modal input[type=text], select {
+.modal input[type=text], .modal input[type=password], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
