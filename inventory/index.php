@@ -17,8 +17,135 @@
     <link rel = "stylesheet" href = "../css/normalize.css">
     <link rel = "stylesheet" href ="../css/index.css">
     <link rel = "stylesheet" href ="../css/tables.css">
-    <link rel = "stylesheet" href ="../css/modals.css">
+    <!-- <link rel = "stylesheet" href ="../css/modals.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+    .modal-body {
+      padding: 0;
+      border-radius: 15px;
+      display: flex;
+      height: 590px;
+      font-family: sans-serif;
+    }
+
+    .modal-content {
+      border-radius: 20px;
+    }
+
+    .modal-content h1, .modal-content h2, .modal-content h3 {
+      text-align: center;
+    }
+
+    .column {
+      flex: 50%;
+      padding: 10px;
+    }
+
+    .column#main {
+      flex: 75%;
+      padding: 50px;
+      padding-left: 25px;
+      margin-top: 0;
+      margin-left: 15px;
+    }
+
+    #secondary {
+      background-color: #ffcc3d;
+      border-radius: 0 15px 15px 0;
+      text-align: center;
+    }
+
+    #secondary .btn-primary {
+      background: #f8f9fa4f;
+      color: #000;
+    }
+
+    .modal-body label {
+      margin-bottom: 0;
+    }
+
+    .sec-content {
+      margin-top: 80%;
+    }
+
+    #submitbtn {
+      background-color: #800000;
+      color: #fff;
+      width: 100px;
+      opacity: 0.8;
+      transition: 0.2s ease-in-out;
+    }
+
+    #submitbtn:hover, #cancelbtn:hover {
+      opacity: 1;
+    }
+
+    #cancelbtn {
+      opacity: 0.9;
+    }
+
+    .modal input[type=text], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      overflow-y: auto;
+      height: 425px;
+    }
+
+    .wave svg {
+      height: 105%;
+      width: 97px;
+    }
+
+    .wave svg path {
+      fill: #ffcc3d!important;
+    }
+
+    @media screen and (max-width: 1366px) {
+      .modal {
+        overflow-y: hidden;
+      }
+
+      .modal-body {
+        height: 460px;
+      }
+
+      .column#main {
+        flex: 75%;
+        padding: 25px;
+        margin-top: 0;
+        margin-left: 15px;
+      }
+
+      .sec-content {
+        margin-top: 70%;
+      }
+
+      .wave svg {
+        height: 100%;
+        width: 77px;
+      }
+
+      .container {
+        height: 270px;
+      }
+
+      .accession-number {
+        margin-left: 11%;
+      }
+
+      .barcode-scanner {
+        margin-left: 10%;
+      }
+    }
+    </style>
   </head>
   <body>
     <div class = "left-logo">
@@ -105,61 +232,255 @@
             <header class = "section__header">
               <h1><span class = "h1-admin">Inventory</span> Items</h1>
             </header>
-            <ul class = "team" style = "margin-left: 80px;">
+            <ul class = "team">
               <li class = "team__item">
-                <form class = "accession-number" action = "" method = "POST">
-                  <label for = "accession number">ACCESSION NUMBER:</label><br>
-                  <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Enter Accession Number.."> <br>
-                  <button type = "submit" class = "submitbtn">Submit</button>
-                </form>
+                <button type = "button" class = "accession-number" onclick = "document.getElementById('id01').style.display='block'" id = "anbtn">
+                  <h2 class = "inventory-h2" style = "color: #fff;">Input Accession Number</h2><i class="fas fa-keyboard"></i>
+                </button>
               </li>
               <li class = "team__item">
-                <button onclick = "document.getElementById('barcodeModal').style.display = 'block'" class = "barcode">Scan Barcode</button>
+                <button type = "button" class = "barcode-scanner" onclick = "document.getElementById('id02').style.display='block'" id = "bsbtn">
+                  <h2 class = "inventory-h2" style = "color: #fff;">Scan Barcode</h2><i class="fas fa-barcode"></i>
+                </button>
               </li>
             </ul>
+          </section>
+        </main>
+      </div>
+    </div>
 
-            <br><br>
-
-            <ul class = "project">
-              <li class = "project__item">
-                <div class = "allmaterials" style = "overflow-x: auto; overflow-y:  auto; height: 500px;">
-                  <table class="inventory" id = "inventory" style = "border-radius: 1em;">
-                    <?php
-                      require "functions/update.php";
-                    ?>
-                  </table>
-                </div>
-              </li>
-            </ul>
-            <?php
-              require "../staff/modal.php";
-            ?>
-            <div id = "barcodeModal" class = "modal">
-              <span onclick = "document.getElementById('barcodeModal').style.display = 'none'" class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
-              <form class = "modal-content" action = "">
-                <div class = "container" style = "overflow-y: auto; height: 480px;">
-                  <h1>Barcode Scanner</h1>
-                  <label for = "accession number">Accession Number</label>
-                  <input type = "text" id = "accession_number" name = "accession number" placeholder = "Accession Number..">
+    <!-- Modal Input Accession Number -->
+    <div class = "modal fade" id = "id01" >
+      <div class = "modal-dialog" role = "document">
+        <div class = "modal-content">
+          <div class = "modal-body">
+            <div class = "column" id = "main">
+              <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
+              <h1>Material Information</h1>
+              <form>
+                <div class = "container">
+                  <h1 class = "modal-title"></h1>
+                  <input type="hidden" name="function" id = "function" value = "">
+                  <input type = "hidden" id = "id" name = "id" value = "">
+                  <label for = "acc_num">Accession Number</label>
+                  <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
 
                   <label for = "barcode">Barcode</label>
-                  <input type = "text" id = "barcode" name = "barcode" placeholder = "Barcode..">
+                  <input type = "text" id = "barcode" name = "barcode" placeholder = "Barcode.." value="" autocomplete="off">
 
-                  <label for = "dateofinventory">Date of Inventory</label>
-                  <input type = "text" id = "date_of_inventory" name = "dateofinventory" placeholder = "Date of Inventory..">
+                  <label for = "call_number">Call Number</label>
+                  <input type = "text" id = "call_number" name = "call_number" placeholder = "Call Number.." value="" autocomplete="off">
 
-                  <label for = "inventoriedby">Inventoried by</label>
-                  <input type = "text" id = "inventoried_by" name = "inventoriedby" placeholder = "Inventoried by..">
+                  <label for = "title">Material Title</label>
+                  <input type = "text" id = "title" name = "title" placeholder = "Title.." value="" autocomplete="off">
 
+                  <label for = "author">Material Author</label>
+                  <input type = "text" id = "author" name = "author" placeholder = "Author.." value="" autocomplete="off">
+
+                  <label for = "volume">Material Volume</label>
+                  <input type = "text" id = "volume" name = "volume" placeholder = "Volume.." value="" autocomplete="off">
+
+                  <label for = "year">Material Year</label>
+                  <input type = "text" id = "year" name = "year" placeholder = "Year.." value="" autocomplete="off">
+
+                  <label for = "edition">Material Edition</label>
+                  <input type = "text" id = "edition" name = "edition" placeholder = "Edition.." value="" autocomplete="off">
+
+                  <label for = "publisher">Publisher of the Material</label>
+                  <input type = "text" id = "publisher" name = "publisher" placeholder = "Publisher.." value="" autocomplete="off">
+
+                  <label for = "pub_year">Year of Publication</label>
+                  <input type = "text" id = "pub_year" name = "pub_year" placeholder = "Publication Year.." value="" autocomplete="off">
+
+                  <label for = "circ_type">Circulation Type</label>
+                  <select id = "circ_type" name = "circ_type" value="">
+                    <option value = "none">---none---</option>
+                    <option value = "Circulation">Circulation</option>
+                    <option value = "Cordillera">Cordillera</option>
+                    <option value = "Filipiniana">Filipiniana</option>
+                    <option value = "HFSC-RUO">Howard Fry Special Collection-Room Use Only</option>
+                    <option value = "Periodicals">Periodicals</option>
+                    <option value = "Reserve">Reserve</option>
+                    <option value = "Thesis">Thesis</option>
+                  </select>
+
+                  <label for = "type">Type</label>
+                  <select id = "type" name = "type" value="">
+                    <option value = "none">---none---</option>
+                    <option value = "Book">Book</option>
+                    <option value = "Reference">Reference</option>
+                    <option value = "Journal">Journal</option>
+                    <option value = "Article">Article</option>
+                    <option value = "Thesis">Thesis</option>
+                    <option value = "Reserve">Reserve</option>
+                    <option value = "Thesis">Thesis</option>
+                  </select>
+
+                  <label for = "status">Status</label>
+                  <select id = "status" name = "status" value="">
+                    <option value = "none">---none---</option>
+                    <option value = "On Shelf">On Shelf</option>
+                    <option value = "On Loan">On Loan</option>
+                    <option value = "In Process">In Process</option>
+                    <option value = "Lost">Lost</option>
+                    <option value = "Long Overdue">Long Overdue</option>
+                    <option value = "Deleted">Deleted</option>
+                    <option value = "Preservation Copy">Preservation Copy</option>
+                  </select>
+
+                  <label for = "source">Source</label>
+                  <input type = "text" id = "source" name = "source" placeholder = "Material Source.." value="" autocomplete="off">
+
+                  <!-- <label for = "last_year_inventoried">Last Year Inventoried</label>
+                  <select id = "last_year_inventoried" name = "last_year_inventoried" value="">
+                    <option value = "0" selected>---none---</option>
+                    <option value = "2021">2021</option>
+                    <option value = "2020">2020</option>
+                    <option value = "2019">2019</option>
+                    <option value = "2018">2018</option>
+                    <option value = "2017">2017</option>
+                  </select> -->
+                  <button type = "button" class = "modalbtn" id = "submitbtn" style = "width: auto;">Save Changes</button>
                   <div class = "clearfix">
-                    <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
-                <button type = "button" class = "modalbtn" id = "submitbtn">Submit</button>
                   </div>
                 </div>
               </form>
             </div>
-          </section>
-        </main>
+            <div class = "wave">
+              <?xml version="1.0" encoding="UTF-8"?>
+              <svg viewBox="0 0 67 578" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
+                      <path d="M11.3847656,-5.68434189e-14 C-7.44726562,36.7213542 5.14322917,126.757812 49.15625,270.109375 C70.9827986,341.199016 54.8877465,443.829224 0.87109375,578 L67,578 L67,-5.68434189e-14 L11.3847656,-5.68434189e-14 Z" id="Path" fill="#ffcc3d"></path>
+                  </g>
+              </svg>
+            </div>
+            <div class="column" id="secondary">
+              <div class="sec-content">
+                <h2>Input Accession Number</h2>
+                <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
+                <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
+                <button type = "button" class = "modalbtn" id = "submitbtn">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Barcode Scanner-->
+    <div class = "modal fade" id = "id02" >
+      <div class = "modal-dialog" role = "document">
+        <div class = "modal-content">
+          <div class = "modal-body">
+            <div class = "column" id = "main">
+              <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
+              <h1>Material Information</h1>
+              <form>
+                <div class = "container">
+                  <h1 class = "modal-title"></h1>
+                  <input type="hidden" name="function" id = "function" value = "">
+                  <input type = "hidden" id = "id" name = "id" value = "">
+                  <label for = "acc_num">Accession Number</label>
+                  <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
+
+                  <label for = "barcode">Barcode</label>
+                  <input type = "text" id = "barcode" name = "barcode" placeholder = "Barcode.." value="" autocomplete="off">
+
+                  <label for = "call_number">Call Number</label>
+                  <input type = "text" id = "call_number" name = "call_number" placeholder = "Call Number.." value="" autocomplete="off">
+
+                  <label for = "title">Material Title</label>
+                  <input type = "text" id = "title" name = "title" placeholder = "Title.." value="" autocomplete="off">
+
+                  <label for = "author">Material Author</label>
+                  <input type = "text" id = "author" name = "author" placeholder = "Author.." value="" autocomplete="off">
+
+                  <label for = "volume">Material Volume</label>
+                  <input type = "text" id = "volume" name = "volume" placeholder = "Volume.." value="" autocomplete="off">
+
+                  <label for = "year">Material Year</label>
+                  <input type = "text" id = "year" name = "year" placeholder = "Year.." value="" autocomplete="off">
+
+                  <label for = "edition">Material Edition</label>
+                  <input type = "text" id = "edition" name = "edition" placeholder = "Edition.." value="" autocomplete="off">
+
+                  <label for = "publisher">Publisher of the Material</label>
+                  <input type = "text" id = "publisher" name = "publisher" placeholder = "Publisher.." value="" autocomplete="off">
+
+                  <label for = "pub_year">Year of Publication</label>
+                  <input type = "text" id = "pub_year" name = "pub_year" placeholder = "Publication Year.." value="" autocomplete="off">
+
+                  <label for = "circ_type">Circulation Type</label>
+                  <select id = "circ_type" name = "circ_type" value="">
+                    <option value = "none">---none---</option>
+                    <option value = "Circulation">Circulation</option>
+                    <option value = "Cordillera">Cordillera</option>
+                    <option value = "Filipiniana">Filipiniana</option>
+                    <option value = "HFSC-RUO">Howard Fry Special Collection-Room Use Only</option>
+                    <option value = "Periodicals">Periodicals</option>
+                    <option value = "Reserve">Reserve</option>
+                    <option value = "Thesis">Thesis</option>
+                  </select>
+
+                  <label for = "type">Type</label>
+                  <select id = "type" name = "type" value="">
+                    <option value = "none">---none---</option>
+                    <option value = "Book">Book</option>
+                    <option value = "Reference">Reference</option>
+                    <option value = "Journal">Journal</option>
+                    <option value = "Article">Article</option>
+                    <option value = "Thesis">Thesis</option>
+                    <option value = "Reserve">Reserve</option>
+                    <option value = "Thesis">Thesis</option>
+                  </select>
+
+                  <label for = "status">Status</label>
+                  <select id = "status" name = "status" value="">
+                    <option value = "none">---none---</option>
+                    <option value = "On Shelf">On Shelf</option>
+                    <option value = "On Loan">On Loan</option>
+                    <option value = "In Process">In Process</option>
+                    <option value = "Lost">Lost</option>
+                    <option value = "Long Overdue">Long Overdue</option>
+                    <option value = "Deleted">Deleted</option>
+                    <option value = "Preservation Copy">Preservation Copy</option>
+                  </select>
+
+                  <label for = "source">Source</label>
+                  <input type = "text" id = "source" name = "source" placeholder = "Material Source.." value="" autocomplete="off">
+
+                  <!-- <label for = "last_year_inventoried">Last Year Inventoried</label>
+                  <select id = "last_year_inventoried" name = "last_year_inventoried" value="">
+                    <option value = "0" selected>---none---</option>
+                    <option value = "2021">2021</option>
+                    <option value = "2020">2020</option>
+                    <option value = "2019">2019</option>
+                    <option value = "2018">2018</option>
+                    <option value = "2017">2017</option>
+                  </select> -->
+                  <button type = "button" class = "modalbtn" id = "submitbtn" style = "width: auto;">Save Changes</button>
+                  <div class = "clearfix">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class = "wave">
+              <?xml version="1.0" encoding="UTF-8"?>
+              <svg viewBox="0 0 67 578" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
+                      <path d="M11.3847656,-5.68434189e-14 C-7.44726562,36.7213542 5.14322917,126.757812 49.15625,270.109375 C70.9827986,341.199016 54.8877465,443.829224 0.87109375,578 L67,578 L67,-5.68434189e-14 L11.3847656,-5.68434189e-14 Z" id="Path" fill="#ffcc3d"></path>
+                  </g>
+              </svg>
+            </div>
+            <div class="column" id="secondary">
+              <div class="sec-content">
+                <h2>Barcode Scanner</h2>
+                <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Scan Barcode.." value="" autocomplete="off">
+                <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -194,6 +515,48 @@
         document.getElementById("sidebar").style.width = "0";
         document.getElementById("main").style.marginRight = "0";
       }
+    </script>
+
+    <script>
+    var accession_modal = document.getElementById("id01");
+    var accession_btn = document.getElementById("anbtn");
+    var accession_span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == accession_modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script>
+
+    <script>
+    var barcode_modal = document.getElementById("id02");
+    var barcode_btn = document.getElementById("bsbtn");
+    var barcode_span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == barcode_modal) {
+        modal.style.display = "none";
+      }
+    }
     </script>
   </body>
 </html>
