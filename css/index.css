@@ -53,12 +53,12 @@ h1 {
   text-transform: uppercase;
 }
 
-.h1-admin {
+/* .h1-admin {
   background: linear-gradient(135deg, #228b22 0%, #800000 50%, #ffcc3d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
-}
+} */
 
 /* h1 {
   font-size: 2.4rem;
