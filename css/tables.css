@@ -98,52 +98,51 @@ h1 {
   outline: none;
 }
 
-.team__item .barcode {
-  background-color: #800000;
-  color: #fff;
-  border-radius: 50px;
-  width: 180px;
-  height: auto;
+.accession-number, .barcode-scanner {
+  margin-left: 15%;
   text-align: center;
-  padding: 10px 10px;
-  margin-left: 80px;
-  margin-top: 50px;
-  line-height: 2em;
-  opacity: 0.9;
-  transition: 0.2s ease;
-}
-
-.team__item .barcode:hover {
-  opacity: 1;
-}
-
-.team__item .barcode:focus {
-  outline: none;
-}
-
-.team__item .accession-number {
-  background-color: #fff;
   border-radius: 15px;
-  width: auto;
-  height: 100%;
+  height: 300px;
+  width: 400px;
+  background-color: #800000;
+  transition: 0.1s ease-in-out;
+}
+
+.accession-number {
+  flex: 1 1 auto;
+  padding: 30px;
   text-align: center;
-  padding: 10px;
-  margin-left: 80px;
-  line-height: 2em;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, #800000 0%, #ffcc3d 51%, #228b22 100%);
+  color: white;
+  border-radius: 10px;
+  margin-left: 30%;
 }
 
-.team__item .accession-number input[type=text] {
-  background-color: #ffcc3d;
-  opacity: 0.8;
-  width: auto;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 50px;
+.barcode-scanner {
+  flex: 1 1 auto;
+  padding: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, #800000 0%, #ffcc3d 51%, #228b22 100%);
+  color: white;
+  border-radius: 10px;
+  margin-left: 0;
 }
 
-.team__item .accession-number input[type=text]:focus {
-  outline: none;
-  opacity: 0.5;
+.accession-number:hover, .barcode-scanner:hover {
+  background-position: right center;
+}
+
+.accession-number .fas, .barcode-scanner .fas {
+  margin: 10px;
+  color: #fff;
+  font-size: 15em;
+  transition: 0.1s ease-in-out;
 }
 
 .submitbtn {
