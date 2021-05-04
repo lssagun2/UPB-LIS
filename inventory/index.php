@@ -137,13 +137,13 @@
         height: 270px;
       }
 
-      .accession-number {
+      /* .accession-number {
         margin-left: 11%;
       }
 
       .barcode-scanner {
         margin-left: 10%;
-      }
+      } */
     }
     </style>
   </head>
@@ -232,15 +232,20 @@
             <header class = "section__header">
               <h1><span class = "h1-admin">Inventory</span> Items</h1>
             </header>
-            <ul class = "team">
-              <li class = "team__item">
+            <ul class = "inventory__buttons">
+              <li class = "inventory__item">
                 <button type = "button" class = "accession-number" onclick = "document.getElementById('id01').style.display='block'" id = "anbtn">
                   <h2 class = "inventory-h2" style = "color: #fff;">Input Accession Number</h2><i class="fas fa-keyboard"></i>
                 </button>
               </li>
-              <li class = "team__item">
+              <li class = "inventory__item">
                 <button type = "button" class = "barcode-scanner" onclick = "document.getElementById('id02').style.display='block'" id = "bsbtn">
                   <h2 class = "inventory-h2" style = "color: #fff;">Scan Barcode</h2><i class="fas fa-barcode"></i>
+                </button>
+              </li>
+              <li class = "inventory__item">
+                <button type = "button" class = "report-generator" id = "rgbtn">
+                  <h2 class = "inventory-h2" style = "color: #fff;">Generate Report</h2><i class="fas fa-flag-checkered"></i>
                 </button>
               </li>
             </ul>
@@ -557,6 +562,12 @@
         modal.style.display = "none";
       }
     }
+    </script>
+
+    <script>
+    document.getElementById("rgbtn").onclick = function() {
+      location.href = "../report/comparison.php";
+    };
     </script>
   </body>
 </html>
