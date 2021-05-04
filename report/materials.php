@@ -1,9 +1,8 @@
 <?php
   session_start();
-  if(!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true)){
-    header("location: ../index.php");
-  }
   require '../config.php';
+  date_default_timezone_set('Asia/Manila');
+  $year = date("Y");
 ?>
 
 <!DOCTYPE html>
@@ -13,12 +12,12 @@
     <link rel="icon" type="image/ico" href="../favicon.ico">
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content = "ie=edge">
-    <title>Inventory</title>
+    <title>Materials Report</title>
     <link rel = "stylesheet" type = "text/css" href = "../css/fontawesome/css/all.min.css">
     <link rel = "stylesheet" href = "../css/normalize.css">
     <link rel = "stylesheet" href ="../css/index.css">
     <link rel = "stylesheet" href ="../css/tables.css">
-    <link rel = "stylesheet" href ="../css/modals.css">
+    <!-- <link rel = "stylesheet" href ="../css/modals.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
@@ -104,20 +103,16 @@
 
           <section class = "section">
             <header class = "section__header">
-              <h1><span class = "h1-admin">2021 Inventory Report</span> (as of May 4, 2021)</h1>
+              <h1><span class = "h1-admin">Materials</span> Report</h1>
             </header>
             <ul class = "team">
-              <li class = "team__item" style = "width: 100%;">
+              <li class = "team__item" style = "width: auto;">
                 <div class = "team__link">
-                  <form class = "inventory-total" style = "text-align: center; margin-bottom: 30px;">
-                    <label for = "total-number" style = "font-size: 1.2em; margin-right: 30px;"><b>Total Number of Materials:</b></label>
-                    <input type = "number" id = "total-number-mat" style = "border-radius: 0; width: 25%;">
-                  </form>
-                  <form class = "inventory-report" style = "text-align: center;">
-                    <label for = "inventoried-mats" style = "margin-right: 30px;"><b>Inventoried:</b></label>
-                    <input type = "number" id = "total-number-mat" style = "border-radius: 0; width: 25%; margin-right: 30px;">
-                    <label for = "not-inventoried-mats" style = "margin-right: 30px;"><b>Not Inventoried:</b></label>
-                    <input type = "number" id = "number-unique-mat" style = "border-radius: 0; width: 25%;">
+                  <form class = "mat-report">
+                    <label for = "total-number" style = "font-size: 1.2em; margin-right: 50px;"><b>Total Number of Materials:</b></label>
+                    <input type = "number" id = "total-number-mat" style = "border-radius: 0; width: 100px;"><br><br>
+                    <label for = "unique-title" style = "font-size: 1.2em; margin-right: 30px;"><b>Number of Unique Materials:</b></label>
+                    <input type = "number" id = "number-unique-mat" style = "border-radius: 0; width: 100px;">
                   </form>
                 </div>
               </li>
@@ -125,73 +120,101 @@
           </section>
 
           <section class = "section">
-            <ul class = "project">
-              <li class = "project__item">
-              	<div style = "display: inline-block; width: 100%;">
-              		<div style = "float: left">
-              			Showing
-		              	<form style = "display: inline;" id = "limit-form">
-		              		<input type = "number" min = "10" max = "100" id = "limit" name = "limit" value = "10" autocomplete = "off">
-		              	</form>
-		              	 Entries
-              		</div>
-                  <div style = "margin-left: 45%; margin-top: -20px;width: 33%;">
-              			<button class = "previous" style = "color: #ffcc3d; font-size: 1.5em;"><i class="fas fa-caret-square-left" style = " transition: 0.1s ease-in-out;"></i></button>
-              			<button class = "next" style = "color: #ffcc3d; font-size: 1.5em;"><i class="fas fa-caret-square-right" style = " transition: 0.1s ease-in-out;"></i></button>
-              		</div>
-              		<div style = "float: right; vertical-align: right; margin-top: -50px;">
-              			<button class = "filter"><i class="fas fa-filter"></i></button>
-              		</div>
-              	</div>
-
-                <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto; height: 500px;">
-                  <table id = "allmaterials" style = "border-radius: 1em;display: block;">
-                  	<thead>
-                  		<tr>
-	                      <th style = "border-radius: 1em 0 0 0;" class = "sort" data-sort = "Accession Number">Accession Number</th>
-	                      <th class = "sort" data-sort = "Barcode">Barcode</th>
-	                      <th class = "sort" data-sort = "Call Number">Call Number</th>
-	                      <th class = "sort" data-sort = "Title">Title</th>
-	                      <th>Author</th>
-	                      <th>Volume</th>
-	                      <th>Year</th>
-	                      <th>Edition</th>
-	                      <th>Publisher</th>
-	                      <th>Publication Year</th>
-	                      <th>Circulation Type</th>
-	                      <th>Type</th>
-	                      <th>Status</th>
-	                      <th>Source</th>
-	                      <th>Location</th>
-	                      <th>Last Year Inventoried</th>
-	                      <th style = "border-radius: 0 1em 0 0;">Action</th>
-	                    </tr>
-                  	</thead>
-                    <tbody>
-
-                    </tbody>
-                  </table>
+            <!-- <header class = "section__header">
+              <h1><span class = "h1-admin">Report</span> Generation</h1>
+            </header> -->
+            <ul class = "team">
+              <li class = "team__item">
+                <div class = "team__link">
+                  <div class = "team__header">
+                    <h2 style = "margin-left: 23%; margin-right: 25%; text-align: center;">Breakdown by Material Type</h2>
+                  </div>
+                  <form class = "material-type" style = "line-height: 30px; margin-left: 20%;">
+                    <label for = "book"><b>Book:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 42px;"><br>
+                    <label for = "reference"><b>Reference:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 4px;"><br>
+                    <label for = "article"><b>Article:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 32px;"><br>
+                    <label for = "journal"><b>Journal:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 24px;"><br>
+                    <label for = "thesis"><b>Thesis:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 31px;"><br>
+                    <label for = "reserve"><b>Reserve:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 20px;">
+                  </form>
                 </div>
-                <div style="display: inline-block; width: 100%; margin-top: 20px;">
-              		<div style = "float: left; width: 33%">
-              			Page
-		              	<form style = "display: inline" id = "page-form">
-		              		<input type="number" min = "1" id = "page-number" name = "page-number" value = "1">
-		              	</form>
-		              	of <span id = "total-pages"></span> (<span id = "total-materials"></span> entries)
-              		</div>
-              		<div style = "float: right; vertical-align: right; margin-top: -15px;">
-              			<button class = "add">Add</button>
-              		</div>
-              	</div>
+              </li>
+              <li class = "team__item">
+                <div class = "team__link">
+                  <div class = "team__header">
+                    <h2 style = "margin-left: 33%; margin-right: 25%; text-align: center;">Breakdown by Status</h2>
+                  </div>
+                  <form class = "status" style = "line-height: 30px; margin-left: 10%;">
+                    <label for = "shelf"><b>On Shelf:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 75px;"><br>
+                    <label for = "loan"><b>On Loan:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 76px;"><br>
+                    <label for = "process"><b>In Process:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 60px;"><br>
+                    <label for = "lost"><b>Lost:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 107px;"><br>
+                    <label for = "overdue"><b>Long Overdue:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 33px;"><br>
+                    <label for = "deleted"><b>Deleted:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 84px;"><br>
+                    <label for = "preservation"><b>Preservation Copy:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 0;">
+                  </form>
+                </div>
               </li>
             </ul>
+          </section>
 
-
-            <?php
-              require "../materials/modal.php";
-              require "../staff/modal.php";
-            ?>
+          <section class = "section">
+            <!-- <header class = "section__header">
+              <h1><span class = "h1-admin">Report</span> Generation</h1>
+            </header> -->
+            <ul class = "team">
+              <li class = "team__item">
+                <div class = "team__link">
+                  <div class = "team__header">
+                    <h2 style = "margin-left: 23%; margin-right: 25%; text-align: center;">Breakdown by Circulation Type</h2>
+                  </div>
+                  <form class = "circulation-type" style = "line-height: 30px; margin-left: 20%;">
+                    <label for = "cirulation"><b>Circulation:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 11px;"><br>
+                    <label for = "cordillera"><b>Cordillera:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 20px;"><br>
+                    <label for = "howard"><b>Howard Fry Special Collection:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 106px;"><br>
+                    <label for = "periodicals"><b>Periodicals:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 10px;"><br>
+                    <label for = "Reserve"><b>Reserve:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 34px;"><br>
+                    <label for = "thesis"><b>Thesis:</b></label>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 45px;">
+                  </form>
+                </div>
+              </li>
+              <li class = "team__item">
+                <div class = "team__link">
+                  <div class = "team__header">
+                    <h2 style = "margin-left: 31%; margin-right: 30%; text-align: center;">Breakdown by Location</h2>
+                  </div>
+                  <form class = "location" style = "line-height: 30px; margin-left: 20%;">
+                    <label for = "northern-luzon"><b>Cordillera/Northern Luzon Archives:</b></label><br>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 50px;"><br>
+                    <label for = "graduate"><b>Graduate Resource Center:</b></label><br>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 50px;"><br>
+                    <label for = "training-center"><b>Knowledge and Training Resource Center:</b></label><br>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 50px;"><br>
+                    <label for = "main=lib"><b>Main Library:</b></label><br>
+                    <input type = "text" style = "border: 1px solid 0.5; outline: none; width: 50%; margin-left: 50px;">
+                  </form>
+                </div>
+              </li>
+            </ul>
           </section>
         </main>
       </div>
@@ -216,16 +239,6 @@
         }
       }
     </script> -->
-    <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
-    <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
-
-    <script type = "text/javascript" src = "js/variables.js"></script>
-    <script type = "text/javascript" src = "js/formhandler.js"></script>
-    <script type = "text/javascript" src = "js/update.js"></script>
-    <script type = "text/javascript" src = "js/count.js"></script>
-    <script type = "text/javascript" src = "js/findPage.js"></script>
-    <script type = "text/javascript" src = "js/buttons.js"></script>
-    <script type = "text/javascript" src = "js/initialize.js"></script>
     <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
     <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
     <script>
