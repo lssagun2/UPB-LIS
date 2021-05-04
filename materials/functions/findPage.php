@@ -1,6 +1,6 @@
 <?php
-	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
-  $filter = [];
+  require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
+	$filter = [];
   if($_POST["circtype-filter"] != ""){
     $filter["mat_circ_type"] = $_POST["circtype-filter"];
   }
@@ -24,7 +24,8 @@
     $condition = "";
   }
   
-  $limit = 'LIMIT ' . $_POST["limit"];
+  $limit = 'LIMIT 1';
+  $offset = 'OFFSET ' . $_POST["limit"] * ($_POST["page-number"] - 1) - 1;
   $sort = "ORDER BY ";
   $column = $_POST["sort"];
   switch ($column) {
@@ -44,40 +45,8 @@
       $sort .= "mat_id";
       break;
   }
-  $offset = "";
-  if(isset($_POST["previous_value"])){
-    $prev_value = $_POST["previous_value"];
-    if($prev_value === ""){
-      $offset = 'OFFSET ' . $_POST["limit"] * ($_POST["page-number"] - 1) - 1;
-    }
-    else{
-      if($condition === ""){
-        $condition = "WHERE ";
-      }
-      else{
-        $condition .= "AND ";
-      }
-      switch ($column) {
-        case "Accession Number":
-          $condition .= "mat_acc_num > '"  . addslashes($prev_value) . "'";
-          break;
-        case "Barcode":
-          $condition .= "mat_barcode > '"  . addslashes($prev_value) . "'";
-          break;
-        case "Call Number":
-          $condition .= "mat_call_num > '"  . addslashes($prev_value) . "'" ;
-          break;
-        case "Title":
-          $condition .= "mat_title > '"  . addslashes($prev_value) . "'";
-          break;
-        default:
-          $condition .= "mat_id > '"  . addslashes($prev_value) . "'";
-          break;
-      }
-    }
-  }
   $sql = "SELECT * FROM MATERIAL $condition $sort $limit $offset";
   $result = $conn->query($sql);
-  $data = $result->fetch_all(MYSQLI_ASSOC);
+  $data = $result->fetch_assoc();
   echo json_encode($data);
 ?>
