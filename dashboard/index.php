@@ -150,7 +150,7 @@ session_start();
                       <input type = "text" class = "input" placeholder = "What do you want to do?">
                     </div>
                   </div>
-                  <div class = "container"></div>
+                  <div class = "container" style = "height: auto;"></div>
                 </div>
               </li>
             </ul>
