@@ -2,6 +2,20 @@
   padding: 30px;
 }
 
+.container {
+  height: 480px;
+}
+
+@media screen and (max-width: 1366px) {
+  .modal-content {
+    height: 460px;
+  }
+
+  .container {
+    height: 400px;
+  }
+}
+
 #btn-modal {
   background-color: #ff5252;
   width: auto;
