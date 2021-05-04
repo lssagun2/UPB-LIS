@@ -1,7 +1,10 @@
 <?php
   session_start();
+  if(!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true)){
+    header("location: ../index.php");
+  }
   require '../config.php';
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -30,7 +33,7 @@
       <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
       <a href = "#"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
-      <a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
+      <a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
     </div>
     <div id = "main">
       <div class = "wrapper">
@@ -103,50 +106,67 @@
             </header>
             <ul class = "project">
               <li class = "project__item">
+              	<div style="display: inline-block; width: 100%">
+              		<div style = "float: left">
+              			Showing 
+		              	<form style = "display: inline;" id = "limit-form">
+		              		<input style = "text-align: center; width: 60px" type="number" min = "10" max = "100" id = "limit" name = "limit" value = "10">
+		              	</form>
+		              	 entries
+              		</div>
+              		<div style = "float: right; vertical-align: right">
+              			<button class = "filter"><i class="fas fa-filter"></i></button>
+              		</div>
+              	</div>
+              	
                 <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto; height: 500px;">
                   <table id = "allmaterials" style = "border-radius: 1em;">
-                    <tr>
-                      <th style = "border-radius: 1em 0 0 0;">Accession Number</th>
-                      <th>Barcode</th>
-                      <th>Call Number</th>
-                      <th>Title</th>
-                      <th>Author</th>
-                      <th>Volume</th>
-                      <th>Year</th>
-                      <th>Edition</th>
-                      <th>Publisher</th>
-                      <th>Publication Year</th>
-                      <th>Circulation Type</th>
-                      <th>Type</th>
-                      <th>Status</th>
-                      <th>Source</th>
-                      <th>Last Year Inventoried</th>
-                      <th style = "border-radius: 0 1em 0 0;">Action</th>
-                    </tr>
-
-                    <?php
-                      $sql = "SELECT * FROM MATERIAL";
-                      $result = $conn->query($sql);
-                      while($row = $result->fetch_assoc()){
-                     ?>
-
-                    <tr align="center">
-                      <td style="display:none;"><?php echo array_shift($row);?></td>
-                      <?php
-                        foreach($row as $column=>$value){
-                          echo "<td>$value</td>";
-                        }
-                      ?>
-                      <td>
-                        <button class = "edit" style = "width: 50px; height: 50px; color: #000;"><i class = "fas fa-edit"></i></button>
-                      </td>
-                    </tr>
-                    <?php } ?>
+                  	<thead>
+                  		<tr>
+	                      <th style = "border-radius: 1em 0 0 0;" class = "sort" data-sort = "Accession Number">Accession Number</th>
+	                      <th class = "sort" data-sort = "Barcode">Barcode</th>
+	                      <th class = "sort" data-sort = "Call Number">Call Number</th>
+	                      <th class = "sort" data-sort = "Title">Title</th>
+	                      <th>Author</th>
+	                      <th>Volume</th>
+	                      <th>Year</th>
+	                      <th>Edition</th>
+	                      <th>Publisher</th>
+	                      <th>Publication Year</th>
+	                      <th>Circulation Type</th>
+	                      <th>Type</th>
+	                      <th>Status</th>
+	                      <th>Source</th>
+	                      <th>Location</th>
+	                      <th>Last Year Inventoried</th>
+	                      <th style = "border-radius: 0 1em 0 0;">Action</th>
+	                    </tr>
+                  	</thead>
+                    <tbody>
+                    	
+                    </tbody>
                   </table>
                 </div>
+                <div style="display: inline-block; width: 100%">
+              		<div style = "float: left; width: 33%">
+              			Page 
+		              	<form style = "display: inline" id = "page-form">
+		              		<input style = "text-align: center; width: 60px" type="number" min = "1" id = "page-number" name = "page-number" value = "1">
+		              	</form>
+		              	of <span id = "total-pages"></span> (<span id = "total-materials"></span> entries)
+              		</div>
+              		<div style = "float: left; width: 33%">
+              			<button class = "previous"><i class="fas fa-caret-square-left"></i></button>
+              			<button class = "next"><i class="fas fa-caret-square-right"></i></button>
+              		</div>
+              		<div style = "float: right; vertical-align: right">
+              			<button class = "add">Add</button>
+              		</div>
+              	</div>
               </li>
             </ul>
-            <button class = "add">Add</button>
+
+            
             <?php
               require "modal.php";
               require "../staff/modal.php";
@@ -164,9 +184,13 @@
         <a href = "https://www.youtube.com/channel/UC1XJ8yRNRuDHmhJXtsLIB_g"><i class="fab fa-youtube"></i></a>
       </p>
     </footer>
+    <script type = "text/javascript" src = "js/variables.js"></script>
     <script type = "text/javascript" src = "js/formhandler.js"></script>
-    <script type = "text/javascript" src = "js/buttons.js"></script>
     <script type = "text/javascript" src = "js/update.js"></script>
+    <script type = "text/javascript" src = "js/count.js"></script>
+    <script type = "text/javascript" src = "js/findPage.js"></script>
+    <script type = "text/javascript" src = "js/buttons.js"></script>
+    <script type = "text/javascript" src = "js/initialize.js"></script>
     <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
     <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
     <script>
