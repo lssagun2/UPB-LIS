@@ -22,7 +22,8 @@ $(document).ready(function(){
 		$('#type').val(data[12]);
 		$('#status').val(data[13]);
 		$('#source').val(data[14]);
-		$('#last_year_inventoried').val(data[15]);
+		$('#location').val(data[15]);
+		$('#last_year_inventoried').val(data[16]);
 		$('div#material').show()
 	});
 	$(document).on('click', '.add', function(){
@@ -50,62 +51,45 @@ $(document).ready(function(){
 		$('div#filter').hide();
 	});
 	$(document).on('click', 'button#update-filter', function(){
-		prevLastMaterial = null;
 		count();
 		$(".modal").hide();
 	});
 	$(document).on('change', 'input#limit', function(){
-		if(parseInt($("input#limit").val()) < 101 && parseInt($("input#limit").val()) > 9){
+		if(parseInt(parseInt($("input#limit").val()) > 9 && $("input#limit").val()) < 101){ //check if limit is between 1 to 100 inclusive
+			$("input#page-number").val(1)
 			update();	
 		}
 	});
+	$(document).on('change', 'input#page-number', function(){
+		if(parseInt($("input#page-number").val()) > 0 && parseInt($("input#page-number").val()) < page_count + 1){	//check if page number is from 1 to the maximum page count
+			update();
+		}
+	});
 	$(document).on('click', 'th.sort', function(){
+		if($(this).data("sort") == sort){
+			sort_direction *= -1; //reverse the direction of sorting if the current sorting is same to what user clicked
+		}
+		else{
+			sort_direction = 1; //sorting direction is ascending by default if user clicked a different column
+		}
 		sort = $(this).data("sort");
-		$("input#page-number").val(1);
-		prevLastMaterial = null;
+		$("input#page-number").val(1);	//reset the page number to 1
 		update();
 	});
 	$(document).on('click', 'button.previous', function(){
-		$("input#page-number").val(parseInt($("input#page-number").val()) - 1);
-		if(parseInt($("input#page-number").val()) == 1){
-			prevLastMaterial = null;
-			update();
-		}
-		else{
-			findPage();
-		}
-		
+		$("input#page-number").val(parseInt($("input#page-number").val()) - 1);	//subtract 1 from current page number
+		update();
 	});
 	$(document).on('click', 'button.next', function(){
-		prevLastMaterial = lastMaterial;
-		$("input#page-number").val(parseInt($("input#page-number").val()) + 1);
+		$("input#page-number").val(parseInt($("input#page-number").val()) + 1);	//add 1 to current page number
 		update();
 	});
 	$("form#page-form").submit(function(event){
 		event.preventDefault();
-		if(parseInt($("input#page-number").val()) == 1){
-			prevLastMaterial = null;
-			update();
-		}
-		else{
-			findPage();
-		}
+		$("input#page-number").trigger("change");	//call onchange function for page number if form is submitted
 	});
 	$("form#limit-form").submit(function(event){
 		event.preventDefault();
-		if(parseInt($("input#limit").val()) < 101 && parseInt($("input#limit").val()) > 9){
-			update();	
-		}
-	});
-
-	$(document).on('change', 'input#page-number', function(){
-		prevLastMaterial = lastMaterial;
-		if(parseInt($("input#page-number").val()) == 1){
-			prevLastMaterial = null;
-			update();
-		}
-		else{
-			findPage();
-		}
+		$("input#limit").trigger("change");	//call onchange function for limit if form is submitted
 	});
 });

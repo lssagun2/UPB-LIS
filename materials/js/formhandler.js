@@ -3,6 +3,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$(".input-invalid").hide();
 		var function_name = $("#function").val();
+		console.log($('form#material').serialize());
 		$.ajax({
 			type 		: 'POST',
 			url			: 'functions/'+function_name+'.php',

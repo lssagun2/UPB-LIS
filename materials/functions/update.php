@@ -1,18 +1,14 @@
 <?php
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
-  $filter = [];
-  if($_POST["circtype-filter"] != ""){
-    $filter["mat_circ_type"] = $_POST["circtype-filter"];
-  }
-  if($_POST["type-filter"] != ""){
-    $filter["mat_type"] = $_POST["type-filter"];
-  }
-  if($_POST["status-filter"] != ""){
-    $filter["mat_status"] = $_POST["status-filter"];
-  }
-  if($_POST["location-filter"] != ""){
-    $filter["mat_location"] = $_POST["location-filter"];
-  }
+
+  //creation of the condition part of the query given by the filters
+  $filter = [
+    "mat_circ_type" => $_POST["circtype-filter"],
+    "mat_type" => $_POST["type-filter"],
+    "mat_status" => $_POST["status-filter"],
+    "mat_location" => $_POST["location-filter"]
+  ];
+  $filter = array_filter($filter);
   if(!empty($filter)){
     $condition = "WHERE ";
     foreach($filter as $column => $value){
@@ -24,7 +20,10 @@
     $condition = "";
   }
   
+  //creation of the limit part of the query
   $limit = 'LIMIT ' . $_POST["limit"];
+
+  //creation of the sorting part of the query
   $sort = "ORDER BY ";
   $column = $_POST["sort"];
   switch ($column) {
@@ -44,40 +43,17 @@
       $sort .= "mat_id";
       break;
   }
-  $offset = "";
-  if(isset($_POST["previous_value"])){
-    $prev_value = $_POST["previous_value"];
-    if($prev_value === ""){
-      $offset = 'OFFSET ' . $_POST["limit"] * ($_POST["page-number"] - 1) - 1;
-    }
-    else{
-      if($condition === ""){
-        $condition = "WHERE ";
-      }
-      else{
-        $condition .= "AND ";
-      }
-      switch ($column) {
-        case "Accession Number":
-          $condition .= "mat_acc_num > '"  . addslashes($prev_value) . "'";
-          break;
-        case "Barcode":
-          $condition .= "mat_barcode > '"  . addslashes($prev_value) . "'";
-          break;
-        case "Call Number":
-          $condition .= "mat_call_num > '"  . addslashes($prev_value) . "'" ;
-          break;
-        case "Title":
-          $condition .= "mat_title > '"  . addslashes($prev_value) . "'";
-          break;
-        default:
-          $condition .= "mat_id > '"  . addslashes($prev_value) . "'";
-          break;
-      }
-    }
+  if($_POST["sort_direction"] > 0){
+    $sort .= " ASC";
   }
-  $sql = "SELECT * FROM MATERIAL $condition $sort $limit $offset";
-  $result = $conn->query($sql);
+  else{
+    $sort .= " DESC";
+  }
+  $start_num = $_POST["limit"] * ($_POST["page-number"] - 1);
+  $start = "WHERE row_number > $start_num";
+  $subquery = "SELECT mat_id, (row_number() OVER ($sort))row_number FROM MATERIAL $condition";
+  $query = "SELECT c.* FROM (SELECT a.* FROM ($subquery)a $start $limit)b INNER JOIN MATERIAL c on b.mat_id=c.mat_id";
+  $result = $conn->query($query);
   $data = $result->fetch_all(MYSQLI_ASSOC);
   echo json_encode($data);
 ?>

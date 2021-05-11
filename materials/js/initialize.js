@@ -1,4 +1,4 @@
 $(document).ready(function(){
-	count();
+	count();	//counts the total number of materials
 });
 

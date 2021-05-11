@@ -1,25 +1,7 @@
+//function that updates the contents of the tablees
 function update(){
 	var data = $('form#filter-form, form#limit-form, form#page-form').serializeArray();
-	data.push({name: "sort", value: sort});
-	if(prevLastMaterial != null){
-		switch(sort){
-			case "Accession Number":
-		      data.push({name: "previous_value", value: prevLastMaterial.mat_acc_num});
-		      break;
-		    case "Barcode":
-		      data.push({name: "previous_value", value: prevLastMaterial.mat_barcode});
-		      break;
-		    case "Call Number":
-		      data.push({name: "previous_value", value: prevLastMaterial.mat_call_num});
-		      break;
-		    case "Title":
-		      data.push({name: "previous_value", value: prevLastMaterial.mat_title});
-		      break;
-		    default:
-		      data.push({name: "previous_value", value: prevLastMaterial.mat_id});
-		}
-	}
-	console.log($.param(data));
+	data.push({name: "sort", value: sort}, {name: "sort_direction", value: sort_direction});
 	$.ajax({
 		type 		: 'POST',
 		url			: 'functions/update.php',
@@ -28,11 +10,9 @@ function update(){
 	})
 	.done(function(data){
 		console.log(data);
-		lastMaterial = data[data.length - 1];
 		var limit = $("input#limit").val();
 		page_count = Math.ceil(material_count/limit);
 		$("span#total-pages").html(page_count);
-		$("span#total-materials").html(material_count);
 		if(parseInt($("input#page-number").val()) == 1){
 			$("button.previous").attr("disabled", true);
 			$("button.next").removeAttr("disabled");
