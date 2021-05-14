@@ -4,6 +4,7 @@ $(document).ready(function(){
 		var data = $tr.children("td").map(function(){
 			return $(this).text();
 		}).get();
+		console.log(data);
 		$(".modal-title").html("Edit Existing Material");
 		$("button#submitbtn").html("Save Changes");
 		$("#function").val("edit");
@@ -23,7 +24,7 @@ $(document).ready(function(){
 		$('#status').val(data[13]);
 		$('#source').val(data[14]);
 		$('#location').val(data[15]);
-		$('#last_year_inventoried').val(data[16]);
+		$('#last_year_inventoried').val(data[16]); // Changes
 		$('div#material').show()
 	});
 	$(document).on('click', '.add', function(){
@@ -40,6 +41,8 @@ $(document).ready(function(){
 	$(document).on('click', '#cancelbtn', function(){
 		$("form#material").trigger("reset");
 		$('div#material').hide();
+		$('div.form-control.error').removeClass('error'); // Changes
+		$('div.form-control.success').removeClass('success'); // Changes
 	});
 	$(document).on('click', '#submitbtn', function(){
 		$('form#material').submit()
@@ -49,6 +52,8 @@ $(document).ready(function(){
 		$('div#material').hide();
 		$("form#filter-form").trigger("reset");
 		$('div#filter').hide();
+		$('div.form-control.error').removeClass('error'); // Changes
+		$('div.form-control.success').removeClass('success'); // Changes
 	});
 	$(document).on('click', 'button#update-filter', function(){
 		count();
