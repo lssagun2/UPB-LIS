@@ -6,14 +6,30 @@
 	$sql = "SELECT * FROM STAFF WHERE staff_id = $id";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
-	$info = [
-		"staff_username" => $_POST['staff_username'],
-		"staff_firstname" => $_POST['staff_firstname'],
-		"staff_lastname" => $_POST['staff_lastname'],
-		"staff_password" => $_POST['staff_password'],
+	$data = []; //Changes
+	//Changes.array
+	$initialInfo = [ 
+		"staff_username" => $row['staff_username']
 	];
-	$info = array_filter($info);
-	edit($conn, "STAFF", $id, $info);
-	$data["success"] = true;
+	//Changes trim POST values
+	$info = [
+		"staff_username" => trim($_POST['staff_username']),
+		"staff_firstname" => trim($_POST['staff_firstname']),
+		"staff_lastname" => trim($_POST['staff_lastname']),
+		"staff_password" => trim($_POST['staff_password']),
+		"confirm_password" => trim($_POST['confirm_password'])
+	];
+
+	$errors = validateInputforEdit($conn, $info, $initialInfo, "STAFF"); //Changes
+	if(!empty($errors)){ //Changes
+		$data['success'] = false;
+		$data['errors'] = $errors;
+	}
+	else{
+		unset($info['confirm_password']); //Changes, invalid sql string pag meron confirm_password
+		$info = array_filter($info);
+		edit($conn, "STAFF", $id, $info);
+		$data["success"] = true;
+	}
 	echo json_encode($data);
  ?>
