@@ -12,20 +12,46 @@
 
       <input type = "hidden" id = "staff_id" name = "staff_id" value = "<?php echo $row["staff_id"]; ?>">
 
+      <div class = "form-control" id = "usernameform">  <!-- Changes -->
       <label for = "username">Username</label>
-      <input type = "text" id = "staff_username" name = "staff_username" value="<?php echo $row["staff_username"]; ?>">
+      <input type = "text" id = "staff_username" name = "staff_username" placeholder = "Username.." value="<?php echo $row["staff_username"]; ?>">
+      <i class="fas fa-check-circle"></i>               <!-- Changes -->
+      <i class="fas fa-exclamation-circle"></i>          <!-- Changes -->
+      <small>Error message</small>                        <!-- Changes All form-control class -->
+      </div>
 
+      <div class = "form-control" id = "firstnameform">
       <label for = "firstname">First Name</label>
       <input type = "text" id = "staff_firstname" name = "staff_firstname" placeholder = "First Name.." value="<?php echo $row["staff_firstname"] ?>">
+      <i class="fas fa-check-circle"></i>
+      <i class="fas fa-exclamation-circle"></i>
+      <small>Error message</small>
+      </div>
 
+      <div class = "form-control" id = "lastnameform">
       <label for = "lastname">Last Name</label>
       <input type = "text" id = "staff_lastname" name = "staff_lastname" placeholder = "Last Name.." value="<?php echo $row["staff_lastname"] ?>">
+      <i class="fas fa-check-circle"></i>
+      <i class="fas fa-exclamation-circle"></i>
+      <small>Error message</small>
+      </div>
 
+      <div class = "form-control" id = "passwordform">
       <label for = "password">Password</label>
       <input type = "password" id = "staff_password" name = "staff_password" placeholder = "Password.." value="<?php echo $row["staff_password"] ?>">
+      <input type="checkbox" onclick="showPassword()">Show Password
+      <i class="fas fa-check-circle"></i>
+      <i class="fas fa-exclamation-circle"></i>
+      <small>Error message</small>
+      </div>
 
+      <div class = "form-control" id = "confirmpasswordform">
       <label for = "password">Confirm Password</label>
       <input type = "password" id = "confirm_password" name = "confirm_password" placeholder = "Confirm Password.." value="<?php echo $row["staff_password"] ?>">
+      <i class="fas fa-check-circle"></i>
+      <i class="fas fa-exclamation-circle"></i>
+      <small>Error message</small>
+      </div>
 
       <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
       <button type = "button" class = "modalbtn" id = "edit-staff">Save changes</button>
