@@ -163,3 +163,56 @@ h1 {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+
+/*CHARLES FORM VALIDATION*/ 
+
+.form-control{
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.form-control i{
+  position: absolute;
+  top:40px;
+  right: 10px;
+  visibility: hidden;
+}
+
+.form-control small{
+  visibility: hidden;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+.form-control.success input{
+  border-color: #2ecc71;
+}
+.form-control.error input{
+  border-color: #e74c3c;
+}
+
+.form-control.error small{
+  visibility: visible;
+  color: #e74c3c;
+}
+
+.form-control.success i.fa-check-circle{
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle{
+  color: #e74c3c;
+  visibility: visible;
+}
+
+.form-control.success select{
+  border-color: #2ecc71;
+}
+
+.form-control.error select{
+  border-color: #e74c3c;
+}
