@@ -27,7 +27,7 @@
             <div class = "input-invalid" id = "password" style = "color: #fff; text-transform: uppercase; margin-bottom: 10px;"></div>
             <span>
               <i class = "fas fa-lock"></i>
-              <input type = "password" placeholder = "Password" name = "password"><br>
+              <input type = "password" placeholder = "Password" name = "password" id="password-field"><span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" style = "z-index: 10; position: relative; margin-left: -25px; margin-right: 5px;"></span><br>
               <span class = "password"><a href = "#">Forgot password?</a></span><br><br>
             </span>
           </div>
@@ -48,6 +48,18 @@
     <script type = "text/javascript" src = "verify.js"></script>
     <script type = "text/javascript">
         $(".input-invalid").hide();
+    </script>
+    <script type = "text/javascript">
+      $(".toggle-password").click(function() {
+
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+          input.attr("type", "text");
+        } else {
+          input.attr("type", "password");
+        }
+      });
     </script>
   </body>
 </html>
