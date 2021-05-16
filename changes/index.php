@@ -227,43 +227,28 @@ $(document).ready(function() {
 					$('#status1').val(data.mat_status);
 					$('#source1').val(data.mat_source);
 					$('#last_year_inventoried1').val(data.mat_lastinv_year);
-		    	/*
-		    	alert(data.change_prev_info);
-		    	var dataArray = data.change_prev_info,
-			    dataObj = {};
-
-					$(dataArray).each(function(i, field){
-				  dataObj[field.name] = field.value;
-					});
-*/
-		    	//PREVIOUS INFO
-
-					var prev = data.change_prev_info;
-					//var prev2 = JSONConvert.SerializeObject(prev);
-
-					var json = JSON.stringify(prev);
-					
-					//var json = JSON.parse(prev);
-					//alert(prev);
-				//alert(data.change_prev_info);
-					$('#acc_num2').val(data.mat_acc_num);
-					$('#barcode2').val(data.mat_barcode);
-					$('#call_number2').val(data.mat_call_num);
-					$('#title2').val(data.mat_title);
-					$('#author2').val(data.mat_author)
-				  $('#volume2').val(data.mat_volume);
-			 		$('#year2').val(data.mat_year);
-			 		$('#edition2').val(data.mat_edition);
-				 	$('#publisher2').val(data.mat_publisher);
-					$('#pub_year2').val(data.mat_pub_year);
-			 		$('#circ_type2').val(data.mat_circ_type)
-					$('#type2').val(data.mat_type);
-					$('#status2').val(data.mat_status);
-					$('#source2').val(data.mat_source);
-					$('#last_year_inventoried2').val(data.mat_lastinv_year);
+		    	
+					//PREVIOUS INFO
+		    	var prev = JSON.parse(data.change_prev_info);
+					$('#acc_num2').val(prev.mat_acc_num);
+					$('#barcode2').val(prev.mat_barcode);
+					$('#call_number2').val(prev.mat_call_num);
+					$('#title2').val(prev.mat_title);
+					$('#author2').val(prev.mat_author)
+				  $('#volume2').val(prev.mat_volume);
+			 		$('#year2').val(prev.mat_year);
+			 		$('#edition2').val(prev.mat_edition);
+				 	$('#publisher2').val(prev.mat_publisher);
+					$('#pub_year2').val(prev.mat_pub_year);
+			 		$('#circ_type2').val(prev.mat_circ_type)
+					$('#type2').val(prev.mat_type);
+					$('#status2').val(prev.mat_status);
+					$('#source2').val(prev.mat_source);
+					$('#last_year_inventoried2').val(prev.mat_lastinv_year);
 		      break;
 		  default:
 		    	alert("Error!");
+
 		  }  	  
 		})
 		.fail(function(data) {
