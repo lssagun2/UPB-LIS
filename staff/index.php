@@ -14,13 +14,13 @@
     <link rel = "stylesheet" href = "../css/normalize.css">
     <link rel = "stylesheet" href ="../css/index.css">
     <link rel = "stylesheet" href ="../css/tables.css">
-    <link rel = "stylesheet" href ="../css/modals.css">
+    <link rel = "stylesheet" href ="../css/form-control.css">
     <!-- <link rel = "stylesheet" href ="../css/staffidcard.css"> -->
-    <style type="text/css">
+    <style>
       .idform {
           border-radius:50px;
           width:100%;
-        }
+      }
     </style>
 
 
@@ -123,7 +123,7 @@
             <ul class = "project">
               <li class = "project__item">
                 <div class = "allmaterials" style = "overflow-x: auto; overflow-y:  auto; height: 500px;">
-                  <table class="staffTable" id = "staffTable" style = "border-radius: 1em;">
+                  <table class="inventory" id = "inventory" style = "border-radius: 1em;">
                      <thead>
                       <tr>
                         <th width="15%" style = "border-radius: 1em 0 0 0;">Username</th>
@@ -141,16 +141,16 @@
                      ?>
 
                     <tr align="center">
-                      <td style='display:none;'><?php echo $row['staff_id'] ?></td> 
+                      <td style='display:none;'><?php echo $row['staff_id'] ?></td>
                       <td><?php echo $row['staff_username'] ?></td>
                       <td><?php echo $row['staff_firstname'] ?></td>
                       <td><?php echo $row['staff_lastname'] ?></td>
                       <td><?php echo $row['staff_password'] ?></td>
-                    
-                      <td>
-                        <button id = 'deleteStaffTable' class = 'edit' style = 'width: 50px; height: 50px; color: #000;'><i class="fas fa-trash-alt"></i></button>
-                        <button id = 'editStaffTable' class = 'edit' style = 'width: 50px; height: 50px; color: #000;'><i class = 'fas fa-edit'></i></button>
-                        </td>
+
+                      <td style = "align: center">
+                        <button id = 'deleteStaffTable' class = 'edit' style = 'width: 40px; height: 40px; color: #000;'><i class="fas fa-trash-alt"></i></button>
+                        <button id = 'editStaffTable' class = 'edit' style = 'width: 40px; height: 40px; color: #000;'><i class = 'fas fa-edit'></i></button>
+                      </td>
                     </tr>
                     <?php } ?>
                     </tbody>
@@ -187,11 +187,11 @@
                     </div>
                   </form>
                 </div> -->
-                <?php 
+                <?php
                 require "../staff/modal.php";
                 require "../staff/modaldelete.php"
                 ?>
-                
+
               </li>
             </ul>
           </section>
