@@ -180,7 +180,7 @@
     <input type = "text" id = "publisher2" name = "publisher" placeholder = "Publisher.." value="" readonly>
 
     <label for = "pub_year">Year of Publication</label>
-    <input type = "text" id = "pub_year"2 name = "pub_year" placeholder = "Publication Year.." value="" readonly>
+    <input type = "text" id = "pub_year2" name = "pub_year" placeholder = "Publication Year.." value="" readonly>
 
     <label for = "circ_type">Circulation Type</label>
     <input type = "text" id = "circ_type2" name = "circ_type" value="" readonly>
