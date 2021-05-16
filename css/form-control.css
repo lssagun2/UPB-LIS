@@ -1,9 +1,10 @@
-.modal-content {
+/* .modal-content {
   padding: 30px;
-}
+} */
 
 .container {
   height: 480px;
+  margin: 30px;
 }
 
 @media screen and (max-width: 1366px) {
@@ -14,23 +15,6 @@
   .container {
     height: 400px;
   }
-}
-
-#btn-modal {
-  background-color: #ff5252;
-  width: auto;
-  border-radius: 50px;
-  color: #fff;
-  opacity: 0.9;
-  transition: 0.2s ease;
-}
-
-#btn-modal:hover {
-  opacity: 1;
-}
-
-#btn-modal:focus {
-  outline: none;
 }
 
 .modal {
@@ -55,30 +39,63 @@
   border-radius: 10px;
 }
 
-h1 {
-  text-align: center;
-}
-
-.close {
-  position: absolute;
-  right: 35px;
-  top: 15px;
-  font-size: 40px;
-  font-weight: bold;
-  color: #000;
+#btn-modal {
+  background-color: #ff5252;
+  width: auto;
+  border-radius: 50px;
+  color: #fff;
+  opacity: 0.9;
   transition: 0.2s ease;
 }
 
-.close:hover, .close:focus {
-  color: #f44336;
-  cursor: pointer;
+#btn-modal:hover {
+  opacity: 1;
+}
+
+#btn-modal:focus {
   outline: none;
 }
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
+.modalbtn {
+  background-color: #ffcc3d;
+  color: #000;
+  padding: 14px 20px;
+  float: right;
+  margin: 8px 5px;
+  border: none;
+  cursor: pointer;
+  width: auto;
+  opacity: 0.9;
+  transition: 0.2s ease;
+  border-radius: 50px;
+}
+
+.modalbtn:hover {
+  opacity: 1;
+  outline: none;
+}
+
+#submitbtn {
+  border-radius: 50px;
+  transition: 0.2s ease;
+  background-color: #ffcc3d;
+  opacity: 0.9;
+  width: 150px;
+}
+
+#submitbtn:hover {
+  opacity: 1;
+}
+
+#cancelbtn {
+  background-color: #ccc;
+  color: #000;
+  opacity: 0.8;
+  width: 100px;
+}
+
+#cancelbtn:hover {
+  opacity: 1;
 }
 
 .submitbtn {
@@ -107,53 +124,6 @@ h1 {
   transition: 0.2s ease;
 }
 
-#submitbtn {
-  border-radius: 50px;
-  transition: 0.2s ease;
-  background-color: #ffcc3d;
-  opacity: 0.9;
-  width: 150px;
-}
-
-#submitbtn:hover {
-  opacity: 1;
-}
-
-#cancelbtn {
-  background-color: #ccc;
-  color: #000;
-  opacity: 0.8;
-  width: 100px;
-}
-
-#cancelbtn:hover {
-  opacity: 1;
-}
-
-.modalbtn {
-  background-color: #ffcc3d;
-  color: #000;
-  padding: 14px 20px;
-  float: right;
-  margin: 8px 5px;
-  border: none;
-  cursor: pointer;
-  width: auto;
-  opacity: 0.9;
-  transition: 0.2s ease;
-  border-radius: 50px;
-}
-
-.modalbtn:hover {
-  opacity: 1;
-  outline: none;
-}
-
-.container {
-  padding: 16px;
-  /* text-align: left; */
-}
-
 .modal input[type=text], .modal input[type=password], select {
   width: 100%;
   padding: 12px 20px;
@@ -163,6 +133,7 @@ h1 {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 
 /*CHARLES FORM VALIDATION*/
 
