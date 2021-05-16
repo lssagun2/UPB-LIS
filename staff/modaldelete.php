@@ -8,10 +8,7 @@
   <form class = "modal-content" id = "staff" method = "POST">
     <div class = "containerDelete" style = "overflow-y: auto; height: 480px;">
       <h1 class = "modal-title">Update My Information</h1>
-      <input type="hidden" name="function" id = "staff_function" value = "">
-
-      <input type = "hidden" id = "staff_id" name = "staff_id" value = "">
-
+     
       
 
       
