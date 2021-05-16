@@ -54,6 +54,8 @@ $(document).ready(function(){
 	});
 	$(document).on('click', 'button#edit-staff', function(){
 		$('form#staff').submit();
+		$('input:checkbox').prop('checked', false); // Unchecks it
+		$('#staff_password').attr('type','password'); //resets staffpassword
 	});
 	$(document).on('click', '#cancelbtn', function(){
 		$('div.modal').hide();
