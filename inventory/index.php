@@ -17,7 +17,7 @@
     <link rel = "stylesheet" href = "../css/normalize.css">
     <link rel = "stylesheet" href ="../css/index.css">
     <link rel = "stylesheet" href ="../css/tables.css">
-    <!-- <link rel = "stylesheet" href ="../css/modals.css"> -->
+    <link rel = "stylesheet" href ="../css/form-control.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
     .modal-body {
@@ -94,7 +94,7 @@
       box-sizing: border-box;
     }
 
-    .container {
+    .container2 {
       overflow-y: auto;
       height: 425px;
     }
@@ -114,7 +114,7 @@
       }
 
       .modal-body {
-        height: 460px;
+        height: 458px;
       }
 
       .column#main {
@@ -130,11 +130,16 @@
 
       .wave svg {
         height: 100%;
-        width: 77px;
+        width: 76.5px;
       }
 
-      .container {
-        height: 270px;
+      .modal input[type=text], select {
+        width: 90%;
+      }
+
+      .container2 {
+        overflow-y: auto;
+        height: 280px;
       }
 
       /* .accession-number {
@@ -260,6 +265,10 @@
               </li>
             </ul>
           </section>
+          <?php
+          require "../staff/modal.php";
+          require "../staff/modaldelete.php"
+          ?>
         </main>
       </div>
     </div>
@@ -273,7 +282,7 @@
               <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
               <h1>Material Information</h1>
               <form>
-                <div class = "container">
+                <div class = "container2">
                   <h1 class = "modal-title"></h1>
                   <input type="hidden" name="function" id = "function" value = "">
                   <input type = "hidden" id = "id" name = "id" value = "">
@@ -391,7 +400,7 @@
               <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
               <h1>Material Information</h1>
               <form>
-                <div class = "container">
+                <div class = "container2">
                   <h1 class = "modal-title"></h1>
                   <input type="hidden" name="function" id = "function" value = "">
                   <input type = "hidden" id = "id" name = "id" value = "">
