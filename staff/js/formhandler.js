@@ -1,5 +1,5 @@
 function staffTableUpdate(){
-	$("table#inventory").load(encodeURI("functions/update.php"));
+	$("table#staff").load(encodeURI("functions/update.php"));
 }
 $(document).ready(function(){
 	$("form#staff").submit(function(event){
