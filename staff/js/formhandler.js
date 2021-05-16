@@ -21,7 +21,7 @@ $(document).ready(function(){
 				$('div.form-control.error').removeClass('error');
 				$('div.form-control.success').removeClass('success');
 				$('div.modal').hide();
-				update();
+				staffTableUpdate();
 			}
 			else{
 				console.log(data);
