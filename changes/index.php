@@ -321,7 +321,7 @@ $(document).ready(function() {
 					} if(data.mat_source!=prev.mat_source){
 						$('#source1').css('background', '#DCDCDC');
 						$('#source2').css('background', '#DCDCDC');
-					} if(data.mat_lastinv_year!=prev.lastinv_year){
+					} if(data.mat_lastinv_year!=prev.mat_lastinv_year){
 						$('#last_year_inventoried1').css('background', '#DCDCDC');
 						$('#last_year_inventoried2').css('background', '#DCDCDC');
 					}
