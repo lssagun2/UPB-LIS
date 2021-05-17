@@ -312,7 +312,7 @@ $(document).ready(function() {
 					} if(data.mat_circ_type!=prev.mat_circ_type){
 						$('#circ_type1').css('background', '#DCDCDC');
 						$('#circ_type2').css('background', '#DCDCDC');
-					} if(data.mat_acc_num!=prev.mat_acc_num){
+					} if(data.mat_type!=prev.mat_type){
 						$('#type1').css('background', '#DCDCDC');
 						$('#type2').css('background', '#DCDCDC');
 					} if(data.mat_status!=prev.mat_status){
