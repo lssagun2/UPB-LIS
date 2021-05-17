@@ -128,10 +128,10 @@ require '../config.php';
 										<?php
 
 										$sql = "SELECT c.change_date, c.change_type, c.change_id, 
-										s.staff_firstname, s.staff_lastname, i.mat_acc_num
+										s.staff_firstname, s.staff_lastname, m.mat_acc_num
 										FROM CHANGES AS c
 										LEFT JOIN STAFF AS s ON c.staff_id=s.staff_id
-										LEFT JOIN INVENTORY AS i ON c.mat_id=i.mat_id
+										LEFT JOIN MATERIAL AS m ON c.mat_id=m.mat_id
 										ORDER BY change_date DESC
 										LIMIT 50";
 										$result = $conn->query($sql);
@@ -229,13 +229,13 @@ $(document).ready(function() {
 					$('#last_year_inventoried1').val(data.mat_lastinv_year);
 		    	
 					//PREVIOUS INFO
-		    	var prev = JSON.parse(data.change_prev_info);
+		    		var prev = JSON.parse(data.change_prev_info);
 					$('#acc_num2').val(prev.mat_acc_num);
 					$('#barcode2').val(prev.mat_barcode);
 					$('#call_number2').val(prev.mat_call_num);
 					$('#title2').val(prev.mat_title);
 					$('#author2').val(prev.mat_author)
-				  $('#volume2').val(prev.mat_volume);
+				  	$('#volume2').val(prev.mat_volume);
 			 		$('#year2').val(prev.mat_year);
 			 		$('#edition2').val(prev.mat_edition);
 				 	$('#publisher2').val(prev.mat_publisher);
