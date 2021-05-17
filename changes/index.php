@@ -248,8 +248,54 @@ $(document).ready(function() {
 		      break;
 		  default:
 		    	alert("Error!");
-
-		  }  	  
+		  }
+		  //HIGHLIGHT EDITS
+			if(data.mat_acc_num!=prev.mat_acc_num){
+				$('#acc_num1').css('background', '#DCDCDC');
+				$('#acc_num2').css('background', '#DCDCDC');
+			} else if(data.mat_barcode!=prev.mat_barcode){
+				$('#barcode1').css('background', '#DCDCDC');
+				$('#barcode2').css('background', '#DCDCDC');
+			} else if(data.mat_call_num!=prev.mat_call_num){
+				$('#call_number1').css('background', '#DCDCDC');
+				$('#call_number2').css('background', '#DCDCDC');
+			} else if(data.mat_title!=prev.mat_title){
+				$('#title1').css('background', '#DCDCDC');
+				$('#title2').css('background', '#DCDCDC');
+			} else if(data.mat_author!=prev.mat_author){
+				$('#author1').css('background', '#DCDCDC');
+				$('#author2').css('background', '#DCDCDC');
+			} else if(data.mat_volume!=prev.mat_volume){
+				$('#volume1').css('background', '#DCDCDC');
+				$('#volume2').css('background', '#DCDCDC');
+			} else if(data.mat_year!=prev.mat_year){
+				$('#year1').css('background', '#DCDCDC');
+				$('#year2').css('background', '#DCDCDC');
+			} else if(data.mat_edition!=prev.mat_edition){
+				$('#edition1').css('background', '#DCDCDC');
+				$('#edition2').css('background', '#DCDCDC');
+			} else if(data.mat_publisher!=prev.mat_publisher){
+				$('#publisher1').css('background', '#DCDCDC');
+				$('#publisher2').css('background', '#DCDCDC');
+			} else if(data.mat_pub_year!=prev.mat_pub_year){
+				$('#pub_year1').css('background', '#DCDCDC');
+				$('#pub_year2').css('background', '#DCDCDC');
+			} else if(data.mat_circ_type!=prev.mat_circ_type){
+				$('#circ_type1').css('background', '#DCDCDC');
+				$('#circ_type2').css('background', '#DCDCDC');
+			} else if(data.mat_acc_num!=prev.mat_acc_num){
+				$('#type1').css('background', '#DCDCDC');
+				$('#type2').css('background', '#DCDCDC');
+			} else if(data.mat_status!=prev.mat_status){
+				$('#status1').css('background', '#DCDCDC');
+				$('#status2').css('background', '#DCDCDC');
+			} else if(data.mat_source!=prev.mat_source){
+				$('#source1').css('background', '#DCDCDC');
+				$('#source2').css('background', '#DCDCDC');
+			} else if(data.mat_lastinv_year!=prev.lastinv_year){
+				$('#last_year_inventoried1').css('background', '#DCDCDC');
+				$('#last_year_inventoried2').css('background', '#DCDCDC');
+			}
 		})
 		.fail(function(data) {
 	      //Server failed to respond - Show an error message
