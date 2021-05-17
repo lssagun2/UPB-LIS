@@ -32,9 +32,7 @@
 		$insert_id = $conn->insert_id;
 		$year = date("Y");
 		$inv_info = [
-			"mat_id" => $insert_id,
-			"mat_acc_num" => $_POST['acc_num'],
-		 	"mat_barcode" => $_POST['barcode']
+			"mat_id" => $insert_id
 			// "inv_$year" => 1,
 			// "date_$year" => date("Y-m-d H:i:s"),
 			// "staff_id_$year" => $_SESSION["staff_id"]
