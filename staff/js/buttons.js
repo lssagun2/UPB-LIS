@@ -13,13 +13,17 @@ $(document).ready(function(){
 		$("button#edit-staff").html("Save changes");
 		$('div#staff').show();
 	});
-	$(document).on('click', '.edit#deleteStaffTable', function(){
+	$(document).on('click', '#deleteStaffTable', function(){
 		$tr = $(this).closest('tr');
 		var data = $tr.children("td").map(function(){
 			return $(this).text();
 		}).get();
-		primaryKey = data[0];
+		console.log(data);
 		$('.modal-title').html('Delete Staff Data');
+		$('#primaryKey').val(data[0]);
+		$('#firstnamedel').val(data[1]);
+		$('#lastnamedel').val(data[2]);
+		$('#passworddel').val(data[3]);
 		$('div#deleteStaff').show();
 	});
 	$(document).on('click', '.edit#editStaffTable', function(){
@@ -56,6 +60,13 @@ $(document).ready(function(){
 		$('input:checkbox').prop('checked', false); // Unchecks it
 		$('#staff_password').attr('type','password'); //resets staffpassword
 	});
+
+	$(document).on('click', 'button#delete-staff.modalbtn', function(){
+		$('form#deleteStaffForm').submit();
+		$('input:checkbox').prop('checked', false); // Unchecks it
+		$('#staff_password').attr('type','password'); //resets staffpassword
+	});
+
 	$(document).on('click', '#cancelbtn', function(){
 		$('div.modal').hide();
 		$('div.form-control.error').removeClass('error');	//Changes
