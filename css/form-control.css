@@ -2,17 +2,18 @@
   padding: 30px;
 } */
 
-.container {
+.container, .containerDelete {
   height: 480px;
   margin: 30px;
 }
+
 
 @media screen and (max-width: 1366px) {
   .modal-content {
     height: 460px;
   }
 
-  .container {
+  .container, .containerDelete {
     height: 400px;
   }
 }
@@ -167,6 +168,8 @@
 .form-control.error small{
   visibility: visible;
   color: #e74c3c;
+  position: relative;
+  bottom: 5px;
 }
 
 .form-control.success i.fa-check-circle{
