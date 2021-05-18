@@ -19,7 +19,6 @@ $(document).ready(function(){
 			return $(this).text();
 		}).get();
 		primaryKey = data[0];
-		$('div.containerDelete').append("<?php echo 'tite'?>");
 		$('.modal-title').html('Delete Staff Data');
 		$('div#deleteStaff').show();
 	});
