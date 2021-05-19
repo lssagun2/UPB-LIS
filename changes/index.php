@@ -15,7 +15,7 @@ require '../config.php';
 	<link rel = "stylesheet" href ="../css/index.css">
 	<link rel = "stylesheet" href ="../css/tables.css">
 	<link rel = "stylesheet" href ="../css/modals.css">
-		<link rel = "stylesheet" href ="../changes/view.css">
+	<link rel = "stylesheet" href ="../changes/view.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
@@ -33,6 +33,8 @@ require '../config.php';
 		<a href = "#"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
 		<a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
 	</div>
+
+		<?php  require "../staff/modal.php"; ?>
 	<div id = "main">
 		<div class = "wrapper">
 			<nav class = "nav">
@@ -143,7 +145,10 @@ require '../config.php';
 												?>
 												<tr>
 													<td style="text-align: center; vertical-align: middle;"><?php echo $row['change_date']; ?></td>
-													<td style="text-align: center; vertical-align: middle;"><?php echo $row['staff_firstname'] ." ". $row['staff_lastname'] 
+													<td style="text-align: center; vertical-align: middle;">
+														<?php if (empty($row['staff_firstname'].$row['staff_lastname'])){
+															echo "---removed staff---"." ". $row['change_type'] ."ed material with accession number ".$row['mat_acc_num'];
+														} else echo $row['staff_firstname'] ." ". $row['staff_lastname'] 
 													." ". $row['change_type'] ."ed material with accession number ".$row['mat_acc_num']; ?></td>
 													<td style="text-align: center; vertical-align: middle;"><button type="button" id="<?php echo $row['change_id']; ?>" type-id="<?php echo $row['change_type']; ?>" class="view"
 														>View</button></td>
@@ -198,7 +203,7 @@ $(document).ready(function() {
 					$('#call_number').val(data.mat_call_num);
 					$('#title').val(data.mat_title);
 					$('#author').val(data.mat_author)
-				  $('#volume').val(data.mat_volume);
+			  	    $('#volume').val(data.mat_volume);
 			 		$('#year').val(data.mat_year);
 			 		$('#edition').val(data.mat_edition);
 				 	$('#publisher').val(data.mat_publisher);
