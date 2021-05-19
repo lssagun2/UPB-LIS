@@ -335,38 +335,69 @@
 
                   <label for = "circ_type">Circulation Type</label>
                   <select id = "circ_typea" name = "circ_type" value="">
-                    <option value = "none">---none---</option>
-                    <option value = "Circulation">Circulation</option>
-                    <option value = "Cordillera">Cordillera</option>
-                    <option value = "Filipiniana">Filipiniana</option>
-                    <option value = "HFSC-RUO">Howard Fry Special Collection-Room Use Only</option>
-                    <option value = "Periodicals">Periodicals</option>
-                    <option value = "Reserve">Reserve</option>
-                    <option value = "Thesis">Thesis</option>
+                    <option value = "" selected>---none---</option>
+                    <option value = "Circulation Book">Circulation Book</option>
+                    <option value = "Circulation Monograph">Circulation Monograph</option>
+                    <option value = "Cordillera Book">Cordillera Book</option>
+                    <option value = "Cordillera Monograph">Cordillera Monograph</option>
+                    <option value = "Cordillera Multimedia">Cordillera Multimedia</option>
+                    <option value = "Filipiniana Reference">Filipiniana Reference</option>
+                    <option value = "Filipiniana Archives">Filipiniana Archives</option>
+                    <option value = "Filipiniana Book">Filipiniana Book</option>
+                    <option value = "Filipiniana MO">Filipiniana MO</option>
+                    <option value = "Filipiniana Monograph">Filipiniana Monograph</option>
+                    <option value = "Filipiniana PIDS">Filipiniana PIDS</option>
+                    <option value = "GRC Book">GRC Book</option>
+                    <option value = "GRC MO">GRC MO</option>
+                    <option value = "GRC Monograph">GRC Monograph</option>
+                    <option value = "Howard Fry Special Collection - Room Use Only">Howard Fry Special Collection - Room Use Only</option>
+                    <option value = "Multimedia Material">Multimedia Material</option>
+                    <option value = "Non-Circulation">Non-Circulation</option>
+                    <option value = "Periodicals - Room Use Only">Periodicals - Room Use Only</option>
+                    <option value = "Reference - Room Use Only">Reference - Room Use Only</option>
+                    <option value = "Reference - Room Use Only (Reserve Section)">Reference - Room Use Only (Reserve Section)</option>
+                    <option value = "Reserve - Monograph">Reserve - Monograph</option>
+                    <option value = "Reserve Book">Reserve Book</option>
+                    <option value = "Reserve Book - 1 month loan">Reserve Book - 1 month loan</option>
+                    <option value = "Reserve Book - Room Use Only">Reserve Book - Room Use Only</option>
+                    <option value = "Room Use Only">Room Use Only</option>
+                    <option value = "Thesis - Room Use Only">Thesis - Room Use Only</option>
                   </select>
 
                   <label for = "type">Type</label>
                   <select id = "typea" name = "type" value="">
-                    <option value = "none">---none---</option>
-                    <option value = "Book">Book</option>
-                    <option value = "Reference">Reference</option>
-                    <option value = "Journal">Journal</option>
+                    <option value = "" selected>---none---</option>
                     <option value = "Article">Article</option>
+                    <option value = "Book">Book</option>
+                    <option value = "Computer File">Computer File</option>
+                    <option value = "Map">Map</option>
+                    <option value = "Mixed Material">Mixed Material</option>
+                    <option value = "Music">Music</option>
+                    <option value = "Serial">Serial</option>
                     <option value = "Thesis">Thesis</option>
-                    <option value = "Reserve">Reserve</option>
-                    <option value = "Thesis">Thesis</option>
+                    <option value = "Visual Material">Visual Material</option>
                   </select>
 
                   <label for = "status">Status</label>
                   <select id = "statusa" name = "status" value="">
-                    <option value = "none">---none---</option>
-                    <option value = "On Shelf">On Shelf</option>
-                    <option value = "On Loan">On Loan</option>
+                    <option value = "" selected>---none---</option>
+                    <option value = "Available Online">Available Online</option>
                     <option value = "In Process">In Process</option>
-                    <option value = "Lost">Lost</option>
+                    <option value = "In Stacks Area">In Stacks Area</option>
                     <option value = "Long Overdue">Long Overdue</option>
-                    <option value = "Deleted">Deleted</option>
+                    <option value = "Lost">Lost</option>
+                    <option value = "On Loan">On Loan</option>
+                    <option value = "On Shelf">On Shelf</option>
                     <option value = "Preservation Copy">Preservation Copy</option>
+                  </select>
+
+                  <label for = "location">Location</label>
+                  <select id = "locationa" name = "location" value="">
+                    <option value = "" selected>---none---</option>
+                    <option value = "Cordillera/Northern Luzon Archives">Cordillera/Northern Luzon Archives</option>
+                    <option value = "Graduate Resource Center">Graduate Resource Center</option>
+                    <option value = "Knowledge and Training Resource Center">Knowledge and Training Resource Center</option>
+                    <option value = "Main Library">Main Library</option>
                   </select>
 
                   <label for = "source">Source</label>
@@ -417,7 +448,7 @@
                   <input type = "text" id = "acc_numb" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
 
                   <label for = "barcode">Barcode</label>
-                  <input type = "text" id = "barcode" name = "barcode" placeholder = "Barcode.." value="" autocomplete="off">
+                  <input type = "text" id = "barcodeb" name = "barcode" placeholder = "Barcode.." value="" autocomplete="off">
 
                   <label for = "call_number">Call Number</label>
                   <input type = "text" id = "call_numberb" name = "call_number" placeholder = "Call Number.." value="" autocomplete="off">
@@ -445,38 +476,69 @@
 
                   <label for = "circ_type">Circulation Type</label>
                   <select id = "circ_typeb" name = "circ_type" value="">
-                    <option value = "none">---none---</option>
-                    <option value = "Circulation">Circulation</option>
-                    <option value = "Cordillera">Cordillera</option>
-                    <option value = "Filipiniana">Filipiniana</option>
-                    <option value = "HFSC-RUO">Howard Fry Special Collection-Room Use Only</option>
-                    <option value = "Periodicals">Periodicals</option>
-                    <option value = "Reserve">Reserve</option>
-                    <option value = "Thesis">Thesis</option>
+                    <option value = "" selected>---none---</option>
+                    <option value = "Circulation Book">Circulation Book</option>
+                    <option value = "Circulation Monograph">Circulation Monograph</option>
+                    <option value = "Cordillera Book">Cordillera Book</option>
+                    <option value = "Cordillera Monograph">Cordillera Monograph</option>
+                    <option value = "Cordillera Multimedia">Cordillera Multimedia</option>
+                    <option value = "Filipiniana Reference">Filipiniana Reference</option>
+                    <option value = "Filipiniana Archives">Filipiniana Archives</option>
+                    <option value = "Filipiniana Book">Filipiniana Book</option>
+                    <option value = "Filipiniana MO">Filipiniana MO</option>
+                    <option value = "Filipiniana Monograph">Filipiniana Monograph</option>
+                    <option value = "Filipiniana PIDS">Filipiniana PIDS</option>
+                    <option value = "GRC Book">GRC Book</option>
+                    <option value = "GRC MO">GRC MO</option>
+                    <option value = "GRC Monograph">GRC Monograph</option>
+                    <option value = "Howard Fry Special Collection - Room Use Only">Howard Fry Special Collection - Room Use Only</option>
+                    <option value = "Multimedia Material">Multimedia Material</option>
+                    <option value = "Non-Circulation">Non-Circulation</option>
+                    <option value = "Periodicals - Room Use Only">Periodicals - Room Use Only</option>
+                    <option value = "Reference - Room Use Only">Reference - Room Use Only</option>
+                    <option value = "Reference - Room Use Only (Reserve Section)">Reference - Room Use Only (Reserve Section)</option>
+                    <option value = "Reserve - Monograph">Reserve - Monograph</option>
+                    <option value = "Reserve Book">Reserve Book</option>
+                    <option value = "Reserve Book - 1 month loan">Reserve Book - 1 month loan</option>
+                    <option value = "Reserve Book - Room Use Only">Reserve Book - Room Use Only</option>
+                    <option value = "Room Use Only">Room Use Only</option>
+                    <option value = "Thesis - Room Use Only">Thesis - Room Use Only</option>
                   </select>
 
                   <label for = "type">Type</label>
                   <select id = "typeb" name = "type" value="">
-                    <option value = "none">---none---</option>
-                    <option value = "Book">Book</option>
-                    <option value = "Reference">Reference</option>
-                    <option value = "Journal">Journal</option>
+                    <option value = "" selected>---none---</option>
                     <option value = "Article">Article</option>
+                    <option value = "Book">Book</option>
+                    <option value = "Computer File">Computer File</option>
+                    <option value = "Map">Map</option>
+                    <option value = "Mixed Material">Mixed Material</option>
+                    <option value = "Music">Music</option>
+                    <option value = "Serial">Serial</option>
                     <option value = "Thesis">Thesis</option>
-                    <option value = "Reserve">Reserve</option>
-                    <option value = "Thesis">Thesis</option>
+                    <option value = "Visual Material">Visual Material</option>
                   </select>
 
                   <label for = "status">Status</label>
                   <select id = "statusb" name = "status" value="">
-                    <option value = "none">---none---</option>
-                    <option value = "On Shelf">On Shelf</option>
-                    <option value = "On Loan">On Loan</option>
+                    <option value = "" selected>---none---</option>
+                    <option value = "Available Online">Available Online</option>
                     <option value = "In Process">In Process</option>
-                    <option value = "Lost">Lost</option>
+                    <option value = "In Stacks Area">In Stacks Area</option>
                     <option value = "Long Overdue">Long Overdue</option>
-                    <option value = "Deleted">Deleted</option>
+                    <option value = "Lost">Lost</option>
+                    <option value = "On Loan">On Loan</option>
+                    <option value = "On Shelf">On Shelf</option>
                     <option value = "Preservation Copy">Preservation Copy</option>
+                  </select>
+
+                  <label for = "location">Location</label>
+                  <select id = "locationb" name = "location" value="">
+                    <option value = "" selected>---none---</option>
+                    <option value = "Cordillera/Northern Luzon Archives">Cordillera/Northern Luzon Archives</option>
+                    <option value = "Graduate Resource Center">Graduate Resource Center</option>
+                    <option value = "Knowledge and Training Resource Center">Knowledge and Training Resource Center</option>
+                    <option value = "Main Library">Main Library</option>
                   </select>
 
                   <label for = "source">Source</label>
@@ -519,18 +581,29 @@
 
 
 <script>
-$(document).ready(function() {
-   $(document).on('click', '#submit_acc_num', function(event) { // Fetch Accession Number Modal Data
+ $(document).ready(function() {
+    $(document).on('click', '#anbtn', function(event) {
+      $('div#id01').show()
+    });
+    
+    $(document).on('click', '#bsbtn', function(event) {
+      $('div#id02').show()
+    });
+
+    $(document).on('click', '.close', function() {
+      $('div#id01').hide();
+      $('div#id02').hide();
+    });
+   $(document).on('click', 'button#submit_acc_num', function(event) { // Fetch Accession Number Modal Data
     var accnum_id = $('#input_acc_num').val();
    // $('#acc_numa').val(accnum_id);
     $.ajax({
       type      : 'POST',
       url       : 'functions/fetcha.php',
       data      : {accnum_id:accnum_id},
-      dataType  : 'json'
+      dataType  : 'JSON'
     })
     .done(function(data){
-          alert("Jquery post success! "+accnum_id);
           $('#acc_numa').val(data.mat_acc_num);
           $('#barcodea').val(data.mat_barcode);
           $('#call_numbera').val(data.mat_call_num);
@@ -545,14 +618,13 @@ $(document).ready(function() {
           $('#typea').val(data.mat_type);
           $('#statusa').val(data.mat_status);
           $('#sourcea').val(data.mat_source);
-          //$('div#id01').show()
+          $('#locationa').val(data.mat_location);
     })
     .fail(function(data) {
-        alert("Jquery post failed "+accnum_id);
         //Server failed to respond - Show an error message
         $('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');
     }); 
-    });
+  });
   $(document).on('click', '#submit_bar', function() { // Fetch Barcode Modal Data
     var bar = $('#input_barcode').val();
 
@@ -560,10 +632,9 @@ $(document).ready(function() {
       type      : 'POST',
       url       : 'functions/fetchb.php',
       data      : {bar:bar},
-      dataType  : 'json'
+      dataType  : 'JSON'
     })
     .done(function(data){
-          alert("Jquery post success! "+bar);
           $('#acc_numb').val(data.mat_acc_num);
           $('#barcodeb').val(data.mat_barcode);
           $('#call_numberb').val(data.mat_call_num);
@@ -578,19 +649,49 @@ $(document).ready(function() {
           $('#typeb').val(data.mat_type);
           $('#statusb').val(data.mat_status);
           $('#sourceb').val(data.mat_source);
-          //$('div#id02').show()
+          $('#locationb').val(data.mat_location);
     })
     .fail(function(data) {
-        alert("Jquery post failed "+bar);
         //Server failed to respond - Show an error message
         $('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');
     });
   });
+/*  $(document).on('click', '#submitbtn', function() { // Fetch Barcode Modal Data
+    var acc_num = $('#input_barcode').val();
+
+    $.ajax({
+      type      : 'POST',
+      url       : 'functions/record.php',
+      data      : {bar:bar},
+      dataType  : 'JSON'
+    })
+    .done(function(data){
+          $('#acc_numb').val(data.mat_acc_num);
+          $('#barcodeb').val(data.mat_barcode);
+          $('#call_numberb').val(data.mat_call_num);
+          $('#titleb').val(data.mat_title);
+          $('#authorb').val(data.mat_author)
+          $('#volumeb').val(data.mat_volume);
+          $('#yearb').val(data.mat_year);
+          $('#editionb').val(data.mat_edition);
+          $('#publisherb').val(data.mat_publisher);
+          $('#pub_yearb').val(data.mat_pub_year);
+          $('#circ_typeb').val(data.mat_circ_type)
+          $('#typeb').val(data.mat_type);
+          $('#statusb').val(data.mat_status);
+          $('#sourceb').val(data.mat_source);
+          $('#locationb').val(data.mat_location);
+    })
+    .fail(function(data) {
+        //Server failed to respond - Show an error message
+        $('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');
+    });
+  });*/
 });
 </script>
 
-    <!--<script type = "text/javascript" src = "js/formhandler.js"></script>
-    <script type = "text/javascript" src = "js/update.js"></script> -->
+    <script type = "text/javascript" src = "js/formhandler.js"></script>
+    <script type = "text/javascript" src = "js/update.js"></script>
     
 
     <!-- <script>
