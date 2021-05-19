@@ -80,6 +80,30 @@
       opacity: 1;
     }
 
+    #submit_acc_num {
+      background-color: #800000;
+      color: #fff;
+      width: 100px;
+      opacity: 0.8;
+      transition: 0.2s ease-in-out;
+    }
+
+    #submit_acc_num:hover, #cancelbtn:hover {
+      opacity: 1;
+    }
+
+    #submit_bar {
+      background-color: #800000;
+      color: #fff;
+      width: 100px;
+      opacity: 0.8;
+      transition: 0.2s ease-in-out;
+    }
+
+    #submit_bar:hover, #cancelbtn:hover {
+      opacity: 1;
+    }
+
     #cancelbtn {
       opacity: 0.9;
     }
@@ -141,14 +165,6 @@
         overflow-y: auto;
         height: 280px;
       }
-
-      /* .accession-number {
-        margin-left: 11%;
-      }
-
-      .barcode-scanner {
-        margin-left: 10%;
-      } */
     }
     </style>
   </head>
@@ -286,38 +302,39 @@
                   <h1 class = "modal-title"></h1>
                   <input type="hidden" name="function" id = "function" value = "">
                   <input type = "hidden" id = "id" name = "id" value = "">
+                
                   <label for = "acc_num">Accession Number</label>
-                  <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
+                  <input type = "text" id = "acc_numa" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
 
                   <label for = "barcode">Barcode</label>
-                  <input type = "text" id = "barcode" name = "barcode" placeholder = "Barcode.." value="" autocomplete="off">
+                  <input type = "text" id = "barcodea" name = "barcode" placeholder = "Barcode.." value="" autocomplete="off">
 
                   <label for = "call_number">Call Number</label>
-                  <input type = "text" id = "call_number" name = "call_number" placeholder = "Call Number.." value="" autocomplete="off">
+                  <input type = "text" id = "call_numbera" name = "call_number" placeholder = "Call Number.." value="" autocomplete="off">
 
                   <label for = "title">Material Title</label>
-                  <input type = "text" id = "title" name = "title" placeholder = "Title.." value="" autocomplete="off">
+                  <input type = "text" id = "titlea" name = "title" placeholder = "Title.." value="" autocomplete="off">
 
                   <label for = "author">Material Author</label>
-                  <input type = "text" id = "author" name = "author" placeholder = "Author.." value="" autocomplete="off">
+                  <input type = "text" id = "authora" name = "author" placeholder = "Author.." value="" autocomplete="off">
 
                   <label for = "volume">Material Volume</label>
-                  <input type = "text" id = "volume" name = "volume" placeholder = "Volume.." value="" autocomplete="off">
+                  <input type = "text" id = "volumea" name = "volume" placeholder = "Volume.." value="" autocomplete="off">
 
                   <label for = "year">Material Year</label>
-                  <input type = "text" id = "year" name = "year" placeholder = "Year.." value="" autocomplete="off">
+                  <input type = "text" id = "yeara" name = "year" placeholder = "Year.." value="" autocomplete="off">
 
                   <label for = "edition">Material Edition</label>
-                  <input type = "text" id = "edition" name = "edition" placeholder = "Edition.." value="" autocomplete="off">
+                  <input type = "text" id = "editiona" name = "edition" placeholder = "Edition.." value="" autocomplete="off">
 
                   <label for = "publisher">Publisher of the Material</label>
-                  <input type = "text" id = "publisher" name = "publisher" placeholder = "Publisher.." value="" autocomplete="off">
+                  <input type = "text" id = "publishera" name = "publisher" placeholder = "Publisher.." value="" autocomplete="off">
 
                   <label for = "pub_year">Year of Publication</label>
-                  <input type = "text" id = "pub_year" name = "pub_year" placeholder = "Publication Year.." value="" autocomplete="off">
+                  <input type = "text" id = "pub_yeara" name = "pub_year" placeholder = "Publication Year.." value="" autocomplete="off">
 
                   <label for = "circ_type">Circulation Type</label>
-                  <select id = "circ_type" name = "circ_type" value="">
+                  <select id = "circ_typea" name = "circ_type" value="">
                     <option value = "none">---none---</option>
                     <option value = "Circulation">Circulation</option>
                     <option value = "Cordillera">Cordillera</option>
@@ -329,7 +346,7 @@
                   </select>
 
                   <label for = "type">Type</label>
-                  <select id = "type" name = "type" value="">
+                  <select id = "typea" name = "type" value="">
                     <option value = "none">---none---</option>
                     <option value = "Book">Book</option>
                     <option value = "Reference">Reference</option>
@@ -341,7 +358,7 @@
                   </select>
 
                   <label for = "status">Status</label>
-                  <select id = "status" name = "status" value="">
+                  <select id = "statusa" name = "status" value="">
                     <option value = "none">---none---</option>
                     <option value = "On Shelf">On Shelf</option>
                     <option value = "On Loan">On Loan</option>
@@ -353,17 +370,8 @@
                   </select>
 
                   <label for = "source">Source</label>
-                  <input type = "text" id = "source" name = "source" placeholder = "Material Source.." value="" autocomplete="off">
+                  <input type = "text" id = "sourcea" name = "source" placeholder = "Material Source.." value="" autocomplete="off">
 
-                  <!-- <label for = "last_year_inventoried">Last Year Inventoried</label>
-                  <select id = "last_year_inventoried" name = "last_year_inventoried" value="">
-                    <option value = "0" selected>---none---</option>
-                    <option value = "2021">2021</option>
-                    <option value = "2020">2020</option>
-                    <option value = "2019">2019</option>
-                    <option value = "2018">2018</option>
-                    <option value = "2017">2017</option>
-                  </select> -->
                   <button type = "button" class = "modalbtn" id = "submitbtn" style = "width: auto;">Save Changes</button>
                   <div class = "clearfix">
                   </div>
@@ -371,7 +379,7 @@
               </form>
             </div>
             <div class = "wave">
-              <?xml version="1.0" encoding="UTF-8"?>
+              <!--<?//xml version="1.0" encoding="UTF-8"?>-->
               <svg viewBox="0 0 67 578" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
                       <path d="M11.3847656,-5.68434189e-14 C-7.44726562,36.7213542 5.14322917,126.757812 49.15625,270.109375 C70.9827986,341.199016 54.8877465,443.829224 0.87109375,578 L67,578 L67,-5.68434189e-14 L11.3847656,-5.68434189e-14 Z" id="Path" fill="#ffcc3d"></path>
@@ -381,9 +389,9 @@
             <div class="column" id="secondary">
               <div class="sec-content">
                 <h2>Input Accession Number</h2>
-                <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
+                <input type = "text" id = "input_acc_num" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
                 <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
-                <button type = "button" class = "modalbtn" id = "submitbtn">Submit</button>
+                <button type = "button" class = "modalbtn" id = "submit_acc_num">Submit</button>
               </div>
             </div>
           </div>
@@ -404,38 +412,39 @@
                   <h1 class = "modal-title"></h1>
                   <input type="hidden" name="function" id = "function" value = "">
                   <input type = "hidden" id = "id" name = "id" value = "">
+                  
                   <label for = "acc_num">Accession Number</label>
-                  <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
+                  <input type = "text" id = "acc_numb" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
 
                   <label for = "barcode">Barcode</label>
                   <input type = "text" id = "barcode" name = "barcode" placeholder = "Barcode.." value="" autocomplete="off">
 
                   <label for = "call_number">Call Number</label>
-                  <input type = "text" id = "call_number" name = "call_number" placeholder = "Call Number.." value="" autocomplete="off">
+                  <input type = "text" id = "call_numberb" name = "call_number" placeholder = "Call Number.." value="" autocomplete="off">
 
                   <label for = "title">Material Title</label>
-                  <input type = "text" id = "title" name = "title" placeholder = "Title.." value="" autocomplete="off">
+                  <input type = "text" id = "titleb" name = "title" placeholder = "Title.." value="" autocomplete="off">
 
                   <label for = "author">Material Author</label>
-                  <input type = "text" id = "author" name = "author" placeholder = "Author.." value="" autocomplete="off">
+                  <input type = "text" id = "authorb" name = "author" placeholder = "Author.." value="" autocomplete="off">
 
                   <label for = "volume">Material Volume</label>
-                  <input type = "text" id = "volume" name = "volume" placeholder = "Volume.." value="" autocomplete="off">
+                  <input type = "text" id = "volumeb" name = "volume" placeholder = "Volume.." value="" autocomplete="off">
 
                   <label for = "year">Material Year</label>
-                  <input type = "text" id = "year" name = "year" placeholder = "Year.." value="" autocomplete="off">
+                  <input type = "text" id = "yearb" name = "year" placeholder = "Year.." value="" autocomplete="off">
 
                   <label for = "edition">Material Edition</label>
-                  <input type = "text" id = "edition" name = "edition" placeholder = "Edition.." value="" autocomplete="off">
+                  <input type = "text" id = "editionb" name = "edition" placeholder = "Edition.." value="" autocomplete="off">
 
                   <label for = "publisher">Publisher of the Material</label>
-                  <input type = "text" id = "publisher" name = "publisher" placeholder = "Publisher.." value="" autocomplete="off">
+                  <input type = "text" id = "publisherb" name = "publisher" placeholder = "Publisher.." value="" autocomplete="off">
 
                   <label for = "pub_year">Year of Publication</label>
-                  <input type = "text" id = "pub_year" name = "pub_year" placeholder = "Publication Year.." value="" autocomplete="off">
+                  <input type = "text" id = "pub_yearb" name = "pub_year" placeholder = "Publication Year.." value="" autocomplete="off">
 
                   <label for = "circ_type">Circulation Type</label>
-                  <select id = "circ_type" name = "circ_type" value="">
+                  <select id = "circ_typeb" name = "circ_type" value="">
                     <option value = "none">---none---</option>
                     <option value = "Circulation">Circulation</option>
                     <option value = "Cordillera">Cordillera</option>
@@ -447,7 +456,7 @@
                   </select>
 
                   <label for = "type">Type</label>
-                  <select id = "type" name = "type" value="">
+                  <select id = "typeb" name = "type" value="">
                     <option value = "none">---none---</option>
                     <option value = "Book">Book</option>
                     <option value = "Reference">Reference</option>
@@ -459,7 +468,7 @@
                   </select>
 
                   <label for = "status">Status</label>
-                  <select id = "status" name = "status" value="">
+                  <select id = "statusb" name = "status" value="">
                     <option value = "none">---none---</option>
                     <option value = "On Shelf">On Shelf</option>
                     <option value = "On Loan">On Loan</option>
@@ -471,17 +480,7 @@
                   </select>
 
                   <label for = "source">Source</label>
-                  <input type = "text" id = "source" name = "source" placeholder = "Material Source.." value="" autocomplete="off">
-
-                  <!-- <label for = "last_year_inventoried">Last Year Inventoried</label>
-                  <select id = "last_year_inventoried" name = "last_year_inventoried" value="">
-                    <option value = "0" selected>---none---</option>
-                    <option value = "2021">2021</option>
-                    <option value = "2020">2020</option>
-                    <option value = "2019">2019</option>
-                    <option value = "2018">2018</option>
-                    <option value = "2017">2017</option>
-                  </select> -->
+                  <input type = "text" id = "sourceb" name = "source" placeholder = "Material Source.." value="" autocomplete="off">
                   <button type = "button" class = "modalbtn" id = "submitbtn" style = "width: auto;">Save Changes</button>
                   <div class = "clearfix">
                   </div>
@@ -489,7 +488,7 @@
               </form>
             </div>
             <div class = "wave">
-              <?xml version="1.0" encoding="UTF-8"?>
+              <!--<?//xml version="1.0" encoding="UTF-8"?>-->
               <svg viewBox="0 0 67 578" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
                       <path d="M11.3847656,-5.68434189e-14 C-7.44726562,36.7213542 5.14322917,126.757812 49.15625,270.109375 C70.9827986,341.199016 54.8877465,443.829224 0.87109375,578 L67,578 L67,-5.68434189e-14 L11.3847656,-5.68434189e-14 Z" id="Path" fill="#ffcc3d"></path>
@@ -499,8 +498,9 @@
             <div class="column" id="secondary">
               <div class="sec-content">
                 <h2>Barcode Scanner</h2>
-                <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Scan Barcode.." value="" autocomplete="off">
+                <input type = "text" id = "input_barcode" name = "barcode" placeholder = "Scan Barcode.." value="" autocomplete="off">
                 <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
+                <button type = "button" class = "modalbtn" id = "submit_bar">Submit</button>
               </div>
             </div>
           </div>
@@ -516,8 +516,83 @@
         <a href = "https://www.youtube.com/channel/UC1XJ8yRNRuDHmhJXtsLIB_g"><i class="fab fa-youtube"></i></a>
       </p>
     </footer>
-    <script type = "text/javascript" src = "js/formhandler.js"></script>
-    <script type = "text/javascript" src = "js/update.js"></script>
+
+
+<script>
+$(document).ready(function() {
+   $(document).on('click', '#submit_acc_num', function(event) { // Fetch Accession Number Modal Data
+    var accnum_id = $('#input_acc_num').val();
+   // $('#acc_numa').val(accnum_id);
+    $.ajax({
+      type      : 'POST',
+      url       : 'functions/fetcha.php',
+      data      : {accnum_id:accnum_id},
+      dataType  : 'json'
+    })
+    .done(function(data){
+          alert("Jquery post success! "+accnum_id);
+          $('#acc_numa').val(data.mat_acc_num);
+          $('#barcodea').val(data.mat_barcode);
+          $('#call_numbera').val(data.mat_call_num);
+          $('#titlea').val(data.mat_title);
+          $('#authora').val(data.mat_author)
+          $('#volumea').val(data.mat_volume);
+          $('#yeara').val(data.mat_year);
+          $('#editiona').val(data.mat_edition);
+          $('#publishera').val(data.mat_publisher);
+          $('#pub_yeara').val(data.mat_pub_year);
+          $('#circ_typea').val(data.mat_circ_type)
+          $('#typea').val(data.mat_type);
+          $('#statusa').val(data.mat_status);
+          $('#sourcea').val(data.mat_source);
+          //$('div#id01').show()
+    })
+    .fail(function(data) {
+        alert("Jquery post failed "+accnum_id);
+        //Server failed to respond - Show an error message
+        $('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');
+    }); 
+    });
+  $(document).on('click', '#submit_bar', function() { // Fetch Barcode Modal Data
+    var bar = $('#input_barcode').val();
+
+    $.ajax({
+      type      : 'POST',
+      url       : 'functions/fetchb.php',
+      data      : {bar:bar},
+      dataType  : 'json'
+    })
+    .done(function(data){
+          alert("Jquery post success! "+bar);
+          $('#acc_numb').val(data.mat_acc_num);
+          $('#barcodeb').val(data.mat_barcode);
+          $('#call_numberb').val(data.mat_call_num);
+          $('#titleb').val(data.mat_title);
+          $('#authorb').val(data.mat_author)
+          $('#volumeb').val(data.mat_volume);
+          $('#yearb').val(data.mat_year);
+          $('#editionb').val(data.mat_edition);
+          $('#publisherb').val(data.mat_publisher);
+          $('#pub_yearb').val(data.mat_pub_year);
+          $('#circ_typeb').val(data.mat_circ_type)
+          $('#typeb').val(data.mat_type);
+          $('#statusb').val(data.mat_status);
+          $('#sourceb').val(data.mat_source);
+          //$('div#id02').show()
+    })
+    .fail(function(data) {
+        alert("Jquery post failed "+bar);
+        //Server failed to respond - Show an error message
+        $('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');
+    });
+  });
+});
+</script>
+
+    <!--<script type = "text/javascript" src = "js/formhandler.js"></script>
+    <script type = "text/javascript" src = "js/update.js"></script> -->
+    
+
     <!-- <script>
       var modal = document.getElementById('barcodeModal');
 
