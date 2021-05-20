@@ -85,7 +85,7 @@
                 </a>
               </div>
             </li>
-            <li class = "nav__item"> <!-- Changes -->
+            <li class = "nav__item nav__item--isActive"> <!-- Changes -->
               <div class = "tooltip">
                 <span class = "tooltiptext-t1">Staff</span>
                 <a href = "../staff/index.php" class = "nav__link focus--box-shadow" role = "menuitem" aria-label = "Staff">
