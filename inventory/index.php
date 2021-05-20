@@ -76,7 +76,7 @@
       transition: 0.2s ease-in-out;
     }
 
-    #submitbtn:hover, #cancelbtn:hover, 
+    #submitbtn:hover, #cancelbtn:hover,
     #submitbtna:hover, #submitbtnb:hover {
       opacity: 1;
     }
@@ -110,7 +110,7 @@
     }
 
     .modal input[type=text], select {
-      width: 100%;
+      width: 95%;
       padding: 12px 20px;
       margin: 8px 0;
       display: inline-block;
@@ -303,7 +303,7 @@
                   <h1 class = "modal-title"></h1>
                   <input type="hidden" name="function" id = "functiona" value = "accession-number">
                   <input type = "hidden" id = "ida" name = "id" value = "">
-                
+
                   <label for = "acc_num">Accession Number</label>
                   <input type = "text" id = "acc_numa" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
 
@@ -444,7 +444,7 @@
                   <h1 class = "modal-title"></h1>
                   <input type="hidden" name="function" id = "function" value = "barcode">
                   <input type = "hidden" id = "idb" name = "id" value = "">
-                  
+
                   <label for = "acc_num">Accession Number</label>
                   <input type = "text" id = "acc_numb" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
 
