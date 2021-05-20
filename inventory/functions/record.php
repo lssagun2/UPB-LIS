@@ -22,7 +22,7 @@
 		//error handling
 	}
 	$inv_info = [
-				'mat_acc_id' => $row['mat_id'],
+				'mat_id' => $row['mat_id'],
 				"inv_$year" => 1,
 				"date_$year" => date("Y-m-d H:i:s"),
 				"staff_id_$year" => $_SESSION["staff_id"]
