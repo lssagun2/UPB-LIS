@@ -33,7 +33,7 @@
       <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
       <a href = "#"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
-      <a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
+      <a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
     </div>
     <div id = "main">
       <div class = "wrapper">
@@ -49,7 +49,7 @@
                 </a>
               </div>
             </li>
-            <li class = "nav__item">
+            <li class = "nav__item nav__item--isActive">
               <div class = "tooltip">
                 <span class = "tooltiptext-t1">All Materials</span>
                 <a href = "../materials/index.php" class = "nav__link focus--box-shadow" role = "menuitem" aria-label = "Materials">
@@ -133,7 +133,7 @@
               		</div>
               	</div>
 
-                <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto; height: 690px;">
+                <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto;">
                   <table id = "allmaterials" style = "display: block;">
                   	<thead>
                   		<tr>
