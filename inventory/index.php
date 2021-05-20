@@ -570,7 +570,48 @@
         </div>
       </div>
     </div>
-
+    <div class = "modal" id = "report">
+      <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
+      <form class = "modal-content" id = "report-form" action = "../report/index.php" method = "POST">
+        <div class = "container" style = "overflow-y: auto;">
+        <h1 class = "modal-title">Generate Report</h1>
+          <label for="report-select">Choose report to generate:</label>
+          <select class = "report-select" id="report-select" name="report-select">
+            <option value = "materials">Materials</option>
+            <option value = "inventory">Inventory</option>
+            <option value = "comparison">Comparison</option>
+          </select>
+          <div class="year-select" style="display: none">
+            <label for="year1">Choose first year:</label>
+            <select class = "year-select" id="year1" name="year1">
+              <?php
+                $sql = "SHOW COLUMNS FROM INVENTORY LIKE 'inv_%'";
+                $result = $conn->query($sql);
+                while($row = $result->fetch_assoc()){
+              ?>
+                <option value = "<?php echo substr($row["Field"], 4) ?>"><?php echo substr($row["Field"], 4) ?></option>
+              <?php
+                }
+              ?>
+            </select>
+            <label for="year2">Choose second year:</label>
+            <select class = "year-select" id="year2" name="year2">
+              <?php
+                $sql = "SHOW COLUMNS FROM INVENTORY LIKE 'inv_%'";
+                $result = $conn->query($sql);
+                while($row = $result->fetch_assoc()){
+              ?>
+                <option value = "<?php echo substr($row["Field"], 4) ?>"><?php echo substr($row["Field"], 4) ?></option>
+              <?php
+                }
+              ?>
+            </select>
+          </div>
+          <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
+          <button type = "submit" class = "modalbtn">Generate Report</button>
+        </form>
+      </div>
+    </div>
     <footer class = "footer">
       <p style = "float: left; padding-left: 10px; padding-top: 16px;">University of the Philippines - Baguio Library Inventory System</p>
       <p style = "float: right; padding-right: 10px; padding-top: 16px;">For news and related events visit:
@@ -582,6 +623,7 @@
 
     <script type = "text/javascript" src = "js/formhandler.js"></script>
     <script type = "text/javascript" src = "js/update.js"></script>
+    <script type = "text/javascript" src = "js/buttons.js"></script>
     <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
     <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
     <script>
@@ -597,9 +639,9 @@
     </script>
 
     <script>
-    document.getElementById("rgbtn").onclick = function() {
-      location.href = "../report/comparison.php";
-    };
+    // document.getElementById("rgbtn").onclick = function() {
+    //   location.href = "../report/comparison.php";
+    // };
     </script>
   </body>
 </html>
