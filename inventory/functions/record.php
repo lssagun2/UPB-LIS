@@ -3,13 +3,16 @@
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/functions/edit.php";
 	date_default_timezone_set('Asia/Manila');
+
+	if (isset($_POST["acc_num"])){
 	$year = date("Y");
-	$mat_acc_num = $_POST["acc_num"];
-	$sql = "SELECT mat_id FROM INVENTORY WHERE mat_acc_num = '$mat_acc_num'";
+	$mat_acc_num = trim($_POST["acc_num"]);
+	$sql = "SELECT mat_id FROM MATERIAL WHERE mat_acc_num = '$mat_acc_num'";
 	$result = $conn->query($sql);
 	if($result->num_rows != 0){
 		$row = $result->fetch_assoc();
-		$mat_id = $row["mat_id"];
+		$mat_id = $row['mat_id'];
+		$data["info"] = $row;
 	}
 	else{
 		//error handling
@@ -26,4 +29,5 @@
 	edit($conn, "MATERIAL", $mat_id, $update_info);
 	$data["success"] = true;
 	echo json_encode($data);
+	}
 ?>
