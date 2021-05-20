@@ -715,7 +715,7 @@ input[type=number]:focus {
 
 /* Team */
 
-.team {
+.team, .team1 {
   display: flex;
   justify-content: start;
   margin: 0 -0.6rem;
@@ -727,7 +727,7 @@ input[type=number]:focus {
   margin: 0 -0.6rem;
 }
 
-.team__header {
+.team__header, .team1__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -736,6 +736,11 @@ input[type=number]:focus {
 
 .team__item {
   width: calc(100% / 3);
+  margin: 0 0.6rem;
+}
+
+.team1__item {
+  width: calc(100% / 2);
   margin: 0 0.6rem;
 }
 
@@ -749,6 +754,18 @@ input[type=number]:focus {
   display: block;
   width: 100%;
   height: 100%;
+  background-color: var(--alabaster);
+  padding: 2.4rem 1.6rem;
+  border-radius: 10px;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.team1__link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
   background-color: var(--alabaster);
   padding: 2.4rem 1.6rem;
   border-radius: 10px;

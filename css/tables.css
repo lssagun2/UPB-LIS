@@ -260,6 +260,10 @@ h1 {
   background: linear-gradient(-45deg, rgba(128,0,0,1) 0%, rgba(34,139,34,1) 100%);
 }
 
+.allmaterials {
+  height: 690px;
+}
+
 #allmaterials td, #allmaterials th {
   border: none;
   padding: 15px;
@@ -310,6 +314,10 @@ h1 {
 
 #allmaterials td {
   cursor: pointer;
+}
+
+#allmaterials td:nth-child(17){
+ text-align: center;
 }
 
 #allmaterials td:nth-child(11){
@@ -457,4 +465,10 @@ h1 {
   .cancelbtn .addbtn {
     width: 100%;
   }
+}
+
+.report-gen-td td:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 50px;
+  cursor: pointer;
 }
