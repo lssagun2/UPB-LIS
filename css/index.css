@@ -1267,3 +1267,21 @@ input[type=number]:focus {
 .sort-by-desc3:hover {
   border-top: solid 7px #fff;
 }
+
+.category-design {
+  padding: 5px 20px;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.category-design:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.report-gen-comp {
+  cursor: pointer;
+}
+
+.report-gen-comp:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}

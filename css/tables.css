@@ -253,6 +253,7 @@ h1 {
   font-family: sans-serif;
   font-size: 1em;
   line-height: 25px;
+  border-bottom: 1px solid #ff;
   border-collapse: collapse;
   width: 120%;
   margin-right: 10px;
