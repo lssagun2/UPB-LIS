@@ -136,45 +136,45 @@
               $result = $conn->query($sql);
               $row = $result->fetch_assoc();
             ?>
-            <ul class = "team">
-              <li class = "team__item">
-                <div class = "team__link">
-                  <div class = "team__header" style = "margin-left: 43%;">
+            <ul class = "team1">
+              <li class = "team1__item">
+                <div class = "team1__link">
+                  <div class = "team1__header" style = "margin-left: 43%;">
                     <h2 id = "year1"><?php echo $year1;?></h2>
                   </div>
                   <table class = "inventory-total" style = "margin: auto; line-height: 30px;">
                     <tr class = "summary" data-year='<?php echo $year1;?>' data-comparison=false data-category = 1>
                       <th style = "font-size: 1.2em; margin-right: 37px;">Inventoried:</th>
-                      <td style = "border-radius: 0; width: 50%; outline: none; text-align: center;"><?php echo $row["inventoried_$year1"]?></td>
+                      <td class = "report-gen-comp" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"><?php echo $row["inventoried_$year1"]?></td>
                     </tr>
                     <tr class = "summary" data-year='<?php echo $year1;?>' data-comparison = false data-category = 0>
                       <th style = "font-size: 1.2em; margin-right: 0;">Not Inventoried:</th>
-                      <td style = "border-radius: 0; width: 50%; outline: none; text-align: center;"><?php echo $row["not_inventoried_$year1"]?></td>
+                      <td class = "report-gen-comp" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"><?php echo $row["not_inventoried_$year1"]?></td>
                     </tr>
                     <tr class = "summary" data-year='<?php echo $year1;?>' data-comparison = false data-category = -1>
                       <th style = "font-size: 1.2em; margin-right: 21px;">Not Acquired:</th>
-                      <td  style = "border-radius: 0; width: 50%; outline: none; text-align: center;"><?php echo $row["not_acquired_$year1"]?></td>
+                      <td class = "report-gen-comp" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"><?php echo $row["not_acquired_$year1"]?></td>
                     </tr>
                   </table>
                 </div>
               </li>
-              <li class = "team__item">
-                <div class = "team__link">
-                  <div class = "team__header" style = "margin-left: 43%;">
+              <li class = "team1__item">
+                <div class = "team1__link">
+                  <div class = "team1__header" style = "margin-left: 43%;">
                     <h2 id = "year2"><?php echo $year2;?></h2>
                   </div>
                   <table class = "inventory-total" style = "margin: auto; line-height: 30px;">
                     <tr class = "summary" data-year='<?php echo $year2;?>' data-comparison=false data-category = 1>
                       <th style = "font-size: 1.2em; margin-right: 37px;">Inventoried:</th>
-                      <td style = "border-radius: 0; width: 50%; outline: none; text-align: center;"><?php echo $row["inventoried_$year2"]?></td>
+                      <td class = "report-gen-comp" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"><?php echo $row["inventoried_$year2"]?></td>
                     </tr>
                     <tr class = "summary" data-year='<?php echo $year2;?>' data-comparison = false data-category = 0>
                       <th style = "font-size: 1.2em; margin-right: 0;">Not Inventoried:</th>
-                      <td style = "border-radius: 0; width: 50%; outline: none; text-align: center;"><?php echo $row["not_inventoried_$year2"]?></td>
+                      <td class = "report-gen-comp" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"><?php echo $row["not_inventoried_$year2"]?></td>
                     </tr>
                     <tr class = "summary" data-year='<?php echo $year2;?>' data-comparison = false data-category = -1>
                       <th style = "font-size: 1.2em; margin-right: 21px;">Not Acquired:</th>
-                      <td  style = "border-radius: 0; width: 50%; outline: none; text-align: center;"><?php echo $row["not_acquired_$year2"]?></td>
+                      <td class = "report-gen-comp" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"><?php echo $row["not_acquired_$year2"]?></td>
                     </tr>
                   </table>
                 </div>
@@ -192,7 +192,7 @@
                   <div class = "team__header">
                     <h2>Materials inventoried in <?php echo $year1;?> and <?php echo $year2;?></h2>
                   </div>
-                  <h3><?php echo $row["category_3"]; ?></h3>
+                  <h3 class = "report-gen-comp" style = "padding: 5px 0;"><?php echo $row["category_3"]; ?></h3>
                 </div>
               </li>
               <li class = "team__item">
@@ -200,7 +200,7 @@
                   <div class = "team__header">
                     <h2>Materials inventoried in <?php echo $year1;?> only</h2>
                   </div>
-                  <h3><?php echo $row["category_2"]; ?></h3>
+                  <h3 class = "report-gen-comp" style = "padding: 5px 0;"><?php echo $row["category_2"]; ?></h3>
                 </div>
               </li>
               <li class = "team__item">
@@ -208,7 +208,7 @@
                   <div class = "team__header">
                     <h2>Materials inventoried in <?php echo $year2;?> only</h2>
                   </div>
-                  <h3><?php echo $row["category_1"]; ?></h3>
+                  <h3 class = "report-gen-comp" style = "padding: 5px 0;"><?php echo $row["category_1"]; ?></h3>
                 </div>
               </li>
               <li class = "team__item">
@@ -216,7 +216,7 @@
                   <div class = "team__header">
                     <h2>Materials not inventoried in <?php echo $year1;?> and <?php echo $year2;?></h2>
                   </div>
-                  <h3><?php echo $row["category_0"]; ?></h3>
+                  <h3 class = "report-gen-comp" style = "padding: 5px 0;"><?php echo $row["category_0"]; ?></h3>
                 </div>
               </li>
             </ul>
@@ -252,10 +252,10 @@
               	</div>
 
                 <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto; height: 500px;">
-                  <table id = "allmaterials" style = "border-radius: 1em;display: block;">
+                  <table id = "allmaterials" style = "border-radius: 1em; display: block;">
                   	<thead>
                   		<tr>
-                        <th style = "border-radius: 1em 0 0 0;" class = "sort inventoried-column" data-sort = "Date Inventoried">Date Inventoried</th>
+                        <th class = "sort inventoried-column" data-sort = "Date Inventoried">Date Inventoried</th>
                         <th class = "sort inventoried-column" data-sort = "Inventoried by">Inventoried by</th>
                         <th class = "sort" data-sort = "Accession Number">Accession Number</th>
 	                      <th class = "sort" data-sort = "Barcode">Barcode</th>
@@ -272,7 +272,7 @@
 	                      <th>Status</th>
 	                      <th>Source</th>
 	                      <th>Location</th>
-	                      <th style = "border-radius: 0 1em 0 0;">Last Year Inventoried</th>
+	                      <th>Last Year Inventoried</th>
 	                    </tr>
                   	</thead>
                     <tbody id = "material-content">
