@@ -69,7 +69,7 @@ require '../config.php';
 							</a>
 						</div>
 					</li>
-					<li class = "nav__item">
+					<li class = "nav__item nav__item--isActive">
 						<div class = "tooltip">
 							<span class = "tooltiptext-t1">Changes</span>
 							<a href = "../changes/index.php" class = "nav__link focus--box-shadow" role = "menuitem" aria-label = "Changes">
