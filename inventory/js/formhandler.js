@@ -1,4 +1,4 @@
-function formhandler(record_data){
+function record(record_data){
 	console.log(record_data);
 
 	$.ajax({
@@ -34,11 +34,11 @@ $(document).ready(function(){
 	    });
 		$(document).on('click', '#submitbtna', function(){ // Submit Data - Accession Number
 			var record_data = $('form.materiala').serialize();
-			formhandler(record_data);
+			record(record_data);
 		});
 		$(document).on('click', '#submitbtnb', function(){ // Submit Data - Barcode
 			var record_data = $('form.materialb').serialize();
-			formhandler(record_data);
+			record(record_data);
 		});
 	   $(document).on('click', '#submit_acc_num', function(event) { // Fetch Accession Number Modal Data
 	    var accnum_id = $('#input_acc_num').val();
