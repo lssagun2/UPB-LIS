@@ -68,7 +68,7 @@
       margin-top: 80%;
     }
 
-    #submitbtn {
+    #submitbtn, #submitbtna ,#submitbtnb {
       background-color: #800000;
       color: #fff;
       width: 100px;
@@ -76,7 +76,8 @@
       transition: 0.2s ease-in-out;
     }
 
-    #submitbtn:hover, #cancelbtn:hover {
+    #submitbtn:hover, #cancelbtn:hover, 
+    #submitbtna:hover, #submitbtnb:hover {
       opacity: 1;
     }
 
@@ -297,11 +298,11 @@
             <div class = "column" id = "main">
               <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
               <h1>Material Information</h1>
-              <form>
+              <form  class = "materiala" method = "POST">
                 <div class = "container2">
                   <h1 class = "modal-title"></h1>
-                  <input type="hidden" name="function" id = "function" value = "">
-                  <input type = "hidden" id = "id" name = "id" value = "">
+                  <input type="hidden" name="function" id = "functiona" value = "accession-number">
+                  <input type = "hidden" id = "ida" name = "id" value = "">
                 
                   <label for = "acc_num">Accession Number</label>
                   <input type = "text" id = "acc_numa" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
@@ -403,7 +404,7 @@
                   <label for = "source">Source</label>
                   <input type = "text" id = "sourcea" name = "source" placeholder = "Material Source.." value="" autocomplete="off">
 
-                  <button type = "button" class = "modalbtn" id = "submitbtn" style = "width: auto;">Save Changes</button>
+                  <button type = "button" class = "modalbtn" id = "submitbtna" style = "width: auto;">Save Changes</button>
                   <div class = "clearfix">
                   </div>
                 </div>
@@ -438,11 +439,11 @@
             <div class = "column" id = "main">
               <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
               <h1>Material Information</h1>
-              <form>
+              <form  class = "materialb" method = "POST">
                 <div class = "container2">
                   <h1 class = "modal-title"></h1>
-                  <input type="hidden" name="function" id = "function" value = "">
-                  <input type = "hidden" id = "id" name = "id" value = "">
+                  <input type="hidden" name="function" id = "function" value = "barcode">
+                  <input type = "hidden" id = "idb" name = "id" value = "">
                   
                   <label for = "acc_num">Accession Number</label>
                   <input type = "text" id = "acc_numb" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
@@ -543,7 +544,7 @@
 
                   <label for = "source">Source</label>
                   <input type = "text" id = "sourceb" name = "source" placeholder = "Material Source.." value="" autocomplete="off">
-                  <button type = "button" class = "modalbtn" id = "submitbtn" style = "width: auto;">Save Changes</button>
+                  <button type = "button" class = "modalbtn" id = "submitbtnb" style = "width: auto;">Save Changes</button>
                   <div class = "clearfix">
                   </div>
                 </div>
@@ -579,130 +580,8 @@
       </p>
     </footer>
 
-
-<script>
- $(document).ready(function() {
-    $(document).on('click', '#anbtn', function(event) {
-      $('div#id01').show()
-    });
-    
-    $(document).on('click', '#bsbtn', function(event) {
-      $('div#id02').show()
-    });
-
-    $(document).on('click', '.close', function() {
-      $('div#id01').hide();
-      $('div#id02').hide();
-    });
-   $(document).on('click', 'button#submit_acc_num', function(event) { // Fetch Accession Number Modal Data
-    var accnum_id = $('#input_acc_num').val();
-   // $('#acc_numa').val(accnum_id);
-    $.ajax({
-      type      : 'POST',
-      url       : 'functions/fetcha.php',
-      data      : {accnum_id:accnum_id},
-      dataType  : 'JSON'
-    })
-    .done(function(data){
-          $('#acc_numa').val(data.mat_acc_num);
-          $('#barcodea').val(data.mat_barcode);
-          $('#call_numbera').val(data.mat_call_num);
-          $('#titlea').val(data.mat_title);
-          $('#authora').val(data.mat_author)
-          $('#volumea').val(data.mat_volume);
-          $('#yeara').val(data.mat_year);
-          $('#editiona').val(data.mat_edition);
-          $('#publishera').val(data.mat_publisher);
-          $('#pub_yeara').val(data.mat_pub_year);
-          $('#circ_typea').val(data.mat_circ_type)
-          $('#typea').val(data.mat_type);
-          $('#statusa').val(data.mat_status);
-          $('#sourcea').val(data.mat_source);
-          $('#locationa').val(data.mat_location);
-    })
-    .fail(function(data) {
-        //Server failed to respond - Show an error message
-        $('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');
-    }); 
-  });
-  $(document).on('click', '#submit_bar', function() { // Fetch Barcode Modal Data
-    var bar = $('#input_barcode').val();
-
-    $.ajax({
-      type      : 'POST',
-      url       : 'functions/fetchb.php',
-      data      : {bar:bar},
-      dataType  : 'JSON'
-    })
-    .done(function(data){
-          $('#acc_numb').val(data.mat_acc_num);
-          $('#barcodeb').val(data.mat_barcode);
-          $('#call_numberb').val(data.mat_call_num);
-          $('#titleb').val(data.mat_title);
-          $('#authorb').val(data.mat_author)
-          $('#volumeb').val(data.mat_volume);
-          $('#yearb').val(data.mat_year);
-          $('#editionb').val(data.mat_edition);
-          $('#publisherb').val(data.mat_publisher);
-          $('#pub_yearb').val(data.mat_pub_year);
-          $('#circ_typeb').val(data.mat_circ_type)
-          $('#typeb').val(data.mat_type);
-          $('#statusb').val(data.mat_status);
-          $('#sourceb').val(data.mat_source);
-          $('#locationb').val(data.mat_location);
-    })
-    .fail(function(data) {
-        //Server failed to respond - Show an error message
-        $('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');
-    });
-  });
-/*  $(document).on('click', '#submitbtn', function() { // Fetch Barcode Modal Data
-    var acc_num = $('#input_barcode').val();
-
-    $.ajax({
-      type      : 'POST',
-      url       : 'functions/record.php',
-      data      : {bar:bar},
-      dataType  : 'JSON'
-    })
-    .done(function(data){
-          $('#acc_numb').val(data.mat_acc_num);
-          $('#barcodeb').val(data.mat_barcode);
-          $('#call_numberb').val(data.mat_call_num);
-          $('#titleb').val(data.mat_title);
-          $('#authorb').val(data.mat_author)
-          $('#volumeb').val(data.mat_volume);
-          $('#yearb').val(data.mat_year);
-          $('#editionb').val(data.mat_edition);
-          $('#publisherb').val(data.mat_publisher);
-          $('#pub_yearb').val(data.mat_pub_year);
-          $('#circ_typeb').val(data.mat_circ_type)
-          $('#typeb').val(data.mat_type);
-          $('#statusb').val(data.mat_status);
-          $('#sourceb').val(data.mat_source);
-          $('#locationb').val(data.mat_location);
-    })
-    .fail(function(data) {
-        //Server failed to respond - Show an error message
-        $('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');
-    });
-  });*/
-});
-</script>
-
     <script type = "text/javascript" src = "js/formhandler.js"></script>
     <script type = "text/javascript" src = "js/update.js"></script>
-    
-
-    <!-- <script>
-      var modal = document.getElementById('barcodeModal');
-
-      window.onclick = function(event) {
-        if(event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    </script> -->
     <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
     <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
     <script>
@@ -715,48 +594,6 @@
         document.getElementById("sidebar").style.width = "0";
         document.getElementById("main").style.marginRight = "0";
       }
-    </script>
-
-    <script>
-    var accession_modal = document.getElementById("id01");
-    var accession_btn = document.getElementById("anbtn");
-    var accession_span = document.getElementsByClassName("close")[0];
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == accession_modal) {
-        modal.style.display = "none";
-      }
-    }
-    </script>
-
-    <script>
-    var barcode_modal = document.getElementById("id02");
-    var barcode_btn = document.getElementById("bsbtn");
-    var barcode_span = document.getElementsByClassName("close")[0];
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == barcode_modal) {
-        modal.style.display = "none";
-      }
-    }
     </script>
 
     <script>
