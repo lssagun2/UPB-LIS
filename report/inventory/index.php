@@ -1,8 +1,12 @@
 <?php
   session_start();
-  require '../../config.php';
-  date_default_timezone_set('Asia/Manila');
-  $year = date("Y");
+  if(!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true)){
+    header("location: ../../logout.php");
+  }
+  require "../../config.php";
+  date_default_timezone_set("Asia/Manila");
+  $year = date('Y');
+  $date = date('M d, Y - g:i:s A');
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +16,7 @@
     <link rel="icon" type="image/ico" href="../../favicon.ico">
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content = "ie=edge">
-    <title>Materials Report</title>
+    <title>Inventory</title>
     <link rel = "stylesheet" type = "text/css" href = "../../css/fontawesome/css/all.min.css">
     <link rel = "stylesheet" href = "../../css/normalize.css">
     <link rel = "stylesheet" href ="../../css/index.css">
@@ -34,7 +38,7 @@
       <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
       <a href = "#"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
-      <a href = "../../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
+      <a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
     </div>
     <div id = "main">
       <div id="loading-cover"></div>
@@ -94,7 +98,6 @@
           </ul>
         </nav>
         <main class = "main">
-          <div id="loading-cover"></div>
           <header class = "header">
             <div class = "header__wrapper">
               <form action = "" class = "search">
@@ -116,181 +119,82 @@
 
           <section class = "section">
             <header class = "section__header">
-              <h1><span class = "h1-admin">Materials</span> Report</h1>
+              <h1><span class = "h1-admin"><?php echo $year?> Inventory Report</span> (as of <?php echo $date;?>)</h1>
             </header>
             <ul class = "team">
-              <li class = "team__item" style = "width: auto;">
+              <li class = "team__item" style = "width: 100%;">
                 <div class = "team__link">
-                  <div class = "mat-report">
-                    <?php
-                      $sql = "SELECT COUNT(1) AS mat_count FROM MATERIAL";
-                      $result = $conn->query($sql);
-                      $row = $result->fetch_assoc();
-                    ?>
-                    <b style = "font-size: 1.2em; margin-right: 50px;">Total Number of Materials:</b>
-                    <a id = "total-number-mat" style = "border-radius: 0; width: 100px;"><?php echo $row["mat_count"];?></a><br><br>
-                    <?php
-                      $sql = "SELECT DISTINCT mat_title FROM MATERIAL";
-                      $result = $conn->query($sql);
-                    ?>
-                    <b style = "font-size: 1.2em; margin-right: 30px;">Number of Unique Titles:</b>
-                    <a id = "number-unique-mat" style = "border-radius: 0; width: 100px;"><?php echo $result->num_rows;?></a>
+                  <?php
+                    $sql = "
+                      SELECT COUNT(1) AS total,
+                             SUM(CASE WHEN inv_$year = 1 THEN 1 ELSE 0 END) AS inventoried,
+                             SUM(CASE WHEN inv_$year = 0 THEN 1 ELSE 0 END) AS not_inventoried
+                      FROM INVENTORY;
+                    ";
+                    $result = $conn->query($sql);
+                    $row = $result->fetch_assoc();
+                  ?>
+                  <div class = "inventory-total" style = "text-align: center; margin-bottom: 30px;">
+                    <b style = "font-size: 1.2em; margin-right: 30px;">Total Number of Materials:</b>
+                    <a id = "total-number-mat" style = "border-radius: 0; width: 25%;"><?php echo $row["total"]; ?></a>
+                  </div>
+                  <div class = "inventory-report" style = "text-align: center;">
+                    <b style = "margin-right: 30px;">Inventoried:</b>
+                    <a class = "category" data-category = "inventoried" style = "border-radius: 0; width: 25%; margin-right: 30px;"><?php echo $row["inventoried"];?></a>
+                    <span style = "border-radius: 0; width: 50%; margin-right: 30px; margin-left: 30px;"></span>
+                    <b style = "margin-right: 30px;">Not Inventoried:</b>
+                    <a class = "category" data-category = "not_inventoried" style = "border-radius: 0; width: 25%;"><?php echo $row["not_inventoried"];?></a>
                   </div>
                 </div>
               </li>
             </ul>
           </section>
 
-          <section class = "section">
-            <!-- <header class = "section__header">
-              <h1><span class = "h1-admin">Report</span> Generation</h1>
-            </header> -->
-            <ul class = "team1">
-              <li class = "team1__item">
-                <div class = "team1__link">
-                  <div class = "team1__header">
-                    <h2 style = "margin-left: 33%; margin-right: 25%; text-align: center;">Breakdown by Material Type</h2>
-                  </div>
-                  <div class = "material-type" style = "line-height: 30px; margin-left: 20%;">
-                    <table class = "report-gen-td">
-                      <?php
-                        $sql = "SELECT DISTINCT mat_type, COUNT(1) as type_count FROM MATERIAL GROUP BY mat_type";
-                        $result = $conn->query($sql);
-                        while($row = $result->fetch_assoc()){
-                      ?>
-                        <tr class = "change-filter" data-filter = "type-filter" data-filter-value = "<?php echo $row["mat_type"];?>">
-                          <th><?php echo $row["mat_type"];?>:</th>
-                          <td style = "border: 1px solid 0.5; outline: none; width: 50%; text-align: center;"><?php echo $row["type_count"];?></td>
-                        </tr>
-                      <?php
-                        }
-                      ?>
-                    </table>
-                  </div>
-                </div>
-              </li>
-              <li class = "team1__item">
-                <div class = "team1__link">
-                  <div class = "team1__header">
-                    <h2 style = "margin-left: 33%; margin-right: 25%; text-align: center;">Breakdown by Status</h2>
-                  </div>
-                  <div class = "status" style = "line-height: 30px; margin-left: 20%;">
-                    <table class = "report-gen-td">
-                      <?php
-                        $sql = "SELECT DISTINCT mat_status, COUNT(1) as status_count FROM MATERIAL GROUP BY mat_status";
-                        $result = $conn->query($sql);
-                        while($row = $result->fetch_assoc()){
-                      ?>
-                        <tr class = "change-filter" data-filter = "status-filter" data-filter-value = "<?php echo $row["mat_status"];?>">
-                          <th><?php echo $row["mat_status"];?>:</th>
-                          <td style = "border: 1px solid 0.5; outline: none; width: 50%; text-align: center;"><?php echo $row["status_count"];?></td>
-                        </tr>
-                      <?php
-                        }
-                      ?>
-                    </table>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <section class = "section">
-            <!-- <header class = "section__header">
-              <h1><span class = "h1-admin">Report</span> Generation</h1>
-            </header> -->
-            <ul class = "team1">
-              <li class = "team1__item">
-                <div class = "team1__link">
-                  <div class = "team1__header">
-                    <h2 style = "margin-left: 23%; margin-right: 25%; text-align: center;">Breakdown by Circulation Type</h2>
-                  </div>
-                  <div class = "circulation-type" style = "line-height: 30px; margin-left: 20%;">
-                    <table class = "report-gen-td">
-                      <?php
-                        $sql = "SELECT DISTINCT mat_circ_type, COUNT(1) as circ_type_count FROM MATERIAL GROUP BY mat_circ_type";
-                        $result = $conn->query($sql);
-                        while($row = $result->fetch_assoc()){
-                      ?>
-                        <tr class = "change-filter" data-filter = "circtype-filter" data-filter-value = "<?php echo $row["mat_circ_type"];?>">
-                          <th><?php echo $row["mat_circ_type"];?>:</th>
-                          <td style = "border: 1px solid 0.5; outline: none; width: 50%; text-align: center;"><?php echo $row["circ_type_count"];?></td>
-                        </tr>
-                      <?php
-                        }
-                      ?>
-                    </table>
-                  </div>
-                </div>
-              </li>
-              <li class = "team1__item">
-                <div class = "team1__link">
-                  <div class = "team1__header">
-                    <h2 style = "margin-left: 31%; margin-right: 30%; text-align: center;">Breakdown by Location</h2>
-                  </div>
-                  <div class = "location" style = "line-height: 30px; margin-left: 20%;">
-                    <table class = "report-gen-td">
-                      <?php
-                        $sql = "SELECT DISTINCT mat_location, COUNT(1) as location_count FROM MATERIAL GROUP BY mat_location";
-                        $result = $conn->query($sql);
-                        while($row = $result->fetch_assoc()){
-                      ?>
-                        <tr class = "change-filter" data-filter = "location-filter" data-filter-value = "<?php echo $row["mat_location"];?>">
-                          <th><?php echo $row["mat_location"];?>:</th>
-                          <td style = "border: 1px solid 0.5; outline: none; width: 50%; text-align: center;"><?php echo $row["location_count"];?></td>
-                        </tr>
-                      <?php
-                        }
-                      ?>
-                    </table>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
           <section class = "section">
             <ul class = "project">
               <li class = "project__item" id = "table-materials" style="display: none;">
                 <div style = "display: inline-block; width: 100%; height: 50px; padding: 15px; padding-top: 15px; background-color: rgba(255, 255, 255, 0.5); border-radius: 0.5em 0.5em 0 0">
                   <div style = "float: left; font-size: 1.2em;">
-                    Showing
-                    <form style = "display: inline;" id = "limit-form">
-                      <input type = "number" min = "10" max = "100" id = "limit" name = "limit" value = "10" autocomplete = "off">
-                    </form>
-                     Entries
-                  </div>
+              			Showing
+		              	<form style = "display: inline;" id = "limit-form">
+		              		<input type = "number" min = "10" max = "100" id = "limit" name = "limit" value = "10" autocomplete = "off">
+		              	</form>
+		              	 Entries
+              		</div>
                   <div style = "margin-left: 45%; margin-top: -20px;width: 33%;">
                     <button class = "previous" style = "color: #ffcc3d; font-size: 2em;"><i class="fas fa-caret-square-left" style = " transition: 0.1s ease-in-out;"></i></button>
               			<button class = "next" style = "color: #ffcc3d; font-size: 2em;"><i class="fas fa-caret-square-right" style = " transition: 0.1s ease-in-out;"></i></button>
               		</div>
-                  <div style = "float: right; vertical-align: right; margin-top: -50px;">
-                    <button class = "filter"><i class="fas fa-filter"></i></button>
-                  </div>
-                </div>
+              		<div style = "float: right; vertical-align: right; margin-top: -50px;">
+              			<button class = "filter"><i class="fas fa-filter"></i></button>
+              		</div>
+              	</div>
 
-                <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto; height: 690px;">
-                  <table id = "allmaterials" style = "display: block;">
+                <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto; height: 500px;">
+                  <table id = "allmaterials" style = "border-radius: 1em;display: block;">
                   	<thead>
                   		<tr>
-	                      <th class = "sort" data-sort = "Accession Number">Accession Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th class = "sort" data-sort = "Barcode">Barcode<i class="sort-by-asc1"></i><i class="sort-by-desc1"></i></th>
-	                      <th class = "sort" data-sort = "Call Number">Call Number<i class="sort-by-asc2"></i><i class="sort-by-desc2"></i></th>
-	                      <th class = "sort" data-sort = "Title">Title<i class="sort-by-asc3"></i><i class="sort-by-desc3"></i></th>
+                        <th style = "border-radius: 1em 0 0 0;" class = "sort inventoried-column" data-sort = "Date Inventoried">Date Inventoried</th>
+                        <th class = "sort inventoried-column" data-sort = "Inventoried by">Inventoried by</th>
+                        <th class = "sort" data-sort = "Accession Number">Accession Number</th>
+	                      <th class = "sort" data-sort = "Barcode">Barcode</th>
+	                      <th class = "sort" data-sort = "Call Number">Call Number</th>
+	                      <th class = "sort" data-sort = "Title">Title</th>
 	                      <th>Author</th>
-                        <th>Volume</th>
-                        <th>Year</th>
-                        <th>Edition</th>
-                        <th>Publisher</th>
-                        <th>Publication Year</th>
-                        <th>Circulation Type</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                        <th>Source</th>
-                        <th>Location</th>
-                        <th>Last Year Inventoried</th>
-                      </tr>
-                    </thead>
-                    <tbody id = "material-content">
+	                      <th>Volume</th>
+	                      <th>Year</th>
+	                      <th>Edition</th>
+	                      <th>Publisher</th>
+	                      <th>Publication Year</th>
+	                      <th>Circulation Type</th>
+	                      <th>Type</th>
+	                      <th>Status</th>
+	                      <th>Source</th>
+	                      <th>Location</th>
+	                      <th style = "border-radius: 0 1em 0 0;">Last Year Inventoried</th>
+	                    </tr>
+                  	</thead>
+                    <tbody>
 
                     </tbody>
                   </table>
