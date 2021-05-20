@@ -196,6 +196,8 @@ h1 {
 .form-control.error small{
   visibility: visible;
   color: #e74c3c;
+  position: relative;
+  bottom: 5px;
 }
 
 .form-control.success i.fa-check-circle{
