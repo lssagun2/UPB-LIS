@@ -44,14 +44,24 @@
 			 	"mat_source" => trim($_POST['source']), 
 			 	"mat_location" => trim($_POST['location']),
 			 	"mat_lastinv_year" => $year
-			 ];
+	];
+	$change_info = [
+				"staff_id" => $_SESSION["staff_id"],
+				"mat_id" => trim($_POST['id']),
+				"change_type" => "edit",
+				"change_date" => date("Y-m-d H:i:s"),
+				"change_prev_info" => json_encode($row)
+	];
+
 	add($conn, "INVENTORY", $inv_info);
 	edit($conn, "INVENTORY", $mat_id, $inv_info);
 	edit($conn, "MATERIAL", $mat_id, $info);
-
-
+	add($conn, "CHANGES", $change_info);
 
 	$data["success"] = true;
 	echo json_encode($data);
+
+
+	
 	}
 ?>
