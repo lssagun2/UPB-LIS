@@ -347,6 +347,8 @@ $(document).ready(function() {
 	});
 });
 </script>
+<script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
+<script type = "text/javascript" src = "../staff/js/buttons.js"></script>
 
 <script>
 function openNav() {
