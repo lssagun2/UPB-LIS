@@ -147,9 +147,9 @@
                       <td><?php echo $row['staff_lastname'] ?></td>
                       <td><?php echo $row['staff_password'] ?></td>
 
-                      <td style = "align: center">
-                        <button id = 'deleteStaffTable' class = 'edit' style = 'width: 40px; height: 40px; color: #000;'><i class="fas fa-trash-alt"></i></button>
-                        <button id = 'editStaffTable' class = 'edit' style = 'width: 40px; height: 40px; color: #000;'><i class = 'fas fa-edit'></i></button>
+                      <td style = "margin-right: 5px;" align = "center">
+                        <button id = 'editStaffTable' class = 'edit'><i class = 'fas fa-edit'></i></button>
+                        <button id = 'deleteStaffTable' class = 'edit'><i class="fas fa-trash-alt"></i></button>                        
                       </td>
                     </tr>
                     <?php } ?>
