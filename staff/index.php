@@ -126,11 +126,11 @@
                   <table class="staffTable" id = "staffTable" style = "border-radius: 1em;">
                      <thead>
                       <tr>
-                        <th width="15%" style = "border-radius: 1em 0 0 0;">Username</th>
+                        <th width="15%" style = "border-radius: 0.9em 0 0 0;">Username</th>
                         <th width="20%">First Name</th>
                         <th width="25%">Last Name</th>
                         <th width="20%">Password</th>
-                        <th width="10%" style = "border-radius: 0 1em 0 0;">Action</th>
+                        <th width="10%" style = "border-radius: 0 0.9em 0 0;">Action</th>
                       </tr>
                     </thead>
                     <tbody>
