@@ -140,7 +140,7 @@
                   </div>
                   <div class = "inventory-report" style = "text-align: center;">
                     <b style = "margin-right: 30px;">Inventoried:</b>
-                    <a class = "category category-design" data-category = "inventoried" style = "border-radius: 0; width: 25%; margin-right: 30px;"><?php echo $row["inventoried"];?></a>
+                    <a class = "category category-design" data-category = "inventoried"><?php echo $row["inventoried"];?></a>
                     <span style = "border-radius: 0; width: 50%; margin-right: 30px; margin-left: 30px;"></span>
                     <b style = "margin-right: 30px;">Not Inventoried:</b>
                     <a class = "category category-design" data-category = "not_inventoried" style = "border-radius: 0; width: 25%;"><?php echo $row["not_inventoried"];?></a>
@@ -176,10 +176,10 @@
                   		<tr>
                         <th class = "sort inventoried-column" data-sort = "Date Inventoried">Date Inventoried</th>
                         <th class = "sort inventoried-column" data-sort = "Inventoried by">Inventoried by</th>
-                        <th class = "sort" data-sort = "Accession Number">Accession Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th class = "sort" data-sort = "Barcode">Barcode<i class="sort-by-asc1"></i><i class="sort-by-desc1"></i></th>
-	                      <th class = "sort" data-sort = "Call Number">Call Number<i class="sort-by-asc2"></i><i class="sort-by-desc2"></i></th>
-	                      <th class = "sort" data-sort = "Title">Title<i class="sort-by-asc3"></i><i class="sort-by-desc3"></i></th>
+                        <th class = "sort" data-sort = "Accession Number">Accession Number</th>
+	                      <th class = "sort" data-sort = "Barcode">Barcode</th>
+	                      <th class = "sort" data-sort = "Call Number">Call Number</th>
+	                      <th class = "sort" data-sort = "Title">Title</th>
 	                      <th>Author</th>
 	                      <th>Volume</th>
 	                      <th>Year</th>
