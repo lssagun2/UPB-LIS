@@ -117,12 +117,12 @@ require '../config.php';
 					<ul class = "project">
 						<li class = "project__item">
 							<div class = "allmaterials" style = "overflow-x: auto; overflow-y:  auto; height: 500px;">
-								<table id = "changes" style = "border-radius: 1em;">
+								<table id = "changes">
 									<thead>
 										<tr>
-											<th width="20%" style = "border-radius: 1em 0 0 0;">Date</th>
+											<th width="20%" style = "border-radius: 0.9em 0 0 0;">Date</th>
 											<th width="60%" style = "border-radius: 0 0 0 0;">Description</th>
-											<th width="20%" style = "border-radius: 0 1em 0 0;">Action</th>
+											<th width="20%" style = "border-radius: 0 0.9em 0 0;">Action</th>
 										</tr>
 									</thead>
 
