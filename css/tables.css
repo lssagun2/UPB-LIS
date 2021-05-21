@@ -253,7 +253,7 @@ h1 {
   font-family: sans-serif;
   font-size: 1em;
   line-height: 25px;
-  border-bottom: 1px solid #ff;
+  border-bottom: 1px solid #fff;
   border-collapse: collapse;
   width: 120%;
   margin-right: 10px;
@@ -376,9 +376,13 @@ h1 {
   background: linear-gradient(24deg, rgba(128,0,0,1) 0%, rgba(34,139,34,1) 100%);
 }
 
-#inventory td, #inventory th, #staffTable td, #staffTable th {
+#inventory th, #staffTable th {
   border: none;
   padding: 8px;
+}
+
+#inventory td, #staffTable td {
+  border-bottom: 1px solid #fff;
 }
 
 #inventory tr th, #staffTable tr th {
@@ -418,9 +422,14 @@ h1 {
   background: linear-gradient(24deg, rgba(128,0,0,1) 0%, rgba(34,139,34,1) 100%);
 }
 
-#changes td, #changes th {
+#changes th {
   border: none;
   padding: 8px;
+}
+
+#changes td {
+  padding: 8px;
+  border-bottom: 1px solid #fff;
 }
 
 #changes tr th {
