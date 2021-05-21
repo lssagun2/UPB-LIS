@@ -90,6 +90,21 @@ h1 {
   border-radius: 50px;
 }
 
+#editStaffTable {
+  margin-left: 25%;
+  float: left;
+  width: 40px;
+  height: 40px;
+  color: #000;
+}
+
+#deleteStaffTable {
+  float: left;
+  width: 40px;
+  height: 40px;
+  color: #000;
+}
+
 .edit:hover {
   opacity: 1;
 }
