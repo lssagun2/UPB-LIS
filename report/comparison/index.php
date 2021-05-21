@@ -257,10 +257,10 @@
                   		<tr>
                         <th class = "sort inventoried-column" data-sort = "Date Inventoried">Date Inventoried</th>
                         <th class = "sort inventoried-column" data-sort = "Inventoried by">Inventoried by</th>
-                        <th class = "sort" data-sort = "Accession Number">Accession Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th class = "sort" data-sort = "Barcode">Barcode<i class="sort-by-asc1"></i><i class="sort-by-desc1"></i></th>
-	                      <th class = "sort" data-sort = "Call Number">Call Number<i class="sort-by-asc2"></i><i class="sort-by-desc2"></i></th>
-	                      <th class = "sort" data-sort = "Title">Title<i class="sort-by-asc3"></i><i class="sort-by-desc3"></i></th>
+                        <th class = "sort" data-sort = "Accession Number">Accession Number</th>
+	                      <th class = "sort" data-sort = "Barcode">Barcode</th>
+	                      <th class = "sort" data-sort = "Call Number">Call Number</th>
+	                      <th class = "sort" data-sort = "Title">Title</th>
 	                      <th>Author</th>
 	                      <th>Volume</th>
 	                      <th>Year</th>
