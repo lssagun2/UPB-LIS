@@ -2,6 +2,7 @@
 function update(){
 	var data = $('form#filter-form, form#limit-form, form#page-form').serializeArray();
 	data.push({name: "sort", value: sort}, {name: "sort_direction", value: sort_direction});
+	$('div#loading-cover').show();
 	$.ajax({
 		type 		: 'POST',
 		url			: 'functions/update.php',
@@ -48,7 +49,8 @@ function update(){
 			tr.append("<td>" + material.mat_location + "</td>");
 			tr.append("<td>" + material.mat_lastinv_year + "</td>");
 			tr.append("<td><button class = 'edit' style = 'width: 50px; height: 50px; color: #000;'><i class = 'fas fa-edit'></i></button></td>")
-		})
+		});
+		$('div#loading-cover').hide();
 	})
 	.fail(function(data) {
 		$('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');

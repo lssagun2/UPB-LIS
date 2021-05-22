@@ -5,6 +5,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$(".input-invalid").hide();
 		var function_name = $("#function").val();
+		$('div#loading-cover').show();
 		$.ajax({
 			type 		: 'POST',
 			url			: 'functions/'+function_name+'.php',
@@ -155,6 +156,7 @@ $(document).ready(function(){
 				}
 				console.log(data);
 			}// Change END else part
+			$('div#loading-cover').hide();
 		return;
 			
 		})

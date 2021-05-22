@@ -212,70 +212,50 @@
     <div class = "container" style = "overflow-y: auto;">
     <h1 class = "modal-title"></h1>
       <label for="circtype-filter">Circulation Type:</label>
-      <select id="circtype-filter" name="circtype-filter">
-        <option value = "" selected>---none---</option>
-        <option value = "Circulation Book">Circulation Book</option>
-        <option value = "Circulation Monograph">Circulation Monograph</option>
-        <option value = "Cordillera Book">Cordillera Book</option>
-        <option value = "Cordillera Monograph">Cordillera Monograph</option>
-        <option value = "Cordillera Multimedia">Cordillera Multimedia</option>
-        <option value = "Filipiniana Reference">Filipiniana Reference</option>
-        <option value = "Filipiniana Archives">Filipiniana Archives</option>
-        <option value = "Filipiniana Book">Filipiniana Book</option>
-        <option value = "Filipiniana MO">Filipiniana MO</option>
-        <option value = "Filipiniana Monograph">Filipiniana Monograph</option>
-        <option value = "Filipiniana PIDS">Filipiniana PIDS</option>
-        <option value = "GRC Book">GRC Book</option>
-        <option value = "GRC MO">GRC MO</option>
-        <option value = "GRC Monograph">GRC Monograph</option>
-        <option value = "Howard Fry Special Collection - Room Use Only">Howard Fry Special Collection - Room Use Only</option>
-        <option value = "Multimedia Material">Multimedia Material</option>
-        <option value = "Non-Circulation">Non-Circulation</option>
-        <option value = "Periodicals - Room Use Only">Periodicals - Room Use Only</option>
-        <option value = "Reference - Room Use Only">Reference - Room Use Only</option>
-        <option value = "Reference - Room Use Only (Reserve Section)">Reference - Room Use Only (Reserve Section)</option>
-        <option value = "Reserve - Monograph">Reserve - Monograph</option>
-        <option value = "Reserve Book">Reserve Book</option>
-        <option value = "Reserve Book - 1 month loan">Reserve Book - 1 month loan</option>
-        <option value = "Reserve Book - Room Use Only">Reserve Book - Room Use Only</option>
-        <option value = "Room Use Only">Room Use Only</option>
-        <option value = "Thesis - Room Use Only">Thesis - Room Use Only</option>
+      <select class = "filter-column" id="circtype-filter" name="circtype-filter">
+        <option value = "" selected = "selected">---none---</option>
+        <?php
+          $sql = "SELECT DISTINCT mat_circ_type FROM MATERIAL";
+          $result = $conn->query($sql);
+          while($row = $result->fetch_assoc()){
+        ?>
+        <option value = "<?php echo $row['mat_circ_type']?>"><?php echo $row['mat_circ_type']?></option>
+        <?php } ?>
       </select>
       <label for="type-filter">Material Type:</label>
-      <select id="type-filter" name="type-filter">
-        <option value = "" selected>---none---</option>
-        <option value = "Article">Article</option>
-        <option value = "Book">Book</option>
-        <option value = "Computer File">Computer File</option>
-        <option value = "Map">Map</option>
-        <option value = "Mixed Material">Mixed Material</option>
-        <option value = "Music">Music</option>
-        <option value = "Serial">Serial</option>
-        <option value = "Thesis">Thesis</option>
-        <option value = "Visual Material">Visual Material</option>
+      <select class = "filter-column" id="type-filter" name="type-filter">
+        <option value = "" selected = "selected">---none---</option>
+        <?php
+          $sql = "SELECT DISTINCT mat_type FROM MATERIAL";
+          $result = $conn->query($sql);
+          while($row = $result->fetch_assoc()){
+        ?>
+        <option value = "<?php echo $row['mat_type']?>"><?php echo $row['mat_type']?></option>
+        <?php } ?>
       </select>
       <label for="status-filter">Status:</label>
-      <select id="status-filter" name="status-filter">
-        <option value = "" selected>---none---</option>
-        <option value = "Available Online">Available Online</option>
-        <option value = "In Process">In Process</option>
-        <option value = "In Stacks Area">In Stacks Area</option>
-        <option value = "Long Overdue">Long Overdue</option>
-        <option value = "Lost">Lost</option>
-        <option value = "On Loan">On Loan</option>
-        <option value = "On Shelf">On Shelf</option>
-        <option value = "Preservation Copy">Preservation Copy</option>
+      <select class = "filter-column" id="status-filter" name="status-filter">
+        <option value = "" selected = "selected">---none---</option>
+        <?php
+          $sql = "SELECT DISTINCT mat_status FROM MATERIAL";
+          $result = $conn->query($sql);
+          while($row = $result->fetch_assoc()){
+        ?>
+        <option value = "<?php echo $row['mat_status']?>"><?php echo $row['mat_status']?></option>
+        <?php } ?>
       </select>
       <label for="location-filter">Location:</label>
-      <select id="location-filter" name="location-filter">
-        <option value = "" selected>---none---</option>
-        <option value = "Cordillera/Northern Luzon Archives">Cordillera/Northern Luzon Archives</option>
-        <option value = "Graduate Resource Center">Graduate Resource Center</option>
-        <option value = "Knowledge and Training Resource Center">Knowledge and Training Resource Center</option>
-        <option value = "Main Library">Main Library</option>
+      <select class = "filter-column" id="location-filter" name="location-filter">
+        <option value = "" selected = "selected">---none---</option>
+       <?php
+          $sql = "SELECT DISTINCT mat_location FROM MATERIAL";
+          $result = $conn->query($sql);
+          while($row = $result->fetch_assoc()){
+        ?>
+        <option value = "<?php echo $row['mat_location']?>"><?php echo $row['mat_location']?></option>
+        <?php } ?>
       </select>
       <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
       <button type = "button" class = "modalbtn" id = "update-filter">Update</button>
-    </form>
-  </div>
+  </form>
 </div>

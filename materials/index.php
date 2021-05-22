@@ -18,6 +18,8 @@
     <link rel = "stylesheet" href ="../css/index.css">
     <link rel = "stylesheet" href ="../css/tables.css">
     <link rel = "stylesheet" href ="../css/modals.css">
+    <link rel = "stylesheet" href ="../css/form-control.css">
+    <link rel = "stylesheet" href ="../css/loading.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
@@ -36,6 +38,7 @@
       <a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
     </div>
     <div id = "main">
+      <div id="loading-cover"></div>
       <div class = "wrapper">
         <nav class = "nav">
           <ul class = "nav__list" role = "menubar">

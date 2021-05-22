@@ -1,5 +1,6 @@
 //function that counts the total number of materials with the current filter
 function count(){
+	$('div#loading-cover').show();
 	$.ajax({
 		type 		: 'POST',
 		url			: 'functions/count.php',
