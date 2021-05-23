@@ -21,11 +21,32 @@
     <link rel = "stylesheet" href ="../css/loading.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
+    .notif-bar {
+      position: relative;
+      z-index: 3;
+      margin: 0 auto;
+      top: 60px;
+      text-align: center;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      line-height: 50px;
+      font-size: 1.2em;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      height: 50px;
+      width: 45%;
+    }
+
+    .modal-dialog {
+      margin-top: -100px;
+    }
+
     .modal-body {
       padding: 0;
       border-radius: 15px;
       display: flex;
-      height: 590px;
+      height: 800px;
       font-family: sans-serif;
     }
 
@@ -66,7 +87,7 @@
     }
 
     .sec-content {
-      margin-top: 80%;
+      margin-top: 110%;
     }
 
     #submitbtn, #submitbtna ,#submitbtnb {
@@ -108,14 +129,18 @@
       box-sizing: border-box;
     }
 
+    .container {
+      height: auto!important;
+    }
+
     .container2 {
       overflow-y: auto;
-      height: 425px;
+      height: 650px;
     }
 
     .wave svg {
-      height: 105%;
-      width: 97px;
+      height: 100%;
+      width: 136px;
     }
 
     .wave svg path {
@@ -123,6 +148,17 @@
     }
 
     @media screen and (max-width: 1366px) {
+      .notif-bar {
+        top: 60px;
+        line-height: 30px;
+        font-size: 1em;
+        height: 30px;
+      }
+
+      .modal-dialog {
+        margin-top: -50px;
+      }
+
       .modal {
         overflow-y: hidden;
       }
@@ -149,6 +185,10 @@
 
       .modal input[type=text], select {
         width: 90%;
+      }
+
+      .container {
+        height: auto!important;
       }
 
       .container2 {
@@ -280,7 +320,7 @@
         </main>
       </div>
     </div>
-    
+
     <footer class = "footer">
       <p style = "float: left; padding-left: 10px; padding-top: 16px;">University of the Philippines - Baguio Library Inventory System</p>
       <p style = "float: right; padding-right: 10px; padding-top: 16px;">For news and related events visit:

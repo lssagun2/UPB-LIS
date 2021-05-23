@@ -1,4 +1,5 @@
 <div class = "modal" id = "inventory-modal">
+  <div class = "notif-bar">Some contents for the notifications</div>
   <div class = "modal-dialog" role = "document">
     <div class = "modal-content">
       <div class = "modal-body">
@@ -11,7 +12,7 @@
               <div class = "form-control" id = "accnumform"> <!-- Changes -->
                 <label for = "acc_num">Accession Number</label>
                 <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Accession Number.." value="">
-                <i class="fas fa-check-circle"></i>  <!-- Changes -->          
+                <i class="fas fa-check-circle"></i>  <!-- Changes -->
                 <i class="fas fa-exclamation-circle"></i> <!-- Changes -->
                 <small>Error message</small> <!-- Changes -->
               </div> <!-- Changes -->
