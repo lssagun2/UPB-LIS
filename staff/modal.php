@@ -1,12 +1,19 @@
 <style>
-.container {
-  overflow-y: auto;
-  height: 480px;
+#staff .container {
+  height: 580px;
+  padding: 30px;
 }
 
 @media screen and (max-width: 1366px) {
-  .container {
-    height: 400px;
+  #staff .modal-content {
+    margin-top: -5px;
+    height: 600px;
+    overflow-y: hidden;
+  }
+
+  #staff .container {
+    margin: 30px;
+    height: 300px;
   }
 }
 </style>
