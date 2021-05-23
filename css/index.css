@@ -829,7 +829,7 @@ input[type=number]:focus {
   }
 
   .inventory__item {
-    width: calc(100% / 3);
+    width: calc(100% / 3.3);
     margin: 0 0.6rem;
   }
 }
