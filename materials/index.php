@@ -21,6 +21,12 @@
     <link rel = "stylesheet" href ="../css/form-control.css">
     <link rel = "stylesheet" href ="../css/loading.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+      .container {
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
     <div class = "left-logo">
