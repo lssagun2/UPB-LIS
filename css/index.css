@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
 :root {
   --font-roboto: sans-serif;
   --font-weight-regular: 400;
@@ -32,7 +34,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-color: var(--athens-gray);
-  font-family: var(--font-roboto);
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   color: var(--dune);
   overflow-x: hidden;
@@ -829,8 +831,8 @@ input[type=number]:focus {
   }
 
   .inventory__item {
-    width: calc(100% / 3.3);
-    margin: 0 0.6rem;
+    width: calc(100% / 3);
+    margin: 0 0 0.6rem 0;
   }
 }
 

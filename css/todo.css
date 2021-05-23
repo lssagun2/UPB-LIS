@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
 .title {
 	color: #800000;
 	text-transform: uppercase;
@@ -83,7 +85,7 @@ section .team__link .team__header .inputDiv .add:hover {
 	border: none;
 	color: #727ef7;
 	font-size: 0.9rem;
-	font-family: sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	cursor: pointer;
 }
@@ -95,6 +97,6 @@ section .team__link .team__header .inputDiv .add:hover {
 	border: none;
 	color: #E00;
 	font-size: 0.9rem;
-	font-family: sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	cursor: pointer;
 }

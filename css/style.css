@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
 body {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background: url("../img/oble.jpg");
   background-repeat: no-repeat;
   /* overflow: hidden; */

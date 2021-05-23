@@ -1,8 +1,4 @@
-/* .modal-content {
-  padding: 30px;
-} */
-
-.container, .containerDelete {
+.containerDelete {
   height: 480px;
   margin: 30px;
 }

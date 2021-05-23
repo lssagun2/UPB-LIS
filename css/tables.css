@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -265,7 +267,7 @@ h1 {
   outline: none;
 }
 
-.container {
+#report-form .container {
   padding: 16px;
 }
 
@@ -285,7 +287,7 @@ h1 {
 
 #allmaterials {
   color: #fff;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   line-height: 25px;
   border-bottom: 1px solid #fff;
@@ -294,6 +296,19 @@ h1 {
   margin-right: 10px;
   background: rgba(221, 13, 0, 0.2);
   background: linear-gradient(-45deg, rgba(128,0,0,1) 0%, rgba(34,139,34,1) 100%);
+}
+
+@media screen and (max-width: 1366px) {
+  #allmaterials {
+    width: 150%;
+    line-height: 20px;
+    font-size: 0.9em;
+    background-size: cover;
+  }
+
+  .allmaterials {
+    height: 150px;
+  }
 }
 
 .allmaterials {
@@ -402,7 +417,7 @@ h1 {
 
 #inventory, #staffTable {
   color: #fff;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   border-collapse: collapse;
   border-radius: 1em;
@@ -448,7 +463,7 @@ h1 {
 
 #changes {
   color: #fff;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   border-collapse: collapse;
   border-radius: 1em;

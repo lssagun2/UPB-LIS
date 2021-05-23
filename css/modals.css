@@ -1,17 +1,36 @@
-.modal-content {
+#material .modal-content {
+  padding: 30px;
+  height: 570px;
+}
+
+#information2, #information {
+  margin-top: 0;
   padding: 30px;
 }
 
-.container {
-  height: 480px;
+#information input[type=text]{
+  width: 97%;
+}
+
+#tableModal2 .container, #tableModal .container {
+  height: 830px;
 }
 
 @media screen and (max-width: 1366px) {
-  .modal-content {
+  /* .modal-content {
     height: 460px;
   }
 
   .container {
+    height: 400px;
+  } */
+
+  #information2, #information {
+    margin: 3% auto;
+    padding: 30px;
+  }
+
+  #tableModal2 .container, #tableModal .container {
     height: 400px;
   }
 }
@@ -147,11 +166,6 @@ h1 {
 .modalbtn:hover {
   opacity: 1;
   outline: none;
-}
-
-.container {
-  padding: 16px;
-  /* text-align: left; */
 }
 
 .modal input[type=text], .modal input[type=password], select {
