@@ -18,6 +18,7 @@
     <link rel = "stylesheet" href ="../css/index.css">
     <link rel = "stylesheet" href ="../css/tables.css">
     <link rel = "stylesheet" href ="../css/form-control.css">
+    <link rel = "stylesheet" href ="../css/loading.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
     .modal-body {
@@ -81,7 +82,7 @@
       opacity: 1;
     }
 
-    #submit_acc_num {
+    #inventory-submit {
       background-color: #800000;
       color: #fff;
       width: 100px;
@@ -89,19 +90,7 @@
       transition: 0.2s ease-in-out;
     }
 
-    #submit_acc_num:hover, #cancelbtn:hover {
-      opacity: 1;
-    }
-
-    #submit_bar {
-      background-color: #800000;
-      color: #fff;
-      width: 100px;
-      opacity: 0.8;
-      transition: 0.2s ease-in-out;
-    }
-
-    #submit_bar:hover, #cancelbtn:hover {
+    #inventory-submit:hover, #cancelbtn:hover {
       opacity: 1;
     }
 
@@ -185,6 +174,7 @@
       <a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
     </div>
     <div id = "main">
+      <div id="loading-cover"></div>
       <div class = "wrapper">
         <nav class = "nav">
           <ul class = "nav__list" role = "menubar">
@@ -266,12 +256,12 @@
             </header>
             <ul class = "inventory__buttons">
               <li class = "inventory__item">
-                <button type = "button" class = "accession-number" onclick = "document.getElementById('id01').style.display='block'" id = "anbtn">
+                <button type = "button" class = "accession-number">
                   <h2 class = "inventory-h2" style = "color: #fff;">Input Accession Number</h2><i class="fas fa-keyboard"></i>
                 </button>
               </li>
               <li class = "inventory__item">
-                <button type = "button" class = "barcode-scanner" onclick = "document.getElementById('id02').style.display='block'" id = "bsbtn">
+                <button type = "button" class = "barcode-scanner">
                   <h2 class = "inventory-h2" style = "color: #fff;">Scan Barcode</h2><i class="fas fa-barcode"></i>
                 </button>
               </li>
@@ -283,335 +273,14 @@
             </ul>
           </section>
           <?php
-          require "../staff/modal.php";
-          require "../staff/modaldelete.php"
+            require "modal.php";
+            require "../staff/modal.php";
+            require "../staff/modaldelete.php"
           ?>
         </main>
       </div>
     </div>
-
-    <!-- Modal Input Accession Number -->
-    <div class = "modal fade" id = "id01" >
-      <div class = "modal-dialog" role = "document">
-        <div class = "modal-content">
-          <div class = "modal-body">
-            <div class = "column" id = "main">
-              <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
-              <h1>Material Information</h1>
-              <form  class = "materiala" method = "POST">
-                <div class = "container2">
-                  <h1 class = "modal-title"></h1>
-                  <input type="hidden" name="function" id = "functiona" value = "accession-number">
-                  <input type = "hidden" id = "ida" name = "id" value = "">
-
-                  <label for = "acc_num">Accession Number</label>
-                  <input type = "text" id = "acc_numa" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
-
-                  <label for = "barcode">Barcode</label>
-                  <input type = "text" id = "barcodea" name = "barcode" placeholder = "Barcode.." value="" autocomplete="off">
-
-                  <label for = "call_number">Call Number</label>
-                  <input type = "text" id = "call_numbera" name = "call_number" placeholder = "Call Number.." value="" autocomplete="off">
-
-                  <label for = "title">Material Title</label>
-                  <input type = "text" id = "titlea" name = "title" placeholder = "Title.." value="" autocomplete="off">
-
-                  <label for = "author">Material Author</label>
-                  <input type = "text" id = "authora" name = "author" placeholder = "Author.." value="" autocomplete="off">
-
-                  <label for = "volume">Material Volume</label>
-                  <input type = "text" id = "volumea" name = "volume" placeholder = "Volume.." value="" autocomplete="off">
-
-                  <label for = "year">Material Year</label>
-                  <input type = "text" id = "yeara" name = "year" placeholder = "Year.." value="" autocomplete="off">
-
-                  <label for = "edition">Material Edition</label>
-                  <input type = "text" id = "editiona" name = "edition" placeholder = "Edition.." value="" autocomplete="off">
-
-                  <label for = "publisher">Publisher of the Material</label>
-                  <input type = "text" id = "publishera" name = "publisher" placeholder = "Publisher.." value="" autocomplete="off">
-
-                  <label for = "pub_year">Year of Publication</label>
-                  <input type = "text" id = "pub_yeara" name = "pub_year" placeholder = "Publication Year.." value="" autocomplete="off">
-
-                  <label for = "circ_type">Circulation Type</label>
-                  <select id = "circ_typea" name = "circ_type" value="">
-                    <option value = "" selected>---none---</option>
-                    <option value = "Circulation Book">Circulation Book</option>
-                    <option value = "Circulation Monograph">Circulation Monograph</option>
-                    <option value = "Cordillera Book">Cordillera Book</option>
-                    <option value = "Cordillera Monograph">Cordillera Monograph</option>
-                    <option value = "Cordillera Multimedia">Cordillera Multimedia</option>
-                    <option value = "Filipiniana Reference">Filipiniana Reference</option>
-                    <option value = "Filipiniana Archives">Filipiniana Archives</option>
-                    <option value = "Filipiniana Book">Filipiniana Book</option>
-                    <option value = "Filipiniana MO">Filipiniana MO</option>
-                    <option value = "Filipiniana Monograph">Filipiniana Monograph</option>
-                    <option value = "Filipiniana PIDS">Filipiniana PIDS</option>
-                    <option value = "GRC Book">GRC Book</option>
-                    <option value = "GRC MO">GRC MO</option>
-                    <option value = "GRC Monograph">GRC Monograph</option>
-                    <option value = "Howard Fry Special Collection - Room Use Only">Howard Fry Special Collection - Room Use Only</option>
-                    <option value = "Multimedia Material">Multimedia Material</option>
-                    <option value = "Non-Circulation">Non-Circulation</option>
-                    <option value = "Periodicals - Room Use Only">Periodicals - Room Use Only</option>
-                    <option value = "Reference - Room Use Only">Reference - Room Use Only</option>
-                    <option value = "Reference - Room Use Only (Reserve Section)">Reference - Room Use Only (Reserve Section)</option>
-                    <option value = "Reserve - Monograph">Reserve - Monograph</option>
-                    <option value = "Reserve Book">Reserve Book</option>
-                    <option value = "Reserve Book - 1 month loan">Reserve Book - 1 month loan</option>
-                    <option value = "Reserve Book - Room Use Only">Reserve Book - Room Use Only</option>
-                    <option value = "Room Use Only">Room Use Only</option>
-                    <option value = "Thesis - Room Use Only">Thesis - Room Use Only</option>
-                  </select>
-
-                  <label for = "type">Type</label>
-                  <select id = "typea" name = "type" value="">
-                    <option value = "" selected>---none---</option>
-                    <option value = "Article">Article</option>
-                    <option value = "Book">Book</option>
-                    <option value = "Computer File">Computer File</option>
-                    <option value = "Map">Map</option>
-                    <option value = "Mixed Material">Mixed Material</option>
-                    <option value = "Music">Music</option>
-                    <option value = "Serial">Serial</option>
-                    <option value = "Thesis">Thesis</option>
-                    <option value = "Visual Material">Visual Material</option>
-                  </select>
-
-                  <label for = "status">Status</label>
-                  <select id = "statusa" name = "status" value="">
-                    <option value = "" selected>---none---</option>
-                    <option value = "Available Online">Available Online</option>
-                    <option value = "In Process">In Process</option>
-                    <option value = "In Stacks Area">In Stacks Area</option>
-                    <option value = "Long Overdue">Long Overdue</option>
-                    <option value = "Lost">Lost</option>
-                    <option value = "On Loan">On Loan</option>
-                    <option value = "On Shelf">On Shelf</option>
-                    <option value = "Preservation Copy">Preservation Copy</option>
-                  </select>
-
-                  <label for = "location">Location</label>
-                  <select id = "locationa" name = "location" value="">
-                    <option value = "" selected>---none---</option>
-                    <option value = "Cordillera/Northern Luzon Archives">Cordillera/Northern Luzon Archives</option>
-                    <option value = "Graduate Resource Center">Graduate Resource Center</option>
-                    <option value = "Knowledge and Training Resource Center">Knowledge and Training Resource Center</option>
-                    <option value = "Main Library">Main Library</option>
-                  </select>
-
-                  <label for = "source">Source</label>
-                  <input type = "text" id = "sourcea" name = "source" placeholder = "Material Source.." value="" autocomplete="off">
-
-                  <button type = "button" class = "modalbtn" id = "submitbtna" style = "width: auto;">Save Changes</button>
-                  <div class = "clearfix">
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class = "wave">
-              <!--<?//xml version="1.0" encoding="UTF-8"?>-->
-              <svg viewBox="0 0 67 578" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
-                      <path d="M11.3847656,-5.68434189e-14 C-7.44726562,36.7213542 5.14322917,126.757812 49.15625,270.109375 C70.9827986,341.199016 54.8877465,443.829224 0.87109375,578 L67,578 L67,-5.68434189e-14 L11.3847656,-5.68434189e-14 Z" id="Path" fill="#ffcc3d"></path>
-                  </g>
-              </svg>
-            </div>
-            <div class="column" id="secondary">
-              <div class="sec-content">
-                <h2>Input Accession Number</h2>
-                <input type = "text" id = "input_acc_num" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
-                <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
-                <button type = "button" class = "modalbtn" id = "submit_acc_num">Submit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal Barcode Scanner-->
-    <div class = "modal fade" id = "id02" >
-      <div class = "modal-dialog" role = "document">
-        <div class = "modal-content">
-          <div class = "modal-body">
-            <div class = "column" id = "main">
-              <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
-              <h1>Material Information</h1>
-              <form  class = "materialb" method = "POST">
-                <div class = "container2">
-                  <h1 class = "modal-title"></h1>
-                  <input type="hidden" name="function" id = "function" value = "barcode">
-                  <input type = "hidden" id = "idb" name = "id" value = "">
-
-                  <label for = "acc_num">Accession Number</label>
-                  <input type = "text" id = "acc_numb" name = "acc_num" placeholder = "Accession Number.." value="" autocomplete="off">
-
-                  <label for = "barcode">Barcode</label>
-                  <input type = "text" id = "barcodeb" name = "barcode" placeholder = "Barcode.." value="" autocomplete="off">
-
-                  <label for = "call_number">Call Number</label>
-                  <input type = "text" id = "call_numberb" name = "call_number" placeholder = "Call Number.." value="" autocomplete="off">
-
-                  <label for = "title">Material Title</label>
-                  <input type = "text" id = "titleb" name = "title" placeholder = "Title.." value="" autocomplete="off">
-
-                  <label for = "author">Material Author</label>
-                  <input type = "text" id = "authorb" name = "author" placeholder = "Author.." value="" autocomplete="off">
-
-                  <label for = "volume">Material Volume</label>
-                  <input type = "text" id = "volumeb" name = "volume" placeholder = "Volume.." value="" autocomplete="off">
-
-                  <label for = "year">Material Year</label>
-                  <input type = "text" id = "yearb" name = "year" placeholder = "Year.." value="" autocomplete="off">
-
-                  <label for = "edition">Material Edition</label>
-                  <input type = "text" id = "editionb" name = "edition" placeholder = "Edition.." value="" autocomplete="off">
-
-                  <label for = "publisher">Publisher of the Material</label>
-                  <input type = "text" id = "publisherb" name = "publisher" placeholder = "Publisher.." value="" autocomplete="off">
-
-                  <label for = "pub_year">Year of Publication</label>
-                  <input type = "text" id = "pub_yearb" name = "pub_year" placeholder = "Publication Year.." value="" autocomplete="off">
-
-                  <label for = "circ_type">Circulation Type</label>
-                  <select id = "circ_typeb" name = "circ_type" value="">
-                    <option value = "" selected>---none---</option>
-                    <option value = "Circulation Book">Circulation Book</option>
-                    <option value = "Circulation Monograph">Circulation Monograph</option>
-                    <option value = "Cordillera Book">Cordillera Book</option>
-                    <option value = "Cordillera Monograph">Cordillera Monograph</option>
-                    <option value = "Cordillera Multimedia">Cordillera Multimedia</option>
-                    <option value = "Filipiniana Reference">Filipiniana Reference</option>
-                    <option value = "Filipiniana Archives">Filipiniana Archives</option>
-                    <option value = "Filipiniana Book">Filipiniana Book</option>
-                    <option value = "Filipiniana MO">Filipiniana MO</option>
-                    <option value = "Filipiniana Monograph">Filipiniana Monograph</option>
-                    <option value = "Filipiniana PIDS">Filipiniana PIDS</option>
-                    <option value = "GRC Book">GRC Book</option>
-                    <option value = "GRC MO">GRC MO</option>
-                    <option value = "GRC Monograph">GRC Monograph</option>
-                    <option value = "Howard Fry Special Collection - Room Use Only">Howard Fry Special Collection - Room Use Only</option>
-                    <option value = "Multimedia Material">Multimedia Material</option>
-                    <option value = "Non-Circulation">Non-Circulation</option>
-                    <option value = "Periodicals - Room Use Only">Periodicals - Room Use Only</option>
-                    <option value = "Reference - Room Use Only">Reference - Room Use Only</option>
-                    <option value = "Reference - Room Use Only (Reserve Section)">Reference - Room Use Only (Reserve Section)</option>
-                    <option value = "Reserve - Monograph">Reserve - Monograph</option>
-                    <option value = "Reserve Book">Reserve Book</option>
-                    <option value = "Reserve Book - 1 month loan">Reserve Book - 1 month loan</option>
-                    <option value = "Reserve Book - Room Use Only">Reserve Book - Room Use Only</option>
-                    <option value = "Room Use Only">Room Use Only</option>
-                    <option value = "Thesis - Room Use Only">Thesis - Room Use Only</option>
-                  </select>
-
-                  <label for = "type">Type</label>
-                  <select id = "typeb" name = "type" value="">
-                    <option value = "" selected>---none---</option>
-                    <option value = "Article">Article</option>
-                    <option value = "Book">Book</option>
-                    <option value = "Computer File">Computer File</option>
-                    <option value = "Map">Map</option>
-                    <option value = "Mixed Material">Mixed Material</option>
-                    <option value = "Music">Music</option>
-                    <option value = "Serial">Serial</option>
-                    <option value = "Thesis">Thesis</option>
-                    <option value = "Visual Material">Visual Material</option>
-                  </select>
-
-                  <label for = "status">Status</label>
-                  <select id = "statusb" name = "status" value="">
-                    <option value = "" selected>---none---</option>
-                    <option value = "Available Online">Available Online</option>
-                    <option value = "In Process">In Process</option>
-                    <option value = "In Stacks Area">In Stacks Area</option>
-                    <option value = "Long Overdue">Long Overdue</option>
-                    <option value = "Lost">Lost</option>
-                    <option value = "On Loan">On Loan</option>
-                    <option value = "On Shelf">On Shelf</option>
-                    <option value = "Preservation Copy">Preservation Copy</option>
-                  </select>
-
-                  <label for = "location">Location</label>
-                  <select id = "locationb" name = "location" value="">
-                    <option value = "" selected>---none---</option>
-                    <option value = "Cordillera/Northern Luzon Archives">Cordillera/Northern Luzon Archives</option>
-                    <option value = "Graduate Resource Center">Graduate Resource Center</option>
-                    <option value = "Knowledge and Training Resource Center">Knowledge and Training Resource Center</option>
-                    <option value = "Main Library">Main Library</option>
-                  </select>
-
-                  <label for = "source">Source</label>
-                  <input type = "text" id = "sourceb" name = "source" placeholder = "Material Source.." value="" autocomplete="off">
-                  <button type = "button" class = "modalbtn" id = "submitbtnb" style = "width: auto;">Save Changes</button>
-                  <div class = "clearfix">
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class = "wave">
-              <!--<?//xml version="1.0" encoding="UTF-8"?>-->
-              <svg viewBox="0 0 67 578" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
-                      <path d="M11.3847656,-5.68434189e-14 C-7.44726562,36.7213542 5.14322917,126.757812 49.15625,270.109375 C70.9827986,341.199016 54.8877465,443.829224 0.87109375,578 L67,578 L67,-5.68434189e-14 L11.3847656,-5.68434189e-14 Z" id="Path" fill="#ffcc3d"></path>
-                  </g>
-              </svg>
-            </div>
-            <div class="column" id="secondary">
-              <div class="sec-content">
-                <h2>Barcode Scanner</h2>
-                <input type = "text" id = "input_barcode" name = "barcode" placeholder = "Scan Barcode.." value="" autocomplete="off">
-                <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
-                <button type = "button" class = "modalbtn" id = "submit_bar">Submit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class = "modal" id = "report">
-      <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
-      <form class = "modal-content" id = "report-form" action = "../report/index.php" method = "POST">
-        <div class = "container" style = "overflow-y: auto;">
-        <h1 class = "modal-title">Generate Report</h1>
-          <label for="report-select">Choose report to generate:</label>
-          <select class = "report-select" id="report-select" name="report-select">
-            <option value = "materials">Materials</option>
-            <option value = "inventory">Inventory</option>
-            <option value = "comparison">Comparison</option>
-          </select>
-          <div class="year-select" style="display: none">
-            <label for="year1">Choose first year:</label>
-            <select class = "year-select" id="year1" name="year1">
-              <?php
-                $sql = "SHOW COLUMNS FROM INVENTORY LIKE 'inv_%'";
-                $result = $conn->query($sql);
-                while($row = $result->fetch_assoc()){
-              ?>
-                <option value = "<?php echo substr($row["Field"], 4) ?>"><?php echo substr($row["Field"], 4) ?></option>
-              <?php
-                }
-              ?>
-            </select>
-            <label for="year2">Choose second year:</label>
-            <select class = "year-select" id="year2" name="year2">
-              <?php
-                $sql = "SHOW COLUMNS FROM INVENTORY LIKE 'inv_%'";
-                $result = $conn->query($sql);
-                while($row = $result->fetch_assoc()){
-              ?>
-                <option value = "<?php echo substr($row["Field"], 4) ?>"><?php echo substr($row["Field"], 4) ?></option>
-              <?php
-                }
-              ?>
-            </select>
-          </div>
-          <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
-          <button type = "submit" class = "modalbtn">Generate Report</button>
-        </form>
-      </div>
-    </div>
+    
     <footer class = "footer">
       <p style = "float: left; padding-left: 10px; padding-top: 16px;">University of the Philippines - Baguio Library Inventory System</p>
       <p style = "float: right; padding-right: 10px; padding-top: 16px;">For news and related events visit:
@@ -621,9 +290,10 @@
       </p>
     </footer>
 
-    <script type = "text/javascript" src = "js/formhandler.js"></script>
-    <script type = "text/javascript" src = "js/update.js"></script>
+    <script type = "text/javascript" src = "js/variables.js"></script>
+    <script type = "text/javascript" src = "js/record.js"></script>
     <script type = "text/javascript" src = "js/buttons.js"></script>
+    <script type = "text/javascript" src = "js/edit.js"></script>
     <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
     <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
     <script>
@@ -636,12 +306,6 @@
         document.getElementById("sidebar").style.width = "0";
         document.getElementById("main").style.marginRight = "0";
       }
-    </script>
-
-    <script>
-    // document.getElementById("rgbtn").onclick = function() {
-    //   location.href = "../report/comparison.php";
-    // };
     </script>
   </body>
 </html>
