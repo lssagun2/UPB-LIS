@@ -1,3 +1,11 @@
+<style>
+@media screen and (max-width: 1366px) {
+  #inventory-modal .modal-content {
+    height: 500px;
+  }
+}
+</style>
+
 <div class = "modal" id = "inventory-modal">
   <div class = "notif-bar">Some contents for the notifications</div>
   <div class = "modal-dialog" role = "document">
@@ -230,18 +238,18 @@
 </div>
 <div class = "modal" id = "report">
   <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
-  <form class = "modal-content" id = "report-form" action = "../report/index.php" method = "POST">
+  <form class = "modal-content" id = "report-form" action = "../report/index.php" method = "POST" style = "height: auto;">
     <div class = "container" style = "overflow-y: auto;">
     <h1 class = "modal-title">Generate Report</h1>
       <label for="report-select">Choose report to generate:</label>
-      <select class = "report-select" id="report-select" name="report-select">
+      <select class = "report-select" id="report-select" name="report-select" style = "width: 100%;">
         <option value = "materials">Materials</option>
         <option value = "inventory">Inventory</option>
         <option value = "comparison">Comparison</option>
       </select>
       <div class="year-select" style="display: none">
         <label for="year1">Choose first year:</label>
-        <select class = "year-select" id="year1" name="year1">
+        <select class = "year-select" id="year1" name="year1" style = "width: 100%;">
           <?php
             $sql = "SHOW COLUMNS FROM INVENTORY LIKE 'inv_%'";
             $result = $conn->query($sql);
@@ -253,7 +261,7 @@
           ?>
         </select>
         <label for="year2">Choose second year:</label>
-        <select class = "year-select" id="year2" name="year2">
+        <select class = "year-select" id="year2" name="year2" style = "width: 100%;">
           <?php
             $sql = "SHOW COLUMNS FROM INVENTORY LIKE 'inv_%'";
             $result = $conn->query($sql);
