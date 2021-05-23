@@ -129,7 +129,7 @@
       box-sizing: border-box;
     }
 
-    .container {
+    #report-form .container {
       height: auto!important;
     }
 
@@ -149,14 +149,14 @@
 
     @media screen and (max-width: 1366px) {
       .notif-bar {
-        top: 60px;
+        top: 40px;
         line-height: 30px;
         font-size: 1em;
         height: 30px;
       }
 
       .modal-dialog {
-        margin-top: -50px;
+        margin-top: -70px;
       }
 
       .modal {
@@ -164,7 +164,7 @@
       }
 
       .modal-body {
-        height: 458px;
+        height: 498px;
       }
 
       .column#main {
@@ -180,20 +180,19 @@
 
       .wave svg {
         height: 100%;
-        width: 76.5px;
+        width: 84px;
       }
 
       .modal input[type=text], select {
-        width: 90%;
+        width: 95%;
       }
 
-      .container {
+      #report .container {
         height: auto!important;
       }
 
       .container2 {
-        overflow-y: auto;
-        height: 280px;
+        height: 320px;
       }
     }
     </style>
