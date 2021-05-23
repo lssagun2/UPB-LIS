@@ -23,8 +23,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style>
-      .container {
-        margin: 0;
+      #material .container {
+        height: 500px;
+        padding: 16px;
+      }
+
+      @media screen and (max-width: 1366px) {
+        #material .modal-content {
+          height: 400px;
+        }
+        
+        #material .container {
+          height: 350px;
+          padding: 16px;
+        }
       }
     </style>
   </head>
