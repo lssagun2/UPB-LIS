@@ -105,6 +105,26 @@ h1 {
   color: #000;
 }
 
+@media screen and (max-width: 1366px) {
+  #editStaffTable {
+    margin-left: 10%;
+    float: left;
+    width: 40px;
+    height: 40px;
+    color: #000;
+    padding-right: 25px;
+  }
+
+  #deleteStaffTable {
+    margin-left: 10%;
+    float: left;
+    width: 40px;
+    height: 40px;
+    color: #000;
+  }
+
+}
+
 .edit:hover {
   opacity: 1;
 }
