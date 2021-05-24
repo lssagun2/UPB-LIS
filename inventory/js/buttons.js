@@ -4,6 +4,7 @@ $(document).ready(function(){
 		$("h2#inventory-type").html("Input Accession Number");
 		$("button#inventory-submit").show();
 		$('form#material-edit').trigger("reset");
+		$('div.notif-bar').hide();
 		$('div#inventory-modal').show();
 		$("input#inventory-input").focus();
 	});
@@ -12,6 +13,7 @@ $(document).ready(function(){
 		$("h2#inventory-type").html("Scan Barcode");
 		$("button#inventory-submit").hide();
 		$('form#material-edit').trigger("reset");
+		$('div.notif-bar').hide();
 		$('div#inventory-modal').show();
 		$("#inventory-input").focus();
 	});

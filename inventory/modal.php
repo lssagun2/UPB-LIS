@@ -7,7 +7,7 @@
 </style>
 
 <div class = "modal" id = "inventory-modal">
-  <div class = "notif-bar">Some contents for the notifications</div>
+  <div class = "notif-bar" style="color: white;"></div>
   <div class = "modal-dialog" role = "document">
     <div class = "modal-content">
       <div class = "modal-body">
@@ -226,7 +226,12 @@
           <div class="sec-content">
             <h2 id = "inventory-type"></h2>
             <form id = "inventory-record">
-              <input type = "text" id = "inventory-input" name = "inventory-input" placeholder = "Input value..." value="" autocomplete="off">
+              <div class="form-control" id = "inventory-input-div">
+                <input type = "text" id = "inventory-input" name = "inventory-input" placeholder = "Input value..." value="" autocomplete="off">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+              </div>
               <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
               <button type = "button" class = "modalbtn" id = "inventory-submit">Submit</button>
             </form>
