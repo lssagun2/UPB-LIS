@@ -94,7 +94,6 @@
           </ul>
         </nav>
         <main class = "main">
-          <div id="loading-cover"></div>
           <header class = "header">
             <div class = "header__wrapper">
               <form action = "" class = "search">
@@ -304,7 +303,7 @@
                     of <span id = "total-pages"></span> (<span id = "total-materials"></span> entries)
                   </div>
                   <div style = "float: right; vertical-align: right; margin-top: -15px;">
-              			<button class = "add" style = "width: 50px; height: 50px; padding-left: 18px;"><i class="fas fa-download"></i></button>
+              			<button class = "add" id = "download-table" style = "width: 50px; height: 50px; padding-left: 18px;"><i class="fas fa-download"></i></button>
               		</div>
                 </div>
               </li>
@@ -331,6 +330,8 @@
     <script type = "text/javascript" src = "js/variables.js"></script>
     <script type = "text/javascript" src = "js/update.js"></script>
     <script type = "text/javascript" src = "js/count.js"></script>
+    <script type = "text/javascript" src = "js/createFile.js"></script>
+    <script type = "text/javascript" src = "../tables/downloadFile.js"></script>
     <script type = "text/javascript" src = "js/buttons.js"></script>
     <script type = "text/javascript" src = "../../staff/js/formhandler.js"></script>
     <script type = "text/javascript" src = "../../staff/js/buttons.js"></script>

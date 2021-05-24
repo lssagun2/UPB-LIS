@@ -50,6 +50,9 @@ $(document).ready(function(){
 		$('#table-materials').show();
 
 	});
+	$(document).on('click', 'button#download-table', function(){
+		createFile();
+	});
 	$("form#page-form").submit(function(event){
 		event.preventDefault();
 		$("input#page-number").trigger("change");	//call onchange function for page number if form is submitted

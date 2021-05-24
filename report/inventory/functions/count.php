@@ -21,7 +21,7 @@
     foreach($filter as $column => $value){
       $mat_query .= " $column='$value' AND";
     }
-    $mat_query = substr($condition, 0, -4);
+    $mat_query = substr($mat_query, 0, -4);
 		$mat_query .= ")";
   }
 	else{

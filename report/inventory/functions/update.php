@@ -19,7 +19,7 @@
     foreach($filter as $column => $value){
       $mat_query .= " $column='$value' AND";
     }
-    $mat_query = substr($condition, 0, -4);
+    $mat_query = substr($mat_query, 0, -4);
 		$mat_query .= ")";
   }
 	else{
@@ -46,7 +46,7 @@
       $sort .= "mat_barcode $sort_direction";
       break;
     case "Call Number":
-      $sort .= "mat_call_num1 $sort_direction, mat_call_num2 $sort_direction, mat_call_num3 $sort_direction, mat_call_num4 $sort_direction, mat_call_num5 $sort_direction, mat_call_num6 $sort_direction, mat_call_num7 $sort_direction, mat_call_num8 $sort_direction, mat_call_num $sort_direction";
+      $sort .= "mat_call_num1 $sort_direction, mat_call_num2 $sort_direction, mat_call_num3 $sort_direction, mat_call_num $sort_direction";
       break;
     case "Title":
       $sort .= "mat_title $sort_direction";

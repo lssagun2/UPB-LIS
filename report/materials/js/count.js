@@ -2,8 +2,7 @@
 function count(){
 	$('div#loading-cover').show();
 	data = $('form#filter-form').serializeArray();
-	data.push(selected_filter)
-	console.log(data);
+	data.push(selected_filter);
 	$.ajax({
 		type 		: 'POST',
 		url			: 'functions/count.php',

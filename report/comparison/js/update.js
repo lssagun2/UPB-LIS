@@ -3,7 +3,6 @@ function update(){
 	var data = $('form#filter-form, form#limit-form, form#page-form').serializeArray();
 	data.push({name: "sort", value: sort}, {name: "sort_direction", value: sort_direction}, {name: "comparison", value: comparison}, {name: "category", value: category}, {name: "year1", value: year1}, {name: "year2", value: year2});
 	$('div#loading-cover').show();
-	console.log($.param(data));
 	$.ajax({
 		type 		: 'POST',
 		url			: 'functions/update.php',

@@ -49,8 +49,7 @@ function update(){
 				"<td>" + row.mat_status + "</td>"+
 				"<td>" + row.mat_source + "</td>"+
 				"<td>" + row.mat_location + "</td>"+
-				"<td>" + row.mat_lastinv_year + "</td>"+
-				"<td><button class = 'edit' style = 'width: 50px; height: 50px; color: #000;'><i class = 'fas fa-edit'></i></button></td>"
+				"<td>" + row.mat_lastinv_year + "</td>"
 			);
 		});
 		$('div#loading-cover').hide();
