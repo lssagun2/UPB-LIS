@@ -178,6 +178,42 @@
   visibility: visible;
 }
 
+div#passwordform.form-control.error i.fa-exclamation-circle{
+  right: 27.5px;
+}
+
+div#passwordform.form-control.success i.fa-check-circle{
+  right: 27.5px;
+}
+
+div#confirmpasswordform.form-control.error i.fa-exclamation-circle{
+  right: 27.5px;
+}
+
+div#confirmpasswordform.form-control.success i.fa-check-circle{
+  right: 27.5px;
+}
+
+div#circulationtypeform.form-control.success i.fa-check-circle{
+  right: 19px;
+}
+
+div#typeform.form-control.success i.fa-check-circle{
+  right: 19px;
+}
+
+div#statusform.form-control.success i.fa-check-circle{
+  right: 19px;
+}
+
+div#locationform.form-control.success i.fa-check-circle{
+  right: 19px;
+}
+
+div#lastyearinvform.form-control.success i.fa-check-circle{
+  right: 19px;
+}
+
 .form-control.success select{
   border-color: #2ecc71;
 }
