@@ -2,6 +2,7 @@
 #staff .container {
   height: 580px;
   padding: 30px;
+  overflow-y: auto;
 }
 
 @media screen and (max-width: 1366px) {
