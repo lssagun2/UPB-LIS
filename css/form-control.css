@@ -214,6 +214,16 @@ div#lastyearinvform.form-control.success i.fa-check-circle{
   right: 19px;
 }
 
+div#inventory-input-div.form-control.error i.fa-exclamation-circle{
+  top: 22.5px;
+  right: 20px;
+}
+
+div#inventory-input-div.form-control.success i.fa-check-circle{
+  top: 22.5px;
+  right: 20px; 
+}
+
 .form-control.success select{
   border-color: #2ecc71;
 }
