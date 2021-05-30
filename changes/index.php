@@ -29,8 +29,8 @@ require '../config.php';
 		</div><br>
 		<a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
 		<a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
-		<a href = "#"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
-		<a href = "#"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
+      <a href = "#" class="backup"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
+      <a href = "#" class="restore"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
 		<a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
 	</div>
 
@@ -170,6 +170,7 @@ require '../config.php';
 						</ul>
 						<?php
 						require "../changes/modal.php";
+						require "../backup and restore/modal.php";
 						?>
 
 						<footer class = "footer">
@@ -180,6 +181,8 @@ require '../config.php';
 								<a href = "https://www.youtube.com/channel/UC1XJ8yRNRuDHmhJXtsLIB_g"><i class="fab fa-youtube"></i></a>
 							</p>
 						</footer>
+
+			 <script type = "text/javascript" src = "../backup and restore/js/buttons.js"></script>
 
 <script>
 $(document).ready(function() {
