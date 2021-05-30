@@ -314,7 +314,8 @@
           <?php
             require "modal.php";
             require "../staff/modal.php";
-            require "../staff/modaldelete.php"
+            require "../staff/modaldelete.php";
+            require "../backup and restore/modal.php";
           ?>
         </main>
       </div>
@@ -335,7 +336,7 @@
     <script type = "text/javascript" src = "js/edit.js"></script>
     <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
     <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
-     <script type = "text/javascript" src = "../backup and restore/js/buttons.js"></script>
+    <script type = "text/javascript" src = "../backup and restore/js/buttons.js"></script>
     <script>
       function openNav() {
         document.getElementById("sidebar").style.width = "500px";
