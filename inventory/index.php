@@ -39,7 +39,7 @@
     }
 
     .modal-dialog {
-      margin-top: -100px;
+      margin-top: -50px;
     }
 
     .modal-body {
@@ -105,8 +105,9 @@
 
     #inventory-submit {
       background-color: #800000;
+      margin-right: 0;
       color: #fff;
-      width: 100px;
+      width: auto;
       opacity: 0.8;
       transition: 0.2s ease-in-out;
     }
@@ -117,6 +118,8 @@
 
     #cancelbtn {
       opacity: 0.9;
+      width: auto;
+      margin-right: 0;
     }
 
     .modal input[type=text], select {
