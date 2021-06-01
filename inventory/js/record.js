@@ -1,6 +1,8 @@
 function record(){
 	var data = $("form#inventory-record").serializeArray();
 	data.push({name: "material_column", value: material_column});
+	$('#inventory-input-div').removeClass('error');// Resets "form-control" class every record()
+	$('#inventory-input-div').removeClass('success');// Resets "form-control" class every record()
 	$('form#material-edit').trigger("reset");
 	$('div.notif-bar').hide();
 	$("div#loading-cover").show();
