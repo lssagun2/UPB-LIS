@@ -25,7 +25,7 @@
       position: relative;
       z-index: 3;
       margin: 0 auto;
-      top: 60px;
+      top: 110px;
       text-align: center;
       letter-spacing: 0.15em;
       text-transform: uppercase;
