@@ -117,9 +117,14 @@ session_start();
             <ul class = "project">
               <li class = "project__item">
                 <div class = "project__link">
-                  <h3>Forum</h3>
+                  <h3>University of the Philippines Baguio - Library Inventory System (UPB-LIS)</h3>
                   <br>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <p>The University of the Philippines - Baguio Library Inventory System (UPB-LIS) is a web-based application designed by UPB CS128 students for the exclusive use of the UPB Main Library staff. The software was developed to aid the staff in inventory management and simplify their overall workflow. </br></br>
+
+                  A tailor-made database to handle the thousands of diverse sources the library houses was crafted. Users may easily view, add, or edit materials in the database accompanied with sorting, filtering, and report generation functions for efficient organization of data. </br></br>
+
+                  It also allows manual inventorying (using accession number) and automated inventorying (using barcode scanner) options in its inventory page. All these functions, including more that have not been mentioned, are displayed through a user-friendly and accessible design for its users.
+                </p>
                 </div>
               </li>
             </ul>
