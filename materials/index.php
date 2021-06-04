@@ -28,6 +28,14 @@
         padding: 16px;
       }
 
+      @media (min-width: 2560px){
+        #material .container {
+        height: 925px;
+        padding: 16px;
+        font-size: 1.3em;
+        }
+      }
+
       @media screen and (max-width: 1366px) {
         #material .modal-content {
           height: 400px;
