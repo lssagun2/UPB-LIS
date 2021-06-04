@@ -54,7 +54,7 @@
 }
 
 .modalbtn {
-  background-color: #ffcc3d;
+  background-color: #ffad0d;
   color: #000;
   padding: 14px 20px;
   float: right;
@@ -75,7 +75,7 @@
 #submitbtn {
   border-radius: 50px;
   transition: 0.2s ease;
-  background-color: #ffcc3d;
+  background-color: #ffad0d;
   opacity: 0.9;
   width: 150px;
 }
@@ -98,7 +98,7 @@
 .submitbtn {
   width: 100px;
   color: #fff;
-  background-color: #800000;
+  background-color: #850038;
   margin-top: 30px;
   border-radius: 50px;
   opacity: 0.9;
@@ -221,7 +221,7 @@ div#inventory-input-div.form-control.error i.fa-exclamation-circle{
 
 div#inventory-input-div.form-control.success i.fa-check-circle{
   top: 22.5px;
-  right: 20px; 
+  right: 20px;
 }
 
 .form-control.success select{

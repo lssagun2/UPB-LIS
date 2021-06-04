@@ -51,7 +51,7 @@ body {
   border-radius: 50px;
   align-items: center;
   padding-left: 7px;
-  background-color: #ffcc3d;
+  background-color: #ffad0d;
   letter-spacing: 1px;
   font-weight: bold;
   margin-bottom: 70px;
@@ -62,7 +62,7 @@ body {
 
 .main .btn:hover {
   box-shadow: 2px 2px 5px #555;
-  background-color: #ffcc3d;
+  background-color: #ffad0d;
   opacity: 1;
   cursor: pointer;
 }
@@ -99,7 +99,7 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  background: linear-gradient(-90deg, #228b22, #800000);
+  background: linear-gradient(-90deg, #0e6021, #850038);
   color: #fff;
 }
 

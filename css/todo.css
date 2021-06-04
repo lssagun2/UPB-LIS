@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
 .title {
-	color: #800000;
+	color: #850038;
 	text-transform: uppercase;
 	font-weight: 800;
 }
@@ -51,7 +51,7 @@ section .team__link .team__header .inputDiv .add {
 	outline: none;
   border: none;
   border-radius: 25px;
-  color: #228b22;
+  color: #0e6021;
   cursor: pointer;
   transition: 0.5s;
   /* margin: 0.25rem; */
@@ -59,7 +59,7 @@ section .team__link .team__header .inputDiv .add {
 }
 
 section .team__link .team__header .inputDiv .add:hover {
-	color: #ffcc3d;
+	color: #ffad0d;
 }
 
 .item {

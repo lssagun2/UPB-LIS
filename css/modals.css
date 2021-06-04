@@ -103,7 +103,7 @@ h1 {
 .submitbtn {
   width: 100px;
   color: #fff;
-  background-color: #800000;
+  background-color: #850038;
   margin-top: 30px;
   border-radius: 50px;
   opacity: 0.9;
@@ -129,7 +129,7 @@ h1 {
 #submitbtn {
   border-radius: 50px;
   transition: 0.2s ease;
-  background-color: #ffcc3d;
+  background-color: #ffad0d;
   opacity: 0.9;
   width: 150px;
 }
@@ -150,7 +150,7 @@ h1 {
 }
 
 .modalbtn {
-  background-color: #ffcc3d;
+  background-color: #ffad0d;
   color: #000;
   padding: 14px 20px;
   float: right;
