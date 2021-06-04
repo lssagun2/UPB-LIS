@@ -198,11 +198,8 @@
     <small>Error message</small><!-- Changes -->
     </div><!-- Changes -->
 
-    <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
     <button type = "button" class = "modalbtn" id = "submitbtn"></button>
-    <div class = "clearfix">
-
-    </div>
+    <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
   </div>
   </form>
 </div>
@@ -255,8 +252,8 @@
         <option value = "<?php echo $row['mat_location']?>"><?php echo $row['mat_location']?></option>
         <?php } ?>
       </select>
-      <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
       <button type = "button" class = "modalbtn" id = "update-filter" style = "margin-right: 0;">Update</button>
+      <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>  
   </form>
 </div>
 
