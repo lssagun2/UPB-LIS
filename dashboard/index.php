@@ -131,9 +131,15 @@ session_start();
                 <div class = "team__link">
                   <h2 style = "text-align: center;">Announcements</h2><br>
                   <div class = "team__header">
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.<br><br>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.<br><br>
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                    <div class="inputFields">
+                        <input type="text" id="announcementValue" placeholder="Any Announcements?">
+                        <button type="submit" id="addBtnAnnounce" class="btn"><i class="fa fa-plus"></i></button>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <ul id="announcements"> 
+                      
+                    </ul>
                   </div>
                 </div>
               </li>
@@ -165,12 +171,22 @@ session_start();
                 <div class = "team__link">
                   <h2 style = "text-align: center; font-size: 2em;"><span class = "title">Todo</span>List</h2>
                   <div class = "team__header">
-                    <div class = "inputDiv">
+                    <!-- <div class = "inputDiv">
                       <button class = "add"><i class = "fas fa-plus"></i></button>
                       <input type = "text" class = "input" placeholder = "What do you want to do?">
+                    </div> -->
+                    <div class="inputFields">
+                        <input type="text" id="taskValue" placeholder="What do you need to do?">
+                        <button type="submit" id="addBtn" class="btn"><i class="fa fa-plus"></i></button>
                     </div>
                   </div>
-                  <div class = "container" style = "height: auto;"></div>
+                  <div class="content">
+                    <ul id="tasks"> 
+                        <div class = "pending-text"></div>
+                    </ul>
+                  </div>
+                    
+                  </div>
                 </div>
               </li>
             </ul>
@@ -197,7 +213,8 @@ session_start();
     <script type = "text/javascript" src = "../backup and restore/js/buttons.js"></script>
     <script type = "text/javascript" src = "js/script.js"></script>
     <script type = "text/javascript" src = "js/main.js"></script>
-
+    <script type="text/javascript" src = "js/todolist.js"></script>
+    <script type="text/javascript" src = "js/announcement.js"></script>
     <script>
       function openNav() {
         document.getElementById("sidebar").style.width = "500px";
@@ -209,5 +226,9 @@ session_start();
         document.getElementById("main").style.marginRight = "0";
       }
     </script>
+
+
+
+  
   </body>
 </html>
