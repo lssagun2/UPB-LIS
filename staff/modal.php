@@ -1,20 +1,19 @@
 <style>
 #staff .container {
   height: 580px;
-  padding: 30px;
-  overflow-y: auto;
+  padding: 20px;
 }
 
 @media screen and (max-width: 1366px) {
   #staff .modal-content {
     margin-top: -5px;
-    height: 600px;
+    height: 585px;
     overflow-y: hidden;
   }
 
   #staff .container {
-    margin: 30px;
-    height: 300px;
+    height: 200px;
+    padding: 20px;
   }
 }
 </style>
@@ -73,8 +72,8 @@
       <small>Error message</small>
       </div>
 
-      <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
       <button type = "button" class = "modalbtn" id = "edit-staff">Save changes</button>
+      <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
     </div>
   </form>
 </div>
