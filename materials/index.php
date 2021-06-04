@@ -100,6 +100,16 @@
                 </a>
               </div>
             </li>
+            <?php 
+                $staff_id = $_SESSION['staff_id'];
+                $sql = "SELECT * FROM STAFF WHERE staff_id = $staff_id";
+                $result = $conn->query($sql);
+                $row = $result->fetch_assoc();
+                if($row['staff_username'] === "admin"){
+
+
+
+            ?>
             <li class = "nav__item"> <!-- Changes -->
               <div class = "tooltip">
                 <span class = "tooltiptext-t1">Staff</span>
@@ -109,7 +119,10 @@
                   </svg>
                 </a>
               </div>
-            </li>
+            </li> 
+            <?php 
+            }
+            ?>
           </ul>
         </nav>
         <main class = "main">
