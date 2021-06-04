@@ -9,7 +9,7 @@
 
     <div class = "form-control" id = "accnumform"> <!-- Changes -->
     <label for = "acc_num">Accession Number</label>
-    <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Accession Number.." value="">
+    <input type = "text" id = "acc_num" name = "acc_num" placeholder = "Accession Number.." value="" onclick="alertAccNum()">
     <i class="fas fa-check-circle"></i>  <!-- Changes -->
     <i class="fas fa-exclamation-circle"></i> <!-- Changes -->
     <small>Error message</small> <!-- Changes -->
@@ -17,7 +17,7 @@
 
     <div class="form-control" id = "barcodeform"> <!-- Changes -->
     <label for = "barcode">Barcode</label>
-    <input type = "text" id = "barcode" name = "barcode" placeholder = "Barcode.." value="">
+    <input type = "text" id = "barcode" name = "barcode" placeholder = "Barcode.." value="" onclick="alertBarcode()">
     <i class="fas fa-check-circle"></i> <!-- Changes -->
     <i class="fas fa-exclamation-circle"></i><!-- Changes -->
     <small>Error message</small><!-- Changes -->
@@ -25,7 +25,7 @@
 
     <div class="form-control" id = "callnumberform"> <!-- Changes -->
     <label for = "call_number">Call Number</label>
-    <input type = "text" id = "call_number" name = "call_number" placeholder = "Call Number.." value="">
+    <input type = "text" id = "call_number" name = "call_number" placeholder = "Call Number.." value="" onclick="alertCallNum()">
     <i class="fas fa-check-circle"></i><!-- Changes -->
     <i class="fas fa-exclamation-circle"></i><!-- Changes -->
     <small>Error message</small><!-- Changes -->
@@ -186,7 +186,7 @@
     <div class="form-control" id = "lastyearinvform"><!-- Changes -->
     <label for = "last_year_inventoried">Last Year Inventoried</label>
     <select id = "last_year_inventoried" name = "last_year_inventoried" value="">
-      <option value = "0" selected>---none---</option>
+      <option value = "0" || "nu selected>---none---</option>
       <option value = "2021">2021</option>
       <option value = "2020">2020</option>
       <option value = "2019">2019</option>
@@ -259,3 +259,26 @@
       <button type = "button" class = "modalbtn" id = "update-filter" style = "margin-right: 0;">Update</button>
   </form>
 </div>
+
+
+<script type="text/javascript">
+  function alertAccNum(){
+    if(document.getElementById("acc_num").value == ""){
+      alert("NOTE: It is highly recommended to insert a unique accession number.");
+    }
+  }
+  function alertBarcode(){
+    if(document.getElementById("barcode").value == ""){
+      alert("NOTE: It is highly recommended to insert a unique barcode.");
+    }
+  }
+  function alertCallNum(){
+    if(document.getElementById("call_number").value == ""){
+      alert("NOTE: It is highly recommended to insert a unique Call Number.");
+    }
+  }
+    
+  
+
+
+</script>
