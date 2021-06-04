@@ -150,6 +150,50 @@
       fill: #ffcc3d!important;
     }
 
+    @media (min-width: 2560px){
+        .container2 {
+        overflow-y: auto;
+        height: 800px;
+        font-size: 1.5em;
+      }
+        .modal-body {
+        padding: 0;
+        border-radius: 15px;
+        display: flex;
+        height: 1000px;
+        font-family: sans-serif;
+      }
+      .wave svg {
+      height: 100%;
+      width: 159px;
+      min-width: 0px;
+      }
+        .sec-content {
+        margin-top: 62.5%;
+        font-size: 1.4em;
+      }
+      .notif-bar {
+      position: relative;
+      z-index: 3;
+      margin: 0 auto;
+      top: 120px;
+      text-align: center;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      line-height: 50px;
+      font-size: 1.2em;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      height: 50px;
+      width: 45%;
+      }
+      #report-form .container {
+      height: auto!important;
+      font-size: 1.5em;
+      }
+    }
+
     @media screen and (max-width: 1366px) {
       .notif-bar {
         top: 40px;
