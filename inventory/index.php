@@ -25,7 +25,7 @@
       position: relative;
       z-index: 3;
       margin: 0 auto;
-      top: 110px;
+      top: 90px;
       text-align: center;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -39,7 +39,7 @@
     }
 
     .modal-dialog {
-      margin-top: -50px;
+      margin-top: -70px;
     }
 
     .modal-body {
