@@ -47,8 +47,8 @@
         <option value = "<?php echo $row['mat_location']?>"><?php echo $row['mat_location']?></option>
         <?php } ?>
       </select>
-      <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
       <button type = "button" class = "modalbtn" id = "update-filter">Update</button>
+      <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
     </form>
   </div>
 </div>
