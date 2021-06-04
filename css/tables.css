@@ -71,6 +71,23 @@ h1 {
   border-radius: 50px;
 }
 
+@media (min-width: 2560px){
+  .add {
+  background-color: #ffad0d;
+  color: #000;
+  padding: 14px 20px;
+  float: right;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  opacity: 0.9;
+  transition: 0.2s ease;
+  border-radius: 50px;
+  font-size: 1.4em;
+}
+}
+
 .add:hover {
   opacity: 1;
 }
@@ -145,6 +162,8 @@ h1 {
   transition: 0.1s ease-in-out;
 }
 
+
+
 .accession-number {
   flex: 1 1 auto;
   padding: 30px;
@@ -199,6 +218,33 @@ h1 {
   color: #fff;
   font-size: 13em;
   transition: 0.1s ease-in-out;
+}
+
+@media (min-width: 2560px){
+    .accession-number, .barcode-scanner, .report-generator {
+    margin-left: 10%;
+    text-align: center;
+    border-radius: 15px;
+    height: 500px;
+    width: 675px;
+    background-color: #850038;
+    transition: 0.1s ease-in-out;
+  }
+  
+    .accession-number .fas, .barcode-scanner .fas {
+    margin: 10px;
+    color: #fff;
+    font-size: 20em;
+    transition: 0.1s ease-in-out;
+  }
+
+  .report-generator .fas {
+    margin: 10px;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 18em;
+    transition: 0.1s ease-in-out;
+  }
 }
 
 @media screen and (max-width: 1366px) {
@@ -298,6 +344,10 @@ h1 {
   background: linear-gradient(-45deg, rgba(133, 0, 56, 1) 0%, rgba(14, 96, 33, 1) 100%);
 }
 
+.allmaterials {
+  height: 690px;
+}
+
 @media screen and (max-width: 1366px) {
   #allmaterials {
     width: 150%;
@@ -311,9 +361,26 @@ h1 {
   }
 }
 
-.allmaterials {
-  height: 690px;
+@media screen and (min-width: 2560px) {
+  #allmaterials {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.35em;
+  line-height: 25px;
+  border-bottom: 1px solid #fff;
+  border-collapse: collapse;
+  width: 120%;
+  margin-right: 10px;
+  background: rgba(221, 13, 0, 0.2);
+  background: linear-gradient(-45deg, rgba(133, 0, 56, 1) 0%, rgba(14, 96, 33, 1) 100%);
 }
+
+  .allmaterials {
+    height: 900px;
+  }
+}
+
+
 
 #allmaterials td, #allmaterials th {
   border: none;
@@ -415,6 +482,7 @@ h1 {
   background-color: #850038;
 } */
 
+
 #inventory, #staffTable {
   color: #fff;
   font-family: 'Open Sans', sans-serif;
@@ -424,6 +492,19 @@ h1 {
   width: 100%;
   margin-right: 10px;
   background: linear-gradient(24deg, rgba(133, 0, 56, 1) 0%, rgba(14, 96, 33, 1) 100%);
+}
+
+@media (min-width: 2560px){
+  #inventory, #staffTable {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  border-collapse: collapse;
+  border-radius: 1em;
+  width: 100%;
+  margin-right: 10px;
+  background: linear-gradient(24deg, rgba(133, 0, 56, 1) 0%, rgba(14, 96, 33, 1) 100%);
+}
 }
 
 #inventory th, #staffTable th {
@@ -461,6 +542,8 @@ h1 {
   cursor: pointer;
 }
 
+
+
 #changes {
   color: #fff;
   font-family: 'Open Sans', sans-serif;
@@ -470,6 +553,19 @@ h1 {
   width: 100%;
   margin-right: 10px;
   background: linear-gradient(24deg, rgba(133, 0, 56, 1) 0%, rgba(14, 96, 33, 1) 100%);
+}
+
+@media (min-width: 2560px){
+  #changes {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  border-collapse: collapse;
+  border-radius: 1em;
+  width: 100%;
+  margin-right: 10px;
+  background: linear-gradient(24deg, rgba(133, 0, 56, 1) 0%, rgba(14, 96, 33, 1) 100%);
+}
 }
 
 #changes th {

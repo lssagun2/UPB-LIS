@@ -1,8 +1,7 @@
 .containerDelete {
-  height: 480px;
+  height: 404px;
   margin: 30px;
 }
-
 
 @media screen and (max-width: 1366px) {
   .modal-content {
@@ -34,6 +33,29 @@
   border: 1px solid #888;
   width: 50%;
   border-radius: 10px;
+}
+
+@media (min-width: 2560px) {
+  .modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  width: 75%;
+  height: 1000px;
+  border-radius: 10px;
+  }
+  #material .modal-content {
+    padding: 30px;
+    height: 1000px;
+  }
+  .containerDelete {
+    height: 90%;
+    margin: 30px;
+    font-size: 1.5em;
+  }
+  #deleteStaffForm{
+    height: 750px;
+  }
 }
 
 #btn-modal {
@@ -78,6 +100,16 @@
   background-color: #ffad0d;
   opacity: 0.9;
   width: 150px;
+}
+
+@media (min-width: 2560px){
+  #submitbtn {
+  border-radius: 50px;
+  transition: 0.2s ease;
+  background-color: #ffad0d;
+  opacity: 0.9;
+  width: 200px;
+}
 }
 
 #submitbtn:hover {

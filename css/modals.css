@@ -74,6 +74,21 @@
   border-radius: 10px;
 }
 
+@media (min-width: 2560px){
+  .modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  width: 75%;
+  height:  90%;
+  border-radius: 10px;
+}
+#tableModal2 .container, #tableModal .container {
+  height: 100%;
+  font-size: 1.5em;
+}
+}
+
 h1 {
   text-align: center;
 }

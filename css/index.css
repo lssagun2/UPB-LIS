@@ -79,12 +79,25 @@ h5,
 h6 {
   font-size: 1.8rem;
 }*/
+@media (min-width: 2560px){
+  img,
+ {
+  max-width: 100%;
+  max-height: 100%;
+}
+svg,{
+  max-width: 200%;
+  max-height: 200%;
+}
+}
 
 svg,
 img {
   max-width: 100%;
   max-height: 100%;
 }
+
+
 
 svg path {
   fill: var(--dune);
@@ -356,6 +369,15 @@ input[type=number]:focus {
   min-height: 100vh;
 }
 
+@media (min-width:  2560px){
+  .wrapper{
+    display: flex;
+    justify-content: left;
+    width: 129%;
+    min-height: 100vh;
+  }
+}
+
 /* @media (max-width: 992px) {
   .wrapper {
     flex-wrap: wrap;
@@ -376,6 +398,20 @@ input[type=number]:focus {
   padding: 7.5rem 0.825rem;
   background-color: var(--alabaster);
   border-radius: 20px;
+}
+
+@media (min-width:  2560px){
+  .nav {
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  width: 5.6rem;
+  height: 1150px;
+  margin: 11.53rem 2.45rem;
+  padding: 7.5rem 0.825rem;
+  background-color: var(--alabaster);
+  border-radius: 20px;
+}
 }
 
 .nav__list {
@@ -785,7 +821,9 @@ input[type=number]:focus {
 
 @media (min-width: 2560px) {
   .team {
-    justify-content: center;
+    display: flex;
+    justify-content: start;
+    margin: 0 -0.6rem;
   }
 
   .team__header {
@@ -793,7 +831,11 @@ input[type=number]:focus {
   }
 
   .team__item {
-    width: calc(75% / 3);
+    width: calc(100% / 3);
+  }
+
+  .team__link, .team1__link{
+    font-size: 1.4em;
   }
 
   /* .team__item:nth-child(3n) {
@@ -886,6 +928,7 @@ input[type=number]:focus {
 @media screen and (min-width: 2560px) {
   .project {
     justify-content: center;
+    font-size: 1em;
   }
 
   .project__item:not(:last-child) {
@@ -900,6 +943,7 @@ input[type=number]:focus {
     padding: 1.5rem 0.7rem;
     border-radius: 10px;
     transition: background-color 0.3s ease;
+    font-size: 1.5em;
   }
 }
 
