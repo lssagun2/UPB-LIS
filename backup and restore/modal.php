@@ -7,15 +7,11 @@
 .subtitle {
   margin: 25px;
 }
-.modalbtn {
-  margin: 15px;
-}
 .response {
   padding: 10px;
   margin-bottom: 20px;
     border-radius: 2px;
 }
-
 .error {
     background: #fbd3d3;
     border: #efc7c7 1px solid;
@@ -54,19 +50,19 @@ function restore($filePath, $conn)
 {
     $sql = '';
     $error = '';
-    
+
     if (file_exists($filePath)) {
         $lines = file($filePath);
-        
+
         foreach ($lines as $line) {
-            
+
             // Ignoring comments from the SQL script
             if (substr($line, 0, 2) == '--' || $line == '') {
                 continue;
             }
-            
+
             $sql .= $line;
-            
+
             if (substr(trim($line), - 1, 1) == ';') {
                 $result = mysqli_query($conn, $sql);
                 if (! $result) {
@@ -75,7 +71,7 @@ function restore($filePath, $conn)
                 $sql = '';
             }
         } // end foreach
-        
+
         if ($error) {
             $response = array(
                 "type" => "error",
@@ -89,7 +85,7 @@ function restore($filePath, $conn)
         }
         exec('rm ' . $filePath);
     } // end if file exists
-    
+
     return $response;
 }
 ?>
