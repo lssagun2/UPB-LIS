@@ -4,6 +4,14 @@
   padding: 20px;
 }
 
+@media (min-width: 2560px){
+  #staff .container {
+  height: 580px;
+  padding: 50px;
+  font-size: 1.5em;
+}
+}
+
 @media screen and (max-width: 1366px) {
   #staff .modal-content {
     margin-top: -5px;

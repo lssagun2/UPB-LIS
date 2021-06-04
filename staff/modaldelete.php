@@ -6,7 +6,7 @@
   ?>
   <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
   <form class = "modal-content" id = "deleteStaffForm" method = "POST">
-    <div class = "containerDelete" style = "overflow-y: auto; height: 404px;">
+    <div class = "containerDelete" style = "overflow-y: auto;">
       <h1 class = "modal-title"></h1>
       <div>
         <strong>Are you sure you want to delete this data?</strong> <br><br>
