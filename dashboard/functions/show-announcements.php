@@ -20,7 +20,13 @@ if ($result->num_rows > 0) {
     		$sql2 = "SELECT * FROM STAFF where staff_id = '{$row['staff_id']}'";
     		$result2 = $conn->query($sql2);
     		$row2 = $result2->fetch_assoc();
-  			echo $row2['staff_firstname']. " ".$row2['staff_lastname'];
+            if(empty($row2['staff_firstname'])){
+                echo "Deleted Account";
+            }
+            else{
+                echo $row2['staff_firstname']. " ".$row2['staff_lastname'];
+            }
+  			
     	 ?>
     	</br>
     	<?php 
@@ -30,7 +36,7 @@ if ($result->num_rows > 0) {
     </span>
 
     <?php 
-    	if($row2['staff_id'] === $staff_id){
+    	if(@$row2['staff_id'] === $staff_id){
     ?>
    		<i id="removeBtnAnnouncement" class="icon fa fa-trash" data-id="<?php echo $row['announce_id'];?>"></i>
 
