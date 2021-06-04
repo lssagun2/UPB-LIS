@@ -232,8 +232,8 @@
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
               </div>
-              <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
               <button type = "button" class = "modalbtn" id = "inventory-submit">Submit</button>
+              <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
             </form>
           </div>
         </div>
@@ -278,8 +278,8 @@
           ?>
         </select>
       </div>
-      <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
       <button type = "submit" class = "modalbtn">Generate Report</button>
+      <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>      
     </form>
   </div>
 </div>
