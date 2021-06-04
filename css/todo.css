@@ -100,3 +100,98 @@ section .team__link .team__header .inputDiv .add:hover {
 	font-family: 'Open Sans', sans-serif;
 	cursor: pointer;
 }
+
+
+
+/*To do list*/
+
+.wrapper .inputFields {
+    margin: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+
+.wrapper .inputFields input[type="text"] {
+    border: 1px solid rgba(0,0,0,.3);
+    outline: none;
+    width: calc(100% - 60px);
+    height: 100%;
+    border-radius: 3px;
+    padding: 0 10px;
+    font-size: 1rem;
+    transition: .3s;
+}
+
+.wrapper .inputFields input[type="text"]:focus {
+    border-color: #6c5ce7;
+}
+
+.wrapper .inputFields button.btn {
+    width: 50px;
+    height: 100%;
+    background: #6c5ce7;
+    color: #FFF;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 5px rgba(0,0,0,.1);
+    border-radius: 3px;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: .8;
+    transition: .3s;
+}
+
+.wrapper .inputFields button.btn:hover {
+    opacity: 1;
+}
+
+.wrapper .content ul li {
+    background: #f1f1f1;
+    border-radius: 3px;
+    margin: 8px 0;
+    padding: 10px 0;
+    border: 1px solid rgba(0,0,0,.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    text-align: justify;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapper .content ul li .text {
+    color: #111;
+    padding-left: 10px;
+}
+
+.wrapper .content ul li .icon {
+    width: 50px;
+    height: 100%;
+    background: #e74c3c;
+    position: absolute;
+    right: -50px;
+    top: 0;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+    transition: .3s linear;
+}
+
+.wrapper .content ul li:hover .icon {
+    right: 0;
+}
+
+.wrapper .content .pending-text {
+    color: #111;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 20px;
+    text-transform: capitalize;
+}
