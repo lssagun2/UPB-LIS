@@ -126,13 +126,13 @@ section .team__link .team__header .inputDiv .add:hover {
 }
 
 .wrapper .inputFields input[type="text"]:focus {
-    border-color: #6c5ce7;
+    border-color: #000;
 }
 
 .wrapper .inputFields button.btn {
     width: 50px;
     height: 100%;
-    background: #6c5ce7;
+    background: #850038;
     color: #FFF;
     outline: none;
     border: none;
