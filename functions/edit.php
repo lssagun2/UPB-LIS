@@ -30,9 +30,9 @@
 						if($result->num_rows != 0){
 						 	$errors['mat_acc_num'] = "Accession number already exists!";
 						}
-						if(!preg_match('/[a-zA-Z]{1,8}-[0-9]{1,8}$/i', $info['mat_acc_num'])){
-				 			$errors['mat_acc_num'] = "Please use the format xxx-zzzz (x is any letter [max 3 letters] followed by dash and z is any number[max 8 numbers]).";
-				 		}
+						// if(!preg_match('/[a-zA-Z]{1,8}-[0-9]{1,8}$/i', $info['mat_acc_num'])){
+				 	// 		$errors['mat_acc_num'] = "Please use the format xxx-zzzz (x is any letter [max 3 letters] followed by dash and z is any number[max 8 numbers]).";
+				 	// 	}
 					}
 				}
 
@@ -46,18 +46,18 @@
 				if($info['mat_barcode'] == ""){
 					unset($errors['mat_barcode']); 
 				}
-				if(!($info['mat_call_num'] == $initialInfo['mat_call_num'])){
-					if(empty($info['mat_call_num'])){
-						$errors['mat_call_num'] = "Call number is required!";
-					}
-					else{
-						$sql = "SELECT * FROM MATERIAL WHERE mat_call_num = '{$info['mat_call_num']}'";
-						$result = $conn->query($sql);
-						if($result->num_rows != 0){
-							 $errors['mat_call_num'] = "Call number already exists!";
-						}
-					}
-				}
+				// if(!($info['mat_call_num'] == $initialInfo['mat_call_num'])){
+				// 	if(empty($info['mat_call_num'])){
+				// 		$errors['mat_call_num'] = "Call number is required!";
+				// 	}
+				// 	else{
+				// 		$sql = "SELECT * FROM MATERIAL WHERE mat_call_num = '{$info['mat_call_num']}'";
+				// 		$result = $conn->query($sql);
+				// 		if($result->num_rows != 0){
+				// 			 $errors['mat_call_num'] = "Call number already exists!";
+				// 		}
+				// 	}
+				// }
 				// if(!preg_match("/^[a-zA-Z-' ],[a-zA-Z-' ]*$/", $info['mat_author'])){
 				//   	$errors['mat_author'] = "Only Letters are allowed!";
 				// }
