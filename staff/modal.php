@@ -1,3 +1,10 @@
+<?php 
+
+require '../config.php';
+$sql = "SELECT CONCAT(staff_firstname, ' ', staff_lastname) AS name, staff_type as type FROM STAFF WHERE staff_id=" . $_SESSION['staff_id'];
+$result = $conn->query($sql);
+$staff = $result->fetch_assoc();
+?>
 <style>
 #staff .container {
   height: 580px;
@@ -36,6 +43,7 @@
   <form class = "modal-content" id = "staff" method = "POST">
     <div class = "container">
       <h1 class = "modal-title">Update My Information</h1>
+
       <input type="hidden" name="function" id = "staff_function" value = "">
 
       <input type = "hidden" id = "staff_id" name = "staff_id" value = "<?php echo $row["staff_id"]; ?>">
@@ -74,11 +82,27 @@
 
       <div class = "form-control" id = "confirmpasswordform">
       <label for = "password">Confirm Password</label><br>
-      <input style = "width: 100%;" type = "password" id = "confirm_password" name = "confirm_password" placeholder = "Confirm Password.." value="<?php echo $row["staff_password"] ?>"><span toggle="#confirm_password" class="fa fa-fw fa-eye field-icon toggle-password" style = "z-index: 10; position: relative; margin-left: -25px; margin-right: 5px;"></span>
+      <input style = "width: 100%;" type = "password" id = "confirm_password" name = "confirm_password" placeholder = "Confirm Password.."  value="<?php echo $row["staff_password"] ?>"><span toggle="#confirm_password" class="fa fa-fw fa-eye field-icon toggle-password" style = "z-index: 10; position: relative; margin-left: -25px; margin-right: 5px;"></span>
       <i class="fas fa-check-circle"></i>
       <i class="fas fa-exclamation-circle"></i>
       <small>Error message</small>
       </div>
+
+
+
+      <?php 
+        if($staff['type'] === 'admin'){
+      ?>
+      <div class="form-control"><!-- Changes -->
+        <label for = "staff_type">Account Type</label>
+        <select id = "staff_type" name = "staff_type" >
+        <option value = "staff">Staff</option>
+        <option value = "admin" selected>Admin</option>
+        </select>
+      </div>
+      <?php 
+        }
+       ?>
 
       <button type = "button" class = "modalbtn" id = "edit-staff">Save changes</button>
       <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>

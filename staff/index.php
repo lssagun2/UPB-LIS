@@ -126,6 +126,7 @@
                         <th width="20%">First Name</th>
                         <th width="25%">Last Name</th>
                         <th width="20%">Password</th>
+                        <th width="20%">Type</th>
                         <th width="10%" style = "border-radius: 0 0.9em 0 0;">Action</th>
                       </tr>
                     </thead>
@@ -142,6 +143,7 @@
                       <td><?php echo $row['staff_firstname'] ?></td>
                       <td><?php echo $row['staff_lastname'] ?></td>
                       <td><?php echo $row['staff_password'] ?></td>
+                      <td><?php echo $row['staff_type'] ?></td>
 
                       <td style = "margin-right: 5px;" align = "center">
                         <button id = 'editStaffTable' class = 'edit'><i class = 'fas fa-edit'></i></button>
