@@ -18,12 +18,6 @@
 			if($password === $row["staff_password"]){
 				$_SESSION["logged_in"] = TRUE;
 				$_SESSION["staff_id"] = $row["staff_id"];
-				$_SESSION["staff_firstname"] = $row["staff_firstname"];
-				$_SESSION["staff_lastname"] = $row["staff_lastname"];
-				$_SESSION["admin"] = FALSE;
-				if($row["staff_type"] == "admin"){
-					$_SESSION["admin"] = TRUE;
-				}
 				$link = "../dashboard/index.php";
 			}
 			else{

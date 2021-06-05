@@ -6,6 +6,9 @@
   require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
   date_default_timezone_set('Asia/Manila');
   $year = date("Y");
+  $sql = "SELECT CONCAT(staff_firstname, ' ', staff_lastname) AS name, staff_type as type FROM STAFF WHERE staff_id=" . $_SESSION['staff_id'];
+  $result = $conn->query($sql);
+  $staff = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +34,13 @@
     <div class = "sidebar" id = "sidebar">
       <div class = "sidebar-avatar">
         <img src = "../../img/avatar.svg" alt = "">
-        <h2 style="margin: 0 auto;"><?php echo $_SESSION["staff_firstname"] . " " .$_SESSION["staff_lastname"]?></h2>
+        <h2 style="margin: 0 auto;"><?php echo $staff["name"]?></h2>
       </div><br>
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
       <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
       <a href = "#"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
-      <a href = "../../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
+      <a href = "../../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
     </div>
     <div id = "main">
       <div id="loading-cover"></div>
@@ -85,7 +88,7 @@
               </div>
             </li>
             <?php
-                if($_SESSION['admin']){
+                if($staff['type'] === 'admin'){
             ?>
             <li class = "nav__item"> <!-- Changes -->
               <div class = "tooltip">
@@ -108,7 +111,7 @@
               <h1><span class = "h1-admin">Materials</span> Report</h1>
               <div class = "profile">
                 <button class = "profile__button">
-                  <span class = "profile__name"><?php echo $_SESSION["staff_firstname"] . " " .$_SESSION["staff_lastname"]?></span>
+                  <span class = "profile__name"><?php echo $staff["name"]?></span>
                   <img id = "openbutton" onclick = "openNav()" class = "profile__img" src = "../../img/avatar.svg" alt = "Profile Picture" loading = "lazy" />
                 </button>
               </div>

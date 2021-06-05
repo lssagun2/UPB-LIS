@@ -1,7 +1,13 @@
 <?php
   session_start();
+  if(!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"])){
+      header("location: ../logout.php");
+    }
   require '../config.php';
- ?>
+  $sql = "SELECT CONCAT(staff_firstname, ' ', staff_lastname) AS name, staff_type as type FROM STAFF WHERE staff_id=" . $_SESSION['staff_id'];
+  $result = $conn->query($sql);
+  $staff = $result->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -33,13 +39,13 @@
     <div class = "sidebar" id = "sidebar">
       <div class = "sidebar-avatar">
         <img src = "../img/avatar.svg" alt = "">
-        <h2 style="margin: 0 auto;"><?php echo $_SESSION["staff_firstname"] . " " .$_SESSION["staff_lastname"]?></h2>
+        <h2 style="margin: 0 auto;"><?php echo $staff["name"]?></h2>
       </div><br>
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
       <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#" class="backup"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
       <a href = "#" class="restore"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
-      <a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
+      <a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
     </div>
     <div id = "main">
       <div class = "wrapper">
@@ -103,7 +109,7 @@
               <h1><span class = "h1-admin">Staff</span> Members</h1>
               <div class = "profile">
                 <button class = "profile__button">
-                  <span class = "profile__name"><?php echo $_SESSION["staff_firstname"] . " " .$_SESSION["staff_lastname"]?></span>
+                  <span class = "profile__name"><?php echo $staff["name"]?></span>
                   <img id = "openbutton" onclick = "openNav()" class = "profile__img" src = "../img/avatar.svg" alt = "Profile Picture" loading = "lazy" />
                 </button>
               </div>
