@@ -1,7 +1,7 @@
 <?php
   session_start();
-  if(!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true)){
-    header("location: ../index.php");
+  if(!(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"])){
+    header("location: ../logout.php");
   }
   require '../config.php';
 ?>
@@ -55,13 +55,13 @@
     <div class = "sidebar" id = "sidebar">
       <div class = "sidebar-avatar">
         <img src = "../img/avatar.svg" alt = "">
-        <h2>Admin</h2>
+        <h2 style="margin: 0 auto;"><?php echo $_SESSION["staff_firstname"] . " " .$_SESSION["staff_lastname"]?></h2>
       </div><br>
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
       <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#" class="backup"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
       <a href = "#" class="restore"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
-      <a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
+      <a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
     </div>
     <div id = "main">
       <div id="loading-cover"></div>
@@ -108,15 +108,8 @@
                 </a>
               </div>
             </li>
-            <?php 
-                $staff_id = $_SESSION['staff_id'];
-                $sql = "SELECT * FROM STAFF WHERE staff_id = $staff_id";
-                $result = $conn->query($sql);
-                $row = $result->fetch_assoc();
-                if($row['staff_username'] === "admin"){
-
-
-
+            <?php
+                if($_SESSION['admin']){
             ?>
             <li class = "nav__item"> <!-- Changes -->
               <div class = "tooltip">
@@ -136,28 +129,33 @@
         <main class = "main">
           <header class = "header">
             <div class = "header__wrapper">
-              <form action = "" class = "search">
-                <button class = "search__button focus--box-shadow" type = "submit">
-                  <svg class = "search__icon" xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 24 24">
-                    <path d = "M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z" />
-                  </svg>
-                </button>
-                <input class = "search__input focus--box-shadow" type = "text" placeholder = "Search for Material" />
-              </form>
+              <h1>List of <span class = "h1-admin">Materials</span></h1>
               <div class = "profile">
                 <button class = "profile__button">
-                  <span class = "profile__name">Admin</span>
+                  <span class = "profile__name"><?php echo $_SESSION["staff_firstname"] . " " .$_SESSION["staff_lastname"]?></span>
                   <img id = "openbutton" onclick = "openNav()" class = "profile__img" src = "../img/avatar.svg" alt = "Profile Picture" loading = "lazy" />
                 </button>
               </div>
             </div>
           </header>
           <section class = "section">
-            <header class = "section__header">
-              <h1>List of <span class = "h1-admin">All Materials</span></h1>
-            </header>
             <ul class = "project">
               <li class = "project__item">
+                <form action = "" class = "search" id = "search-form" style="margin-left: 0">
+                  <select style="padding: 6px; width: auto" id = "search-column" name = "search-column">
+                    <option value = "mat_title">Title</option>
+                    <option value = "mat_acc_num">Accession Number</option>
+                    <option value = "mat_call_num">Call Number</option>
+                    <option value = "mat_author">Author</option>
+                    <option value = "mat_publisher">Publisher</option>
+                  </select>
+                  <input class = "search__input focus--box-shadow" type = "text" placeholder = "Search for Material" id = "search-value" name = "search-value">
+                  <button class = "search__button focus--box-shadow" type = "submit">
+                    <svg class = "search__icon" xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 24 24">
+                      <path d = "M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z" />
+                    </svg>
+                  </button>
+                </form>
               	<div style = "display: inline-block; width: 100%; height: 50px; padding: 15px; padding-top: 15px; background-color: rgba(255, 255, 255, 0.5); border-radius: 0.5em 0.5em 0 0">
               		<div style = "float: left; font-size: 1.2em;">
               			Showing
@@ -241,7 +239,6 @@
     <script type = "text/javascript" src = "js/formhandler.js"></script>
     <script type = "text/javascript" src = "js/update.js"></script>
     <script type = "text/javascript" src = "js/count.js"></script>
-    <script type = "text/javascript" src = "js/findPage.js"></script>
     <script type = "text/javascript" src = "js/buttons.js"></script>
     <script type = "text/javascript" src = "js/initialize.js"></script>
     <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>

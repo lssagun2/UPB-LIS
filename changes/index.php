@@ -25,13 +25,13 @@ require '../config.php';
 	<div class = "sidebar" id = "sidebar">
 		<div class = "sidebar-avatar">
 			<img src = "../img/avatar.svg" alt = "">
-			<h2>Admin</h2>
+			<h2 style="margin: 0 auto;"><?php echo $_SESSION["staff_firstname"] . " " .$_SESSION["staff_lastname"]?></h2>
 		</div><br>
 		<a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
 		<a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#" class="backup"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
       <a href = "#" class="restore"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
-		<a href = "../index.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
+		<a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
 	</div>
 
 		<?php  require "../staff/modal.php"; ?>
@@ -79,51 +79,37 @@ require '../config.php';
 							</a>
 						</div>
 					</li>
-					<?php 
-					$staff_id = $_SESSION['staff_id'];
-					$sql = "SELECT * FROM STAFF WHERE staff_id = $staff_id";
-					$result = $conn->query($sql);
-					$row = $result->fetch_assoc();
-					if($row['staff_username'] === "admin"){
-				    	?>
-					    <li class = "nav__item"> <!-- Changes -->
-					      <div class = "tooltip">
-						<span class = "tooltiptext-t1">Staff</span>
-						<a href = "../staff/index.php" class = "nav__link focus--box-shadow" role = "menuitem" aria-label = "Staff">
-						  <svg class = "nav__icon" xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 24 24" role = "presentation">
-						    <path fill = "#6563ff" d = "M15.573,11.624c0.568-0.478,0.947-1.219,0.947-2.019c0-1.37-1.108-2.569-2.371-2.569s-2.371,1.2-2.371,2.569c0,0.8,0.379,1.542,0.946,2.019c-0.253,0.089-0.496,0.2-0.728,0.332c-0.743-0.898-1.745-1.573-2.891-1.911c0.877-0.61,1.486-1.666,1.486-2.812c0-1.79-1.479-3.359-3.162-3.359S4.269,5.443,4.269,7.233c0,1.146,0.608,2.202,1.486,2.812c-2.454,0.725-4.252,2.998-4.252,5.685c0,0.218,0.178,0.396,0.395,0.396h16.203c0.218,0,0.396-0.178,0.396-0.396C18.497,13.831,17.273,12.216,15.573,11.624 M12.568,9.605c0-0.822,0.689-1.779,1.581-1.779s1.58,0.957,1.58,1.779s-0.688,1.779-1.58,1.779S12.568,10.427,12.568,9.605 M5.06,7.233c0-1.213,1.014-2.569,2.371-2.569c1.358,0,2.371,1.355,2.371,2.569S8.789,9.802,7.431,9.802C6.073,9.802,5.06,8.447,5.06,7.233 M2.309,15.335c0.202-2.649,2.423-4.742,5.122-4.742s4.921,2.093,5.122,4.742H2.309z M13.346,15.335c-0.067-0.997-0.382-1.928-0.882-2.732c0.502-0.271,1.075-0.429,1.686-0.429c1.828,0,3.338,1.385,3.535,3.161H13.346z" />
-						  </svg>
-						</a>
-					      </div>
-					    </li> 
-					<?php 
-					}
-					?>
+					<?php
+		                if($_SESSION['admin']){
+		            ?>
+		            <li class = "nav__item"> <!-- Changes -->
+		              <div class = "tooltip">
+		                <span class = "tooltiptext-t1">Staff</span>
+		                <a href = "../staff/index.php" class = "nav__link focus--box-shadow" role = "menuitem" aria-label = "Staff">
+		                  <svg class = "nav__icon" xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 24 24" role = "presentation">
+		                    <path fill = "#6563ff" d = "M15.573,11.624c0.568-0.478,0.947-1.219,0.947-2.019c0-1.37-1.108-2.569-2.371-2.569s-2.371,1.2-2.371,2.569c0,0.8,0.379,1.542,0.946,2.019c-0.253,0.089-0.496,0.2-0.728,0.332c-0.743-0.898-1.745-1.573-2.891-1.911c0.877-0.61,1.486-1.666,1.486-2.812c0-1.79-1.479-3.359-3.162-3.359S4.269,5.443,4.269,7.233c0,1.146,0.608,2.202,1.486,2.812c-2.454,0.725-4.252,2.998-4.252,5.685c0,0.218,0.178,0.396,0.395,0.396h16.203c0.218,0,0.396-0.178,0.396-0.396C18.497,13.831,17.273,12.216,15.573,11.624 M12.568,9.605c0-0.822,0.689-1.779,1.581-1.779s1.58,0.957,1.58,1.779s-0.688,1.779-1.58,1.779S12.568,10.427,12.568,9.605 M5.06,7.233c0-1.213,1.014-2.569,2.371-2.569c1.358,0,2.371,1.355,2.371,2.569S8.789,9.802,7.431,9.802C6.073,9.802,5.06,8.447,5.06,7.233 M2.309,15.335c0.202-2.649,2.423-4.742,5.122-4.742s4.921,2.093,5.122,4.742H2.309z M13.346,15.335c-0.067-0.997-0.382-1.928-0.882-2.732c0.502-0.271,1.075-0.429,1.686-0.429c1.828,0,3.338,1.385,3.535,3.161H13.346z" />
+		                  </svg>
+		                </a>
+		              </div>
+		            </li> 
+		            <?php 
+		            }
+		            ?>
 				</ul>
 			</nav>
 			<main class = "main">
 				<header class = "header">
 					<div class = "header__wrapper">
-						<form action = "" class = "search">
-							<button class = "search__button focus--box-shadow" type = "submit">
-								<svg class = "search__icon" xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 24 24">
-									<path d = "M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z" />
-								</svg>
-							</button>
-							<input class = "search__input focus--box-shadow" type = "text" placeholder = "Search for Material" />
-						</form>
+						<h1><span class = "h1-admin">Changes History</span></h1>
 						<div class = "profile">
 							<button class = "profile__button">
-								<span class = "profile__name">Admin</span>
+								<span class = "profile__name"><?php echo $_SESSION["staff_firstname"] . " " .$_SESSION["staff_lastname"]?></span>
 								<img id = "openbutton" onclick = "openNav()" class = "profile__img" src = "../img/avatar.svg" alt = "Profile Picture" loading = "lazy" />
 							</button>
 						</div>
 					</div>
 				</header>
 				<section class = "section">
-					<header class = "section__header">
-						<h1><span class = "h1-admin">Changes History</span></h1>
-					</header>
 					<ul class = "project">
 						<li class = "project__item">
 							<div class = "allmaterials" style = "overflow-x: auto; overflow-y:  auto; height: 500px;">

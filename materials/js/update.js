@@ -1,6 +1,6 @@
 //function that updates the contents of the tablees
 function update(){
-	var data = $('form#filter-form, form#limit-form, form#page-form').serializeArray();
+	var data = $('form#filter-form, form#limit-form, form#page-form, form#search-form').serializeArray();
 	data.push({name: "sort", value: sort}, {name: "sort_direction", value: sort_direction});
 	$('div#loading-cover').show();
 	$.ajax({
@@ -14,17 +14,13 @@ function update(){
 		var limit = $("input#limit").val();
 		page_count = Math.ceil(material_count/limit);
 		$("span#total-pages").html(page_count);
+		$("button.next").removeAttr("disabled");
+		$("button.previous").removeAttr("disabled");
 		if(parseInt($("input#page-number").val()) == 1){
 			$("button.previous").attr("disabled", true);
-			$("button.next").removeAttr("disabled");
 		}
-		else if(parseInt($("input#page-number").val()) == page_count){
+		if(parseInt($("input#page-number").val()) == page_count){
 			$("button.next").attr("disabled", true);
-			$("button.previous").removeAttr("disabled");
-		}
-		else{
-			$("button.next").removeAttr("disabled");
-			$("button.previous").removeAttr("disabled");
 		}
 		$("input#page-number").attr("max", page_count);
 		var body = $("tbody");

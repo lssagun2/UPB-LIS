@@ -18,6 +18,14 @@
   else{
     $condition = "";
   }
+  if($_POST["search-value"] != ""){
+    if(!empty($filter)){
+      $condition .= "AND " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%'";
+    }
+    else{
+      $condition = "WHERE " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%'";
+    }
+  }
   $sql = "SELECT COUNT(1) as material_count FROM MATERIAL $condition";
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();

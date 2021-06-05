@@ -79,7 +79,7 @@
   }
   $result = $conn->query($query);
   $materials = $result->fetch_all();
-  $directory = $_SERVER['DOCUMENT_ROOT']."/upb-lis/report/tables/";
+  $directory = $_SERVER['DOCUMENT_ROOT']."/upb-lis/report/common/";
   $filename = 'report' . $_SESSION["staff_id"] . '.csv';
   unlink($directory.$filename);
   $file = fopen($directory.$filename, 'w');

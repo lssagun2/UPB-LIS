@@ -1,6 +1,6 @@
 //function that updates the contents of the tablees
 function update(){
-	var data = $('form#filter-form, form#limit-form, form#page-form').serializeArray();
+	var data = $('form#filter-form, form#limit-form, form#page-form, form#search-form').serializeArray();
 	data.push({name: "sort", value: sort}, {name: "sort_direction", value: sort_direction}, {name: "category", value: category});
 	$('div#loading-cover').show();
 	$.ajax({

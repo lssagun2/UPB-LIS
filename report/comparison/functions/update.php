@@ -42,11 +42,19 @@
       $mat_query .= " $column='$value' AND";
     }
     $mat_query = substr($mat_query, 0, -4);
-		$mat_query .= ")";
+    if($_POST["search-value"] != ""){
+      $mat_query .= " AND " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%'";
+    }
+    $mat_query .= ")";
   }
-	else{
-		$mat_query = "";
-	}
+  else{
+    if($_POST["search-value"] != ""){
+      $mat_query .= " " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%')";
+    }
+    else{
+      $mat_query = "";
+    }
+  }
 
   //creation of the limit part of the query
   $limit = 'LIMIT ' . $_POST["limit"];

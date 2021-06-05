@@ -7,7 +7,7 @@
 		$errors["username"] = "Username cannot be empty.";
 	}
 	else{
-		$sql = "SELECT staff_id, staff_password, staff_firstname, staff_lastname FROM STAFF WHERE staff_username = '$username'";
+		$sql = "SELECT staff_id, staff_password, staff_firstname, staff_lastname, staff_type FROM STAFF WHERE staff_username = '$username'";
 		$result = $conn->query($sql);
 		echo $conn->error;
 		if($result->num_rows == 0){
@@ -20,6 +20,10 @@
 				$_SESSION["staff_id"] = $row["staff_id"];
 				$_SESSION["staff_firstname"] = $row["staff_firstname"];
 				$_SESSION["staff_lastname"] = $row["staff_lastname"];
+				$_SESSION["admin"] = FALSE;
+				if($row["staff_type"] == "admin"){
+					$_SESSION["admin"] = TRUE;
+				}
 				$link = "../dashboard/index.php";
 			}
 			else{

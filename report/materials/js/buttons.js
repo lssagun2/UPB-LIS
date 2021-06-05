@@ -60,4 +60,9 @@ $(document).ready(function(){
 		event.preventDefault();
 		$("input#limit").trigger("change");	//call onchange function for limit if form is submitted
 	});
+	$("form#search-form").submit(function(event){
+		event.preventDefault();
+		$("input#page-number").val(1);
+		count();
+	});
 });

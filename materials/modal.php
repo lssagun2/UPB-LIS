@@ -186,7 +186,7 @@
     <div class="form-control" id = "lastyearinvform"><!-- Changes -->
     <label for = "last_year_inventoried">Last Year Inventoried</label>
     <select id = "last_year_inventoried" name = "last_year_inventoried" value="">
-      <option value = "0" || "nu selected>---none---</option>
+      <option value = "0" || nu selected>---none---</option>
       <option value = "2021">2021</option>
       <option value = "2020">2020</option>
       <option value = "2019">2019</option>
@@ -211,46 +211,18 @@
       <label for="circtype-filter">Circulation Type:</label>
       <select class = "filter-column" id="circtype-filter" name="circtype-filter" style = "width: 98%;">
         <option value = "" selected = "selected">---none---</option>
-        <?php
-          $sql = "SELECT DISTINCT mat_circ_type FROM MATERIAL";
-          $result = $conn->query($sql);
-          while($row = $result->fetch_assoc()){
-        ?>
-        <option value = "<?php echo $row['mat_circ_type']?>"><?php echo $row['mat_circ_type']?></option>
-        <?php } ?>
       </select>
       <label for="type-filter">Material Type:</label>
       <select class = "filter-column" id="type-filter" name="type-filter" style = "width: 98%;">
         <option value = "" selected = "selected">---none---</option>
-        <?php
-          $sql = "SELECT DISTINCT mat_type FROM MATERIAL";
-          $result = $conn->query($sql);
-          while($row = $result->fetch_assoc()){
-        ?>
-        <option value = "<?php echo $row['mat_type']?>"><?php echo $row['mat_type']?></option>
-        <?php } ?>
       </select>
       <label for="status-filter">Status:</label>
       <select class = "filter-column" id="status-filter" name="status-filter" style = "width: 98%;">
         <option value = "" selected = "selected">---none---</option>
-        <?php
-          $sql = "SELECT DISTINCT mat_status FROM MATERIAL";
-          $result = $conn->query($sql);
-          while($row = $result->fetch_assoc()){
-        ?>
-        <option value = "<?php echo $row['mat_status']?>"><?php echo $row['mat_status']?></option>
-        <?php } ?>
       </select>
       <label for="location-filter">Location:</label>
       <select class = "filter-column" id="location-filter" name="location-filter" style = "width: 98%;">
         <option value = "" selected = "selected">---none---</option>
-       <?php
-          $sql = "SELECT DISTINCT mat_location FROM MATERIAL";
-          $result = $conn->query($sql);
-          while($row = $result->fetch_assoc()){
-        ?>
-        <option value = "<?php echo $row['mat_location']?>"><?php echo $row['mat_location']?></option>
-        <?php } ?>
       </select>
       <button type = "button" class = "modalbtn" id = "update-filter" style = "margin-right: 0;">Update</button>
       <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>  

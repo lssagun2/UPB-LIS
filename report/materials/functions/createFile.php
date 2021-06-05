@@ -50,7 +50,7 @@
   $query = "SELECT mat_acc_num, mat_barcode, mat_call_num, mat_title, mat_author, mat_volume, mat_year, mat_edition, mat_publisher, mat_pub_year, mat_circ_type, mat_type, mat_status, mat_source, mat_location, mat_lastinv_year FROM MATERIAL $condition $sort";
   $result = $conn->query($query);
   $materials = $result->fetch_all(MYSQLI_ASSOC);
-  $directory = $_SERVER['DOCUMENT_ROOT']."/upb-lis/report/tables/";
+  $directory = $_SERVER['DOCUMENT_ROOT']."/upb-lis/report/common/";
   $filename = 'report' . $_SESSION["staff_id"] . '.csv';
   unlink($directory.$filename);
   $file = fopen($directory.$filename, 'w');

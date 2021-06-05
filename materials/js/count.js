@@ -4,7 +4,7 @@ function count(){
 	$.ajax({
 		type 		: 'POST',
 		url			: 'functions/count.php',
-		data 		: $('form#filter-form').serialize(),
+		data 		: $('form#filter-form, form#search-form').serialize(),
 		dataType 	: 'json'
 	})
 	.done(function(data){

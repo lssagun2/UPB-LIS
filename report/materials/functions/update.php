@@ -19,6 +19,14 @@
   else{
     $condition = "";
   }
+  if($_POST["search-value"] != ""){
+    if(!empty($filter)){
+      $condition .= "AND " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%'";
+    }
+    else{
+      $condition = "WHERE " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%'";
+    }
+  }
   
   //creation of the limit part of the query
   $limit = 'LIMIT ' . $_POST["limit"];

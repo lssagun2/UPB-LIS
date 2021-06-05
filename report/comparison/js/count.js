@@ -1,6 +1,6 @@
 //function that counts the total number of materials with the current filter
 function count(){
-	var data = $('form#filter-form').serializeArray()
+	var data = $('form#filter-form, form#search-form').serializeArray()
 	data.push({name: "comparison", value: comparison}, {name: "category", value: category}, {name: "year1", value: year1}, {name: "year2", value: year2});
 	console.log($.param(data));
 	$('div#loading-cover').show();
