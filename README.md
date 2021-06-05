@@ -16,11 +16,11 @@ The following are the list of the goal functionalities for the software:
 -   [x] Inventory using barcode scanner
 -   [x] Adding new staff information
 -   [x] Updating of staff information
--   [ ] Backup and restore system
+-   [x] Backup and restore system
 -   [x] Sorting capabilities for the tables
 -   [x] Adding table pagination
--   [ ] Working to-do list in the dashboard page
--   [ ] Working forum in the dashboard page
+-   [x] Working to-do list in the dashboard page
+-   [x] Working forum in the dashboard page
 -   [x] Improve querying speed
 
 ## Installation
