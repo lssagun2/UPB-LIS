@@ -8,6 +8,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$(".input-invalid").hide();
 		var function_name = $("#staff_function").val();
+		console.log($('form#staff').serialize())
 		$.ajax({
 			type 		: 'POST',
 			url			: '../staff/functions/'+function_name+'.php',

@@ -11,6 +11,7 @@ $(document).ready(function(){
 		$("#staff_function").val("edit");
 		$(".modal-title").html("Update My Information");
 		$("button#edit-staff").html("Save changes");
+		$("input#confirm_password").val("");
 		$('div#staff').show();
 	});
 	$(document).on('click', '#deleteStaffTable', function(){
@@ -41,6 +42,7 @@ $(document).ready(function(){
 		$('input#staff_lastname').val(data[3]);
 		$('input#staff_password').val(data[4]);
 		$('input#confirm_password').val(data[4]);
+		$('#staff_type').val(data[5]);
 		$('div#staff').show();
 	});
 	$(document).on('click', 'button#staff-add-form', function(){
@@ -57,13 +59,13 @@ $(document).ready(function(){
 	});
 	$(document).on('click', 'button#edit-staff', function(){
 		$('form#staff').submit();
-		$('input:checkbox').prop('checked', false); // Unchecks it
+		// $('input:checkbox').prop('checked', false); // Unchecks it
 		$('#staff_password').attr('type','password'); //resets staffpassword
 	});
 
 	$(document).on('click', 'button#delete-staff.modalbtn', function(){
 		$('form#deleteStaffForm').submit();
-		$('input:checkbox').prop('checked', false); // Unchecks it
+		// $('input:checkbox').prop('checked', false); // Unchecks it
 		$('#staff_password').attr('type','password'); //resets staffpassword
 	});
 
@@ -71,14 +73,14 @@ $(document).ready(function(){
 		$('div.modal').hide();
 		$('div.form-control.error').removeClass('error');	//Changes
 		$('div.form-control.success').removeClass('success');	//Changes
-		$('input:checkbox').prop('checked', false); // Unchecks it
+		// $('input:checkbox').prop('checked', false); // Unchecks it
 		$('#staff_password').attr('type','password'); //resets staffpassword
 	});
 	$(document).on('click', '.close', function(){
 		$('div.modal').hide();
 		$('div.form-control.error').removeClass('error');	//Changes
 		$('div.form-control.success').removeClass('success'); //Changes
-		$('input:checkbox').prop('checked', false); // Unchecks it
+		// $('input:checkbox').prop('checked', false); // Unchecks it
 		$('#staff_password').attr('type','password'); //resets staffpassword
 	});
 });
