@@ -7,7 +7,7 @@ $staff = $result->fetch_assoc();
 ?>
 <style>
 #staff .container {
-  height: 580px;
+  height: 645px;
   padding: 20px;
 }
 
