@@ -9,8 +9,11 @@
 	 	"staff_firstname" => trim($_POST['staff_firstname']),
 	 	"staff_lastname" => trim($_POST['staff_lastname']),
 	 	"staff_password" => trim($_POST['staff_password']),
-	 	"confirm_password" => trim($_POST['confirm_password'])
+	 	"confirm_password" => trim($_POST['confirm_password']),
+	 	"staff_type" => trim($_POST['staff_type'])
 	 ];
+
+	
 	$errors = validateInput($conn, $info, 'STAFF');
 	if(!empty($errors)){
 		$data['errors'] = $errors;

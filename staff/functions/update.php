@@ -7,6 +7,7 @@
       <th width="20%">First Name</th>
       <th width="25%">Last Name</th>
       <th width="20%">Password</th>
+      <th width="20%">Type</th>
       <th width="10%" style = "border-radius: 0 1em 0 0;">Action</th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
     <td><?php echo $row['staff_firstname'] ?></td>
     <td><?php echo $row['staff_lastname'] ?></td>
     <td><?php echo $row['staff_password'] ?></td>
+    <td><?php echo $row['staff_type'] ?></td>
                     
     <td>
       <button id = 'deleteStaffTable' class = 'edit' style = 'width: 50px; height: 50px; color: #000;'><i class="fas fa-trash-alt"></i></button>
