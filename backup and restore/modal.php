@@ -7,11 +7,15 @@
 .subtitle {
   margin: 25px;
 }
+.modalbtn {
+  margin: 15px;
+}
 .response {
   padding: 10px;
   margin-bottom: 20px;
     border-radius: 2px;
 }
+
 .error {
     background: #fbd3d3;
     border: #efc7c7 1px solid;
@@ -50,19 +54,19 @@ function restore($filePath, $conn)
 {
     $sql = '';
     $error = '';
-
+    
     if (file_exists($filePath)) {
         $lines = file($filePath);
-
+        
         foreach ($lines as $line) {
-
+            
             // Ignoring comments from the SQL script
             if (substr($line, 0, 2) == '--' || $line == '') {
                 continue;
             }
-
+            
             $sql .= $line;
-
+            
             if (substr(trim($line), - 1, 1) == ';') {
                 $result = mysqli_query($conn, $sql);
                 if (! $result) {
@@ -71,7 +75,7 @@ function restore($filePath, $conn)
                 $sql = '';
             }
         } // end foreach
-
+        
         if ($error) {
             $response = array(
                 "type" => "error",
@@ -85,34 +89,19 @@ function restore($filePath, $conn)
         }
         exec('rm ' . $filePath);
     } // end if file exists
-
+    
     return $response;
 }
 ?>
 
-<?php
-if (! empty($response)) {
-    ?>
-<div class="response <?php echo $response["type"]; ?>">
-<?php echo nl2br($response["message"]); ?>
-</div>
-<?php
-}
-?>
-
-
   <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
-  <form class = "modal-content" id = "restore" method = "POST">
+  <form class = "modal-content" method="post" action="" enctype="multipart/form-data" id="frm-restore">
     <div class = "container"  style = "overflow-y: auto;">
       <h1 class = "modal-title"></h1>
-
-      <form method="post" action="" enctype="multipart/form-data" id="frm-restore">
         <div class="form-row">
             <div class = "subtitle" >Please select an appropriate .sql backup file</div>
                 <input type="file" name="backup_file" class="input-file"/>
         </div>
-      </form>
-
       <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
       <button type = "submit" name="restore" value="Restore" class = "modalbtn" id = "restore-btn">Save changes</button>
     </div>
