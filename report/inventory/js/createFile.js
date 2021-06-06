@@ -1,12 +1,13 @@
 //function that creates and downloads a csv file containing the contents of the current table
 function createFile(){
-	var data = $('form#filter-form').serializeArray();
-	data.push({name: "sort", value: sort}, {name: "sort_direction", value: sort_direction}, {name: "category", value: category});
+	var data = $('form#filter-form, form#search-form').serializeArray();
+	data.push({name: "sort", value: sort}, {name: "sort_direction", value: sort_direction}, {name: "category", value: category}, {name: "year", value: $("span#report_year").html()});
 	$('div#loading-cover').show();
+	console.log($.param(data));
 	$.ajax({
 		type 		: 'POST',
 		url			: 'functions/createFile.php',
-		data 		: $.param(data),
+		data 		: data,
 		dataType 	: 'json'
 	})
 	.done(function(data){

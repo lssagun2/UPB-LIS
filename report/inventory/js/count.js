@@ -1,7 +1,7 @@
 //function that counts the total number of materials with the current filter
 function count(){
 	var data = $('form#filter-form, form#search-form').serializeArray()
-	data.push({name: "category", value: category});
+	data.push({name: "category", value: category}, {name: "year", value: $("span#report_year").html()});
 	$('div#loading-cover').show();
 	$.ajax({
 		type 		: 'POST',
@@ -16,6 +16,6 @@ function count(){
 		update();	//updates the display for the table
 	})
 	.fail(function(data) {
-		$('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');
+		console.log("AJAX call failed");
     });
 }

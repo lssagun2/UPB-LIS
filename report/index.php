@@ -5,7 +5,8 @@
       header("location: materials/index.php");
       exit;
     case 'inventory':
-      header("location: inventory/index.php");
+      $year = $_POST["year"];
+      header("location: inventory/index.php?year=$year");
       exit;
     case 'comparison':
       $year1 = $_POST["year1"];

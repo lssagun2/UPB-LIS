@@ -1,11 +1,21 @@
 <?php
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
-  $year = date('Y');
-  if($_POST["category"] == "inventoried"){
-		$inv_query = "(SELECT mat_id, date_$year, staff_id_$year FROM INVENTORY WHERE inv_$year = 1)";
-  }
-  else{
-    $inv_query = "(SELECT mat_id, date_$year FROM INVENTORY WHERE inv_$year = 0)";
+  $year = $_POST['year'];
+  $prev_year = $year - 1;
+  switch($_POST['category']){
+    case "inventoried":
+      $inv_query = "(SELECT mat_id, date_$year, staff_id_$year FROM INVENTORY WHERE inv_$year = 1)";
+      break;
+    case "not_inventoried":
+      $inv_query = "(SELECT mat_id, date_$year FROM INVENTORY WHERE inv_$year = 0)";
+      break;
+    case "not_acquired":
+      $inv_query = "(SELECT mat_id, date_$year FROM INVENTORY WHERE inv_$year = -1)";
+      break;
+    case "new_acquired":
+      $inv_query = "(SELECT mat_id, date_$year FROM INVENTORY WHERE inv_$prev_year = -1 AND inv_$year != -1)";
+      break;
+    default: break;
   }
   $filter = [
     "mat_circ_type" => $_POST["circtype-filter"],

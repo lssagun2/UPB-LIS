@@ -1,7 +1,7 @@
 //function that updates the contents of the tablees
 function update(){
 	var data = $('form#filter-form, form#limit-form, form#page-form, form#search-form').serializeArray();
-	data.push({name: "sort", value: sort}, {name: "sort_direction", value: sort_direction}, {name: "category", value: category});
+	data.push({name: "sort", value: sort}, {name: "sort_direction", value: sort_direction}, {name: "category", value: category}, {name: "year", value: $("span#report_year").html()});
 	$('div#loading-cover').show();
 	$.ajax({
 		type 		: 'POST',
@@ -19,6 +19,10 @@ function update(){
 			$("button.previous").attr("disabled", true);
 		}
 		if(parseInt($("input#page-number").val()) == page_count){
+			$("button.next").attr("disabled", true);
+		}
+		if(page_count == 0){
+			$("button.previous").attr("disabled", true);
 			$("button.next").attr("disabled", true);
 		}
 		$("input#page-number").attr("max", page_count);

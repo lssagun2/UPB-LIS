@@ -3,7 +3,8 @@
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
   date_default_timezone_set("Asia/Manila");
   $data = [];
-  $year = date('Y');
+  $year = $_POST['year'];
+  $prev_year = $year - 1;
   $filter = [
     "mat_circ_type" => $_POST["circtype-filter"],
     "mat_type" => $_POST["type-filter"],
@@ -17,11 +18,19 @@
       $mat_query .= " $column='$value' AND";
     }
     $mat_query = substr($mat_query, 0, -4);
-		$mat_query .= ")";
+    if($_POST["search-value"] != ""){
+      $mat_query .= " AND " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%'";
+    }
+    $mat_query .= ")";
   }
-	else{
-		$mat_query = "";
-	}
+  else{
+    if($_POST["search-value"] != ""){
+      $mat_query .= " " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%')";
+    }
+    else{
+      $mat_query = "";
+    }
+  }
   //creation of the sorting part of the query
   if($_POST["sort_direction"] > 0){
     $sort_direction = "ASC";
@@ -50,8 +59,7 @@
       $sort .= "date_$year $sort_direction";
       break;
   }
-  //query for inventoried materials
-  if($_POST["category"] == "inventoried"){
+  if($_POST['category'] === "inventoried"){
     $title = [$year . ' Inventory Report (Inventoried Materials)'];
     $total_materials = ['Number of Inventoried Materials:'];
     $data['filename'] = $year . ' Inventory Report (Inventoried Materials).csv';
@@ -62,20 +70,37 @@
       FROM {$inv_query}INVENTORY
         INNER JOIN {$mat_query}MATERIAL ON INVENTORY.mat_id = MATERIAL.mat_id
         INNER JOIN STAFF ON INVENTORY.staff_id_$year = STAFF.staff_id
-      $sort";
+      $sort
+    ";
   }
-  //query for materials not inventoried
   else{
-    $title = [$year . ' Inventory Report (Not Inventoried Materials)'];
-    $total_materials = ['Number of Not Inventoried Materials:'];
-    $data['filename'] = $year . ' Inventory Report (Not Inventoried Materials).csv';
+    switch($_POST['category']){
+      case "not_inventoried":
+        $title = [$year . ' Inventory Report (Not Inventoried Materials)'];
+        $total_materials = ['Number of Not Inventoried Materials:'];
+        $data['filename'] = $year . ' Inventory Report (Not Inventoried Materials).csv';
+        $inv_query = "(SELECT mat_id, date_$year FROM INVENTORY WHERE inv_$year = 0)";
+        break;
+      case "not_acquired":
+        $title = [$year . ' Inventory Report (Not Acquired Materials)'];
+        $total_materials = ['Number of Not Acquired Materials:'];
+        $data['filename'] = $year . ' Inventory Report (Not Acquired Materials).csv';
+        $inv_query = "(SELECT mat_id, date_$year FROM INVENTORY WHERE inv_$year = -1)";
+        break;
+      case "new_acquired":
+        $title = [$year . ' Inventory Report (Newly Acquired Materials)'];
+        $total_materials = ['Number of Newly Acquired Materials:'];
+        $data['filename'] = $year . ' Inventory Report (Newly Acquired Materials).csv';
+        $inv_query = "(SELECT mat_id, date_$year FROM INVENTORY WHERE inv_$prev_year = -1 AND inv_$year != -1)";
+      default: break;
+    }
     $columns = ['Accession Number', 'Barcode', 'Call Number', 'Title', 'Author', 'Volume', 'Year', 'Edition', 'Publisher', 'Publication Year', 'Circulation Type', 'Type', 'Status', 'Source', 'Location', 'Last Year Inventoried'];
-    $inv_query = "(SELECT mat_id, date_$year FROM INVENTORY WHERE inv_$year = 0)";
     $query = "
       SELECT mat_acc_num, mat_barcode, mat_call_num, mat_title, mat_author, mat_volume, mat_year, mat_edition, mat_publisher, mat_pub_year, mat_circ_type, mat_type, mat_status, mat_source, mat_location, mat_lastinv_year
       FROM {$inv_query}INVENTORY
         INNER JOIN {$mat_query}MATERIAL ON INVENTORY.mat_id = MATERIAL.mat_id
-      $sort";
+      $sort
+    ";
   }
   $result = $conn->query($query);
   $materials = $result->fetch_all();
@@ -108,6 +133,31 @@
   }
   else{
     fputcsv($file, ["Filters:", "none"]);
+  }
+  if($_POST["search-value"] != ""){
+    fputcsv($file, ["Search:"]);
+    fputcsv($file, ["", "Column", "Search string"]);
+    switch($_POST["search-column"]){
+      case "mat_title":
+        fputcsv($file, ["", "Title", $_POST['search-value']]);
+        break;
+      case "mat_author":
+        fputcsv($file, ["", "Author", $_POST['search-value']]);
+        break;
+      case "mat_call_num":
+        fputcsv($file, ["", "Call Number", $_POST['search-value']]);
+        break;
+      case "mat_acc_num":
+        fputcsv($file, ["", "Accession Number", $_POST['search-value']]);
+        break;
+      case "mat_publisher":
+        fputcsv($file, ["", "Publisher", $_POST['search-value']]);
+        break;
+      default: break;
+    }
+  }
+  else{
+    fputcsv($file, ["Search:", "none"]);
   }
   array_push($total_materials, $result->num_rows);
   fputcsv($file, $total_materials);

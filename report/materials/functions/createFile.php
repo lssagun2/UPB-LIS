@@ -20,7 +20,36 @@
   else{
     $condition = "";
   }
-
+  if($_POST["search-value"] != ""){
+    if(!empty($filter)){
+      $condition .= "AND " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%'";
+    }
+    else{
+      $condition = "WHERE " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%'";
+    }
+    $search_lines = [["Search:"], ["", "Column", "Search string"]];
+    switch($_POST["search-column"]){
+      case "mat_title":
+        array_push($search_lines, ["", "Title", $_POST['search-value']]);
+        break;
+      case "mat_author":
+        array_push($search_lines, ["", "Author", $_POST['search-value']]);
+        break;
+      case "mat_call_num":
+        array_push($search_lines, ["", "Call Number", $_POST['search-value']]);
+        break;
+      case "mat_acc_num":
+        array_push($search_lines, ["", "Accession Number", $_POST['search-value']]);
+        break;
+      case "mat_publisher":
+        array_push($search_lines, ["", "Publisher", $_POST['search-value']]);
+        break;
+      default: break;
+    }
+  }
+  else{
+    $search_lines = [["Search:", "none"]];
+  }
   //creation of the sorting part of the query
   $sort = "ORDER BY ";
   if($_POST["sort_direction"] > 0){
@@ -79,6 +108,9 @@
   }
   else{
     fputcsv($file, ["Filters:", "none"]);
+  }
+  foreach($search_lines as $line){
+    fputcsv($file, $line);
   }
   fputcsv($file, ["Number of Materials:", $result->num_rows]);
   fputcsv($file, []);

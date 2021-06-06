@@ -243,7 +243,7 @@
 </div>
 <div class = "modal" id = "report">
   <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
-  <form class = "modal-content" id = "report-form" action = "../report/index.php" method = "POST" style = "height: auto;">
+  <form class = "modal-content" id = "report-form" action = "../report/index.php" method = "POST" style = "height: auto; width: 40%;">
     <div class = "container" style = "overflow-y: auto;">
     <h1 class = "modal-title">Generate Report</h1>
       <label for="report-select">Choose report to generate:</label>
@@ -252,9 +252,25 @@
         <option value = "inventory">Inventory</option>
         <option value = "comparison">Comparison</option>
       </select>
-      <div class="year-select" style="display: none">
+      <div class = "year-select" id = inventory-year style="display:none;">
+        <label for="year">Choose a year:</label>
+        <select id="year" name="year" style = "width: 100%;">
+          <?php
+            $sql = "SHOW COLUMNS FROM INVENTORY LIKE 'inv_%'";
+            $result = $conn->query($sql);
+          ?>
+          <?php
+            while($row = $result->fetch_assoc()){
+          ?>
+            <option value = "<?php echo substr($row["Field"], 4) ?>"><?php echo substr($row["Field"], 4) ?></option>
+          <?php
+            }
+          ?>
+        </select>
+      </div>
+      <div class = "year-select" id = compare-year1 style="display:none;">
         <label for="year1">Choose first year:</label>
-        <select class = "year-select" id="year1" name="year1" style = "width: 100%;">
+        <select id="year1" name="year1" style = "width: 100%;">
           <?php
             $sql = "SHOW COLUMNS FROM INVENTORY LIKE 'inv_%'";
             $result = $conn->query($sql);
@@ -265,8 +281,10 @@
             }
           ?>
         </select>
+      </div>
+      <div class = "year-select" id = compare-year2 style="display:none;">
         <label for="year2">Choose second year:</label>
-        <select class = "year-select" id="year2" name="year2" style = "width: 100%;">
+        <select id="year2" name="year2" style = "width: 100%;">
           <?php
             $sql = "SHOW COLUMNS FROM INVENTORY LIKE 'inv_%'";
             $result = $conn->query($sql);

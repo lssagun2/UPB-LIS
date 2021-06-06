@@ -47,7 +47,6 @@ $(document).ready(function(){
 		count();
 		$('#table-materials').show();
 		window.location = "#table-materials";
-
 	});
 	$(document).on('click', 'button#download-table', function(){
 		createFile();

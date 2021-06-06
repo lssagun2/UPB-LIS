@@ -32,11 +32,14 @@ $(document).ready(function(){
 	});
 	$(document).on('change', 'select#report-select', function(){
 		console.log($(this).val());
-		if($(this).val() == 'comparison') {
-		$('div.year-select').show();
-		}
-		else{
 		$('div.year-select').hide();
+		if($(this).val() == 'inventory') {
+			$('div#inventory-year').show();
 		}
+		if($(this).val() == 'comparison') {
+			$('div#compare-year1').show();
+			$('div#compare-year2').show();
+		}
+
 	});
 });
