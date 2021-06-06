@@ -32,7 +32,7 @@
     <div class = "sidebar" id = "sidebar">
       <div class = "sidebar-avatar">
         <img src = "../img/avatar.svg" alt = "">
-        <h2 style="margin: auto;"><?php echo $staff["name"]?></h2>
+        <h2><?php echo $staff["name"]?></h2>
       </div><br>
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
       <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
