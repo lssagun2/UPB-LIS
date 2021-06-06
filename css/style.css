@@ -90,7 +90,13 @@ body {
 }
 
 .fas, .fab {
+  margin: 0 2.5px 0 2.5px;
   color: #fff;
+  transition: 0.2s ease-in-out;
+}
+
+.fas:hover, .fab:hover {
+  color: #ffad0d;
 }
 
 .login-footer {
