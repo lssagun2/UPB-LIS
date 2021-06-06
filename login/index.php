@@ -27,8 +27,7 @@
             <div class = "input-invalid" id = "password" style = "color: #fff; text-transform: uppercase; margin-bottom: 10px;"></div>
             <span>
               <i class = "fas fa-lock"></i>
-              <input type = "password" placeholder = "Password" name = "password" id="password-field"><span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" style = "z-index: 10; position: relative; margin-left: -25px; margin-right: 5px;"></span><br>
-              <span class = "password"><a href = "#">Forgot password?</a></span><br><br>
+              <input type = "password" placeholder = "Password" name = "password" id="password-field"><span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" style = "z-index: 10; position: relative; margin-left: -25px; margin-right: 5px;"></span>
             </span>
           </div>
           <input type = "submit" class = "btn" value = "login">
