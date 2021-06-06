@@ -560,15 +560,13 @@ input[type=number]:focus {
   height: 3.525rem;
   max-width: 32.5rem;
   background-color: var(--alabaster);
-  border-radius: 0.625rem;
   z-index: 1;
 }
 
 .search__button {
-  width: 4.125rem;
+  width: 6.125rem;
   height: 3.525rem;
   padding: 0;
-  border-radius: 0.625rem 0 0 0.625rem;
   font-size: 0;
   background-color: var(--alabaster);
   transition: background-color 0.3s ease;
@@ -594,9 +592,10 @@ input[type=number]:focus {
   padding: 0 1rem;
   border: 1px solid var(--alabaster);
   background-color: var(--alabaster);
+  margin-left: 10px;
   font-size: 1.2rem;
   color: var(--dune);
-  border-radius: 0 0.625rem 0.625rem 0;
+  letter-spacing: 0.1em;
   transition: border-color 0.3s ease;
 }
 
@@ -670,7 +669,7 @@ input[type=number]:focus {
   }
 
   .search {
-    max-width: 21.5rem;
+    max-width: 30rem;
   }
 
   .profile__button {

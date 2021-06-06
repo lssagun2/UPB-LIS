@@ -230,7 +230,7 @@ h1 {
     background-color: #850038;
     transition: 0.1s ease-in-out;
   }
-  
+
     .accession-number .fas, .barcode-scanner .fas {
     margin: 10px;
     color: #fff;
@@ -357,7 +357,7 @@ h1 {
   }
 
   .allmaterials {
-    height: 150px;
+    height: 550px;
   }
 }
 
