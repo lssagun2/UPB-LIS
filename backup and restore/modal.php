@@ -7,6 +7,15 @@
 .subtitle {
   margin: 25px;
 }
+
+#restore-modal .modalbtn {
+  margin-bottom: 20px;
+}
+
+#restore-btn {
+  margin-right: 20px;
+}
+
 .response {
   padding: 10px;
   margin-bottom: 20px;
@@ -21,6 +30,16 @@
 .success {
     background: #cdf3e6;
     border: #bee2d6 1px solid;
+}
+
+@media screen and (max-width: 1366px) {
+  #restore-modal {
+    height: 250px;
+  }
+
+  #restore .modal-content {
+    height: 220px;
+  }
 }
 </style>
 
@@ -93,14 +112,14 @@ function restore($filePath, $conn)
 
   <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
   <form class = "modal-content" method="post" action="" enctype="multipart/form-data" id="frm-restore">
-    <div class = "container"  style = "overflow-y: auto;">
+    <div class = "container"  id = "restore-modal" style = "overflow-y: auto;">
       <h1 class = "modal-title"></h1>
         <div class="form-row">
             <div class = "subtitle" >Please select an appropriate .sql backup file</div>
                 <input type="file" name="backup_file" class="input-file"/>
         </div>
-      <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
-      <button type = "submit" name="restore" value="Restore" class = "modalbtn" id = "restore-btn">Save changes</button>
+        <button type = "submit" name="restore" value="Restore" class = "modalbtn" id = "restore-btn">Save changes</button>
+        <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtn">Cancel</button>
     </div>
   </form>
 </div>
