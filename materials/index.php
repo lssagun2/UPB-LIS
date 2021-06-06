@@ -43,7 +43,7 @@
         #material .modal-content {
           height: 400px;
         }
-        
+
         #material .container {
           height: 350px;
           padding: 16px;
@@ -123,8 +123,8 @@
                   </svg>
                 </a>
               </div>
-            </li> 
-            <?php 
+            </li>
+            <?php
             }
             ?>
           </ul>
@@ -145,7 +145,7 @@
             <ul class = "project">
               <li class = "project__item">
                 <form action = "" class = "search" id = "search-form" style="margin-left: 0">
-                  <select style="padding: 6px; width: auto" id = "search-column" name = "search-column">
+                  <select style="padding: 6px; width: auto; margin-left: 10px;" id = "search-column" name = "search-column">
                     <option value = "mat_title">Title</option>
                     <option value = "mat_acc_num">Accession Number</option>
                     <option value = "mat_call_num">Call Number</option>
