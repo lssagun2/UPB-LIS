@@ -171,7 +171,8 @@
 							</li>
 						</ul>
 						<?php
-						require "../changes/modal.php";
+						require "modal.php";
+						require "../staff/modal.php";
 						require "../backup and restore/modal.php";
 						?>
 
@@ -184,6 +185,7 @@
 							</p>
 						</footer>
 
+			 <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
 			 <script type = "text/javascript" src = "../backup and restore/js/buttons.js"></script>
 
 <script>

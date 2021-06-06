@@ -245,7 +245,7 @@
   <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
   <form class = "modal-content" id = "report-form" action = "../report/index.php" method = "POST" style = "height: auto; width: 40%;">
     <div class = "container" style = "overflow-y: auto;">
-    <h1 class = "modal-title">Generate Report</h1>
+      <h1 class = "modal-title">Generate Report</h1>
       <label for="report-select">Choose report to generate:</label>
       <select class = "report-select" id="report-select" name="report-select" style = "width: 100%;">
         <option value = "materials">Materials</option>
@@ -297,7 +297,7 @@
         </select>
       </div>
       <button type = "submit" class = "modalbtn">Generate Report</button>
-      <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>      
-    </form>
-  </div>
+      <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>
+    </div> 
+  </form>
 </div>

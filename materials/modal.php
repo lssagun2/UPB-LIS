@@ -207,7 +207,7 @@
   <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
   <form class = "modal-content" id = "filter-form" method = "POST" style = "padding: 20px">
     <div class = "container" style = "overflow-y: auto;">
-    <h1 class = "modal-title"></h1>
+      <h1 class = "modal-title"></h1>
       <label for="circtype-filter">Circulation Type:</label>
       <select class = "filter-column" id="circtype-filter" name="circtype-filter" style = "width: 98%;">
         <option value = "" selected = "selected">---none---</option>
@@ -226,6 +226,7 @@
       </select>
       <button type = "button" class = "modalbtn" id = "update-filter" style = "margin-right: 0;">Update</button>
       <button type = "button" class = "modalbtn" id = "cancelbtn">Cancel</button>  
+    </div>
   </form>
 </div>
 
@@ -246,8 +247,4 @@
       alert("NOTE: It is highly recommended to insert a unique Call Number.");
     }
   }
-    
-  
-
-
 </script>
