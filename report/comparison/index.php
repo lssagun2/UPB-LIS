@@ -109,7 +109,7 @@
         <main class = "main">
           <header class = "header">
             <div class = "header__wrapper">
-              <h1><span class = "h1-admin">Inventory Comparison</span></h1>
+              <h1><span class = "h1-admin"><?php echo $year1?> and <?php echo $year2?> Inventory Comparison</span></h1>
               <div class = "profile">
                 <button class = "profile__button">
                   <span class = "profile__name"><?php echo $staff["name"]?></span>
@@ -127,17 +127,21 @@
                     <h2 id = "year1"><?php echo $year1;?></h2>
                   </div>
                   <table class = "inventory-total" style = "margin: auto; line-height: 30px;">
-                    <tr class = "summary" data-year='<?php echo $year1;?>' data-comparison=false data-category = 1>
+                    <tr class = "summary" data-year='<?php echo $year1;?>' data-comparison=false data-category = "inventoried">
                       <th style = "font-size: 1.2em; margin-right: 37px;">Inventoried:</th>
                       <td class = "report-gen-comp" id = "inventoried_year1" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"></td>
                     </tr>
-                    <tr class = "summary" data-year='<?php echo $year1;?>' data-comparison = false data-category = 0>
+                    <tr class = "summary" data-year='<?php echo $year1;?>' data-comparison = false data-category = "not_inventoried">
                       <th style = "font-size: 1.2em; margin-right: 0;">Not Inventoried:</th>
                       <td class = "report-gen-comp" id = "not_inventoried_year1" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"></td>
                     </tr>
-                    <tr class = "summary" data-year='<?php echo $year1;?>' data-comparison = false data-category = -1>
+                    <tr class = "summary" data-year='<?php echo $year1;?>' data-comparison = false data-category = 'not_acquired'>
                       <th style = "font-size: 1.2em; margin-right: 21px;">Not Acquired:</th>
                       <td class = "report-gen-comp" id = "not_acquired_year1" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"></td>
+                    </tr>
+                    <tr class = "summary" id = "new-acquired1" data-year='<?php echo $year1;?>' data-comparison = false data-category = "new_acquired">
+                      <th style = "font-size: 1.2em; margin-right: 21px;">New Acquisitions:</th>
+                      <td class = "report-gen-comp" id = "new_acquired_year1" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"></td>
                     </tr>
                   </table>
                 </div>
@@ -148,17 +152,21 @@
                     <h2 id = "year2"><?php echo $year2;?></h2>
                   </div>
                   <table class = "inventory-total" style = "margin: auto; line-height: 30px;">
-                    <tr class = "summary" data-year='<?php echo $year2;?>' data-comparison=false data-category = 1>
+                    <tr class = "summary" data-year='<?php echo $year2;?>' data-comparison=false data-category = "inventoried">
                       <th style = "font-size: 1.2em; margin-right: 37px;">Inventoried:</th>
                       <td class = "report-gen-comp" id = "inventoried_year2" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"></td>
                     </tr>
-                    <tr class = "summary" data-year='<?php echo $year2;?>' data-comparison = false data-category = 0>
+                    <tr class = "summary" data-year='<?php echo $year2;?>' data-comparison = false data-category = "not_inventoried">
                       <th style = "font-size: 1.2em; margin-right: 0;">Not Inventoried:</th>
                       <td class = "report-gen-comp" id = "not_inventoried_year2" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"></td>
                     </tr>
-                    <tr class = "summary" data-year='<?php echo $year2;?>' data-comparison = false data-category = -1>
+                    <tr class = "summary" data-year='<?php echo $year2;?>' data-comparison = false data-category = "not_acquired">
                       <th style = "font-size: 1.2em; margin-right: 21px;">Not Acquired:</th>
                       <td class = "report-gen-comp" id = "not_acquired_year2" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"></td>
+                    </tr>
+                    <tr class = "summary" id = "new-acquired2" data-year='<?php echo $year1;?>' data-comparison = false data-category = "new_acquired">
+                      <th style = "font-size: 1.2em; margin-right: 21px;">New Acquisitions:</th>
+                      <td class = "report-gen-comp" id = "new_acquired_year2" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"></td>
                     </tr>
                   </table>
                 </div>
@@ -205,16 +213,6 @@
               </li>
             </ul>
           </section>
-
-          <section class = "section">
-            <!-- <header class = "section__header">
-              <h1><span class = "h1-admin">Report</span> Generation</h1>
-            </header> -->
-            <ul class = "team">
-
-            </ul>
-          </section>
-
           <section class = "section">
             <ul class = "project">
               <li class = "project__item" id = "table-materials" style="display: none">

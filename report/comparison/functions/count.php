@@ -1,11 +1,26 @@
 <?php
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
   $year1 = intval($_POST["year1"]);
+  $prev_year = $year1 - 1;
 	$year2 = intval($_POST["year2"]);
 	$inv_query = "(SELECT mat_id FROM INVENTORY WHERE ";
 	$comparison = filter_var($_POST["comparison"], FILTER_VALIDATE_BOOLEAN);
 	if(!$comparison){
-		$inv_query .= "inv_$year1 = {$_POST['category']})";
+		switch($_POST['category']){
+      case "inventoried":
+        $inv_query = "(SELECT mat_id, date_$year1, staff_id_$year1 FROM INVENTORY WHERE inv_$year1 = 1)";
+        break;
+      case "not_inventoried":
+        $inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$year1 = 0)";
+        break;
+      case "not_acquired":
+        $inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$year1 = -1)";
+        break;
+      case "new_acquired":
+        $inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$prev_year = -1 AND inv_$year1 != -1)";
+        break;
+      default: break;
+    }
 	}
 	else{
 		switch(intval($_POST["category"])){

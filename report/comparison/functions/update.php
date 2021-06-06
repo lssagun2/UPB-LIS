@@ -1,15 +1,25 @@
 <?php
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
 	$year1 = intval($_POST["year1"]);
+  $prev_year = $year1 - 1;
 	$year2 = intval($_POST["year2"]);
 	$comparison = filter_var($_POST["comparison"], FILTER_VALIDATE_BOOLEAN);
 	if(!$comparison){
-		if(intval($_POST["category"]) === 1){
-			$inv_query = "(SELECT mat_id, date_$year1, staff_id_$year1 FROM INVENTORY WHERE inv_$year1 = {$_POST['category']})";
-		}
-		else{
-			$inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$year1 = {$_POST['category']})";
-		}
+    switch($_POST['category']){
+      case "inventoried":
+        $inv_query = "(SELECT mat_id, date_$year1, staff_id_$year1 FROM INVENTORY WHERE inv_$year1 = 1)";
+        break;
+      case "not_inventoried":
+        $inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$year1 = 0)";
+        break;
+      case "not_acquired":
+        $inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$year1 = -1)";
+        break;
+      case "new_acquired":
+        $inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$prev_year = -1 AND inv_$year1 != -1)";
+        break;
+      default: break;
+    }
 	}
 	else{
 		$inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE ";
@@ -76,7 +86,7 @@
       $sort .= "mat_barcode $sort_direction";
       break;
     case "Call Number":
-      $sort .= "mat_call_num1 $sort_direction, mat_call_num2 $sort_direction, mat_call_num3 $sort_direction, mat_call_num4 $sort_direction, mat_call_num5 $sort_direction, mat_call_num6 $sort_direction, mat_call_num7 $sort_direction, mat_call_num8 $sort_direction, mat_call_num $sort_direction";
+      $sort .= "mat_call_num1 $sort_direction, mat_call_num2 $sort_direction, mat_call_num3 $sort_direction, mat_call_num $sort_direction";
       break;
     case "Title":
       $sort .= "mat_title $sort_direction";
@@ -90,19 +100,21 @@
   $start_num = $_POST["limit"] * ($_POST["page-number"] - 1);
   $start = "WHERE row_number > $start_num";
   //subquery for inventoried materials
-  if(!$comparison && intval($_POST["category"]) === 1){
+  if(!$comparison && $_POST["category"] === "inventoried"){
     $subquery = "
       SELECT (row_number() OVER ($sort)) row_number, MATERIAL.*, INVENTORY.date_$year1 AS year, STAFF.staff_firstname, STAFF.staff_lastname
       FROM {$inv_query}INVENTORY
         INNER JOIN {$mat_query}MATERIAL ON INVENTORY.mat_id = MATERIAL.mat_id
-        INNER JOIN STAFF ON INVENTORY.staff_id_$year1 = STAFF.staff_id";
+        INNER JOIN STAFF ON INVENTORY.staff_id_$year1 = STAFF.staff_id
+    ";
   }
   //subquery for materials not inventoried
   else{
     $subquery = "
       SELECT (row_number() OVER ($sort)) row_number, MATERIAL.*
       FROM {$inv_query}INVENTORY
-        INNER JOIN {$mat_query}MATERIAL ON INVENTORY.mat_id = MATERIAL.mat_id";
+        INNER JOIN {$mat_query}MATERIAL ON INVENTORY.mat_id = MATERIAL.mat_id
+    ";
   }
   $query = "SELECT * FROM ($subquery)a $start $limit";
   $result = $conn->query($query);

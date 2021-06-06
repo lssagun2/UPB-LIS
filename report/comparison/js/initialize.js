@@ -7,6 +7,18 @@ $(document).ready(function(){
 		dataType 	: 'json'
 	})
 	.done(function(data){
+		if(data.new_acquired1){
+			$("td#new_acquired_year1").html(data.new_acquired1);
+		}
+		else{
+			$("tr#new-acquired1").hide();
+		}
+		if(data.new_acquired2){
+			$("td#new_acquired_year2").html(data.new_acquired2);
+		}
+		else{
+			$("tr#new-acquired2").hide();
+		}
 		$('td#inventoried_year1').html(data.inventoried_year1);
 		$('td#not_inventoried_year1').html(data.not_inventoried_year1);
 		$('td#not_acquired_year1').html(data.not_acquired_year1);

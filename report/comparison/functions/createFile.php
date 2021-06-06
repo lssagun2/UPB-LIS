@@ -4,26 +4,36 @@
   date_default_timezone_set("Asia/Manila");
   $data = [];
 	$year1 = intval($_POST["year1"]);
+  $prev_year = $year1 - 1;
 	$year2 = intval($_POST["year2"]);
 	$comparison = filter_var($_POST["comparison"], FILTER_VALIDATE_BOOLEAN);
 	if(!$comparison){
-		if(intval($_POST["category"]) === 1){
-      $title = [$year1." Inventory Report (Inventoried Materials)"];
-      $total_materials = ["Number of Inventoried Materials:"];
-      $data['filename'] = $year1." Inventory Report (Inventoried Materials).csv";
-			$inv_query = "(SELECT mat_id, date_$year1, staff_id_$year1 FROM INVENTORY WHERE inv_$year1 = {$_POST['category']})";
-		}
-		else if(intval($_POST["category"]) === 0){
-      $title = [$year1." Inventory Report (Not Inventoried Materials)"];
-      $total_materials = ["Number of Not Inventoried Materials:"];
-      $data['filename'] = $year1." Inventory Report (Not Inventoried Materials).csv";
-			$inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$year1 = {$_POST['category']})";
-		}
-    else{
-      $title = [$year1." Inventory Report (Not Acquired Materials)"];
-      $total_materials = ["Number of Not Acquired Materials:"];
-      $data['filename'] = $year1." Inventory Report (Not Acquired Materials)csv";
-      $inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$year1 = {$_POST['category']})";
+    switch($_POST['category']){
+      case "inventoried":
+        $title = [$year1." Inventory Report (Inventoried Materials)"];
+        $total_materials = ["Number of Inventoried Materials:"];
+        $data['filename'] = $year1." Inventory Report (Inventoried Materials).csv";
+        $inv_query = "(SELECT mat_id, date_$year1, staff_id_$year1 FROM INVENTORY WHERE inv_$year1 = 1)";
+        break;
+      case "not_inventoried":
+        $title = [$year1." Inventory Report (Not Inventoried Materials)"];
+        $total_materials = ["Number of Not Inventoried Materials:"];
+        $data['filename'] = $year1." Inventory Report (Not Inventoried Materials).csv";
+        $inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$year1 = 0)";
+        break;
+      case "not_acquired":
+        $title = [$year1." Inventory Report (Not Acquired Materials)"];
+        $total_materials = ["Number of Not Acquired Materials:"];
+        $data['filename'] = $year1." Inventory Report (Not Acquired Materials).csv";
+        $inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$year1 = -1)";
+        break;
+      case "new_acquired":
+        $title = [$year1." Inventory Report (Newly Acquired Materials)"];
+        $total_materials = ["Number of Newly Acquired Materials:"];
+        $data['filename'] = $year1." Inventory Report (Newly Acquired Materials).csv";
+        $inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE inv_$prev_year = -1 AND inv_$year1 != -1)";
+        break;
+      default: break;
     }
 	}
 	else{
@@ -69,12 +79,19 @@
       $mat_query .= " $column='$value' AND";
     }
     $mat_query = substr($mat_query, 0, -4);
-		$mat_query .= ")";
+    if($_POST["search-value"] != ""){
+      $mat_query .= " AND " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%'";
+    }
+    $mat_query .= ")";
   }
-	else{
-		$mat_query = "";
-	}
-
+  else{
+    if($_POST["search-value"] != ""){
+      $mat_query .= " " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%')";
+    }
+    else{
+      $mat_query = "";
+    }
+  }
   //creation of the limit part of the query
   $limit = 'LIMIT ' . $_POST["limit"];
 
@@ -155,6 +172,31 @@
   }
   else{
     fputcsv($file, ["Filters:", "none"]);
+  }
+  if($_POST["search-value"] != ""){
+    fputcsv($file, ["Search:"]);
+    fputcsv($file, ["", "Column", "Search string"]);
+    switch($_POST["search-column"]){
+      case "mat_title":
+        fputcsv($file, ["", "Title", $_POST['search-value']]);
+        break;
+      case "mat_author":
+        fputcsv($file, ["", "Author", $_POST['search-value']]);
+        break;
+      case "mat_call_num":
+        fputcsv($file, ["", "Call Number", $_POST['search-value']]);
+        break;
+      case "mat_acc_num":
+        fputcsv($file, ["", "Accession Number", $_POST['search-value']]);
+        break;
+      case "mat_publisher":
+        fputcsv($file, ["", "Publisher", $_POST['search-value']]);
+        break;
+      default: break;
+    }
+  }
+  else{
+    fputcsv($file, ["Search:", "none"]);
   }
   array_push($total_materials, $result->num_rows);
   fputcsv($file, $total_materials);
