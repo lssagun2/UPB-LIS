@@ -97,7 +97,7 @@ $staff = $result->fetch_assoc();
       ?>
       <div class="form-control"><!-- Changes -->
         <label for = "staff_type">Account Type</label>
-        <select id = "staff_type" name = "staff_type" >
+        <select id = "staff_type" name = "staff_type" style = "width: 100%;">
         <option value = "staff">Staff</option>
         <option value = "admin" selected>Admin</option>
         </select>
