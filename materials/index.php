@@ -233,9 +233,9 @@
     <footer class = "footer">
       <p style = "float: left; padding-left: 10px; padding-top: 16px;">University of the Philippines - Baguio Library Inventory System</p>
       <p style = "float: right; padding-right: 10px; padding-top: 16px;">For news and related events visit:
-        <a href = "https://www.facebook.com/OfficialUPB"><i class="fab fa-facebook-f"></i></a>
-        <a href = "https://web.upb.edu.ph/"><i class="fas fa-globe"></i></a>
-        <a href = "https://www.youtube.com/channel/UC1XJ8yRNRuDHmhJXtsLIB_g"><i class="fab fa-youtube"></i></a>
+        <a href = "https://www.facebook.com/OfficialUPB" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href = "https://web.upb.edu.ph/" target="_blank"><i class="fas fa-globe"></i></a>
+        <a href = "https://www.youtube.com/channel/UC1XJ8yRNRuDHmhJXtsLIB_g" target="_blank"><i class="fab fa-youtube"></i></a>
       </p>
     </footer>
     <script type = "text/javascript" src = "js/variables.js"></script>
