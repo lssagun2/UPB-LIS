@@ -1,34 +1,36 @@
-<?php 
+<?php
 
-require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
+require '../config.php';
 $sql = "SELECT CONCAT(staff_firstname, ' ', staff_lastname) AS name, staff_type as type FROM STAFF WHERE staff_id=" . $_SESSION['staff_id'];
 $result = $conn->query($sql);
 $staff = $result->fetch_assoc();
 ?>
 <style>
 #staff .container {
-  height: 645px;
+  margin: 20px;
+  height: 650px;
   padding: 20px;
+  overflow-y: hidden;
 }
 
 @media (min-width: 2560px){
   #staff .container {
-  height: 580px;
-  padding: 50px;
-  font-size: 1.5em;
-}
+    height: 580px;
+    padding: 50px;
+    font-size: 1.5em;
+  }
 }
 
 @media screen and (max-width: 1366px) {
   #staff .modal-content {
     margin-top: -5px;
-    height: 585px;
-    overflow-y: hidden;
+    height: 550px;
   }
 
   #staff .container {
-    height: 200px;
+    height: 510px;
     padding: 20px;
+    overflow-y: auto;
   }
 }
 </style>
@@ -90,7 +92,7 @@ $staff = $result->fetch_assoc();
 
 
 
-      <?php 
+      <?php
         if($staff['type'] === 'admin'){
       ?>
       <div class="form-control"><!-- Changes -->
@@ -100,7 +102,7 @@ $staff = $result->fetch_assoc();
         <option value = "admin" selected>Admin</option>
         </select>
       </div>
-      <?php 
+      <?php
         }
        ?>
 
