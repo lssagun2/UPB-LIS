@@ -1,6 +1,6 @@
 <?php 
 
-require '../config.php';
+require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
 $sql = "SELECT CONCAT(staff_firstname, ' ', staff_lastname) AS name, staff_type as type FROM STAFF WHERE staff_id=" . $_SESSION['staff_id'];
 $result = $conn->query($sql);
 $staff = $result->fetch_assoc();
