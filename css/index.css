@@ -970,9 +970,10 @@ input[type=number]:focus {
 }
 
 .sidebar .sidebar-avatar h2 {
-  margin-left: 22%;
-  margin-bottom: 20px;
+  padding-left: 10px;
   color: #fff;
+  width: 250px;
+  text-align: center;
   height: auto;
 }
 
