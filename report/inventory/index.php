@@ -182,7 +182,7 @@
 
                 <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto; height: 500px;">
                   <table id = "allmaterials" style = "border-radius: 1em;display: block;">
-                  	<thead>
+                  	<thead style="position: sticky; top: 0;">
                   		<tr>
                         <th class = "sort inventoried-column" data-sort = "Date Inventoried">Date Inventoried<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
                         <th class = "sort inventoried-column" data-sort = "Inventoried by">Inventoried by<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
