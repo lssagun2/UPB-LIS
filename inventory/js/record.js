@@ -50,6 +50,9 @@ function record(){
 			$('div.notif-bar').show();
 			$("div#inventory-input-div").addClass('error');
 			$("div#inventory-input-div small").html(data.message);
+			if(material_column == "mat_barcode"){
+				$('form#inventory-record').trigger('reset');
+			}
 		}
 		
 		$("div#loading-cover").hide();

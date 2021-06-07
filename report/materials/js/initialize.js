@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$('i.sort-by-asc').hide();
+	$('i.sort-by-desc').hide();
 	$('div#loading-cover').show();
 	$.ajax({
 		type 		: 'POST',

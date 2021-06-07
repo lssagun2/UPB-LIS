@@ -26,6 +26,14 @@ $(document).ready(function(){
 		else{
 			sort_direction = 1; //sorting direction is ascending by default if user clicked a different column
 		}
+		$('i.sort-by-asc').hide();
+		$('i.sort-by-desc').hide();
+		if(sort_direction == 1){
+			$(this).find('i.sort-by-asc').show();
+		}
+		else{
+			$(this).find('i.sort-by-desc').show();
+		}
 		sort = $(this).data("sort");
 		$("input#page-number").val(1);	//reset the page number to 1
 		update();

@@ -31,30 +31,29 @@
   $limit = 'LIMIT ' . $_POST["limit"];
 
   //creation of the sorting part of the query
-  $sort = "ORDER BY ";
-  $column = $_POST["sort"];
-  switch ($column) {
-    case "Accession Number":
-      $sort .= "mat_acc_num";
-      break;
-    case "Barcode":
-      $sort .= "mat_barcode";
-      break;
-    case "Call Number":
-      $sort .= "mat_call_num";
-      break;
-    case "Title":
-      $sort .= "mat_title";
-      break;
-    default:
-      $sort .= "mat_id";
-      break;
-  }
   if($_POST["sort_direction"] > 0){
-    $sort .= " ASC";
+    $sort_direction = " ASC";
   }
   else{
-    $sort .= " DESC";
+    $sort_direction = " DESC";
+  }
+  $sort = "ORDER BY ";
+  switch ($_POST["sort"]) {
+    case "Accession Number":
+      $sort .= "mat_acc_num1 $sort_direction, mat_acc_num2 $sort_direction, mat_acc_num $sort_direction";
+      break;
+    case "Barcode":
+      $sort .= "mat_barcode $sort_direction";
+      break;
+    case "Call Number":
+      $sort .= "mat_call_num1 $sort_direction, mat_call_num2 $sort_direction, mat_call_num3 $sort_direction, mat_call_num $sort_direction";
+      break;
+    case "Title":
+      $sort .= "mat_title $sort_direction";
+      break;
+    default:
+      $sort .= "mat_id $sort_direction";
+      break;
   }
   $start_num = $_POST["limit"] * ($_POST["page-number"] - 1);
   $start = "WHERE row_number > $start_num";

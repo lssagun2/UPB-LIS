@@ -184,12 +184,12 @@
                   <table id = "allmaterials" style = "border-radius: 1em;display: block;">
                   	<thead>
                   		<tr>
-                        <th class = "sort inventoried-column" data-sort = "Date Inventoried">Date Inventoried</th>
-                        <th class = "sort inventoried-column" data-sort = "Inventoried by">Inventoried by</th>
-                        <th class = "sort" data-sort = "Accession Number">Accession Number</th>
-	                      <th class = "sort" data-sort = "Barcode">Barcode</th>
-	                      <th class = "sort" data-sort = "Call Number">Call Number</th>
-	                      <th class = "sort" data-sort = "Title">Title</th>
+                        <th class = "sort inventoried-column" data-sort = "Date Inventoried">Date Inventoried<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th class = "sort inventoried-column" data-sort = "Inventoried by">Inventoried by<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th class = "sort" data-sort = "Accession Number">Accession Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+	                      <th class = "sort" data-sort = "Barcode">Barcode<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+	                      <th class = "sort" data-sort = "Call Number">Call Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+	                      <th class = "sort" data-sort = "Title">Title<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th>Author</th>
 	                      <th>Volume</th>
 	                      <th>Year</th>
