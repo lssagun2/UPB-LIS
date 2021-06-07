@@ -6,7 +6,7 @@
   require '../config.php';
   date_default_timezone_set('Asia/Manila');
   $year = date("Y");
-  $sql = "SELECT CONCAT(staff_firstname, ' ', staff_lastname) AS name, staff_type as type FROM STAFF WHERE staff_id=" . $_SESSION['staff_id'];
+  $sql = "SELECT * FROM STAFF WHERE staff_id=" . $_SESSION['staff_id'];
   $result = $conn->query($sql);
   $staff = $result->fetch_assoc();
 ?>
@@ -257,7 +257,7 @@
     <div class = "sidebar" id = "sidebar">
       <div class = "sidebar-avatar">
         <img src = "../img/avatar.svg" alt = "">
-        <h2><?php echo $staff["name"]?></h2>
+        <h2><?php echo $staff["staff_firstname"]?> <?php echo $staff["staff_lastname"]?></h2>
       </div><br>
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
       <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
@@ -311,7 +311,7 @@
               </div>
             </li>
             <?php
-                if($staff['type'] === 'admin'){
+                if($staff['staff_type'] === 'admin'){
             ?>
             <li class = "nav__item"> <!-- Changes -->
               <div class = "tooltip">
@@ -334,7 +334,7 @@
               <h1><span class = "h1-admin">Inventory</span> Items</h1>
               <div class = "profile">
                 <button class = "profile__button">
-                  <span class = "profile__name"><?php echo $staff["name"]?></span>
+                  <span class = "profile__name"><?php echo $staff["staff_firstname"]?> <?php echo $staff["staff_lastname"]?></span>
                   <img id = "openbutton" onclick = "openNav()" class = "profile__img" src = "../img/avatar.svg" alt = "Profile Picture" loading = "lazy" />
                 </button>
               </div>
