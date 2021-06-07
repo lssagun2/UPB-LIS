@@ -178,7 +178,7 @@
 
                 <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto;">
                   <table id = "allmaterials" style = "display: block;">
-                  	<thead>
+                  	<thead style="position: sticky; top: 0; z-index: 1;">
                   		<tr>
 	                      <th class = "sort" data-sort = "Accession Number">Accession Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th class = "sort" data-sort = "Barcode">Barcode<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
