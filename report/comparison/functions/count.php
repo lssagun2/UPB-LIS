@@ -3,7 +3,6 @@
   $year1 = intval($_POST["year1"]);
   $prev_year = $year1 - 1;
 	$year2 = intval($_POST["year2"]);
-	$inv_query = "(SELECT mat_id FROM INVENTORY WHERE ";
 	$comparison = filter_var($_POST["comparison"], FILTER_VALIDATE_BOOLEAN);
 	if(!$comparison){
 		switch($_POST['category']){
@@ -23,6 +22,7 @@
     }
 	}
 	else{
+    $inv_query = "(SELECT mat_id FROM INVENTORY WHERE ";
 		switch(intval($_POST["category"])){
 			case 0:
 				$inv_query .= "inv_$year1 = 0 AND inv_$year2 = 0)";
