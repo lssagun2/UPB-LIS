@@ -9,17 +9,21 @@ $(document).ready(function(){
 		dataType 	: 'json'
 	})
 	.done(function(data){
-		data.mat_circ_type.forEach(function(row){
-			$("select#circtype-filter").append("<option value = '" + row.mat_circ_type + "'>" + row.mat_circ_type + "</option>");
+		circ_type_filter = data.circ_type;
+		circ_type_filter.forEach(function(value){
+			$(".circ-type-list").append("<option value = '" + value + "'>" + value + "</option>");
 		});
-		data.mat_type.forEach(function(row){
-			$("select#type-filter").append("<option value = '" + row.mat_type + "'>" + row.mat_type + "</option>");
+		type_filter = data.type;
+		type_filter.forEach(function(value){
+			$(".type-list").append("<option value = '" + value + "'>" + value + "</option>");
 		});
-		data.mat_status.forEach(function(row){
-			$("select#status-filter").append("<option value = '" + row.mat_status + "'>" + row.mat_status + "</option>");
+		status_filter = data.status;
+		status_filter.forEach(function(value){
+			$(".status-list").append("<option value = '" + value + "'>" + value + "</option>");
 		});
-		data.mat_location.forEach(function(row){
-			$("select#location-filter").append("<option value = '" + row.mat_location + "'>" + row.mat_location + "</option>");
+		location_filter = data.location;
+		location_filter.forEach(function(value){
+			$(".location-list").append("<option value = '" + value + "'>" + value + "</option>");
 		});
 		count();
 	})

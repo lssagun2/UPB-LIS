@@ -4,8 +4,8 @@
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/functions/add.php";
 	date_default_timezone_set('Asia/Manila');
 	$data = []; //Change
-	$info = [
-	 	"mat_acc_num" => trim($_POST['acc_num']),
+	$info=[
+		"mat_acc_num" => trim($_POST['acc_num']),
 	 	"mat_barcode" => trim($_POST['barcode']),
 	 	"mat_call_num" => trim($_POST['call_number']),
 	 	"mat_title" => trim($_POST['title']),
@@ -18,10 +18,11 @@
 	 	"mat_circ_type" => trim($_POST['circ_type']),
 	 	"mat_type" => trim($_POST['type']),
 	 	"mat_status" => trim($_POST['status']),
-	 	"mat_source" => trim($_POST['source']), 
 	 	"mat_location" => trim($_POST['location']),
+	 	"mat_inv_num" => trim($_POST['inv_num']),
+	 	"mat_source" => trim($_POST['source']),
 	 	"mat_lastinv_year" => trim($_POST['last_year_inventoried'])
-	 ];
+	];
 	$errors = validateInput($conn, $info, 'MATERIAL'); //Change
 	if(!empty($errors)){ //Change entire if else
 		$data['success'] = false;
@@ -32,10 +33,10 @@
 		$insert_id = $conn->insert_id;
 		$year = date("Y");
 		$inv_info = [
-			"mat_id" => $insert_id
-			// "inv_$year" => 1,
-			// "date_$year" => date("Y-m-d H:i:s"),
-			// "staff_id_$year" => $_SESSION["staff_id"]
+			"mat_id" => $insert_id,
+			"inv_$year" => 1,
+			"date_$year" => date("Y-m-d H:i:s"),
+			"staff_id_$year" => $_SESSION["staff_id"]
 		];
 		
 		$sql = "SHOW COLUMNS FROM INVENTORY WHERE field LIKE 'inv_%' and field < 'inv_$year'";

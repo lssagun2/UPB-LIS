@@ -76,7 +76,7 @@
       $sort .= "mat_id $sort_direction";
       break;
   }
-  $query = "SELECT mat_acc_num, mat_barcode, mat_call_num, mat_title, mat_author, mat_volume, mat_year, mat_edition, mat_publisher, mat_pub_year, mat_circ_type, mat_type, mat_status, mat_source, mat_location, mat_lastinv_year FROM MATERIAL $condition $sort";
+  $query = "SELECT mat_acc_num, mat_barcode, mat_call_num, mat_title, mat_author, mat_volume, mat_year, mat_edition, mat_publisher, mat_pub_year, mat_circ_type, mat_type, mat_status, mat_source, mat_location, mat_inv_num, mat_lastinv_year FROM MATERIAL $condition $sort";
   $result = $conn->query($query);
   $materials = $result->fetch_all(MYSQLI_ASSOC);
   $directory = $_SERVER['DOCUMENT_ROOT']."/upb-lis/report/common/";
@@ -114,7 +114,7 @@
   }
   fputcsv($file, ["Number of Materials:", $result->num_rows]);
   fputcsv($file, []);
-  fputcsv($file, ['Accession Number', 'Barcode', 'Call Number', 'Title', 'Author', 'Volume', 'Year', 'Edition', 'Publisher', 'Publication Year', 'Circulation Type', 'Type', 'Status', 'Source', 'Location', 'Last Year Inventoried']);
+  fputcsv($file, ['Accession Number', 'Barcode', 'Call Number', 'Title', 'Author', 'Volume', 'Year', 'Edition', 'Publisher', 'Publication Year', 'Circulation Type', 'Type', 'Status', 'Source', 'Location', 'Inventory Item Number', 'Last Year Inventoried']);
   foreach ($materials as $material) {
       fputcsv($file, $material);
   }

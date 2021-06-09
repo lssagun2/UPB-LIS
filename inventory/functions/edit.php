@@ -31,8 +31,9 @@
 	 	"mat_circ_type" => trim($_POST['circ_type']),
 	 	"mat_type" => trim($_POST['type']),
 	 	"mat_status" => trim($_POST['status']),
-	 	"mat_source" => trim($_POST['source']), 
 	 	"mat_location" => trim($_POST['location']),
+	 	"mat_source" => trim($_POST['source']),
+	 	"mat_inv_num" => trim($_POST['inv_num']),
 	 	"mat_lastinv_year" => trim($_POST['last_year_inventoried'])
 	];
 	$errors = validateInputforEdit($conn, $info, $initialInfo, "MATERIAL"); //Changes

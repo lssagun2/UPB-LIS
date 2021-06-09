@@ -183,7 +183,7 @@
 	                      <th class = "sort" data-sort = "Accession Number">Accession Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th class = "sort" data-sort = "Barcode">Barcode<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th class = "sort" data-sort = "Call Number">Call Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th class = "sort" data-sort = "Title">Title<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+	                      <th class = "sort" data-sort = "Title">Title</th>
 	                      <th>Author</th>
 	                      <th>Volume</th>
 	                      <th>Year</th>
@@ -193,8 +193,9 @@
 	                      <th>Circulation Type</th>
 	                      <th>Type</th>
 	                      <th>Status</th>
-	                      <th>Source</th>
-	                      <th>Location</th>
+                        <th>Source</th>
+                        <th>Location</th>
+                        <th class = "sort" data-sort = "Inventory Item Number">Inventory Item Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th>Last Year Inventoried</th>
 	                      <th>Action</th>
 	                    </tr>
@@ -239,9 +240,10 @@
       </p>
     </footer>
     <script type = "text/javascript" src = "js/variables.js"></script>
-    <script type = "text/javascript" src = "js/formhandler.js"></script>
     <script type = "text/javascript" src = "js/update.js"></script>
     <script type = "text/javascript" src = "js/count.js"></script>
+    <script type = "text/javascript" src = "js/addFilters.js"></script>
+    <script type = "text/javascript" src = "js/modifyMaterial.js"></script>
     <script type = "text/javascript" src = "js/buttons.js"></script>
     <script type = "text/javascript" src = "js/initialize.js"></script>
     <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>

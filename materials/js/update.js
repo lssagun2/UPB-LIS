@@ -1,4 +1,4 @@
-//function that updates the contents of the tablees
+//function that updates the contents of the tables
 function update(){
 	var data = $('form#filter-form, form#limit-form, form#page-form, form#search-form').serializeArray();
 	data.push({name: "sort", value: sort}, {name: "sort_direction", value: sort_direction});
@@ -43,6 +43,7 @@ function update(){
 			tr.append("<td>" + material.mat_status + "</td>");
 			tr.append("<td>" + material.mat_source + "</td>");
 			tr.append("<td>" + material.mat_location + "</td>");
+			tr.append("<td>" + material.mat_inv_num + "</td>");
 			tr.append("<td>" + material.mat_lastinv_year + "</td>");
 			tr.append("<td><button class = 'edit' style = 'width: 50px; height: 50px; color: #000;'><i class = 'fas fa-edit'></i></button></td>")
 		});

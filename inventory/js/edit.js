@@ -13,12 +13,15 @@ $(document).ready(function(){
 		})
 		.done(function(data){
 			if(data.success){ // Change
-				$("form#material-edit").trigger("reset");
 				$('div.form-control.error').removeClass('error');// Change
 				$('div.form-control.success').removeClass('success');// Change
-				$('div.modal').hide();
+				$('div.notif-bar').css("background-color", "#0E6021");
+				$('div.notif-bar').html("Material was successfully edited!");
+				// $('div.modal').hide();
 			}
 			else{// Change WHOLE else part
+				$('div.notif-bar').css("background-color", "#850038");
+				$('div.notif-bar').html("An error occurred. Please check your input.");
 				if(data.errors.mat_acc_num){
 					$("div#accnumform").addClass('error');
 					$("div#accnumform small").html(data.errors.mat_acc_num);

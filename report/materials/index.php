@@ -252,6 +252,7 @@
                         <th>Status</th>
                         <th>Source</th>
                         <th>Location</th>
+                        <th class = "sort" data-sort = "Inventory Item Number">Inventory Item Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
                         <th>Last Year Inventoried</th>
                       </tr>
                     </thead>

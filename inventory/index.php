@@ -331,7 +331,7 @@
         <main class = "main">
           <header class = "header">
             <div class = "header__wrapper">
-              <h1><span class = "h1-admin">Inventory</span> Items</h1>
+              <h1><span class = "h1-admin"><?php echo $year?> Inventory</span> Items</h1>
               <div class = "profile">
                 <button class = "profile__button">
                   <span class = "profile__name"><?php echo $staff["staff_firstname"]?> <?php echo $staff["staff_lastname"]?></span>
@@ -383,6 +383,7 @@
     <script type = "text/javascript" src = "js/record.js"></script>
     <script type = "text/javascript" src = "js/buttons.js"></script>
     <script type = "text/javascript" src = "js/edit.js"></script>
+    <script type = "text/javascript" src = "js/initialize.js"></script>
     <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
     <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
     <script type = "text/javascript" src = "../backup and restore/js/buttons.js"></script>

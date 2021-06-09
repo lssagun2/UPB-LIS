@@ -32,6 +32,7 @@ function record(){
 			$('#status').val(material.mat_status);
 			$('#source').val(material.mat_source);
 			$('#location').val(material.mat_location);
+			$('#inv_num').val(material.mat_inv_num);
 			$('#last_year_inventoried').val(material.mat_lastinv_year);
 			$('form#inventory-record').trigger('reset');
 			$('div.notif-bar').show();

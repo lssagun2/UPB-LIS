@@ -42,6 +42,7 @@ function update(){
 				"<td>" + material.mat_status + "</td>"+
 				"<td>" + material.mat_source + "</td>"+
 				"<td>" + material.mat_location + "</td>"+
+				"<td>" + material.mat_inv_num + "</td>"+
 				"<td>" + material.mat_lastinv_year + "</td></tr>"
 			);
 		});

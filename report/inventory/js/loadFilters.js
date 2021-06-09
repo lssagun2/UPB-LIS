@@ -6,17 +6,17 @@ function loadFilters(){
 		dataType 	: 'json'
 	})
 	.done(function(data){
-		data.mat_circ_type.forEach(function(row){
-			$("select#circtype-filter").append("<option value = '" + row.mat_circ_type + "'>" + row.mat_circ_type + "</option>");
+		data.circ_type.forEach(function(value){
+			$(".circ-type-list").append("<option value = '" + value + "'>" + value + "</option>");
 		});
-		data.mat_type.forEach(function(row){
-			$("select#type-filter").append("<option value = '" + row.mat_type + "'>" + row.mat_type + "</option>");
+		data.type.forEach(function(value){
+			$(".type-list").append("<option value = '" + value + "'>" + value + "</option>");
 		});
-		data.mat_status.forEach(function(row){
-			$("select#status-filter").append("<option value = '" + row.mat_status + "'>" + row.mat_status + "</option>");
+		data.status.forEach(function(value){
+			$(".status-list").append("<option value = '" + value + "'>" + value + "</option>");
 		});
-		data.mat_location.forEach(function(row){
-			$("select#location-filter").append("<option value = '" + row.mat_location + "'>" + row.mat_location + "</option>");
+		data.location.forEach(function(value){
+			$(".location-list").append("<option value = '" + value + "'>" + value + "</option>");
 		});
 		$('div#loading-cover').hide();
 	})

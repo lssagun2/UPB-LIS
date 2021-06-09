@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$(document).on('click', '.edit', function(){
+		$("form#material").trigger("reset");
 		$tr = $(this).closest('tr');
 		var data = $tr.children("td").map(function(){
 			return $(this).text();
@@ -24,13 +25,24 @@ $(document).ready(function(){
 		$('#status').val(data[13]);
 		$('#source').val(data[14]);
 		$('#location').val(data[15]);
-		$('#last_year_inventoried').val(data[16]); // Changes
-		$('div#material').show()
+		$('#inv_num').val(data[16]);
+		$('#last_year_inventoried').val(data[17]); // Changes
+		$('div#material').show();
+		$("div#material-form-container").scrollTop(0);
 	});
 	$(document).on('click', '.add', function(){
+		$("form#material").trigger("reset");
 		$("#function").val("add");
 		$(".modal-title").html("Add New Material");
 		$("button#submitbtn").html("Add Material");
+		$('div#material').show();
+		$("div#material-form-container").scrollTop(0);
+	});
+	$(document).on('click', '#success-button', function(){
+		if(function_name == "add"){
+			$("form#material").trigger("reset");
+		}
+		$('div#success-notification').hide();
 		$('div#material').show();
 	});
 	$(document).on('click', '.filter', function(){
@@ -109,5 +121,12 @@ $(document).ready(function(){
 		event.preventDefault();
 		$("input#page-number").val(1);
 		count();
+	});
+	$("form#material").submit(function(event){
+		$('div.form-control.error').removeClass('error');// Change
+		$('div.form-control.success').removeClass('success');// Change
+		event.preventDefault();
+		$(".input-invalid").hide();
+		modifyMaterial();
 	});
 });

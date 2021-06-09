@@ -4,3 +4,4 @@ var sort_direction = 1;		//stores the direction of sorting (1 if ASC or -1 if DE
 var material_count;			//stores the number of materials for the current filters
 var page_count;				//stores the number of pages given the number of materials and the maximum number of rows for each page
 var selected_filter;
+var function_name;

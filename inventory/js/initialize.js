@@ -1,7 +1,8 @@
-function loadFilters(){
+$(document).ready(function(){
+	$('div#loading-cover').show();
 	$.ajax({
 		type 		: 'POST',
-		url			: '../common/filter-contents.php',
+		url			: 'functions/filter-contents.php',
 		data 		: null,
 		dataType 	: 'json'
 	})
@@ -23,5 +24,5 @@ function loadFilters(){
 	.fail(function(data) {
 		console.log("AJAX call failed");
     });
-}
+});
 

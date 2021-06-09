@@ -93,6 +93,9 @@
       break;
     case "Inventoried By":
       $sort .= "staff_id_$year1 $sort_direction";
+    case "Inventory Item Number":
+      $sort .= "mat_inv_num = '' ASC, mat_inv_num $sort_direction";
+      break;
     default:
       $sort .= "date_$year1 $sort_direction";
       break;

@@ -1,0 +1,9 @@
+Book
+Thesis
+Computer File
+Article
+Visual Material
+Music
+Serial
+Map
+Mixed Material

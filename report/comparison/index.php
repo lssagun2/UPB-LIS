@@ -164,7 +164,7 @@
                       <th style = "font-size: 1.2em; margin-right: 21px;">Not Acquired:</th>
                       <td class = "report-gen-comp" id = "not_acquired_year2" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"></td>
                     </tr>
-                    <tr class = "summary" id = "new-acquired2" data-year='<?php echo $year1;?>' data-comparison = false data-category = "new_acquired">
+                    <tr class = "summary" id = "new-acquired2" data-year='<?php echo $year2;?>' data-comparison = false data-category = "new_acquired">
                       <th style = "font-size: 1.2em; margin-right: 21px;">New Acquisitions:</th>
                       <td class = "report-gen-comp" id = "new_acquired_year2" style = "border-radius: 0; width: 50%; outline: none; text-align: center; cursor: pointer; padding: 5px 10px;"></td>
                     </tr>
@@ -269,6 +269,7 @@
 	                      <th>Status</th>
 	                      <th>Source</th>
 	                      <th>Location</th>
+                        <th class = "sort" data-sort = "Inventory Item Number">Inventory Item Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th>Last Year Inventoried</th>
 	                    </tr>
                   	</thead>

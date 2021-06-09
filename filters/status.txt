@@ -1,0 +1,8 @@
+On Shelf
+On Loan
+Lost
+Long Overdue
+Preservation Copy
+In Stacks Area
+In Process
+Available Online

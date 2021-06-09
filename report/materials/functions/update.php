@@ -53,6 +53,9 @@
     case "Title":
       $sort .= "mat_title $sort_direction";
       break;
+    case "Inventory Item Number":
+      $sort .= "mat_inv_num = '' ASC, mat_inv_num $sort_direction";
+      break;
     default:
       $sort .= "mat_id $sort_direction";
       break;
