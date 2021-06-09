@@ -139,10 +139,15 @@
                 <div class = "team__link">
                   <h2 style = "text-align: center;">Announcements</h2><br>
                   <div class = "team__header">
-                    <div class="inputFields">
-                        <input type="text" id="announcementValue" placeholder="Any Announcements?">
-                        <button type="submit" id="addBtnAnnounce" class="btn"><i class="fa fa-plus"></i></button>
-                    </div>
+                    <?php
+                    if($staff['staff_type'] === 'admin'){
+                     ?>
+                      <div class="inputFields">
+                          <button type="submit" id="addBtnAnnounce" class="btn">Add Announcement</button>
+                      </div>
+                    <?php 
+                    }
+                    ?>
                   </div>
                   <div class="content">
                     <ul id="announcements"> 
@@ -203,6 +208,8 @@
         <?php
           require "../staff/modal.php";
           require "../backup and restore/modal.php";
+          require "modal.php";
+          require "modalAnnouncement.php";
         ?>
       </main>
     </div>
