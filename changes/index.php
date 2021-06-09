@@ -184,7 +184,10 @@
 						</footer>
 
 			 <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
+			 <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
 			 <script type = "text/javascript" src = "../backup and restore/js/buttons.js"></script>
+				
+   			 
 
 <script>
 $(document).ready(function() {
