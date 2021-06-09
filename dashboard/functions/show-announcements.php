@@ -3,7 +3,7 @@ require '../../config.php';
 session_start();
 $staff_id = $_SESSION["staff_id"];
 
-$sql3 = "DELETE FROM announcements WHERE `date_time` <= now() - interval 3 MINUTE";
+$sql3 = "DELETE FROM announcements WHERE `date_time` <= now() - interval 30 DAYS";
 $result3 = $conn->query($sql3);
 
 
@@ -15,7 +15,12 @@ if ($result->num_rows > 0) {
 ?>
 
   <li>
-    <span class="text"><?php echo $row['text'];?> </br> </br> Posted By:
+    <span class="text">
+        <b><?php echo $row['title'];?></b>
+        </br>  
+        <button id="expandAnnouncementButton" class="fas fa-scroll" data-id="<?php echo $row['announce_id'];?>">See More
+        </button> 
+        </br> Posted By:
     	<?php 
     		$sql2 = "SELECT * FROM STAFF where staff_id = '{$row['staff_id']}'";
     		$result2 = $conn->query($sql2);
@@ -26,23 +31,29 @@ if ($result->num_rows > 0) {
             else{
                 echo $row2['staff_firstname']. " ".$row2['staff_lastname'];
             }
-  			
     	 ?>
     	</br>
     	<?php 
     		echo "Time posted: ". $row['date_time'];
 
     	?>
+
+        <br>
+        
+
+
     </span>
 
     <?php 
     	if(@$row2['staff_id'] === $staff_id){
     ?>
-   		<i id="removeBtnAnnouncement" class="icon fa fa-trash" data-id="<?php echo $row['announce_id'];?>"></i>
+        <i id="removeBtnAnnouncement" class="icon fa fa-trash" data-id="<?php echo $row['announce_id'];?>"></i>
+   		<i id="editAnnouncement" class="icon2 fas fa-edit" data-id="<?php echo $row['announce_id'];?>"></i>
 
     <?php 
 		}
     ?>
+
   </li>
 
 

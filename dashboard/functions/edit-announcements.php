@@ -4,13 +4,11 @@ require $_SERVER['DOCUMENT_ROOT']."/upb-lis/functions/add.php";
 session_start();
 $title = $conn -> real_escape_string($_POST['announcementTitle']);
 $content = $conn -> real_escape_string($_POST['announcementContent']);
-$info = [
-	"staff_id" => $_SESSION['staff_id'],
-	"title" => $title,
-	"text" => $content
-];
-add($conn, "announcements", $info);
-$data['success']  = true;
+// $content = $_POST['announcementContent'];
+$announce_id = $_POST['announcement_id'];
+$sql = "UPDATE announcements SET title = '$title', text = '$content' WHERE announce_id = '$announce_id'";
+$result = $conn -> query($sql);
+$data['success'] = true;
 echo json_encode($data);
 ?>
 

@@ -3,10 +3,10 @@ require '../../config.php';
 session_start();
 $staff_id = $_SESSION["staff_id"];
 
-$sql2 = "DELETE FROM todos WHERE `date_time` <= now() - interval 0.5 MINUTE";
+$sql2 = "DELETE FROM todos WHERE `date_time` <= now() - interval 30 DAYS";
 $result2 = $conn->query($sql2);
 
-$sql = "SELECT * FROM todos where staff_id = $staff_id";
+$sql = "SELECT * FROM todos where staff_id = $staff_id ORDER BY date_time DESC";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {

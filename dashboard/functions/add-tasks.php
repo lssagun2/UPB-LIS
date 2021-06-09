@@ -1,16 +1,14 @@
 <?php 
-require '../../config.php';
+require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
+require $_SERVER['DOCUMENT_ROOT']."/upb-lis/functions/add.php";
 session_start();
-$staff_id = $_SESSION["staff_id"];
-$task = $_POST['task'];
-$sql = "INSERT INTO todos (staff_id, title) VALUES ('$staff_id', '$task')";
-$result = $conn->query($sql);
-if ($result){
-	echo 1;
-}
-else{
-	echo 2;
-}
+$title = $conn -> real_escape_string($_POST['task']);
+$info = [
+	"staff_id" => $_SESSION['staff_id'],
+	"title" => $title
+];
+add($conn, "todos", $info);
+echo 1;
     
 ?>
 
