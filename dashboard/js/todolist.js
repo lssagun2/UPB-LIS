@@ -23,6 +23,7 @@ $(document).ready(function(){
             success: function(data){
                 if(data == 1){          
                     $("#taskValue").val("");
+                    alert("Your task has been added!");
                     loadTasks();
                 }
                 else{
