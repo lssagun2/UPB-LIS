@@ -30,34 +30,29 @@
 
 
 <div class = "modal" id = "contentModal">
-   
- 
+
+
   <span class = "close" id="closeModalAnnouncement" title = "Close Modal"><i class="fas fa-times"></i></span>
   <form class = "modal-content" id = "expandAnnouncement" method = "POST">
     <div class = "container">
       <h1 class = "modal-title">Announcement</h1>
       <p><b>Title:</b></p>
       <p id="announcementTitleModal"></p>
-      <br> 
-      <p><b>Content:</b></p> 
-      <br> 
+      <br>
+      <p><b>Content:</b></p>
+      <br>
 
-      <pre id="announcementContentModal"></pre> 
+      <pre id="announcementContentModal"></pre>
 
 
-      
-      <br><br>  
+
+      <br><br>
       <p>Posted By:</p>
       <p id="creator"> </p>
-      <br>  
+      <br>
       <p>Time posted:</p>
       <p id="time_posted"> </p>
-      <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtnAnnouncement">Cancel</button>
+      <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtnAnnouncement" style = "background-color: #ccc">Cancel</button>
     </div>
   </form>
 </div>
-
-
-
-
-
