@@ -97,8 +97,8 @@
                   </svg>
                 </a>
               </div>
-            </li> 
-            <?php 
+            </li>
+            <?php
             }
             ?>
           </ul>
@@ -145,13 +145,13 @@
                       <div class="inputFields">
                           <button type="submit" id="addBtnAnnounce" class="btn">Add Announcement</button>
                       </div>
-                    <?php 
+                    <?php
                     }
                     ?>
                   </div>
                   <div class="content">
-                    <ul id="announcements"> 
-                      
+                    <ul id="announcements">
+
                     </ul>
                   </div>
                 </div>
@@ -190,15 +190,15 @@
                     </div> -->
                     <div class="inputFields">
                         <input type="text" id="taskValue" placeholder="What do you need to do?">
-                        <button type="submit" id="addBtn" class="btn"><i class="fa fa-plus"></i></button>
+                        <button type="submit" id="addBtn" class="btn add-button"><i class="fa fa-plus"></i></button>
                     </div>
                   </div>
                   <div class="content">
-                    <ul id="tasks"> 
+                    <ul id="tasks">
                         <div class = "pending-text"></div>
                     </ul>
                   </div>
-                    
+
                   </div>
                 </div>
               </li>
@@ -244,6 +244,6 @@
 
 
 
-  
+
   </body>
 </html>
