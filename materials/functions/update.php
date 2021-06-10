@@ -55,7 +55,7 @@
       $sort .= "mat_inv_num = '' ASC, mat_inv_num $sort_direction";
       break;
     default:
-      $sort .= "mat_id $sort_direction";
+      $sort .= "mat_id DESC";
       break;
   }
   $start_num = $_POST["limit"] * ($_POST["page-number"] - 1);
