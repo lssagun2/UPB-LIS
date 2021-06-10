@@ -48,7 +48,7 @@
   <form class = "modal-content" id = "announcementForm" method = "POST">
     <div class = "container">
       <h1 class = "modal-title">Announcement</h1>
-      <div class = "form-control" id = "title_announcement"> 
+      <div class = "form-control" id = "title_announcement">
 
 
 
@@ -61,20 +61,16 @@
 
 
       <label for = "announcementTitle">Announcement Title</label>
-      <input style = "width: 100%;" type = "text" id = "announcementTitle" name = "announcementTitle" placeholder = "Title..."  style = "width: 100%;">               	  
+      <input style = "width: 100%;" type = "text" id = "announcementTitle" name = "announcementTitle" placeholder = "Title..."  style = "width: 100%;">
       </div>
 
-   	  <div class = "form-control" id = "text_div">  
+   	  <div class = "form-control" id = "text_div">
    	  <label for = "announcementContent">Announcement Content</label> <br>
       <textarea id="announcementContent" name="announcementContent" rows="5" cols="55" placeholder="Announcement..."></textarea>
-  	  </div> 
-    
-      <button type = "button" class = "modalbtn" id = "postAnnouncementBtn">Post</button>
+  	  </div>
+
+      <button type = "button" class = "modalbtn" id = "postAnnouncementBtn" style = "background-color: #850038; color: #fff;">Post</button>
       <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtnAnnouncement">Cancel</button>
     </div>
   </form>
 </div>
-
-
-
-
