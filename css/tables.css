@@ -338,7 +338,7 @@ h1 {
   line-height: 25px;
   border-bottom: 1px solid #fff;
   border-collapse: collapse;
-  width: 120%;
+  width: 150%;
   margin-right: 10px;
   background: rgba(221, 13, 0, 0.2);
   background: linear-gradient(-45deg, rgba(133, 0, 56, 1) 0%, rgba(14, 96, 33, 1) 100%);
@@ -350,7 +350,7 @@ h1 {
 
 @media screen and (max-width: 1366px) {
   #allmaterials {
-    width: 150%;
+    width: 220%;
     line-height: 20px;
     font-size: 0.9em;
     background-size: cover;
@@ -412,6 +412,10 @@ h1 {
   color: #fff;
   font-size: 1em;
   opacity: 1;
+}
+
+#allmaterials th:nth-child(16) {
+  cursor: pointer;
 }
 
 #allmaterials th:nth-child(4) {
@@ -610,10 +614,11 @@ h1 {
 }
 
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: #f8f8f8;
 }
 
 ::-webkit-scrollbar-thumb {
+  border-radius: 15px;
   background-color: rgba(0,0,0,0.5);
 }
 

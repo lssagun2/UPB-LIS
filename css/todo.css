@@ -144,6 +144,10 @@ section .team__link .team__header .inputDiv .add:hover {
     transition: .3s;
 }
 
+.add-button {
+	width: 50px!important;
+}
+
 .wrapper .inputFields button.btn:hover {
     opacity: 1;
 }
@@ -233,4 +237,3 @@ textarea#text{
 .wrapper .content ul li span button:hover{
    color: blue;
 }
-
