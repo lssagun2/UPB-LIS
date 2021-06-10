@@ -184,8 +184,8 @@
                   <table id = "allmaterials" style = "border-radius: 1em;display: block;">
                   	<thead style="position: sticky; top: 0;">
                   		<tr>
-                        <th class = "sort inventoried-column" data-sort = "Date Inventoried">Date Inventoried<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-                        <th class = "sort inventoried-column" data-sort = "Inventoried by">Inventoried by<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th class = "sort inventoried-column" data-sort = "Inventory Date">Inventory Date<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th class = "sort inventoried-column" data-sort = "Staff Name">Staff Name<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
                         <th class = "sort" data-sort = "Accession Number">Accession Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th class = "sort" data-sort = "Barcode">Barcode<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th class = "sort" data-sort = "Call Number">Call Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>

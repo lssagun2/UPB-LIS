@@ -58,25 +58,28 @@
   $column = $_POST["sort"];
   switch ($column) {
     case "Accession Number":
-      $sort .= "mat_acc_num1 $sort_direction, mat_acc_num2 $sort_direction, mat_acc_num $sort_direction";
+      $sort .= "mat_acc_num = '' ASC, mat_acc_num1 $sort_direction, mat_acc_num2 $sort_direction, mat_acc_num $sort_direction";
       break;
     case "Barcode":
-      $sort .= "mat_barcode $sort_direction";
+      $sort .= "mat_barcode = '' ASC, mat_barcode $sort_direction";
       break;
     case "Call Number":
-      $sort .= "mat_call_num1 $sort_direction, mat_call_num2 $sort_direction, mat_call_num3 $sort_direction, mat_call_num $sort_direction";
+      $sort .= "mat_call_num = '' ASC, mat_call_num1 $sort_direction, mat_call_num2 $sort_direction, mat_call_num3 $sort_direction, mat_call_num $sort_direction";
       break;
     case "Title":
-      $sort .= "mat_title $sort_direction";
+      $sort .= "mat_title = '' ASC, mat_title $sort_direction";
       break;
-    case "Inventoried By":
+    case "Staff Name":
       $sort .= "staff_id_$year $sort_direction";
+      break;
+    case "Inventory Date":
+      $sort .= "date_$year $sort_direction";
       break;
     case "Inventory Item Number":
       $sort .= "mat_inv_num = '' ASC, mat_inv_num $sort_direction";
       break;
     default:
-      $sort .= "date_$year $sort_direction";
+      $sort .= "mat_id $sort_direction";
       break;
   }
   $start_num = $_POST["limit"] * ($_POST["page-number"] - 1);
@@ -84,7 +87,7 @@
   //subquery for inventoried materials
   if($_POST["category"] == "inventoried"){
     $subquery = "
-      SELECT (row_number() OVER ($sort)) row_number, MATERIAL.*, INVENTORY.date_$year AS year, STAFF.staff_firstname, STAFF.staff_lastname
+      SELECT (row_number() OVER ($sort)) row_number, MATERIAL.*, DATE_FORMAT(INVENTORY.date_$year, '%b %e, %h:%i %p') AS year, STAFF.staff_firstname, STAFF.staff_lastname
       FROM {$inv_query}INVENTORY
         INNER JOIN {$mat_query}MATERIAL ON INVENTORY.mat_id = MATERIAL.mat_id
         INNER JOIN STAFF ON INVENTORY.staff_id_$year = STAFF.staff_id";

@@ -42,16 +42,16 @@
   $column = $_POST["sort"];
   switch ($column) {
     case "Accession Number":
-      $sort .= "mat_acc_num1 $sort_direction, mat_acc_num2 $sort_direction, mat_acc_num $sort_direction";
+      $sort .= "mat_acc_num = '' ASC, mat_acc_num1 $sort_direction, mat_acc_num2 $sort_direction, mat_acc_num $sort_direction";
       break;
     case "Barcode":
-      $sort .= "mat_barcode $sort_direction";
+      $sort .= "mat_barcode = '' ASC, mat_barcode $sort_direction";
       break;
     case "Call Number":
-      $sort .= "mat_call_num1 $sort_direction, mat_call_num2 $sort_direction, mat_call_num3 $sort_direction, mat_call_num $sort_direction";
+      $sort .= "mat_call_num = '' ASC, mat_call_num1 $sort_direction, mat_call_num2 $sort_direction, mat_call_num3 $sort_direction, mat_call_num $sort_direction";
       break;
     case "Title":
-      $sort .= "mat_title $sort_direction";
+      $sort .= "mat_title = '' ASC, mat_title $sort_direction";
       break;
     case "Inventory Item Number":
       $sort .= "mat_inv_num = '' ASC, mat_inv_num $sort_direction";
