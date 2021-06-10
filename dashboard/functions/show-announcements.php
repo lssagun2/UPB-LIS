@@ -1,4 +1,4 @@
-<?php 
+<?php
 require '../../config.php';
 session_start();
 $staff_id = $_SESSION["staff_id"];
@@ -17,11 +17,11 @@ if ($result->num_rows > 0) {
   <li>
     <span class="text">
         <b><?php echo $row['title'];?></b>
-        </br>  
-        <button id="expandAnnouncementButton" class="fas fa-scroll" data-id="<?php echo $row['announce_id'];?>">See More
-        </button> 
+        </br>
+        <button id="expandAnnouncementButton" data-id="<?php echo $row['announce_id'];?>"><i class="fas fa-scroll"></i> See More
+        </button>
         </br> Posted By:
-    	<?php 
+    	<?php
     		$sql2 = "SELECT * FROM STAFF where staff_id = '{$row['staff_id']}'";
     		$result2 = $conn->query($sql2);
     		$row2 = $result2->fetch_assoc();
@@ -33,24 +33,24 @@ if ($result->num_rows > 0) {
             }
     	 ?>
     	</br>
-    	<?php 
+    	<?php
     		echo "Time posted: ". $row['date_time'];
 
     	?>
 
         <br>
-        
+
 
 
     </span>
 
-    <?php 
+    <?php
     	if(@$row2['staff_id'] === $staff_id){
     ?>
-        <i id="removeBtnAnnouncement" class="icon fa fa-trash" data-id="<?php echo $row['announce_id'];?>"></i>
-   		<i id="editAnnouncement" class="icon2 fas fa-edit" data-id="<?php echo $row['announce_id'];?>"></i>
+      <i id="removeBtnAnnouncement" data-id="<?php echo $row['announce_id'];?>"><i class="icon fa fa-trash"></i></i>
+   		<i id="editAnnouncement" data-id="<?php echo $row['announce_id'];?>"><i class="icon2 fas fa-edit"></i></i>
 
-    <?php 
+    <?php
 		}
     ?>
 
