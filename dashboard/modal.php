@@ -70,7 +70,7 @@
   	  </div>
 
       <button type = "button" class = "modalbtn" id = "postAnnouncementBtn" style = "background-color: #850038; color: #fff;">Post</button>
-      <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtnAnnouncement">Cancel</button>
+      <button type = "button" onclick = "$('div.modal').hide()" class = "modalbtn" id = "cancelbtnAnnouncement" style = "background-color: #ccc">Cancel</button>
     </div>
   </form>
 </div>
