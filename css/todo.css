@@ -175,7 +175,7 @@ section .team__link .team__header .inputDiv .add:hover {
 .wrapper .content ul li .icon {
     width: 50px;
     height: 100%;
-    background: #e74c3c;
+    background: #850038;
     position: absolute;
     right: -50px;
     top: 0;
@@ -186,6 +186,7 @@ section .team__link .team__header .inputDiv .add:hover {
     cursor: pointer;
     border-radius: 0 3px 3px 0;
     transition: .3s linear;
+		opacity: 0.9;
 }
 
 .wrapper .content ul li:hover .icon {
@@ -195,7 +196,7 @@ section .team__link .team__header .inputDiv .add:hover {
 .wrapper .content ul li .icon2 {
     width: 50px;
     height: 100%;
-    background: #ffad0d;
+    background: #0e6021;
     position: absolute;
     right: -50px;
     top: 0;
@@ -206,6 +207,7 @@ section .team__link .team__header .inputDiv .add:hover {
     cursor: pointer;
     border-radius: 0 3px 3px 0;
     transition: .3s linear;
+		opacity: 0.9;
 }
 
 .wrapper .content ul li:hover .icon2 {
@@ -227,6 +229,7 @@ section .team__link .team__header .inputDiv .add:hover {
     margin-top: 20px;
     text-transform: capitalize;
 }
+
 textarea#text{
     width: 100%;
     display: block;
@@ -234,6 +237,11 @@ textarea#text{
     margin-right: auto;
 
 }
+
+.wrapper .content ul li .icon:hover, .wrapper .content ul li .icon2:hover {
+	opacity: 1;
+}
+
 .wrapper .content ul li span button:hover{
-   color: blue;
+   color: #850038;
 }
