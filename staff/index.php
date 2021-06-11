@@ -21,6 +21,7 @@
     <link rel = "stylesheet" href ="../css/index.css">
     <link rel = "stylesheet" href ="../css/tables.css">
     <link rel = "stylesheet" href ="../css/form-control.css">
+    <link rel = "stylesheet" href ="../css/loading.css">
     <!-- <link rel = "stylesheet" href ="../css/staffidcard.css"> -->
     <style>
       .idform {
@@ -47,6 +48,7 @@
       <a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
     </div>
     <div id = "main">
+      <div id="loading-cover"></div>
       <div class = "wrapper">
         <nav class = "nav">
           <ul class = "nav__list" role = "menubar">
@@ -117,6 +119,17 @@
           <section class = "section">
             <ul class = "project">
               <li class = "project__item">
+                <div style = "display: inline-block; width: 100%; height: 50px;">
+                  <div style = "float: right; font-size: 1.2em; height: 100%; ">
+                    <form style = "display: inline; height: 100%;" id = "active-form">
+                      <select id = "active-filter" name = "active-filter" style="margin: 0; border-radius: 0.5em">
+                        <option value = 'active' selected>Active</option>
+                        <option value = 'deleted'>Deleted</option>
+                        <option value = 'all'>Show All</option>
+                      </select>
+                    </form>
+                  </div>
+                </div>
                 <div class = "allmaterials" style = "overflow-x: auto; overflow-y:  auto; height: 500px;">
                   <table class="staffTable" id = "staffTable" style = "border-radius: 1em;">
                      <thead>
@@ -129,28 +142,7 @@
                         <th width="10%" style = "border-radius: 0 0.9em 0 0;">Action</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <?php
-                      $sql = "SELECT * FROM STAFF";
-                      $result = $conn->query($sql);
-                      while($row = $result->fetch_assoc()){
-                     ?>
-
-                    <tr align="center">
-                      <td style='display:none;'><?php echo $row['staff_id'] ?></td>
-                      <td><?php echo $row['staff_username'] ?></td>
-                      <td><?php echo $row['staff_firstname'] ?></td>
-                      <td><?php echo $row['staff_lastname'] ?></td>
-                      <td><?php echo $row['staff_password'] ?></td>
-                      <td><?php echo $row['staff_type'] ?></td>
-
-                      <td style = "margin-right: 5px;" align = "center">
-                        <button id = 'editStaffTable' class = 'edit'><i class = 'fas fa-edit'></i></button>
-                        <button id = 'deleteStaffTable' class = 'edit'><i class="fas fa-trash-alt"></i></button>                        
-                      </td>
-                    </tr>
-                    <?php } ?>
-                    </tbody>
+                    <tbody></tbody>
                   </table>
                 </div>
                 <div style = "float: right; vertical-align: right; margin-top: -15px;">
@@ -217,6 +209,7 @@
     </script> -->
     <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
     <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
+    <script type = "text/javascript" src = "../staff/js/update.js"></script>
     <script type = "text/javascript" src = "../backup and restore/js/buttons.js"></script>
 
     <script>

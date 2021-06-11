@@ -117,7 +117,14 @@ h1 {
   color: #000;
 }
 
-#deleteStaffTable {
+#deleteStaff {
+  float: left;
+  width: 40px;
+  height: 40px;
+  color: #000;
+}
+
+#restoreStaff {
   float: left;
   width: 40px;
   height: 40px;
@@ -134,7 +141,7 @@ h1 {
     padding-right: 25px;
   }
 
-  #deleteStaffTable {
+  #deleteStaff {
     margin-left: 10%;
     float: left;
     width: 40px;
@@ -142,6 +149,13 @@ h1 {
     color: #000;
   }
 
+  #restoreStaff {
+    margin-left: 10%;
+    float: left;
+    width: 40px;
+    height: 40px;
+    color: #000;
+  }
 }
 
 .edit:hover {

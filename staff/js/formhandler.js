@@ -8,25 +8,20 @@ $(document).ready(function(){
 		event.preventDefault();
 		$(".input-invalid").hide();
 		var function_name = $("#staff_function").val();
-		console.log($('form#staff').serialize())
 		$.ajax({
 			type 		: 'POST',
-			url			: '../staff/functions/'+function_name+'.php',
+			url			: '../staff/functions/' + function_name + '.php',
 			data 		: $('form#staff').serialize(),
 			dataType 	: 'json'
 		})
 		.done(function(data){
 			if(data.success){
-				console.log(data);
-				console.log($('form#staff').serialize());
 				$('div.form-control.error').removeClass('error');
 				$('div.form-control.success').removeClass('success');
 				$('div.modal').hide();
-				staffTableUpdate();
+				update();
 			}
 			else{
-				console.log(data);
-				console.log($('form#staff').serialize());
 				if(data.errors.staff_username){
 					$('div#usernameform').addClass('error');
 					$('div#usernameform small').html(data.errors.staff_username);
@@ -72,8 +67,7 @@ $(document).ready(function(){
 	      $('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');
 	    });
 	});
-
-	$("form#deleteStaffForm").submit(function(event){
+	$("form#change-active-form").submit(function(event){
 		$('div.form-control.error').removeClass('error');
 		$('div.form-control.success').removeClass('success');
 		event.preventDefault();
@@ -81,18 +75,13 @@ $(document).ready(function(){
 		var function_name = $("#staff_function").val();
 		$.ajax({
 			type 		: 'POST',
-			url			: '../staff/functions/delete.php',
-			data 		: $('form#deleteStaffForm').serialize(),
+			url			: '../staff/functions/change-active.php',
+			data 		: $('form#change-active-form').serialize(),
 			dataType 	: 'json'
 		})
 		.done(function(data){
-			console.log(data);
-	
-			console.log($('form#deleteStaffForm').serialize());
-			$('div.form-control.error').removeClass('error');
-			$('div.form-control.success').removeClass('success');
 			$('div.modal').hide();
-			staffTableUpdate();
+			update();
 		})
 		.fail(function(data) {
 			console.log(data);

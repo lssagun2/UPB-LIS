@@ -7,21 +7,25 @@
 		$errors["username"] = "Username cannot be empty.";
 	}
 	else{
-		$sql = "SELECT staff_id, staff_password, staff_firstname, staff_lastname, staff_type FROM STAFF WHERE staff_username = '$username'";
+		$sql = "SELECT * FROM STAFF WHERE staff_username = '$username'";
 		$result = $conn->query($sql);
-		echo $conn->error;
 		if($result->num_rows == 0){
 			$errors["username"] = "Username does not exist.";
 		}
 		else{
 			$row = $result->fetch_assoc();
-			if($password === $row["staff_password"]){
-				$_SESSION["logged_in"] = TRUE;
-				$_SESSION["staff_id"] = $row["staff_id"];
-				$link = "../dashboard/index.php";
+			if($row['staff_active'] == 0){
+				$errors["username"] = "This account has been deactivated.";
 			}
 			else{
-				$errors["password"] = "Password is incorrect.";
+				if($password === $row["staff_password"]){
+					$_SESSION["logged_in"] = TRUE;
+					$_SESSION["staff_id"] = $row["staff_id"];
+					$link = "../dashboard/index.php";
+				}
+				else{
+					$errors["password"] = "Password is incorrect.";
+				}
 			}
 		}
 	}
