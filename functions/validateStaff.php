@@ -25,6 +25,8 @@
 		if($info['confirm_password'] != $info['staff_password']){
 			$errors['confirm_password'] = "Password doesn't match!";
 		}
-		return $errors;
+		if(!empty($errors)){
+			return $errors;
+		}
 	}
 ?>
