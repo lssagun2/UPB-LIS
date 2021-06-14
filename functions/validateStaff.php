@@ -11,11 +11,11 @@
 			}
 		}
 		if(empty($info['staff_firstname'])){
-			$errors['staff_firstname'] = "First naame is required!";
+			$errors['staff_firstname'] = "First name is required!";
 		}
 		
 		if(empty($info['staff_lastname'])){
-			$errors['staff_lastname'] = "Last naame is required!";
+			$errors['staff_lastname'] = "Last name is required!";
 		}		
 
 		if(empty($info['staff_password'])){
