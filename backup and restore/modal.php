@@ -62,23 +62,21 @@ if (! empty($_FILES)) {
         if (is_uploaded_file($_FILES["backup_file"]["tmp_name"])) {
             move_uploaded_file($_FILES["backup_file"]["tmp_name"], $_FILES["backup_file"]["name"]);
             $response = restore($_FILES["backup_file"]["name"], $conn);
+
         }
     }
 }
 
 function restore($filePath, $conn)
 {
-$mysqli = new mysqli("localhost", "root", "", "UPB_LIS");
-$mysqli->query('SET foreign_key_checks = 0');
-if ($result = $mysqli->query("SHOW TABLES"))
-{
-    while($row = $result->fetch_array(MYSQLI_NUM))
+    $conn->query('SET foreign_key_checks = 0');
+    if ($result = $conn->query("SHOW TABLES"))
     {
-        $mysqli->query('DROP TABLE IF EXISTS '.$row[0]);
+        while($row = $result->fetch_array(MYSQLI_NUM))
+        {
+            $conn->query('DROP TABLE IF EXISTS '.$row[0]);
+        }
     }
-}
-
-$mysqli->query('SET foreign_key_checks = 1');
     $sql = '';
     $error = '';
 
@@ -118,6 +116,7 @@ $mysqli->query('SET foreign_key_checks = 1');
     } // end if file exists
 
     return $response;
+    $conn->query('SET foreign_key_checks = 1');
 }
 ?>
 
