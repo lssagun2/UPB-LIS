@@ -232,7 +232,7 @@
                   </div>
                 </div>
 
-                <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto;">
+                <div class = "allmaterials align-right-3rd-column allmaterials-bg" style = "overflow-x: auto; overflow-y: auto;">
                   <table id = "allmaterials" style = "display: block;">
                   	<thead style="position: sticky; top: 0;">
                   		<tr>
@@ -301,7 +301,7 @@
       <a href = "https://www.youtube.com/channel/UCgbOw9h1IXDnqH5SLc_nwFQ" target="_blank"><i class="fab fa-youtube"></i></a>
     </p>
     </footer>
-    
+
     <script type = "text/javascript" src = "js/variables.js"></script>
     <script type = "text/javascript" src = "js/update.js"></script>
     <script type = "text/javascript" src = "js/count.js"></script>
