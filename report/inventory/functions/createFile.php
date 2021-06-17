@@ -65,7 +65,7 @@
       $sort .= "mat_inv_num = '' ASC, mat_inv_num $sort_direction";
       break;
     default:
-      $sort .= "mat_id $sort_direction";
+      $sort .= "MATERIAL.mat_id $sort_direction";
       $sort_header = ["Sorted by:", "none"];
       unset($sort_lines);
       break;

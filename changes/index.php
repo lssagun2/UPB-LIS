@@ -21,6 +21,7 @@
 	<link rel = "stylesheet" href ="../css/index.css">
 	<link rel = "stylesheet" href ="../css/tables.css">
 	<link rel = "stylesheet" href ="../css/modals.css">
+	<link rel = "stylesheet" href ="../css/loading.css">
 	<link rel = "stylesheet" href ="../changes/view.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -35,11 +36,12 @@
 		</div><br>
 		<a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
 		<a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
-      <a href = "#" class="backup"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
-      <a href = "#" class="restore"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
+      <a href = "#" class="backup" data-directory = "../backup/"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Create Backup</a>
+      
 		<a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
 	</div>
 	<div id = "main">
+		<div id="loading-cover"></div>
 		<div class = "wrapper">
 			<nav class = "nav">
 				<ul class = "nav__list" role = "menubar">
@@ -171,7 +173,7 @@
 						<?php
 						require "modal.php";
 						require "../staff/modal.php";
-						require "../backup and restore/modal.php";
+						require "../backup/modal.php";
 						?>
 
 						<footer class = "footer">
@@ -185,7 +187,9 @@
 
 			 <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
 			 <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
-			 <script type = "text/javascript" src = "../backup and restore/js/buttons.js"></script>
+			 <script type = "text/javascript" src = "../backup/js/functions.js"></script>
+				
+   			 
 
 <script>
 $(document).ready(function() {

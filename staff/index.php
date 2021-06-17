@@ -43,8 +43,7 @@
         <h2><?php echo $staff["staff_firstname"]?> <?php echo $staff["staff_lastname"]?></h2>
       </div><br>
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
-      <a href = "#" class="backup"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Back up</a>
-      <a href = "#" class="restore"><i class="fas fa-sync" style = "padding: 0 33px;"></i>Restore</a>
+      <a href = "#" class="backup" data-directory = "../backup/"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Create Backup</a>
       <a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
     </div>
     <div id = "main">
@@ -179,7 +178,7 @@
                 <?php
                 require "../staff/modal.php";
                 require "../staff/modaldelete.php";
-                require "../backup and restore/modal.php";
+                require "../backup/modal.php";
                 ?>
 
               </li>
@@ -210,7 +209,7 @@
     <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
     <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
     <script type = "text/javascript" src = "../staff/js/update.js"></script>
-    <script type = "text/javascript" src = "../backup and restore/js/buttons.js"></script>
+    <script type = "text/javascript" src = "../backup/js/functions.js"></script>
 
     <script>
       function openNav() {
