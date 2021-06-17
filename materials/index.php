@@ -175,7 +175,7 @@
               		</div>
               	</div>
 
-                <div class = "allmaterials align-right-3rd-column" style = "overflow-x: auto; overflow-y: auto;">
+                <div class = "allmaterials align-right-3rd-column allmaterials-bg" style = "overflow-x: auto; overflow-y: auto;">
                   <table id = "allmaterials" style = "display: block;">
                   	<thead style="position: sticky; top: 0; z-index: 1;">
                   		<tr>
