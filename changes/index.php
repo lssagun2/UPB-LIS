@@ -118,13 +118,13 @@
 				<section class = "section">
 					<ul class = "project">
 						<li class = "project__item">
-							<div class = "allmaterials" style = "overflow-x: auto; overflow-y:  auto; height: 500px;">
+							<div class = "allmaterials changes" style = "overflow-x: auto; overflow-y: auto;">
 								<table id = "changes">
-									<thead>
-										<tr>
-											<th width="20%" style = "border-radius: 0.9em 0 0 0;">Date</th>
-											<th width="60%" style = "border-radius: 0 0 0 0;">Description</th>
-											<th width="20%" style = "border-radius: 0 0.9em 0 0;">Action</th>
+									<thead style="position: sticky; top: 0; z-index: 1;">
+										<tr style = "font-size: 1em;">
+											<th width="20%">Date</th>
+											<th width="60%">Description</th>
+											<th width="20%">Action</th>
 										</tr>
 									</thead>
 

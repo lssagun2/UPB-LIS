@@ -119,8 +119,8 @@
             <ul class = "project">
               <li class = "project__item">
                 <div style = "display: inline-block; width: 100%; height: 50px;">
-                  <div style = "float: right; font-size: 1.2em; height: 100%; ">
-                    <form style = "display: inline; height: 100%;" id = "active-form">
+                  <div style = "float: right; font-size: 1.2em; height: 100%;">
+                    <form style = "display: flex; height: 100%; cursor: pointer" id = "active-form">
                       <select id = "active-filter" name = "active-filter" style="margin: 0; border-radius: 0.5em">
                         <option value = 'active' selected>Active</option>
                         <option value = 'deleted'>Deleted</option>
@@ -129,22 +129,22 @@
                     </form>
                   </div>
                 </div>
-                <div class = "allmaterials" style = "overflow-x: auto; overflow-y:  auto; height: 500px;">
-                  <table class="staffTable" id = "staffTable" style = "border-radius: 1em;">
-                     <thead>
+                <div class = "allmaterials staff" style = "overflow-x: auto; overflow-y: auto;font-size: 1em">
+                  <table class="staffTable" id = "staffTable">
+                     <thead style="position: sticky; top: 0; z-index: 1;">
                       <tr>
-                        <th width="15%" style = "border-radius: 0.9em 0 0 0;">Username</th>
+                        <th width="15%">Username</th>
                         <th width="20%">First Name</th>
                         <th width="20%">Last Name</th>
                         <th width="20%">Password</th>
                         <th width="15%">Type</th>
-                        <th width="10%" style = "border-radius: 0 0.9em 0 0;">Action</th>
+                        <th width="10%">Action</th>
                       </tr>
                     </thead>
                     <tbody></tbody>
                   </table>
                 </div>
-                <div style = "float: right; vertical-align: right; margin-top: -15px;">
+                <div style = "float: right; vertical-align: right; margin-top: 10px;">
                     <button id = "staff-add-form" class = "add">Add</button>
                 </div>
 
