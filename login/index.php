@@ -37,10 +37,17 @@
 
     <footer class = "login-footer">
       <p style = "float: left; padding-left: 10px;">University of the Philippines - Baguio Library Inventory System</p>
+      <p style = "position: fixed; padding-left: 45%; padding-right: 25%">
+        &copy; <a href = "https://www.facebook.com/adrieeeeeeeee" target = "_blank" style = "color: #fff;">Aniban</a> |
+        <a href = "https://www.facebook.com/tj.almonia" target = "_blank" style = "color: #fff;">Almonia</a> |
+        <a href = "https://www.facebook.com/chrlscrdl" target = "_blank" style = "color: #fff;">Cordial</a> |
+        <a href = "https://www.facebook.com/gisselle.derije/" target = "_blank" style = "color: #fff;">Derije</a> |
+        <a href = "https://www.facebook.com/leandrei.sagun" target = "_blank" style = "color: #fff;">Sagun</a>
+      </p>
       <p style = "float: right; padding-right: 10px;">For news and related events visit:
-        <a href = "https://www.facebook.com/OfficialUPB" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href = "https://web.upb.edu.ph/" target="_blank"><i class="fas fa-globe"></i></a>
-        <a href = "https://www.youtube.com/channel/UC1XJ8yRNRuDHmhJXtsLIB_g" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href = "https://www.facebook.com/upbaguiolibrary" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href = "http://mainlib.upb.edu.ph/" target="_blank"><i class="fas fa-globe"></i></a>
+        <a href = "https://www.youtube.com/channel/UCgbOw9h1IXDnqH5SLc_nwFQ" target="_blank"><i class="fab fa-youtube"></i></a>
       </p>
     </footer>
 
