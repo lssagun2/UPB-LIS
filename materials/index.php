@@ -72,7 +72,7 @@
           <ul class = "nav__list" role = "menubar">
             <li class = "nav__item">
               <div class = "tooltip">
-                <span class = "tooltiptext-t1">Home</span>
+                <span class = "tooltiptext-t1">Dashboard</span>
                 <a href = "../dashboard/index.php" class = "nav__link focus--box-shadow" role = "menuitem" aria-label = "Home">
                   <svg class = "nav__icon" xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 24 24" role = "presentation">
                     <path fill = "#6563ff" d = "M18.121,9.88l-7.832-7.836c-0.155-0.158-0.428-0.155-0.584,0L1.842,9.913c-0.262,0.263-0.073,0.705,0.292,0.705h2.069v7.042c0,0.227,0.187,0.414,0.414,0.414h3.725c0.228,0,0.414-0.188,0.414-0.414v-3.313h2.483v3.313c0,0.227,0.187,0.414,0.413,0.414h3.726c0.229,0,0.414-0.188,0.414-0.414v-7.042h2.068h0.004C18.331,10.617,18.389,10.146,18.121,9.88 M14.963,17.245h-2.896v-3.313c0-0.229-0.186-0.415-0.414-0.415H8.342c-0.228,0-0.414,0.187-0.414,0.415v3.313H5.032v-6.628h9.931V17.245z M3.133,9.79l6.864-6.868l6.867,6.868H3.133z"/>
@@ -115,7 +115,7 @@
             ?>
             <li class = "nav__item"> <!-- Changes -->
               <div class = "tooltip">
-                <span class = "tooltiptext-t1">Staff</span>
+                <span class = "tooltiptext-t1">Manage Staff</span>
                 <a href = "../staff/index.php" class = "nav__link focus--box-shadow" role = "menuitem" aria-label = "Staff">
                   <svg class = "nav__icon" xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 24 24" role = "presentation">
                     <path fill = "#6563ff" d = "M15.573,11.624c0.568-0.478,0.947-1.219,0.947-2.019c0-1.37-1.108-2.569-2.371-2.569s-2.371,1.2-2.371,2.569c0,0.8,0.379,1.542,0.946,2.019c-0.253,0.089-0.496,0.2-0.728,0.332c-0.743-0.898-1.745-1.573-2.891-1.911c0.877-0.61,1.486-1.666,1.486-2.812c0-1.79-1.479-3.359-3.162-3.359S4.269,5.443,4.269,7.233c0,1.146,0.608,2.202,1.486,2.812c-2.454,0.725-4.252,2.998-4.252,5.685c0,0.218,0.178,0.396,0.395,0.396h16.203c0.218,0,0.396-0.178,0.396-0.396C18.497,13.831,17.273,12.216,15.573,11.624 M12.568,9.605c0-0.822,0.689-1.779,1.581-1.779s1.58,0.957,1.58,1.779s-0.688,1.779-1.58,1.779S12.568,10.427,12.568,9.605 M5.06,7.233c0-1.213,1.014-2.569,2.371-2.569c1.358,0,2.371,1.355,2.371,2.569S8.789,9.802,7.431,9.802C6.073,9.802,5.06,8.447,5.06,7.233 M2.309,15.335c0.202-2.649,2.423-4.742,5.122-4.742s4.921,2.093,5.122,4.742H2.309z M13.346,15.335c-0.067-0.997-0.382-1.928-0.882-2.732c0.502-0.271,1.075-0.429,1.686-0.429c1.828,0,3.338,1.385,3.535,3.161H13.346z" />
@@ -205,7 +205,7 @@
                   </table>
                 </div>
                 <div style="display: inline-block; width: 100%; margin-top: 20px;">
-              		<div style = "float: left; width: 33%; font-size: 1.2em;">
+              		<div style = "float: left; width: 33%; font-size: 1.2em; color: #fff;">
               			Page
 		              	<form style = "display: inline" id = "page-form">
 		              		<input type="number" min = "1" id = "page-number" name = "page-number" value = "1">
@@ -231,13 +231,21 @@
     </div>
 
     <footer class = "footer">
-      <p style = "float: left; padding-left: 10px; padding-top: 16px;">University of the Philippines - Baguio Library Inventory System</p>
-      <p style = "float: right; padding-right: 10px; padding-top: 16px;">For news and related events visit:
-        <a href = "https://www.facebook.com/OfficialUPB" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href = "https://web.upb.edu.ph/" target="_blank"><i class="fas fa-globe"></i></a>
-        <a href = "https://www.youtube.com/channel/UC1XJ8yRNRuDHmhJXtsLIB_g" target="_blank"><i class="fab fa-youtube"></i></a>
-      </p>
+    <p style = "position: fixed; float: left; padding-left: 10px; padding-top: 16px;">University of the Philippines - Baguio Library Inventory System</p>
+    <p style = "position: fixed; padding-top: 16px; padding-left: 45%; padding-right: 25%">
+      &copy; <a href = "https://www.facebook.com/adrieeeeeeeee" target = "_blank" style = "color: #fff;">Aniban</a> |
+      <a href = "https://www.facebook.com/tj.almonia" target = "_blank" style = "color: #fff;">Almonia</a> |
+      <a href = "https://www.facebook.com/chrlscrdl" target = "_blank" style = "color: #fff;">Cordial</a> |
+      <a href = "https://www.facebook.com/gisselle.derije/" target = "_blank" style = "color: #fff;">Derije</a> |
+      <a href = "https://www.facebook.com/leandrei.sagun" target = "_blank" style = "color: #fff;">Sagun</a>
+    </p>
+    <p style = "float: right; padding-right: 10px; padding-top: 16px;">For news and related events visit:
+      <a href = "https://www.facebook.com/upbaguiolibrary" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href = "http://mainlib.upb.edu.ph/" target="_blank"><i class="fas fa-globe"></i></a>
+      <a href = "https://www.youtube.com/channel/UCgbOw9h1IXDnqH5SLc_nwFQ" target="_blank"><i class="fab fa-youtube"></i></a>
+    </p>
     </footer>
+
     <script type = "text/javascript" src = "js/variables.js"></script>
     <script type = "text/javascript" src = "js/update.js"></script>
     <script type = "text/javascript" src = "js/count.js"></script>
