@@ -23,6 +23,7 @@
 	<link rel = "stylesheet" href ="../css/modals.css">
 	<link rel = "stylesheet" href ="../css/loading.css">
 	<link rel = "stylesheet" href ="../changes/view.css">
+	<link rel = "stylesheet" href ="../css/animation.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
@@ -175,8 +176,9 @@
 						require "../staff/modal.php";
 						require "../backup/modal.php";
 						?>
-
-						<footer class = "footer">
+					</div>
+					
+					<footer class = "footer">
 				    <p style = "position: fixed; float: left; padding-left: 10px; padding-top: 16px;">University of the Philippines - Baguio Library Inventory System</p>
 				    <p style = "position: fixed; padding-top: 16px; padding-left: 45%; padding-right: 25%">
 				      &copy; <a href = "https://www.facebook.com/adrieeeeeeeee" target = "_blank" style = "color: #fff;">Aniban</a> |
@@ -190,7 +192,7 @@
 				      <a href = "http://mainlib.upb.edu.ph/" target="_blank"><i class="fas fa-globe"></i></a>
 				      <a href = "https://www.youtube.com/channel/UCgbOw9h1IXDnqH5SLc_nwFQ" target="_blank"><i class="fab fa-youtube"></i></a>
 				    </p>
-				    </footer>
+				  </footer>
 
 			 <script type = "text/javascript" src = "../staff/js/buttons.js"></script>
 			 <script type = "text/javascript" src = "../staff/js/formhandler.js"></script>
