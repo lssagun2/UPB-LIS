@@ -819,7 +819,7 @@ input[type=number]:focus {
   color: var(--dune);
 }
 
-@media (min-width: 2560px) {
+@media screen and (min-width: 2560px) {
   .team {
     display: flex;
     justify-content: start;
@@ -843,7 +843,7 @@ input[type=number]:focus {
   } */
 }
 
-@media (max-width: 1800px) {
+@media screen and (max-width: 1800px) {
   .team__header {
     margin-bottom: 2rem;
   }
@@ -854,6 +854,7 @@ input[type=number]:focus {
 
   .inventory__item {
     width: calc(100% / 3);
+    margin: 0 0.6rem;
   }
 
   /* .team__item:nth-child(3n) {
@@ -861,7 +862,7 @@ input[type=number]:focus {
   } */
 }
 
-@media (max-width: 1400px) {
+@media screen and (max-width: 1400px) {
   .team__header {
     margin-bottom: 1.5rem;
   }

@@ -163,6 +163,9 @@
   box-sizing: border-box;
 }
 
+select:hover {
+  cursor: pointer;
+}
 
 /*CHARLES FORM VALIDATION*/
 
