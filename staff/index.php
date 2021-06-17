@@ -22,6 +22,7 @@
     <link rel = "stylesheet" href ="../css/tables.css">
     <link rel = "stylesheet" href ="../css/form-control.css">
     <link rel = "stylesheet" href ="../css/loading.css">
+    <link rel = "stylesheet" href ="../css/animation.css">
     <!-- <link rel = "stylesheet" href ="../css/staffidcard.css"> -->
     <style>
       .idform {

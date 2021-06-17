@@ -6,6 +6,7 @@
     <link rel="icon" type="image/ico" href="../favicon.ico">
     <link rel = "stylesheet" type = "text/css" href = "../css/fontawesome/css/all.min.css">
     <link rel = "stylesheet" type = "text/css" href = "../css/style.css">
+    <link rel = "stylesheet" href ="../css/animation-login.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>

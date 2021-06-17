@@ -23,6 +23,7 @@
     <link rel = "stylesheet" href ="../css/todo.css">
     <link rel = "stylesheet" href ="../css/modals.css">
     <link rel = "stylesheet" href ="../css/loading.css">
+    <link rel = "stylesheet" href ="../css/animation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>

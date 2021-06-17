@@ -25,6 +25,7 @@
     <link rel = "stylesheet" href ="../css/tables.css">
     <link rel = "stylesheet" href ="../css/form-control.css">
     <link rel = "stylesheet" href ="../css/loading.css">
+    <link rel = "stylesheet" href ="../css/animation.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
     .notif-bar {
