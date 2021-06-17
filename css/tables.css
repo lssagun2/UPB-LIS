@@ -358,13 +358,8 @@ h1 {
   line-height: 25px;
   border-bottom: 1px solid #fff;
   border-collapse: collapse;
-  /* width: 150%; */
   margin-right: 10px;
   /* background: rgba(221, 13, 0, 0.2); */
-}
-
-.allmaterials-bg {
-  height: 690px;
 }
 
 .allmaterials-bg {
