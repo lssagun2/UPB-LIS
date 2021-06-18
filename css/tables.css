@@ -366,7 +366,7 @@ h1 {
 
 .allmaterials {
   height: auto;
-  width: auto;
+  width: 150%;
   max-height: 690px;
   background: linear-gradient(-45deg, rgba(133, 0, 56, 1), rgba(14, 96, 33, 1));
   background-size: cover;
@@ -384,7 +384,7 @@ h1 {
 
 @media screen and (max-width: 1366px) {
   #allmaterials {
-    width: 200%;
+    width: 100%;
     line-height: 20px;
     font-size: 0.9em;
     background-size: cover;
@@ -392,7 +392,7 @@ h1 {
 
   .allmaterials {
     height: auto;
-    width: auto;
+    width: 100%;
     max-height: 550px;
   }
 }
