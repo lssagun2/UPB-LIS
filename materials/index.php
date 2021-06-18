@@ -182,8 +182,8 @@
                   		<tr>
 	                      <th class = "sort" data-sort = "Accession Number">Accession Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th class = "sort" data-sort = "Barcode">Barcode<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th class = "sort" data-sort = "Call Number">Call Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th class = "sort" data-sort = "Title">Title</th>
+	                      <th class = "sort" data-sort = "Call Number" style = "width: 20%;">Call Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+	                      <th class = "sort" data-sort = "Title" style = "width: 100%;">Title</th>
 	                      <th>Author</th>
 	                      <th>Volume</th>
 	                      <th>Year</th>
