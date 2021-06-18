@@ -180,7 +180,7 @@
               	</div>
 
                 <div class = "allmaterials align-right-3rd-column allmaterials-bg" style = "overflow-x: auto; overflow-y: auto;">
-                  <table id = "allmaterials" style = "border-radius: 1em;display: block;">
+                  <table id = "allmaterials" style = "display: block;">
                   	<thead style="position: sticky; top: 0;">
                   		<tr>
                         <th class = "sort inventoried-column" data-sort = "Inventory Date">Inventory Date<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
