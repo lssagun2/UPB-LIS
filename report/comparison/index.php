@@ -248,7 +248,7 @@
               	</div>
 
                 <div class = "allmaterials align-right-3rd-column allmaterials-bg" style = "overflow-x: auto; overflow-y: auto;">
-                  <table id = "allmaterials" style = "border-radius: 1em; display: block;">
+                  <table id = "allmaterials" style = "display: block;">
                   	<thead style="position: sticky; top: 0;">
                   		<tr>
                         <th class = "sort inventoried-column" data-sort = "Inventory Date">Inventory Date<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
@@ -277,7 +277,7 @@
                     </tbody>
                   </table>
                 </div>
-                <div style="display: inline-block; width: 100%; margin-top: 20px;">
+                <div style="display: inline-block; width: 100%; padding: 20px 15px 0 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 0 0 10px 10px">
                   <div style = "float: left; width: 33%; font-size: 1.2em; color: #fff;">
                     Page
                     <form style = "display: inline" id = "page-form">

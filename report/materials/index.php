@@ -260,7 +260,7 @@
                     </tbody>
                   </table>
                 </div>
-                <div style="display: inline-block; width: 100%; margin-top: 20px;">
+                <div style="display: inline-block; width: 100%; padding: 20px 15px 0 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 0 0 10px 10px">
                   <div style = "float: left; width: 33%; font-size: 1.2em; color: #fff;">
                     Page
                     <form style = "display: inline" id = "page-form">
