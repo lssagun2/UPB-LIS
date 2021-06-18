@@ -156,14 +156,6 @@ h1 {
     height: 40px;
     color: #000;
   }
-
-  .staff {
-    height: 100px;
-  }
-
-  .changes {
-    height: 100px;
-  }
 }
 
 .edit:hover {
@@ -384,16 +376,24 @@ h1 {
 
 @media screen and (max-width: 1366px) {
   #allmaterials {
-    width: 100%;
-    line-height: 20px;
-    font-size: 0.9em;
-    background-size: cover;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    line-height: 25px;
+    width: 150%;
+    border-bottom: 1px solid #fff;
+    border-collapse: collapse;
+    margin-right: 10px;
+    height: auto;
   }
 
   .allmaterials {
     height: auto;
     width: 100%;
-    max-height: 550px;
+    max-height: 480px;
+    background: linear-gradient(-45deg, rgba(133, 0, 56, 1), rgba(14, 96, 33, 1));
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
@@ -526,14 +526,22 @@ h1 {
   color: #fff;
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
-  border-collapse: collapse;
+  line-height: 25px;
   width: 100%;
+  border-bottom: 1px solid #fff;
+  border-collapse: collapse;
   margin-right: 10px;
-  background: linear-gradient(24deg, rgba(133, 0, 56, 1) 0%, rgba(14, 96, 33, 1) 100%);
+  height: auto;
+  /* background: rgba(221, 13, 0, 0.2); */
 }
 
 .staff {
-  height: 550px;
+  height: auto;
+  width: 100%;
+  max-height: 690px;
+  background: linear-gradient(-45deg, rgba(133, 0, 56, 1), rgba(14, 96, 33, 1));
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 @media (min-width: 2560px){
@@ -587,26 +595,44 @@ h1 {
   color: #fff;
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
-  border-collapse: collapse;
+  line-height: 25px;
   width: 100%;
+  border-bottom: 1px solid #fff;
+  border-collapse: collapse;
   margin-right: 10px;
-  background: linear-gradient(24deg, rgba(133, 0, 56, 1) 0%, rgba(14, 96, 33, 1) 100%);
+  height: auto;
+  /* background: rgba(221, 13, 0, 0.2); */
 }
 
 .changes {
-  height: 650px;
+  height: auto;
+  width: 100%;
+  max-height: 690px;
+  background: linear-gradient(-45deg, rgba(133, 0, 56, 1), rgba(14, 96, 33, 1));
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 @media (min-width: 2560px){
   #changes {
-  color: #fff;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.5em;
-  border-collapse: collapse;
-  width: 100%;
-  margin-right: 10px;
-  background: linear-gradient(24deg, rgba(133, 0, 56, 1) 0%, rgba(14, 96, 33, 1) 100%);
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+    border-collapse: collapse;
+    width: 100%;
+    margin-right: 10px;
+    background: linear-gradient(24deg, rgba(133, 0, 56, 1) 0%, rgba(14, 96, 33, 1) 100%);
+  }
 }
+
+@media (max-width: 1366px) {
+  .staff {
+    max-height: 400px;
+  }
+
+  .changes {
+    max-height: 400px;
+  }
 }
 
 #changes th {
