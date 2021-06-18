@@ -356,14 +356,27 @@ h1 {
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   line-height: 25px;
+  width: 150%;
   border-bottom: 1px solid #fff;
   border-collapse: collapse;
   margin-right: 10px;
+  height: auto;
   /* background: rgba(221, 13, 0, 0.2); */
 }
 
+.allmaterials {
+  height: auto;
+  width: auto;
+  max-height: 690px;
+  background: linear-gradient(-45deg, rgba(133, 0, 56, 1), rgba(14, 96, 33, 1));
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .allmaterials-bg {
-  height: 690px;
+  height: auto;
+  width: auto;
+  max-height: 690px;
   background: linear-gradient(-45deg, rgba(133, 0, 56, 1), rgba(14, 96, 33, 1));
   background-size: cover;
   background-repeat: no-repeat;
@@ -371,14 +384,16 @@ h1 {
 
 @media screen and (max-width: 1366px) {
   #allmaterials {
-    width: 220%;
+    width: 200%;
     line-height: 20px;
     font-size: 0.9em;
     background-size: cover;
   }
 
   .allmaterials {
-    height: 550px;
+    height: auto;
+    width: auto;
+    max-height: 550px;
   }
 }
 
@@ -398,10 +413,9 @@ h1 {
 
   .allmaterials {
     height: 900px;
+    width: auto;
   }
 }
-
-
 
 #allmaterials td, #allmaterials th {
   border: none;
@@ -638,7 +652,8 @@ h1 {
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: #f8f8f8;
-  background-color: #f8f8f8;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
