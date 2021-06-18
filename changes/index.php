@@ -119,13 +119,13 @@
 				<section class = "section">
 					<ul class = "project">
 						<li class = "project__item">
-							<div class = "allmaterials changes" style = "overflow-x: auto; overflow-y: auto;">
+							<div class = "allmaterials changes" style = "overflow-x: auto; overflow-y: auto; width: 100%;">
 								<table id = "changes">
 									<thead style="position: sticky; top: 0; z-index: 1;">
 										<tr style = "font-size: 1em;">
-											<th width="20%">Date</th>
-											<th width="60%">Description</th>
-											<th width="20%">Action</th>
+											<th>Date</th>
+											<th>Description</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 
@@ -177,7 +177,7 @@
 						require "../backup/modal.php";
 						?>
 					</div>
-					
+
 					<footer class = "footer">
 				    <p style = "position: fixed; float: left; padding-left: 10px; padding-top: 16px;">University of the Philippines - Baguio Library Inventory System</p>
 				    <p style = "position: fixed; padding-top: 16px; padding-left: 45%; padding-right: 25%">

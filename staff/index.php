@@ -130,7 +130,7 @@
                     </form>
                   </div>
                 </div>
-                <div class = "allmaterials staff" style = "overflow-x: auto; overflow-y: auto;font-size: 1em">
+                <div class = "allmaterials staff" style = "overflow-x: auto; overflow-y: auto; font-size: 1em; width: 100%">
                   <table class="staffTable" id = "staffTable">
                      <thead style="position: sticky; top: 0; z-index: 1;">
                       <tr>
