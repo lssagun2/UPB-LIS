@@ -39,6 +39,7 @@
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
       <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#" class="backup" data-directory = "../backup/"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Create Backup</a>
+      <a href = "../img/User Manual.pdf" target = "_blank"><i class="fas fa-book" style = "padding: 0 34px;"></i>User Manual</a>
       <a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
     </div>
     <div id = "main">
@@ -121,15 +122,18 @@
           <section class = "section">
             <ul class = "project">
               <li class = "project__item">
-                <div class = "project__link">
-                  <h3>University of the Philippines Baguio - Library Inventory System (UPB-LIS)</h3>
-                  <br>
-                  <p>The University of the Philippines - Baguio Library Inventory System (UPB-LIS) is a web-based application designed by UPB CS128 students for the exclusive use of the UPB Main Library staff. The software was developed to aid the staff in inventory management and simplify their overall workflow. </br></br>
+                <div class = "team__header">
+                  <video autoplay muted controls><source src = "../img/UPB-LIS short video.mp4" type = "video/mp4"></video>
+                  <div class = "project__link">
+                    <h3>University of the Philippines Baguio - Library Inventory System (UPB-LIS)</h3>
+                    <br>
+                    <p>The University of the Philippines - Baguio Library Inventory System (UPB-LIS) is a web-based application designed by UPB CS128 students for the exclusive use of the UPB Main Library staff. The software was developed to aid the staff in inventory management and simplify their overall workflow. </br></br>
 
-                  A tailor-made database to handle the thousands of diverse sources the library houses was crafted. Users may easily view, add, or edit materials in the database accompanied with sorting, filtering, and report generation functions for efficient organization of data. </br></br>
+                    A tailor-made database to handle the thousands of diverse sources the library houses was crafted. Users may easily view, add, or edit materials in the database accompanied with sorting, filtering, and report generation functions for efficient organization of data. </br></br>
 
-                  It also allows manual inventorying (using accession number) and automated inventorying (using barcode scanner) options in its inventory page. All these functions, including more that have not been mentioned, are displayed through a user-friendly and accessible design for its users.
-                </p>
+                    It also allows manual inventorying (using accession number) and automated inventorying (using barcode scanner) options in its inventory page. All these functions, including more that have not been mentioned, are displayed through a user-friendly and accessible design for its users.
+                  </p>
+                  </div>
                 </div>
               </li>
             </ul>
@@ -153,7 +157,6 @@
                   </div>
                   <div class="content">
                     <ul id="announcements">
-
                     </ul>
                   </div>
                 </div>
@@ -200,7 +203,6 @@
                         <div class = "pending-text"></div>
                     </ul>
                   </div>
-
                   </div>
                 </div>
               </li>
