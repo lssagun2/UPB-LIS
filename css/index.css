@@ -97,8 +97,6 @@ img {
   max-height: 100%;
 }
 
-
-
 svg path {
   fill: var(--dune);
   transition: fill 0.3s ease;
@@ -792,10 +790,12 @@ input[type=number]:focus {
   display: block;
   width: 100%;
   height: 100%;
+  max-height: 430px;
   background-color: var(--alabaster);
   padding: 2.4rem 1.6rem;
   border-radius: 10px;
   text-align: left;
+  overflow-y: scroll;
   transition: background-color 0.3s ease;
 }
 
@@ -1337,4 +1337,18 @@ input[type=number]:focus {
 
 .report-gen-comp:hover {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+video {
+  margin-right: 2%;
+  height: auto;
+  width: 32%;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1366px) {
+  video {
+    margin-right: 5%;
+    max-width: 40%;
+  }
 }
