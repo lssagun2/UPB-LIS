@@ -246,3 +246,19 @@ h1 {
 .form-control.error select{
   border-color: #e74c3c;
 }
+
+div#passwordform.form-control.error i.fa-exclamation-circle{
+  right: 27.5px;
+}
+
+div#passwordform.form-control.success i.fa-check-circle{
+  right: 27.5px;
+}
+
+div#confirmpasswordform.form-control.error i.fa-exclamation-circle{
+  right: 27.5px;
+}
+
+div#confirmpasswordform.form-control.success i.fa-check-circle{
+  right: 27.5px;
+}
