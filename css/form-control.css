@@ -13,6 +13,13 @@
   }
 }
 
+
+#success-notification.modal-content{
+    padding: 20px;
+    width: 25%;
+    margin-top: 250px;
+}
+
 .modal {
   display: none;
   position: fixed;
