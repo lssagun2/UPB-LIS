@@ -50,6 +50,24 @@
           padding: 16px;
         }
       }
+
+      @media screen and (max-width:  1366px){
+        #success-notification.modal-content{
+          padding: 20px;
+          width: 30%;
+          margin-top: 250px;
+          height: 18%;
+        }
+      }
+
+      @media screen and (max-width: 1366px){
+        #success-notification.modal-content{
+          padding: 2%;
+          width: 30%;
+          margin-top: 15%;
+          height: 25%;
+        }
+      }
     </style>
   </head>
   <body>

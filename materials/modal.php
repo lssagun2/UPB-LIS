@@ -155,7 +155,7 @@
 </div>
 <div class = "modal" id = "success-notification">
   <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
-  <div class = "modal-content" id = "" style = "padding: 20px; width: 25%; margin-top: 250px;">
+  <div class = "modal-content" id = "success-notification">
     <form class = "container" style = "overflow-y: auto;">
       <h3 id = "success-text"></h3><br>
       <button type = "button" class = "modalbtn" id = "success-button" style = "margin-right: 0;">Add Another Material</button>
