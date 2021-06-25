@@ -1,19 +1,20 @@
 <?php
+//Function for deleting a specific announcement.
 require '../../config.php';
 session_start();
 $staff_id = $_SESSION["staff_id"];
 
+//Automatically deletes announcement that has been posted for 30 days.
 $sql3 = "DELETE FROM announcements WHERE `date_time` <= now() - interval 30 DAYS";
 $result3 = $conn->query($sql3);
 
-
+//Fetch all announcements.
 $sql = "SELECT * FROM announcements ORDER BY date_time DESC";
-// $sql = "SELECT * FROM announcements";
 $result = $conn->query($sql);
+//Append all fetched announcement inside div dedicated for announcement lists.
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
 ?>
-
   <li>
     <span class="text">
         <b><?php echo $row['title'];?></b>
@@ -39,30 +40,22 @@ if ($result->num_rows > 0) {
     	?>
 
         <br>
-
-
-
     </span>
 
     <?php
     	if(@$row2['staff_id'] === $staff_id){
     ?>
+      <!--Assign data-id inside delete button for fetching purposes-->
       <i id="removeBtnAnnouncement" data-id="<?php echo $row['announce_id'];?>"><i class="icon fa fa-trash"></i></i>
-   		<i id="editAnnouncement" data-id="<?php echo $row['announce_id'];?>"><i class="icon2 fas fa-edit"></i></i>
+   	  <i id="editAnnouncement" data-id="<?php echo $row['announce_id'];?>"><i class="icon2 fas fa-edit"></i></i>
 
     <?php
 		}
     ?>
-
   </li>
-
-
-
 <?php
     }
 } else {
     echo "<li><span class='text'>No announcements so far.</span></li>";
 }
-
-
 ?>
