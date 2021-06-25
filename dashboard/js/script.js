@@ -1,3 +1,4 @@
+//Javascript file for Calendar in dashboard page
 const date = new Date();
 
 const renderCalendar = () => {

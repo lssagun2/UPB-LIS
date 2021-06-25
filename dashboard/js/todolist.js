@@ -1,5 +1,6 @@
+//Script File for todolist functionality in dashboard.
 $(document).ready(function(){
-            //Show Tasks
+    //Fetch and display all task for particular user.
     function loadTasks(){
         $.ajax({
             url       : "functions/show-tasks.php",
@@ -10,12 +11,13 @@ $(document).ready(function(){
             }
         });
     }
-    
+    //Call initial tasks
     loadTasks();
-    //Add Tasks
 
+    //Button object for adding task. 
     $('#addBtn').on('click', function(e){
         var task = $("#taskValue").val();
+        //Process the inputs using a defined function for adding todolist
         $.ajax({
             url       : "functions/add-tasks.php",
             type      : "POST",
@@ -24,7 +26,7 @@ $(document).ready(function(){
                 if(data == 1){          
                     $("#taskValue").val("");
                     alert("Your task has been added!");
-                    loadTasks();
+                    loadTasks();  //Updates the list after a single process
                 }
                 else{
                     alert('Something went wrong')
@@ -33,20 +35,21 @@ $(document).ready(function(){
         });
     });
 
+    //Button object for removing task. 
     $(document).on('click', "#removeBtn", function(e){
           e.preventDefault();
+          //Delete confirmation
           var ok = confirm("Are you sure you want to delete this?");
-
           if(ok){
               var id = $(this).data('id');
-              
+              //Process the inputs using a defined function for deleting todolist
               $.ajax({
                   url       : "functions/remove-task.php",
                   type      : "POST",
                   data      :{id: id},
                   success: function(data){
                       if(data == 1){          
-                          loadTasks();
+                          loadTasks();  //Updates the list after a single process
                       }
                       else{
                           alert("Something went wrong! Try again later.")

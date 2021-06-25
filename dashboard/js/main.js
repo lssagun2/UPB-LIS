@@ -1,3 +1,4 @@
+//This file contains initial js for todo list
 const container = document.querySelector('.container');
 var inputValue = document.querySelector('.input');
 const add = document.querySelector('.add');
@@ -85,4 +86,4 @@ for (var v = 0 ; v < todos.length ; v++){
 }
 
 
-// new item("sport");
+
