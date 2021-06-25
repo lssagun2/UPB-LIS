@@ -1,3 +1,4 @@
+<!--Modal for adding and editing staff information-->
 <style>
 #staff .container {
   margin: 20px;

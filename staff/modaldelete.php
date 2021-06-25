@@ -1,3 +1,4 @@
+<!--Modal that shows confirmation message when deleting a staff account-->
 <div class = "modal" id = "change-active-div">
   <span class = "close" title = "Close Modal"><i class="fas fa-times"></i></span>
   <form class = "modal-content" id = "change-active-form" method = "POST">
