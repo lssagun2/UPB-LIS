@@ -1,3 +1,6 @@
+//Script File containing all button objects for staff page.
+
+//Hide password mechanism.
 function showPassword() {
   var x = document.getElementById("staff_password");
   if (x.type === "password") {
@@ -6,6 +9,8 @@ function showPassword() {
     x.type = "password";
   }
 }
+
+//Button object for editing staff account of the user.
 $(document).ready(function(){
 	$(document).on('click', '#staff-edit-form', function(){
 		$("#staff_function").val("edit");
@@ -14,7 +19,10 @@ $(document).ready(function(){
 		$("input#confirm_password").val("");
 		$('div#staff').show();
 	});
-	$(document).on('click', '#editStaffTable', function(){
+
+//Button object for editing staff account in the staff table.
+$(document).on('click', '#editStaffTable', function(){
+		//Fetching all the data of specified user account and displaying it on the modal.
 		$tr = $(this).closest('tr');
 		var data = $tr.children("td").map(function(){
 			return $(this).text();
@@ -32,6 +40,8 @@ $(document).ready(function(){
 		$('#staff_type').val(data[5]);
 		$('div#staff').show();
 	});
+
+	//Button object for adding staff
 	$(document).on('click', 'button#staff-add-form', function(){
 		$("#staff_function").val("add");
 		$(".modal-title").html("Add Staff");
@@ -44,7 +54,10 @@ $(document).ready(function(){
 		$('input#confirm_password').val("");
 		$('div#staff').show();
 	});
+
+	//Button object for deactivating staff.
 	$(document).on('click', '#deleteStaff', function(){
+		//Fetching all the data of specified user account and displaying it on the modal.
 		var tr = $(this).closest('tr');
 		var data = tr.children("td").map(function(){
 			return $(this).text();
@@ -60,7 +73,10 @@ $(document).ready(function(){
 		$('button#change-active-confirm').html('Delete');
 		$('div#change-active-div').show();
 	});
+
+	//Button object for reactivating/restoring staff account.
 	$(document).on('click', '#restoreStaff', function(){
+		//Fetching all the data of specified user account and displaying it on the modal.
 		var tr = $(this).closest('tr');
 		var data = tr.children("td").map(function(){
 			return $(this).text();
@@ -76,30 +92,32 @@ $(document).ready(function(){
 		$('button#change-active-confirm').html('Restore');
 		$('div#change-active-div').show();
 	});
+
+	//Button object for submitting staff form.
 	$(document).on('click', 'button#edit-staff', function(){
 		$('form#staff').submit();
-		// $('input:checkbox').prop('checked', false); // Unchecks it
-		$('#staff_password').attr('type','password'); //resets staffpassword
+		$('#staff_password').attr('type','password'); //resets staffpassword design
 	});
 
+	//Button object for deactivating staff account.
 	$(document).on('click', 'button#change-active-confirm', function(){
 		$('form#change-active-form').submit();
 	});
 
 	$(document).on('click', '#cancelbtn', function(){
 		$('div.modal').hide();
-		$('div.form-control.error').removeClass('error');	//Changes
-		$('div.form-control.success').removeClass('success');	//Changes
-		// $('input:checkbox').prop('checked', false); // Unchecks it
+		$('div.form-control.error').removeClass('error');	
+		$('div.form-control.success').removeClass('success');
 		$('#staff_password').attr('type','password'); //resets staffpassword
 	});
 	$(document).on('click', '.close', function(){
 		$('div.modal').hide();
-		$('div.form-control.error').removeClass('error');	//Changes
-		$('div.form-control.success').removeClass('success'); //Changes
-		// $('input:checkbox').prop('checked', false); // Unchecks it
+		$('div.form-control.error').removeClass('error');	
+		$('div.form-control.success').removeClass('success'); 
 		$('#staff_password').attr('type','password'); //resets staffpassword
 	});
+
+	//Updating staff table upon selecting filter.
 	$(document).on('change', 'select#active-filter', function(){
 		update();
 	});

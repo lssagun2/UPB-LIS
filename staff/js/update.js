@@ -1,3 +1,4 @@
+//Script File for updating staff table after performing functions.(adding/deleting/filtering).
 $(document).ready(function(){
 	update(); //initialize the staff table
 });
@@ -6,6 +7,7 @@ $(document).ready(function(){
 function update(){
 	var data = $('form#active-form').serializeArray();
 	$('div#loading-cover').show();
+	//Process the inputs using a defined function for updating staff table.
 	$.ajax({
 		type 		: 'POST',
 		url			: 'functions/update.php',
@@ -23,6 +25,7 @@ function update(){
 			else{
 				var button = "<button id = 'restoreStaff' class = 'edit'><i class='fas fa-redo'></i></button>";
 			}
+			//Appending column details inside staff table.
 			body.append(
 				"<tr align='center'>" +
 					"<td style='display:none;'>" + staff.staff_id + "</td>" +

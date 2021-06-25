@@ -1,3 +1,4 @@
+//Script File for handling input errors for staff form.
 function staffTableUpdate(){
 	$("table#staffTable").load(encodeURI("functions/update.php"));
 }
@@ -8,6 +9,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$(".input-invalid").hide();
 		var function_name = $("#staff_function").val();
+		//Process the inputs using a defined function for adding/editing staff account.
 		$.ajax({
 			type 		: 'POST',
 			url			: '../staff/functions/' + function_name + '.php',
@@ -16,12 +18,14 @@ $(document).ready(function(){
 		})
 		.done(function(data){
 			if(data.success){
+				//Resets all input design after submitting invalid inputs.
 				$('div.form-control.error').removeClass('error');
 				$('div.form-control.success').removeClass('success');
 				$('div.modal').hide();
 				update();
 			}
 			else{
+				//Prompting success/error inputs after submitting staff form.
 				if(data.errors.staff_username){
 					$('div#usernameform').addClass('error');
 					$('div#usernameform small').html(data.errors.staff_username);
@@ -59,20 +63,21 @@ $(document).ready(function(){
 				}
 
 			}
-			
-
 		})
 		.fail(function(data) {
 	      //Server failed to respond - Show an error message
 	      $('form').html('<div class="alert alert-danger">Could not reach server, please try again later.</div>');
 	    });
 	});
+
+	//Deactivating user account.
 	$("form#change-active-form").submit(function(event){
 		$('div.form-control.error').removeClass('error');
 		$('div.form-control.success').removeClass('success');
 		event.preventDefault();
 		$(".input-invalid").hide();
 		var function_name = $("#staff_function").val();
+		//Process the inputs using a defined function for deactivating staff account.
 		$.ajax({
 			type 		: 'POST',
 			url			: '../staff/functions/change-active.php',
