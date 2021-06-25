@@ -5,19 +5,20 @@
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/functions/edit.php";
 	date_default_timezone_set('Asia/Manila');
 
+	//Fetch material information
 	$id = $_POST['id'];
 	$sql = "SELECT * FROM MATERIAL WHERE mat_id = $id";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
-	$data = []; //changes
+	$data = []; 
 
-	$initialInfo = [ //Changes
+	$initialInfo = [ 
 		'mat_acc_num' => $row['mat_acc_num'],
 		'mat_barcode' => $row['mat_barcode'],
 		'mat_call_num' => $row['mat_call_num']
 	];
 
-	$info=[
+	$info=[ // info array for edit function
 		"mat_acc_num" => trim($_POST['acc_num']),
 	 	"mat_barcode" => trim($_POST['barcode']),
 	 	"mat_call_num" => trim($_POST['call_number']),
@@ -41,8 +42,8 @@
 		$data['success'] = false;
 		$data['errors'] = $errors;	
 	}
-	else{ //Changes
-		edit($conn, "MATERIAL", $id, $info);
+	else{ 
+		edit($conn, "MATERIAL", $id, $info); //edit info in Materials table
 		$change_info = [
 			"staff_id" => $_SESSION["staff_id"],
 			"mat_id" => $id,
@@ -50,7 +51,7 @@
 			"change_date" => date("Y-m-d H:i:s"),
 			"change_prev_info" => json_encode($row)
 		];
-		add($conn, "CHANGES", $change_info);
+		add($conn, "CHANGES", $change_info); //add changes in Changes table
 		$data["success"] = true;
 	}
 	
