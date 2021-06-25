@@ -1,6 +1,7 @@
  <?php  
   require '../config.php';
 
+// Fetch additional material information to be passed to modal using mat_id
  if(isset($_POST["id"]))  
  {  
  	$id = $_POST['id'];

@@ -131,7 +131,7 @@
 									</thead>
 
 									<tbody>
-										<?php
+										<?php // Fetch data for table of changes history
 
 										$sql = "SELECT c.change_date, c.change_type, c.change_id,
 										s.staff_firstname, s.staff_lastname, m.mat_acc_num
@@ -201,7 +201,7 @@
 
 
 
-<script>
+<script> // AJAX code to pass information to view added or edited changes information
 $(document).ready(function() {
 	 $(document).on('click', '.view', function(event) {
 		var id = $(this).attr("id");
@@ -216,7 +216,7 @@ $(document).ready(function() {
 		.done(function(data){
 		$(".modal-title").html("CHANGES INFORMATION");
 			switch(type){
-			case "add":
+			case "add": // For added changes information
 		      $('div#tableModal').show();
 					$('#acc_num').val(data.mat_acc_num);
 					$('#barcode').val(data.mat_barcode);
@@ -234,7 +234,7 @@ $(document).ready(function() {
 					$('#source').val(data.mat_source);
 					$('#last_year_inventoried').val(data.mat_lastinv_year);
 		      break;
-		  case "edit":
+		  case "edit": // For edited changes information
 		      $('div#tableModal2').show();
 		      //CURRENT INFO
 					$('#acc_num1').val(data.mat_acc_num);
@@ -303,7 +303,7 @@ $(document).ready(function() {
 						$('#last_year_inventoried1').css('background', 'white');
 						$('#last_year_inventoried2').css('background', 'white');
 
-					//HIGHLIGHT EDITS
+					//HIGHLIGHT EDITS - Turn edited inputs to gray
 					if(data.mat_acc_num!=prev.mat_acc_num){
 						$('#acc_num1').css('background', '#DCDCDC');
 						$('#acc_num2').css('background', '#DCDCDC');
