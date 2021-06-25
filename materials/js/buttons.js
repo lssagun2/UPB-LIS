@@ -1,6 +1,10 @@
+//Script file containing all button objects for materials page.
+
 $(document).ready(function(){
+	//Button object for editing material
 	$(document).on('click', '.edit', function(){
 		$("form#material").trigger("reset");
+		//Fetch all data of a particular row for displaying purposes.
 		$tr = $(this).closest('tr');
 		var data = $tr.children("td").map(function(){
 			return $(this).text();
@@ -30,6 +34,9 @@ $(document).ready(function(){
 		$('div#material').show();
 		$("div#material-form-container").scrollTop(0);
 	});
+
+	//Button object for adding material.
+	//Displays modal form for adding material.
 	$(document).on('click', '.add', function(){
 		$("form#material").trigger("reset");
 		$("#function").val("add");
@@ -38,6 +45,9 @@ $(document).ready(function(){
 		$('div#material').show();
 		$("div#material-form-container").scrollTop(0);
 	});
+
+	//Button object for adding another material.
+	//Resets and display form for adding material.
 	$(document).on('click', '#success-button', function(){
 		if(function_name == "add"){
 			$("form#material").trigger("reset");
@@ -45,28 +55,40 @@ $(document).ready(function(){
 		$('div#success-notification').hide();
 		$('div#material').show();
 	});
+
+	//Button object for filtering material table.
+	//Displays filter options.
 	$(document).on('click', '.filter', function(){
 		$(".modal-title").html("Filter Materials");
 		$("button#submitbtn").html("Update");
 		$('div#filter').show();
 	});
+
+	//Button object for cancel button for material form.
 	$(document).on('click', '#cancelbtn', function(){
 		$("form#material").trigger("reset");
 		$('div#material').hide();
+		//Resets all formhandler design after a success/error input.
 		$('div.form-control.error').removeClass('error'); // Changes
 		$('div.form-control.success').removeClass('success'); // Changes
 	});
+
+	//Button object for submitting material form.
 	$(document).on('click', '#submitbtn', function(){
 		$('form#material').submit()
 	});
+
 	$(document).on('click', '.close', function(){
 		$("form#material").trigger("reset");
 		$('div#material').hide();
 		$("form#filter-form").trigger("reset");
 		$('div#filter').hide();
+		//Resets all formhandler design after a success/error input.
 		$('div.form-control.error').removeClass('error'); // Changes
 		$('div.form-control.success').removeClass('success'); // Changes
 	});
+
+	//Button for updating table after setting a filter.
 	$(document).on('click', 'button#update-filter', function(){
 		count();
 		$(".modal").hide();

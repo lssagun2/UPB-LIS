@@ -1,7 +1,9 @@
+//Function responsible for editing Material.
 function modifyMaterial(){
 	function_name = $("#function").val()
 	console.log($('form#material').serialize());
 	$('div#loading-cover').show();
+	 //Process the inputs using a defined function for adding/editing material.
 	$.ajax({
 		type 		: 'POST',
 		url			: 'functions/'+function_name+'.php',
@@ -11,14 +13,16 @@ function modifyMaterial(){
 	.done(function(data){
 		console.log(data);
 		$("div#material-form-container").scrollTop(0);
-		if(data.success){ // Change
+		if(data.success){ 
 			console.log(data);
-			$('div.form-control.error').removeClass('error');// Change
-			$('div.form-control.success').removeClass('success');// Change
+			//Removal of any formhandler design after submitting success/fail form.
+			$('div.form-control.error').removeClass('error');
+			$('div.form-control.success').removeClass('success');
 			addFilters();
-			console.log("Success end");// Change
+			console.log("Success end");
 		}
-		else{// Change WHOLE else part
+		else{
+			//Prompting success/error inputs after submitting material form.
 			if(data.errors.mat_acc_num){
 				$("div#accnumform").addClass('error');
 				$("div#accnumform small").html(data.errors.mat_acc_num);
@@ -155,7 +159,7 @@ function modifyMaterial(){
 			}
 			console.log(data);
 			$('div#loading-cover').hide();
-		}// Change END else part
+		}
 	return;
 		
 	})
