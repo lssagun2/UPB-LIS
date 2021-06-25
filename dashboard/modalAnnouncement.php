@@ -1,3 +1,4 @@
+<!--This is the modal for "seemore" functionality, contains all the details of an announcement-->
 <style>
 #announcementmodal .container {
   margin: 20px;

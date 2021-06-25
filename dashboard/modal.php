@@ -1,3 +1,4 @@
+<!--This is the form modal for Adding and Editing announcements-->
 <style>
 #announcementmodal .container {
   margin: 20px;
