@@ -1,9 +1,12 @@
 <?php
+	//Function for editing user account.
 	session_start();
+	//Importing necessary functions.
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/functions/edit.php";
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/functions/validateStaff.php";
 	$id = $_POST['staff_id'];
+	//Fetching specific staff data.
 	$sql = "SELECT * FROM STAFF WHERE staff_id = $id";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();

@@ -1,4 +1,5 @@
 <?php
+	//Function for adding staff user.
 	session_start();
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/functions/add.php";
