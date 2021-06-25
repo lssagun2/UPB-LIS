@@ -146,6 +146,7 @@
                   <h2 style = "text-align: center;">Announcements</h2><br>
                   <div class = "team__header">
                     <?php
+                    //Restricted "add announcement" for non-admin users.
                     if($staff['staff_type'] === 'admin'){
                      ?>
                       <div class="inputFields">
@@ -188,11 +189,7 @@
               <li class = "team__item">
                 <div class = "team__link">
                   <h2 style = "text-align: center; font-size: 2em;"><span class = "title">Todo</span>List</h2>
-                  <div class = "team__header">
-                    <!-- <div class = "inputDiv">
-                      <button class = "add"><i class = "fas fa-plus"></i></button>
-                      <input type = "text" class = "input" placeholder = "What do you want to do?">
-                    </div> -->
+                  <div class = "team__header">                   
                     <div class="inputFields">
                         <input type="text" id="taskValue" placeholder="What do you need to do?">
                         <button type="submit" id="addBtn" class="btn add-button"><i class="fa fa-plus"></i></button>
