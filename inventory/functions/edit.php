@@ -3,6 +3,7 @@
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/functions/add.php";
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/functions/edit.php";
+	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/functions/validateMaterial.php";
 	date_default_timezone_set('Asia/Manila');
 
 	//Fetch material information
@@ -12,13 +13,12 @@
 	$row = $result->fetch_assoc();
 	$data = []; 
 
-	$initialInfo = [ 
+	$initialInfo = [	//initial information of the material to be edited
 		'mat_acc_num' => $row['mat_acc_num'],
-		'mat_barcode' => $row['mat_barcode'],
-		'mat_call_num' => $row['mat_call_num']
+		'mat_barcode' => $row['mat_barcode']
 	];
 
-	$info=[ // info array for edit function
+	$info = [				//new information input by the user
 		"mat_acc_num" => trim($_POST['acc_num']),
 	 	"mat_barcode" => trim($_POST['barcode']),
 	 	"mat_call_num" => trim($_POST['call_number']),
@@ -34,15 +34,21 @@
 	 	"mat_status" => trim($_POST['status']),
 	 	"mat_location" => trim($_POST['location']),
 	 	"mat_source" => trim($_POST['source']),
+	 	"mat_price_currency" => trim($_POST['currency']),
+	 	"mat_price_value" => trim($_POST['price']),
+	 	"acquisition_year" => trim($_POST['acquisition_year']),
+	 	"acquisition_month" => trim($_POST['acquisition_month']),
+	 	"acquisition_day" => trim($_POST['acquisition_day']),
+	 	"mat_property_inv_num" => trim($_POST['property_inv_num']),
 	 	"mat_inv_num" => trim($_POST['inv_num']),
 	 	"mat_lastinv_year" => trim($_POST['last_year_inventoried'])
 	];
-	$errors = validateInputforEdit($conn, $info, $initialInfo, "MATERIAL"); //Changes
-	if(!empty($errors)){ //Changes
+	$errors = validateMaterial($conn, $info, $initialInfo);		//validate the input of user
+	if(!empty($errors)){	//some user input are invalid
 		$data['success'] = false;
 		$data['errors'] = $errors;	
 	}
-	else{ 
+	else{	//all the inputs of user are valid
 		edit($conn, "MATERIAL", $id, $info); //edit info in Materials table
 		$change_info = [
 			"staff_id" => $_SESSION["staff_id"],
@@ -51,11 +57,9 @@
 			"change_date" => date("Y-m-d H:i:s"),
 			"change_prev_info" => json_encode($row)
 		];
-		add($conn, "CHANGES", $change_info); //add changes in Changes table
+		add($conn, "CHANGES", $change_info); //record changes to Changes table
 		$data["success"] = true;
 	}
-	
-	//Removal of Filtering of $info array 
 	echo json_encode($data);
 
  ?>

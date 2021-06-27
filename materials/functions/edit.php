@@ -32,8 +32,14 @@
 	 	"mat_type" => trim($_POST['type']),
 	 	"mat_status" => trim($_POST['status']),
 	 	"mat_location" => trim($_POST['location']),
-	 	"mat_inv_num" => trim($_POST['inv_num']),
 	 	"mat_source" => trim($_POST['source']),
+	 	"mat_price_currency" => trim($_POST['currency']),
+	 	"mat_price_value" => trim($_POST['price']),
+	 	"acquisition_year" => trim($_POST['acquisition_year']),
+	 	"acquisition_month" => trim($_POST['acquisition_month']),
+	 	"acquisition_day" => trim($_POST['acquisition_day']),
+	 	"mat_property_inv_num" => trim($_POST['property_inv_num']),
+	 	"mat_inv_num" => trim($_POST['inv_num']),
 	 	"mat_lastinv_year" => trim($_POST['last_year_inventoried'])
 	];
 	$errors = validateMaterial($conn, $info, $initialInfo); //check for errors in the material information
@@ -42,27 +48,7 @@
 		$data['errors'] = $errors;	
 	}
 	else{								//there are no errors in the input
-		if(preg_match('/[a-zA-Z]{1,8}-[0-9]{1,8}$/i', $info['mat_acc_num'])){	//checks if format of accession number is <letters>-<numbers>
-	 		$accession_number = explode("-", $info['mat_acc_num']);
-	 		$info['mat_acc_num1'] = $accession_number[0];
-	 		$info['mat_acc_num2'] = $accession_number[1];
-	 	}
-	 	else{
-	 		$info['mat_acc_num1'] = $info['mat_acc_num'];
-	 		$info['mat_acc_num2'] = "";
-	 	}
-		$call_number = explode(" ", $info['mat_call_num']);
-		$info['mat_call_num1'] = array_shift($call_number);
-		$call_num_column2 = array_shift($call_number);
-		if(is_numeric($call_num_column2)){	//checks if second column of call number is a number
-			$info['mat_call_num2'] = $call_num_column2;
-			$info['mat_call_num3'] = implode(" ", $call_number);
-		}
-		else{
-			$info['mat_call_num2'] = "";
-			$info['mat_call_num3'] = "";
-		}
-		edit($conn, "MATERIAL", $id, $info);
+		edit($conn, "MATERIAL", $id, $info);	//edit the material in the database
 		$change_info = [
 			"staff_id" => $_SESSION["staff_id"],
 			"mat_id" => $id,
@@ -70,7 +56,7 @@
 			"change_date" => date("Y-m-d H:i:s"),
 			"change_prev_info" => json_encode($row)
 		];
-		add($conn, "CHANGES", $change_info);
+		add($conn, "CHANGES", $change_info);	//record the changes done
 		$data["success"] = true;
 	}
 	

@@ -136,6 +136,26 @@ function modifyMaterial(){
 			else{
 				$("div#locationform").addClass('success');
 			}
+			if(data.errors.mat_source){
+				$("div#sourceform").addClass('error');
+				$("div#sourceform small").html(data.errors.mat_source);
+			}
+			else{
+				$("div#sourceform").addClass('success');
+			}
+			if(data.errors.mat_price){
+				$("div#priceform").addClass('error');
+				$("div#priceform small").html(data.errors.mat_price);
+			}
+			else{
+				$("div#priceform").addClass('success');
+			}
+			if(data.errors.mat_acquisition_date){
+				$("div#acquisitiondateform").addClass('error');
+			}
+			else{
+				$("div#acquisitiondateform").addClass('success');
+			}
 			if(data.errors.mat_inv_num){
 				$("div#invnumform").addClass('error');
 				$("div#invnumform small").html(data.errors.mat_inv_num);
@@ -143,12 +163,12 @@ function modifyMaterial(){
 			else{
 				$("div#invnumform").addClass('success');
 			}
-			if(data.errors.mat_source){
-				$("div#sourceform").addClass('error');
-				$("div#sourceform small").html(data.errors.mat_source);
+			if(data.errors.mat_property_inv_num){
+				$("div#propertyinvnumform").addClass('error');
+				$("div#propertyinvnumform small").html(data.errors.mat_property_inv_num);
 			}
 			else{
-				$("div#sourceform").addClass('success');
+				$("div#invnumform").addClass('success');
 			}
 			if(data.errors.mat_lastinv_year){
 				$("div#lastyearinvform").addClass('error');

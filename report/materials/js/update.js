@@ -27,23 +27,26 @@ function update(){
 		data.forEach(function(material){
 			body.append(
 				"<tr><td style='display:none;'>" + material.mat_id + '</td>'+
-				"<td>" + material.mat_acc_num + "</td>"+
+				"<td style = 'text-align: left'>" + material.mat_acc_num + "</td>"+
 				"<td>" + material.mat_barcode + "</td>"+
-				"<td>" + material.mat_call_num + "</td>"+
-				"<td>" + material.mat_title + "</td>"+
-				"<td>" + material.mat_author + "</td>"+
-				"<td>" + material.mat_volume + "</td>"+
-				"<td>" + material.mat_year + "</td>"+
-				"<td>" + material.mat_edition+ "</td>"+
-				"<td>" + material.mat_publisher + "</td>"+
-				"<td>" + material.mat_pub_year + "</td>"+
+				"<td style = 'text-align: left'>" + material.mat_call_num + "</td>"+
+				"<td style = 'text-align: left'>" + material.mat_title + "</td>"+
+				"<td style = 'text-align: left'>" + material.mat_author + "</td>"+
+				"<td style = 'text-align: center'>" + material.mat_volume + "</td>"+
+				"<td style = 'text-align: center'>" + material.mat_year + "</td>"+
+				"<td style = 'text-align: center'>" + material.mat_edition+ "</td>"+
+				"<td style = 'text-align: left'>" + material.mat_publisher + "</td>"+
+				"<td style = 'text-align: center'>" + material.mat_pub_year + "</td>"+
 				"<td>" + material.mat_circ_type + "</td>"+
 				"<td>" + material.mat_type + "</td>"+
 				"<td>" + material.mat_status + "</td>"+
-				"<td>" + material.mat_source + "</td>"+
 				"<td>" + material.mat_location + "</td>"+
+				"<td>" + material.mat_source + "</td>"+
+				"<td>" + (material.mat_price_value != 0 ? material.mat_price_currency + " " + material.mat_price_value : "") + "</td>"+
+				"<td>" + (material.mat_acquisition_date != "0000-00-00" ? material.mat_acquisition_date : "") + "</td>"+
 				"<td>" + material.mat_inv_num + "</td>"+
-				"<td>" + material.mat_lastinv_year + "</td></tr>"
+				"<td>" + material.mat_property_inv_num + "</td>"+
+				"<td style = 'text-align: center'>" + material.mat_lastinv_year + "</td></tr>"
 			);
 		});
 		$('div#loading-cover').hide();

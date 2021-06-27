@@ -12,6 +12,8 @@ $(document).ready(function(){
 		console.log(data);
 		$(".modal-title").html("Edit Existing Material");
 		$("button#submitbtn").html("Save Changes");
+
+		//load material information into the form
 		$("#function").val("edit");
 		$('#id').val(data[0]);
 		$('#acc_num').val(data[1]);
@@ -27,10 +29,22 @@ $(document).ready(function(){
 		$('#circ_type').val(data[11])
 		$('#type').val(data[12]);
 		$('#status').val(data[13]);
-		$('#source').val(data[14]);
-		$('#location').val(data[15]);
-		$('#inv_num').val(data[16]);
-		$('#last_year_inventoried').val(data[17]); // Changes
+		$('#location').val(data[14]);
+		$('#source').val(data[15]);
+		var price = data[16].split(" ");
+		if(price.length != 1){
+			$('#currency').val(price[0]);
+			$('#price').val(price[1]);
+		}
+		var date = data[17].split("-");
+		if(date.length != 1){
+			$('#acquisition_year').val(date[0]);
+			$('#acquisition_month').val(date[1]);
+			$('#acquisition_day').val(date[2]);
+		}
+		$('#property_inv_num').val(data[18]);
+		$('#inv_num').val(data[19]);
+		$('#last_year_inventoried').val(data[20]); // Changes
 		$('div#material').show();
 		$("div#material-form-container").scrollTop(0);
 	});

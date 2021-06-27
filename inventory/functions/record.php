@@ -22,17 +22,20 @@
 			if($result->num_rows == 0){
 				$data['inventoried'] = true;
 				$inv_info = [ //Inventory information array
-					'mat_id' => $mat_id,
 					"inv_$year" => 1,
 					"date_$year" => date("Y-m-d H:i:s"),
 					"staff_id_$year" => $_SESSION["staff_id"]
 				];
 				edit($conn, "INVENTORY", $mat_id, $inv_info); //Edit info in Inventory table
+				$mat_info = [
+					"mat_lastinv_year" => $year 	//Set last inventoried year to current year
+				];
+				edit($conn, "MATERIAL", $mat_id, $mat_info); //Update last year inventoried column in Material table
 				$data['message'] = "The material was successfully inventoried."; // Inventory successful
 			}
 			else{
 				$data['inventoried'] = false;
-				$data['message'] = "The material was already inventoried!"; //If material exists in inventory table
+				$data['message'] = "The material was already inventoried!"; //If material exists in inventory table but was already inventoried
 			}
 		}
 		else{

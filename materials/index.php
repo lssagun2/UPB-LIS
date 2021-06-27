@@ -80,7 +80,7 @@
         <h2><?php echo $staff["staff_firstname"]?> <?php echo $staff["staff_lastname"]?></h2>
       </div><br>
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
-      <a href = "#" id = "staff-edit-form"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
+      <a href = "#" id = "staff-edit-form" data-directory = "../staff/"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#" class="backup" data-directory = "../backup/"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Create Backup</a>
       <a href = "../img/User Manual.pdf" target = "_blank"><i class="fas fa-book" style = "padding: 0 34px;"></i>User Manual</a>
       <a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>
@@ -170,6 +170,9 @@
                     <option value = "mat_call_num">Call Number</option>
                     <option value = "mat_author">Author</option>
                     <option value = "mat_publisher">Publisher</option>
+                    <option value = "mat_source">Source</option>
+                    <option value = "mat_inv_num">Inventory Item Number</option>
+                    <option value = "mat_property_inv_num">Property Inventory Number</option>
                   </select>
                   <input class = "search__input focus--box-shadow" type = "text" placeholder = "Search for Material" id = "search-value" name = "search-value">
                   <button class = "search__button focus--box-shadow" type = "submit">
@@ -202,7 +205,7 @@
 	                      <th class = "sort" data-sort = "Accession Number">Accession Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th class = "sort" data-sort = "Barcode">Barcode<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th class = "sort" data-sort = "Call Number" style = "width: 20%;">Call Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th class = "sort" data-sort = "Title" style = "width: 100%;">Title</th>
+	                      <th class = "sort" data-sort = "Title" style = "width: 100%;">Title<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th>Author</th>
 	                      <th>Volume</th>
 	                      <th>Year</th>
@@ -212,10 +215,13 @@
 	                      <th>Circulation Type</th>
 	                      <th>Type</th>
 	                      <th>Status</th>
-                        <th>Source</th>
                         <th>Location</th>
+                        <th class = "sort" data-sort = "Source">Source<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th class = "sort" data-sort = "Price">Price<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th class = "sort" data-sort = "Acquisition Date">Acquisition Date<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
                         <th class = "sort" data-sort = "Inventory Item Number">Inventory Item Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th>Last Year Inventoried</th>
+                        <th class = "sort" data-sort = "Property Inventory Number">Property Inventory Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th class = "sort" data-sort = "Last Year Inventoried">Last Year Inventoried<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
 	                      <th>Action</th>
 	                    </tr>
                   	</thead>

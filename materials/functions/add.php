@@ -25,8 +25,14 @@
 	 	"mat_type" => trim($_POST['type']),
 	 	"mat_status" => trim($_POST['status']),
 	 	"mat_location" => trim($_POST['location']),
-	 	"mat_inv_num" => trim($_POST['inv_num']),
 	 	"mat_source" => trim($_POST['source']),
+	 	"mat_price_currency" => trim($_POST['currency']),
+	 	"mat_price_value" => trim($_POST['price']),
+	 	"acquisition_year" => trim($_POST['acquisition_year']),
+	 	"acquisition_month" => trim($_POST['acquisition_month']),
+	 	"acquistion_day" => trim($_POST['acquistion_day']),
+	 	"mat_property_inv_num" => trim($_POST['property_inv_num']),
+	 	"mat_inv_num" => trim($_POST['inv_num']),
 	 	"mat_lastinv_year" => trim($_POST['last_year_inventoried'])
 	];
 	$errors = validateMaterial($conn, $info, $initialInfo);	//check for errors in the material information
@@ -35,20 +41,8 @@
 		$data['errors'] = $errors;
 	}
 	else{								//there are no errors in the input
-		if(preg_match('/[a-zA-Z]{1,8}-[0-9]{1,8}$/i', $info['mat_acc_num'])){	//checks if format of accession number is <letters>-<numbers>
-	 		$accession_number = explode("-", $info['mat_acc_num']);
-	 		$info['mat_acc_num1'] = $accession_number[0];
-	 		$info['mat_acc_num2'] = $accession_number[1];
-	 	}
-		$call_number = explode(" ", $info['mat_call_num']);
-		$info['mat_call_num1'] = array_shift($call_number);
-		$call_num_column2 = array_shift($call_number);
-		if(is_numeric($call_num_column2)){	//checks if second column of call number is a number
-			$info['mat_call_num2'] = $call_num_column2;
-			$info['mat_call_num3'] = implode(" ", $call_number);
-		}
-		add($conn, "MATERIAL", $info);
-		$insert_id = $conn->insert_id;
+		add($conn, "MATERIAL", $info);	//add the material into the database
+		$insert_id = $conn->insert_id;	//get the ID assigned to the material
 		$year = date("Y");
 		//initialization of the information for the INVENTORY table
 		$inv_info = [
@@ -58,7 +52,7 @@
 			"staff_id_$year" => $_SESSION["staff_id"]
 		];
 		
-		$sql = "SHOW COLUMNS FROM INVENTORY WHERE field LIKE 'inv_%' and field < 'inv_$year'";
+		$sql = "SHOW COLUMNS FROM INVENTORY WHERE field LIKE 'inv_%' and field < 'inv_$year'";	//get columns for previous inventory years
 		$result = $conn->query($sql);
 		while ($row = $result->fetch_assoc()) {
 			$inv_info[$row["Field"]] = -1;		//indicates that the material does not exist in prior years
@@ -66,11 +60,11 @@
 		add($conn, "INVENTORY", $inv_info);		//add the information to the INVENTORY table
 		//initialization of the information for the CHANGES table
 		$change_info = [
-		"staff_id" => $_SESSION["staff_id"],
-		"mat_id" => $insert_id,
-		"change_type" => "add",
-		"change_date" => date("Y-m-d H:i:s"),
-		"change_prev_info" => NULL
+			"staff_id" => $_SESSION["staff_id"],
+			"mat_id" => $insert_id,
+			"change_type" => "add",
+			"change_date" => date("Y-m-d H:i:s"),
+			"change_prev_info" => NULL
 		];
 		add($conn, "CHANGES", $change_info);	//add the information to the CHANGES table
 		$data["success"] = true;

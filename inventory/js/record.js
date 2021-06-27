@@ -16,6 +16,7 @@ function record(){
 		console.log(data);
 		if(data.success){
 			var material = data.material;
+			console.log(material);
 			$('#id').val(material.mat_id);
 			$('#acc_num').val(material.mat_acc_num);
 			$('#barcode').val(material.mat_barcode);
@@ -30,8 +31,19 @@ function record(){
 			$('#circ_type').val(material.mat_circ_type)
 			$('#type').val(material.mat_type);
 			$('#status').val(material.mat_status);
-			$('#source').val(material.mat_source);
 			$('#location').val(material.mat_location);
+			$('#source').val(material.mat_source);
+			if(material.mat_price_value != 0){
+				$('#currency').val(material.mat_price_currency);
+				$('#price').val(material.mat_price_value);
+			}
+			var date = material.mat_acquisition_date.split("-");
+			if(date.length != 1){
+				$('#acquisition_year').val(date[0]);
+				$('#acquisition_month').val(date[1]);
+				$('#acquisition_day').val(date[2]);
+			}
+			$('#property_inv_num').val(material.mat_property_inv_num);
 			$('#inv_num').val(material.mat_inv_num);
 			$('#last_year_inventoried').val(material.mat_lastinv_year);
 			$('form#inventory-record').trigger('reset');

@@ -449,77 +449,13 @@ h1 {
   opacity: 1;
 }
 
-#allmaterials th:nth-child(16) {
-  cursor: pointer;
-}
-
-#allmaterials th:nth-child(4) {
-  cursor: pointer;
-}
-
-#allmaterials th:nth-child(3) {
-  cursor: pointer;
-}
-
-#allmaterials th:nth-child(2) {
-  cursor: pointer;
-}
-
-#allmaterials th:nth-child(1) {
+th.sort {
   cursor: pointer;
 }
 
 #allmaterials td {
   cursor: pointer;
 }
-
-#allmaterials td:nth-child(18){
- text-align: center;
-}
-
-#allmaterials td:nth-child(11){
- text-align: center;
-}
-
-#allmaterials td:nth-child(10){
- text-align: left;
-}
-
-#allmaterials td:nth-child(9){
- text-align: center;
-}
-
-#allmaterials td:nth-child(8){
- text-align: center;
-}
-
-#allmaterials td:nth-child(7){
- text-align: center;
-}
-
-#allmaterials td:nth-child(6){
- text-align: left;
-}
-
-#allmaterials td:nth-child(5){
- text-align: left;
-}
-
-#allmaterials td:nth-child(4){
- text-align:left;
-}
-
-#allmaterials td:nth-child(2){
- text-align:left;
-}
-
-/* #allmaterials tr:nth-child(even) {
-  background-color: #0e6021;
-}
-
-#allmaterials tr:nth-child(odd) {
-  background-color: #850038;
-} */
 
 
 #inventory, #staffTable {

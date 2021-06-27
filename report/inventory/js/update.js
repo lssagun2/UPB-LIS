@@ -28,34 +28,35 @@ function update(){
 		$("input#page-number").attr("max", page_count);
 		var body = $("tbody");
 		body.empty();
-		data.forEach(function(row){
+		data.forEach(function(material){
 			var tr = $('<tr/>').appendTo(body);
-			tr.append("<td style='display:none;'>" + row.mat_id + "</td>");
+			tr.append("<td style='display:none;'>" + material.mat_id + "</td>");
 			if(category == "inventoried"){
 				tr.append(
-					"<td>" + row.year + "</td>"+
-					"<td>" + row.staff_firstname + " " + row.staff_lastname + "</td>"
+					"<td>" + material.year + "</td>"+
+					"<td>" + material.staff_firstname + " " + material.staff_lastname + "</td>"
 				);
 			}
-			tr.append(
-				"<td>" + row.mat_acc_num + "</td>"+
-				"<td>" + row.mat_barcode + "</td>"+
-				"<td>" + row.mat_call_num + "</td>"+
-				"<td>" + row.mat_title + "</td>"+
-				"<td>" + row.mat_author + "</td>"+
-				"<td>" + row.mat_volume + "</td>"+
-				"<td>" + row.mat_year + "</td>"+
-				"<td>" + row.mat_edition+ "</td>"+
-				"<td>" + row.mat_publisher + "</td>"+
-				"<td>" + row.mat_pub_year + "</td>"+
-				"<td>" + row.mat_circ_type + "</td>"+
-				"<td>" + row.mat_type + "</td>"+
-				"<td>" + row.mat_status + "</td>"+
-				"<td>" + row.mat_source + "</td>"+
-				"<td>" + row.mat_location + "</td>"+
-				"<td>" + row.mat_inv_num + "</td>"+
-				"<td>" + row.mat_lastinv_year + "</td>"
-			);
+			tr.append("<td style = 'text-align: left'>" + material.mat_acc_num + "</td>");
+			tr.append("<td>" + material.mat_barcode + "</td>");
+			tr.append("<td style = 'text-align: left'>" + material.mat_call_num + "</td>");
+			tr.append("<td style = 'text-align: left'>" + material.mat_title + "</td>");
+			tr.append("<td style = 'text-align: left'>" + material.mat_author + "</td>");
+			tr.append("<td style = 'text-align: center'>" + material.mat_volume + "</td>");
+			tr.append("<td style = 'text-align: center'>" + material.mat_year + "</td>");
+			tr.append("<td style = 'text-align: center'>" + material.mat_edition+ "</td>");
+			tr.append("<td style = 'text-align: left'>" + material.mat_publisher + "</td>");
+			tr.append("<td style = 'text-align: center'>" + material.mat_pub_year + "</td>");
+			tr.append("<td>" + material.mat_circ_type + "</td>");
+			tr.append("<td>" + material.mat_type + "</td>");
+			tr.append("<td>" + material.mat_status + "</td>");
+			tr.append("<td>" + material.mat_location + "</td>");
+			tr.append("<td>" + material.mat_source + "</td>");
+			tr.append("<td>" + (material.mat_price_value != 0 ? material.mat_price_currency + " " + material.mat_price_value : "") + "</td>");
+			tr.append("<td>" + (material.mat_acquisition_date != "0000-00-00" ? material.mat_acquisition_date : "") + "</td>");
+			tr.append("<td>" + material.mat_inv_num + "</td>");
+			tr.append("<td>" + material.mat_property_inv_num + "</td>");
+			tr.append("<td style = 'text-align: center'>" + material.mat_lastinv_year + "</td>");
 		});
 		$('div#loading-cover').hide();
 	})

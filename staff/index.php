@@ -44,6 +44,7 @@
         <h2><?php echo $staff["staff_firstname"]?> <?php echo $staff["staff_lastname"]?></h2>
       </div><br>
       <a href = "javascript:void(0)" class = "closebutton" onclick = "closeNav()"><i class="fas fa-times"></i></a>
+      <a href = "#" id = "staff-edit-form" data-directory = "../staff/"><i class="fas fa-user-alt" style = "padding: 0 32px;"></i>Edit Profile</a>
       <a href = "#" class="backup" data-directory = "../backup/"><i class="fas fa-cloud-download-alt" style = "padding: 0 30px;"></i>Create Backup</a>
       <a href = "../img/User Manual.pdf" target = "_blank"><i class="fas fa-book" style = "padding: 0 34px;"></i>User Manual</a>
       <a href = "../logout.php" class = "logout"><i class="fas fa-sign-out-alt" style = "padding: 0 30px;"></i>Logout</a></button>

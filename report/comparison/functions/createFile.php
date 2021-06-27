@@ -7,8 +7,9 @@
   $prev_year = $year1 - 1;
 	$year2 = intval($_POST["year2"]);
 	$comparison = filter_var($_POST["comparison"], FILTER_VALIDATE_BOOLEAN);
-	if(!$comparison){
+	if(!$comparison){   //report consists of information only for a single year
     switch($_POST['category']){
+      //create title, total materials, filename when stored, and the Inventory table query depending on the category of the report
       case "inventoried":
         $title = [$year1." Inventory Report (Inventoried Materials)"];
         $total_materials = ["Number of Inventoried Materials:"];
@@ -36,9 +37,10 @@
       default: break;
     }
 	}
-	else{
+	else{ 
 		$inv_query = "(SELECT mat_id, date_$year1 FROM INVENTORY WHERE ";
 		switch(intval($_POST["category"])){
+      //create title, total materials, filename when stored, and the Inventory table query depending on the category of the report
 			case 0:
         $title = [$year1.",".$year2." Comparison Report (Materials Not Inventoried in Both ".$year1." and ".$year2.")"];
         $total_materials = ["Number of Materials Not Inventoried in Both ".$year1." and ".$year2.":"];
@@ -66,25 +68,29 @@
 			default: break;
 		}
 	}
+  //create the Material table subquery
 	$mat_query = "(SELECT * FROM MATERIAL WHERE";
+  //create the filter part of the where clause of the subquery
   $filter = [
     "mat_circ_type" => $_POST["circtype-filter"],
     "mat_type" => $_POST["type-filter"],
     "mat_status" => $_POST["status-filter"],
     "mat_location" => $_POST["location-filter"]
   ];
-  $filter = array_filter($filter);
+  $filter = array_filter($filter);  //remove empty elements from array
 	if(!empty($filter)){
     foreach($filter as $column => $value){
       $mat_query .= " $column='$value' AND";
     }
     $mat_query = substr($mat_query, 0, -4);
+    //append search information to the where clause of the subquery
     if($_POST["search-value"] != ""){
       $mat_query .= " AND " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%'";
     }
     $mat_query .= ")";
   }
   else{
+    //create where clause from the search information
     if($_POST["search-value"] != ""){
       $mat_query .= " " . $_POST["search-column"] . " LIKE '%" . $_POST["search-value"] . "%')";
     }
@@ -107,48 +113,64 @@
   $sort_header = ["Sorted by:"];
   $sort = "ORDER BY ";
   switch ($_POST["sort"]) {
-    case "Accession Number":
+    case "Accession Number":  //sorting by accession number
       $sort .= "mat_acc_num = '' ASC, mat_acc_num1 $sort_direction, mat_acc_num2 $sort_direction, mat_acc_num $sort_direction";
       break;
-    case "Barcode":
+    case "Barcode":           //sorting by barcode
       $sort .= "mat_barcode = '' ASC, mat_barcode $sort_direction";
       break;
-    case "Call Number":
+    case "Call Number":       //sorting by call number
       $sort .= "mat_call_num = '' ASC, mat_call_num1 $sort_direction, mat_call_num2 $sort_direction, mat_call_num3 $sort_direction, mat_call_num $sort_direction";
       break;
-    case "Title":
+    case "Title":             //sorting by title
       $sort .= "mat_title = '' ASC, mat_title $sort_direction";
       break;
-    case "Staff Name":
-      $sort .= "staff_id_$year $sort_direction";
+    case "Source":            //sorting by source
+      $sort .= "mat_source = '' ASC, mat_source $sort_direction";
       break;
-    case "Inventory Date":
-      $sort .= "date_$year $sort_direction";
+    case "Price":             //sorting by price
+      $sort .= "mat_price_value = 0 ASC, mat_price_currency $sort_direction, mat_price_value $sort_direction";
       break;
-    case "Inventory Item Number":
+    case "Acquisition Date":  //sorting by acquisition date
+      $sort .= "mat_acquisition_date = '0000-00-00' ASC, DATE(mat_acquisition_date) $sort_direction";
+      break;
+    case "Inventory Item Number":   //sorting by inventory item number
       $sort .= "mat_inv_num = '' ASC, mat_inv_num $sort_direction";
       break;
+    case "Property Inventory Number":   //sorting by property inventory number
+      $sort .= "mat_property_inv_num = '' ASC, mat_property_inv_num $sort_direction";
+      break;
+    case "Last Year Inventoried":   //sorting by last year inventoried
+      $sort .= "mat_lastinv_year = 0 ASC, mat_lastinv_year $sort_direction";
+      break;
+    case "Staff Name":    //sorting by staff name of the one who inventoried the material
+      $sort .= "staff_id_$year $sort_direction";
+      break;
+    case "Inventory Date":  //sorting by the date of inventory
+      $sort .= "DATE(date_$year) $sort_direction";
+      break;
     default:
-      $sort .= "mat_id $sort_direction";
-      $sort_header = ["Sorted by:", "none"];
+      $sort .= "mat_id $sort_direction";    //default sorting if by material ID in descending order
+      $sort_header = ["Sorted by:", "none"];  //there is no specific sorting of materials
       unset($sort_lines);
       break;
   }
-  $start_num = $_POST["limit"] * ($_POST["page-number"] - 1);
-  $start = "WHERE row_number > $start_num";
+  $start_num = $_POST["limit"] * ($_POST["page-number"] - 1);   //determine the row number of starting material given limit and page number
+  $start = "WHERE row_number > $start_num";   //start from the specific row number
+   //creation of the columns and main query depending on the category of the chosen table
   if(!$comparison && intval($_POST["category"]) === 1){
-     $columns = ['Date Inventoried', 'Time Inventoried', 'Inventoried By', 'Accession Number', 'Barcode', 'Call Number', 'Title', 'Author', 'Volume', 'Year', 'Edition', 'Publisher', 'Publication Year', 'Circulation Type', 'Type', 'Status', 'Source', 'Location', 'Inventory Item Number', 'Last Year Inventoried'];
+     $columns = ['Date Inventoried', 'Time Inventoried', 'Inventoried By', 'Accession Number', 'Barcode', 'Call Number', 'Title', 'Author', 'Volume', 'Year', 'Edition', 'Publisher', 'Publication Year', 'Circulation Type', 'Type', 'Status', 'Location', 'Source', 'Price', 'Acquisition Date', 'Inventory Item Number', 'Property Inventory Number', 'Last Year Inventoried'];
     $query = "
-      SELECT DATE_FORMAT(date_$year1, '%M %e, %Y') AS inv_date, DATE_FORMAT(date_$year1, '%r') AS inv_time, CONCAT(staff_firstname, ' ', staff_lastname) AS name, mat_acc_num, mat_barcode, mat_call_num, mat_title, mat_author, mat_volume, mat_year, mat_edition, mat_publisher, mat_pub_year, mat_circ_type, mat_type, mat_status, mat_source, mat_location, mat_inv_num, mat_lastinv_year
+      SELECT DATE_FORMAT(date_$year1, '%M %e, %Y') AS inv_date, DATE_FORMAT(date_$year1, '%r') AS inv_time, CONCAT(staff_firstname, ' ', staff_lastname) AS name, mat_acc_num, mat_barcode, mat_call_num, mat_title, mat_author, mat_volume, mat_year, mat_edition, mat_publisher, mat_pub_year, mat_circ_type, mat_type, mat_status, mat_location, mat_source, CONCAT(mat_price_currency, ' ', mat_price_value) AS mat_price, mat_acquisition_date, mat_inv_num, mat_property_inv_num, mat_lastinv_year
       FROM {$inv_query}INVENTORY
         INNER JOIN {$mat_query}MATERIAL ON INVENTORY.mat_id = MATERIAL.mat_id
         INNER JOIN STAFF ON INVENTORY.staff_id_$year1 = STAFF.staff_id
       $sort";
   }
   else{
-    $columns = ['Accession Number', 'Barcode', 'Call Number', 'Title', 'Author', 'Volume', 'Year', 'Edition', 'Publisher', 'Publication Year', 'Circulation Type', 'Type', 'Status', 'Source', 'Location', 'Inventory Item Number', 'Last Year Inventoried'];
+    $columns = ['Accession Number', 'Barcode', 'Call Number', 'Title', 'Author', 'Volume', 'Year', 'Edition', 'Publisher', 'Publication Year', 'Circulation Type', 'Type', 'Status', 'Location', 'Source', 'Price', 'Acquisition Date', 'Inventory Item Number', 'Property Inventory Number', 'Last Year Inventoried'];
     $query = "
-      SELECT mat_acc_num, mat_barcode, mat_call_num, mat_title, mat_author, mat_volume, mat_year, mat_edition, mat_publisher, mat_pub_year, mat_circ_type, mat_type, mat_status, mat_source, mat_location, mat_inv_num, mat_lastinv_year
+      SELECT mat_acc_num, mat_barcode, mat_call_num, mat_title, mat_author, mat_volume, mat_year, mat_edition, mat_publisher, mat_pub_year, mat_circ_type, mat_type, mat_status, mat_location, mat_source, CONCAT(mat_price_currency, ' ', mat_price_value) AS mat_price, mat_acquisition_date, mat_inv_num, mat_property_inv_num, mat_lastinv_year
       FROM {$inv_query}INVENTORY
         INNER JOIN {$mat_query}MATERIAL ON INVENTORY.mat_id = MATERIAL.mat_id";
   }
@@ -158,9 +180,10 @@
   $filename = 'report' . $_SESSION["staff_id"] . '.csv';
   unlink($directory.$filename);
   $file = fopen($directory.$filename, 'w');
-  fputcsv($file, $title);
-  fputcsv($file, ['Date Created:', date('M d, Y')]);
-  fputcsv($file, ['Time Created:', date('g:i:s A')]);
+  fputcsv($file, $title);   //add title to the CSV file
+  fputcsv($file, ['Date Created:', date('M d, Y')]);  //add date to the CSV file
+  fputcsv($file, ['Time Created:', date('g:i:s A')]);  //add time to the CSV file
+  //add filter information to the CSV file
   if(!empty($filter)){
     fputcsv($file, ["Filters:"]);
     foreach($filter as $column => $value){
@@ -184,6 +207,7 @@
   else{
     fputcsv($file, ["Filters:", "none"]);
   }
+  //add search information to the CSV file
   if($_POST["search-value"] != ""){
     fputcsv($file, ["Search:"]);
     fputcsv($file, ["", "Column", "Search string"]);
@@ -203,23 +227,33 @@
       case "mat_publisher":
         fputcsv($file, ["", "Publisher", $_POST['search-value']]);
         break;
+      case "mat_source":
+        array_push($search_lines, ["", "Source", $_POST['search-value']]);
+        break;
+      case "mat_inv_num":
+        array_push($search_lines, ["", "Inventory Item Number", $_POST['search-value']]);
+        break;
+      case "mat_property_inv_num":
+        array_push($search_lines, ["", "Property Inventory Number", $_POST['search-value']]);
+        break;
       default: break;
     }
   }
   else{
     fputcsv($file, ["Search:", "none"]);
   }
+  //add sort information to the CSV file
   fputcsv($file, $sort_header);
   if(isset($sort_lines)){
     fputcsv($file, ['', "Column", "Order"]);
     fputcsv($file, $sort_lines);
   }
-  array_push($total_materials, $result->num_rows);
+  array_push($total_materials, $result->num_rows);  //add number of materials
   fputcsv($file, $total_materials);
   fputcsv($file, []);
-  fputcsv($file, $columns);
+  fputcsv($file, $columns); //add column names
   foreach ($materials as $material) {
-      fputcsv($file, $material);
+      fputcsv($file, $material); //add material information in a row
   }
   fclose($file);
   $data['file'] = $filename;

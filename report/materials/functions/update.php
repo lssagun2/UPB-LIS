@@ -1,4 +1,8 @@
 <?php
+  /*
+    This PHP file is called by update() function via AJAX of jQuery. It outputs all the corresponding materials given the filter, sort, and search restrictions, along with the number of entries per page and the current page number. 
+  */
+
 	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
 
   //creation of the condition part of the query given by the filters
@@ -41,23 +45,38 @@
   }
   $column = $_POST["sort"];
   switch ($column) {
-    case "Accession Number":
+    case "Accession Number":  //sorting by accession number
       $sort .= "mat_acc_num = '' ASC, mat_acc_num1 $sort_direction, mat_acc_num2 $sort_direction, mat_acc_num $sort_direction";
       break;
-    case "Barcode":
+    case "Barcode":           //sorting by barcode
       $sort .= "mat_barcode = '' ASC, mat_barcode $sort_direction";
       break;
-    case "Call Number":
+    case "Call Number":       //sorting by call number
       $sort .= "mat_call_num = '' ASC, mat_call_num1 $sort_direction, mat_call_num2 $sort_direction, mat_call_num3 $sort_direction, mat_call_num $sort_direction";
       break;
-    case "Title":
+    case "Title":             //sorting by title
       $sort .= "mat_title = '' ASC, mat_title $sort_direction";
+      break;
+    case "Source":            //sorting by source
+      $sort .= "mat_source = '' ASC, mat_source $sort_direction";
+      break;
+    case "Price":             //sorting by price
+      $sort .= "mat_price_value = 0 ASC, mat_price_currency $sort_direction, mat_price_value $sort_direction";
+      break;
+    case "Acquisition Date":  //sorting by acquisition date
+      $sort .= "mat_acquisition_date = '0000-00-00' ASC, DATE(mat_acquisition_date) $sort_direction";
       break;
     case "Inventory Item Number":
       $sort .= "mat_inv_num = '' ASC, mat_inv_num $sort_direction";
       break;
+    case "Property Inventory Number":
+      $sort .= "mat_property_inv_num = '' ASC, mat_property_inv_num $sort_direction";
+      break;
+    case "Last Year Inventoried":
+      $sort .= "mat_lastinv_year = 0 ASC, mat_lastinv_year $sort_direction";
+      break;
     default:
-      $sort .= "mat_id $sort_direction";
+      $sort .= "mat_id DESC";
       break;
   }
   $start_num = $_POST["limit"] * ($_POST["page-number"] - 1);
