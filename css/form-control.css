@@ -237,23 +237,23 @@ div#confirmpasswordform.form-control.success i.fa-check-circle{
 }
 
 div#circulationtypeform.form-control.success i.fa-check-circle{
-  right: 19px;
+  right: 9.5px;
 }
 
 div#typeform.form-control.success i.fa-check-circle{
-  right: 19px;
+  right: 9.5px;
 }
 
 div#statusform.form-control.success i.fa-check-circle{
-  right: 19px;
+  right: 9.5px;
 }
 
 div#locationform.form-control.success i.fa-check-circle{
-  right: 19px;
+  right: 9.5px;
 }
 
 div#lastyearinvform.form-control.success i.fa-check-circle{
-  right: 19px;
+  right: 9.5px;
 }
 
 div#inventory-input-div.form-control.error i.fa-exclamation-circle{
@@ -272,4 +272,24 @@ div#inventory-input-div.form-control.success i.fa-check-circle{
 
 .form-control.error select{
   border-color: #e74c3c;
+}
+
+div#priceform.form-control.error i.fa-exclamation-circle{
+  right: 10px;
+  top: 23px;
+}
+
+div#priceform.form-control.success i.fa-check-circle{
+  right: 10px;
+  top: 23px;
+}
+
+div#acquisitiondateform.form-control.error i.fa-exclamation-circle{
+  right: 10px;
+  top: 23px;
+}
+
+div#acquisitiondateform.form-control.success i.fa-check-circle{
+  right: 10px;
+  top: 23px;
 }
