@@ -144,7 +144,7 @@
 
               <label>Price</label>
               <div class="form-control" id = "priceform">
-                <select id="currency" name="currency" style="display: inline-block; width: auto;">
+                <select id="currency" name="currency" style="display: inline-block; width: 45%;">
                     <option value="AFA">Afghan Afghani</option>
                     <option value="ALL">Albanian Lek</option>
                     <option value="DZD">Algerian Dinar</option>
@@ -310,7 +310,7 @@
                     <option value="YER">Yemeni Rial</option>
                     <option value="ZMK">Zambian Kwacha</option>
                 </select>
-                <input type = "text" id = "price" name = "price" placeholder = "Price.." value="" style="display: inline-block; width: auto;">
+                <input type = "text" id = "price" name = "price" placeholder = "Price.." value="" style="display: inline-block; width: 49.05%; height: 50px">
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
@@ -318,7 +318,7 @@
 
               <label>Acquisition Date</label>
               <div class="form-control" id = "acquisitiondateform">
-                <select id = "acquisition_month" name = "acquisition_month" style="display: inline-block; width: auto;">
+                <select id = "acquisition_month" name = "acquisition_month" style="display: inline-block; width: 45%;">
                   <option value="00">Select a month</option>
                   <option value="01">January</option>
                   <option value="02">February</option>
@@ -333,7 +333,7 @@
                   <option value="11">November</option>
                   <option value="12">December</option>
                 </select>
-                <select id = "acquisition_day" name = "acquisition_day" style="display: inline-block; width: auto;">
+                <select id = "acquisition_day" name = "acquisition_day" style="display: inline-block; width: 20%;">
                   <option value="00">Select a day</option>
                   <option value="01">1</option>
                   <option value="02">2</option>
@@ -367,7 +367,7 @@
                   <option value="30">30</option>
                   <option value="31">31</option>
                 </select>
-                <input type = "text" id = "acquisition_year" name = "acquisition_year" placeholder = "Year.." value="" style="display: inline-block; width: auto;">
+                <input type = "text" id = "acquisition_year" name = "acquisition_year" placeholder = "Year.." value="" style="display: inline-block; width: 28.25%; height:50px">
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Please check the date</small>
