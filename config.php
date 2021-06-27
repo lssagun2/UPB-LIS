@@ -8,7 +8,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 $year = date("Y");
-$sql = "SHOW COLUMNS FROM INVENTORY LIKE '%_year'";
+$sql = "SHOW COLUMNS FROM INVENTORY LIKE '%_$year'";
 $result = $conn->query($sql);
 if($result->num_rows == 0){
   $sql = "ALTER TABLE INVENTORY ADD staff_id_$year INT AFTER mat_id";
@@ -16,6 +16,8 @@ if($result->num_rows == 0){
   $sql = "ALTER TABLE INVENTORY ADD date_$year DATETIME AFTER mat_id";
   $conn->query($sql);
   $sql = "ALTER TABLE INVENTORY ADD inv_$year INT AFTER mat_id";
+  $conn->query($sql);
+  $sql = "ALTER TABLE INVENTORY CHANGE inv_$year inv_$year INT(11) NOT NULL DEFAULT '0'; ";
   $conn->query($sql);
 }
 ?>
