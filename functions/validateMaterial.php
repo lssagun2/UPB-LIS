@@ -58,6 +58,13 @@
 				unset($info['acquisition_day']);
 			}
 		}
+		//case when all fields are empty
+		else{
+			$info['mat_acquisition_date'] = "0000-00-00";
+			unset($info['acquisition_year']);
+			unset($info['acquisition_month']);
+			unset($info['acquisition_day']);
+		}
 		//format some material data if all inputs are valid
 		if(empty($errors)){
 			//storing accession number into multiple columns if format is correct

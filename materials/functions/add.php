@@ -30,7 +30,7 @@
 	 	"mat_price_value" => trim($_POST['price']),
 	 	"acquisition_year" => trim($_POST['acquisition_year']),
 	 	"acquisition_month" => trim($_POST['acquisition_month']),
-	 	"acquistion_day" => trim($_POST['acquistion_day']),
+	 	"acquisition_day" => trim($_POST['acquisition_day']),
 	 	"mat_property_inv_num" => trim($_POST['property_inv_num']),
 	 	"mat_inv_num" => trim($_POST['inv_num']),
 	 	"mat_lastinv_year" => trim($_POST['last_year_inventoried'])

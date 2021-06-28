@@ -428,22 +428,3 @@
 		</div>
 	</form>
 </div>
-
-
-<script type="text/javascript">
-	function alertAccNum(){
-		if(document.getElementById("acc_num").value == ""){
-			alert("NOTE: It is highly recommended to insert a unique accession number.");
-		}
-	}
-	function alertBarcode(){
-		if(document.getElementById("barcode").value == ""){
-			alert("NOTE: It is highly recommended to insert a unique barcode.");
-		}
-	}
-	function alertCallNum(){
-		if(document.getElementById("call_number").value == ""){
-			alert("NOTE: It is highly recommended to insert a unique Call Number.");
-		}
-	}
-</script>

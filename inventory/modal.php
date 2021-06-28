@@ -319,7 +319,7 @@
               <label>Acquisition Date</label>
               <div class="form-control" id = "acquisitiondateform">
                 <select id = "acquisition_month" name = "acquisition_month" style="display: inline-block; width: 45%;">
-                  <option value="00">Select a month</option>
+                  <option value="00">Month</option>
                   <option value="01">January</option>
                   <option value="02">February</option>
                   <option value="03">March</option>
@@ -334,7 +334,7 @@
                   <option value="12">December</option>
                 </select>
                 <select id = "acquisition_day" name = "acquisition_day" style="display: inline-block; width: 20%;">
-                  <option value="00">Select a day</option>
+                  <option value="00">Day</option>
                   <option value="01">1</option>
                   <option value="02">2</option>
                   <option value="03">3</option>

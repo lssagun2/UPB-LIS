@@ -39,7 +39,12 @@ function record(){
 			}
 			var date = material.mat_acquisition_date.split("-");
 			if(date.length != 1){
-				$('#acquisition_year').val(date[0]);
+				if(date[0] == "0000"){
+					$('#acquisition_year').val("");
+				}
+				else{
+					$('#acquisition_year').val(date[0]);
+				}
 				$('#acquisition_month').val(date[1]);
 				$('#acquisition_day').val(date[2]);
 			}
