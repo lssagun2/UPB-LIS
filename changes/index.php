@@ -231,7 +231,24 @@ $(document).ready(function() {
 			 		$('#circ_type').val(data.mat_circ_type)
 					$('#type').val(data.mat_type);
 					$('#status').val(data.mat_status);
+					$('#location').val(data.mat_location);
 					$('#source').val(data.mat_source);
+					$('#currency').val(data.mat_price_currency);
+					$('#price').val(data.mat_price_value);
+					/*
+					$('#acquisition_year').val(data.acquisition_year);
+					$('#acquisition_month').val(data.acquisition_month);
+					$('#acquisition_day').val(data.acquisition_day);
+					*/
+					var date = data.mat_acquisition_date.split("-");
+		
+					if(date.length != 1){
+						$('#acquisition_year').val(date[0]);
+						$('#acquisition_month').val(date[1]);
+						$('#acquisition_day').val(date[2]);
+					}
+					$('#property_inv_num').val(data.mat_property_inv_num);
+					$('#inv_num').val(data.mat_inv_num);
 					$('#last_year_inventoried').val(data.mat_lastinv_year);
 		      break;
 		  case "edit": // For edited changes information
@@ -250,7 +267,23 @@ $(document).ready(function() {
 			 		$('#circ_type1').val(data.mat_circ_type)
 					$('#type1').val(data.mat_type);
 					$('#status1').val(data.mat_status);
+					$('#location1').val(data.mat_location);
 					$('#source1').val(data.mat_source);
+					$('#currency1').val(data.mat_price_currency);
+					$('#price1').val(data.mat_price_value);
+					var date1 = data.mat_acquisition_date.split("-");
+					if(date1.length != 1){
+						$('#acquisition_year1').val(date1[0]);
+						$('#acquisition_month1').val(date1[1]);
+						$('#acquisition_day1').val(date1[2]);
+					}
+					/*
+					$('#acquisition_year1').val(data.acquisition_year);
+					$('#acquisition_month1').val(data.acquisition_month);
+					$('#acquisition_day1').val(data.acquisition_day);
+					*/
+					$('#property_inv_num1').val(data.mat_property_inv_num);
+					$('#inv_num1').val(data.mat_inv_num);
 					$('#last_year_inventoried1').val(data.mat_lastinv_year);
 
 					//PREVIOUS INFO
@@ -268,7 +301,24 @@ $(document).ready(function() {
 			 		$('#circ_type2').val(prev.mat_circ_type)
 					$('#type2').val(prev.mat_type);
 					$('#status2').val(prev.mat_status);
+					$('#location2').val(data.mat_location);
 					$('#source2').val(prev.mat_source);
+					$('#currency2').val(prev.mat_price_currency);
+					$('#price2').val(prev.mat_price_value);
+					/*
+					$('#acquisition_year2').val(prev.acquisition_year);
+					$('#acquisition_month2').val(prev.acquisition_month);
+					$('#acquisition_day2').val(prev.acquisition_day);
+					*/
+					var date2 = prev.mat_acquisition_date.split("-");
+		
+					if(date2.length != 1){
+						$('#acquisition_year2').val(date2[0]);
+						$('#acquisition_month2').val(date2[1]);
+						$('#acquisition_day2').val(date2[2]);
+					}
+					$('#property_inv_num2').val(prev.mat_property_inv_num);
+					$('#inv_num2').val(prev.mat_inv_num);
 					$('#last_year_inventoried2').val(prev.mat_lastinv_year);
 
 					//RESET COLOR HIGHLIGHTS
@@ -298,8 +348,24 @@ $(document).ready(function() {
 						$('#type2').css('background', 'white');
 						$('#status1').css('background', 'white');
 						$('#status2').css('background', 'white');
+						$('#location1').css('background', 'white');
+						$('#location2').css('background', 'white');
 						$('#source1').css('background', 'white');
 						$('#source2').css('background', 'white');
+						$('#currency1').css('background', 'white');
+						$('#currency2').css('background', 'white');
+						$('#price1').css('background', 'white');
+						$('#price2').css('background', 'white');
+						$('#acquisition_year1').css('background', 'white');
+						$('#acquisition_year2').css('background', 'white');
+						$('#acquisition_month1').css('background', 'white');
+						$('#acquisition_month2').css('background', 'white');
+						$('#acquisition_day1').css('background', 'white');
+						$('#acquisition_day2').css('background', 'white');
+						$('#property_inv_num1').css('background', 'white');
+						$('#property_inv_num2').css('background', 'white');
+						$('#inv_num1').css('background', 'white');
+						$('#inv_num2').css('background', 'white');
 						$('#last_year_inventoried1').css('background', 'white');
 						$('#last_year_inventoried2').css('background', 'white');
 
@@ -343,9 +409,33 @@ $(document).ready(function() {
 					} if(data.mat_status!=prev.mat_status){
 						$('#status1').css('background', '#DCDCDC');
 						$('#status2').css('background', '#DCDCDC');
+					} if(data.mat_location!=prev.mat_location){
+						$('#location1').css('background', '#DCDCDC');
+						$('#location2').css('background', '#DCDCDC');
 					} if(data.mat_source!=prev.mat_source){
 						$('#source1').css('background', '#DCDCDC');
 						$('#source2').css('background', '#DCDCDC');
+					} if(data.mat_price_currency!=prev.mat_price_currency){
+						$('#currency1').css('background', '#DCDCDC');
+						$('#currency2').css('background', '#DCDCDC');
+					} if(data.mat_price_value!=prev.mat_price_value){
+						$('#price1').css('background', '#DCDCDC');
+						$('#price2').css('background', '#DCDCDC');
+					} if(date1[0]!=date2[0]){
+						$('#acquisition_year1').css('background', '#DCDCDC');
+						$('#acquisition_year2').css('background', '#DCDCDC');
+					} if(date1[1]!=date2[1]){
+						$('#acquisition_month1').css('background', '#DCDCDC');
+						$('#acquisition_month2').css('background', '#DCDCDC');
+					} if(date1[2]!=date2[2]){
+						$('#acquisition_day1').css('background', '#DCDCDC');
+						$('#acquisition_day2').css('background', '#DCDCDC');
+					} if(data.mat_property_inv_num!=prev.mat_property_inv_num){
+						$('#property_inv_num1').css('background', '#DCDCDC');
+						$('#property_inv_num2').css('background', '#DCDCDC');				
+					} if(data.mat_inv_num!=prev.mat_inv_num){
+						$('#inv_num1').css('background', '#DCDCDC');
+						$('#inv_num2').css('background', '#DCDCDC');
 					} if(data.mat_lastinv_year!=prev.mat_lastinv_year){
 						$('#last_year_inventoried1').css('background', '#DCDCDC');
 						$('#last_year_inventoried2').css('background', '#DCDCDC');
