@@ -48,7 +48,7 @@ function update(){
 			tr.append("<td>" + material.mat_inv_num + "</td>");
 			tr.append("<td>" + material.mat_property_inv_num + "</td>");
 			tr.append("<td style = 'text-align: center'>" + material.mat_lastinv_year + "</td>");
-			tr.append("<td><button class = 'edit' style = 'width: 50px; height: 50px; color: #000;'><i class = 'fas fa-edit'></i></button></td>");
+			tr.append("<td><button class = 'edit' style = 'width: 50px; height: 50px; color: #000;'><i class = 'fas fa-edit'></i></button><button class = 'edit' style = 'width: 50px; height: 50px; color: #000;'><i class = 'fas fa-trash-alt'></i></button></td>");
 		});
 		$('div#loading-cover').hide();
 	})
