@@ -223,7 +223,7 @@
                         <th style = "width: 5%;" class = "sort" data-sort = "Inventory Item Number">Inventory Item Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
                         <th class = "sort" data-sort = "Last Year Inventoried">Last Year Inventoried<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
                         <th style = "width: 10%;">Remarks<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-                        <th style = "width: 7.5%;">Action</th>
+                        <th style = "width: 150%; padding-left: 50px; padding-right: 50px;">Action</th>
                       </tr>
                     </thead>
                     <tbody>
