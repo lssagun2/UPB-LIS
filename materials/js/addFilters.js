@@ -43,12 +43,14 @@ function addFilters(){
 	else{
 		$('div.modal').hide();
 		if(function_name == "add"){
-			$('h3#success-text').html('The material was inserted successfully!');
+			$('h3#success-text').html('The material was successfully added!');
+			$('button#success-button').show();
 			$('button#success-button').html('Add Another Material');
 			$('div#success-notification').show();
 		}
 		if(function_name == "edit"){
-			$('h3#success-text').html('The material was edited successfully!');
+			$('h3#success-text').html('The material was successfully edited!');
+			$('button#success-button').show();
 			$('button#success-button').html('Edit Same Material');
 			$('div#success-notification').show();
 		}

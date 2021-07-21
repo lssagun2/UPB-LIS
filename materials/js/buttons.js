@@ -17,25 +17,40 @@ $(document).ready(function(){
 		$("#function").val("edit");
 		$('#id').val(data[0]);
 		$('#acc_num').val(data[1]);
-		$('#barcode').val(data[2]);
-		$('#call_number').val(data[3]);
-		$('#title').val(data[4]);
-		$('#author').val(data[5])
+		$('#call_number').val(data[2]);
+		$('#title').val(data[3]);
+		$('#author').val(data[4])
+		$('#publisher').val(data[5]);
 		$('#volume').val(data[6]);
-		$('#year').val(data[7]);
-		$('#edition').val(data[8]);
-		$('#publisher').val(data[9]);
-		$('#pub_year').val(data[10]);
-		$('#circ_type').val(data[11])
-		$('#type').val(data[12]);
-		$('#status').val(data[13]);
-		$('#location').val(data[14]);
-		$('#source').val(data[15]);
-		var price = data[16].split(" ");
+		$('#edition').val(data[7]);
+		$('#pub_year').val(data[8]);
+		$('#source').val(data[9]);
+		$("div#priceform").hide();
+		$("div#donorform").hide();
+		var price = data[10].split(" ");
 		if(price.length != 1){
 			$('#currency').val(price[0]);
 			$('#price').val(price[1]);
 		}
+		else{
+			$('#currency').val("PHP");
+			$('#price').val("");
+		}
+		$('#donor').val(data[11]);
+		$("div#priceform").hide();
+		$("div#donorform").hide();
+		if($('#source').val() == "Purchased"){
+			$("div#priceform").show();
+			$("input#value").show();
+		}
+		else if($('#source').val() == "Donated"){
+			$("div#donorform").show();
+		}
+		$('#barcode').val(data[12]);
+		$('#circ_type').val(data[13])
+		$('#type').val(data[14]);
+		$('#status').val(data[15]);
+		$('#location').val(data[16]);
 		var date = data[17].split("-");
 		if(date.length != 1){
 			$('#acquisition_year').val(date[0]);
@@ -44,7 +59,10 @@ $(document).ready(function(){
 		}
 		$('#property_inv_num').val(data[18]);
 		$('#inv_num').val(data[19]);
-		$('#last_year_inventoried').val(data[20]); // Changes
+		$('#last_year_inventoried').val(data[20]);
+		$('#remarks').val(data[21]);
+		$('#delete-material').hide();
+		$('fieldset#material-fieldset').removeAttr("disabled");
 		$('div#material').show();
 		$("div#material-form-container").scrollTop(0);
 	});
@@ -56,6 +74,77 @@ $(document).ready(function(){
 		$("#function").val("add");
 		$(".modal-title").html("Add New Material");
 		$("button#submitbtn").html("Add Material");
+		$('#delete-material').hide();
+		$('fieldset#material-fieldset').removeAttr("disabled");
+		$("div#priceform").hide();
+		$("div#donorform").hide();
+		$('div#material').show();
+		$("div#material-form-container").scrollTop(0);
+	});
+
+	//Button object for deleting material.
+	//Displays modal form for deleting material.
+	$(document).on('click', '.delete', function(){
+		$("form#material").trigger("reset");
+		//Fetch all data of a particular row for displaying purposes.
+		$tr = $(this).closest('tr');
+		var data = $tr.children("td").map(function(){
+			return $(this).text();
+		}).get();
+		console.log(data);
+		$(".modal-title").html("Delete Existing Material");
+		$("button#submitbtn").html("Delete");
+
+		//load material information into the form
+		$("#function").val("delete");
+		$('#id').val(data[0]);
+		$('#acc_num').val(data[1]);
+		$('#call_number').val(data[2]);
+		$('#title').val(data[3]);
+		$('#author').val(data[4])
+		$('#publisher').val(data[5]);
+		$('#volume').val(data[6]);
+		$('#edition').val(data[7]);
+		$('#pub_year').val(data[8]);
+		$('#source').val(data[9]);
+		$("div#priceform").hide();
+		$("div#donorform").hide();
+		var price = data[10].split(" ");
+		if(price.length != 1){
+			$('#currency').val(price[0]);
+			$('#price').val(price[1]);
+		}
+		else{
+			$('#currency').val("PHP");
+			$('#price').val("");
+		}
+		$('#donor').val(data[11]);
+		$("div#priceform").hide();
+		$("div#donorform").hide();
+		if($('#source').val() == "Purchased"){
+			$("div#priceform").show();
+			$("input#value").show();
+		}
+		else if($('#source').val() == "Donated"){
+			$("div#donorform").show();
+		}
+		$('#barcode').val(data[12]);
+		$('#circ_type').val(data[13])
+		$('#type').val(data[14]);
+		$('#status').val(data[15]);
+		$('#location').val(data[16]);
+		var date = data[17].split("-");
+		if(date.length != 1){
+			$('#acquisition_year').val(date[0]);
+			$('#acquisition_month').val(date[1]);
+			$('#acquisition_day').val(date[2]);
+		}
+		$('#property_inv_num').val(data[18]);
+		$('#inv_num').val(data[19]);
+		$('#last_year_inventoried').val(data[20]);
+		$('#remarks').val(data[21]);
+		$('#delete-material').show();
+		$('fieldset#material-fieldset').attr("disabled", "disabled");
 		$('div#material').show();
 		$("div#material-form-container").scrollTop(0);
 	});
@@ -65,9 +154,16 @@ $(document).ready(function(){
 	$(document).on('click', '#success-button', function(){
 		if(function_name == "add"){
 			$("form#material").trigger("reset");
+			$('div#material').show();
+		}
+		else if(function_name == "edit"){
+			$('div#material').show();
+		}
+		if(function_name == "delete"){
+			restoreMaterial();
 		}
 		$('div#success-notification').hide();
-		$('div#material').show();
+		
 	});
 
 	//Button object for filtering material table.
@@ -100,6 +196,20 @@ $(document).ready(function(){
 		//Resets all formhandler design after a success/error input.
 		$('div.form-control.error').removeClass('error'); // Changes
 		$('div.form-control.success').removeClass('success'); // Changes
+	});
+
+	$(document).on('change', 'select#source', function(){
+		$("div#priceform").hide();
+		$("div#donorform").hide();
+		$('select#currency').val("PHP");
+		$('input#price').val("");
+		$('input#donor').val("");
+		if($("select#source").val() == "Purchased"){
+			$("div#priceform").show();
+		}
+		if($("select#source").val() == "Donated"){
+			$("div#donorform").show();
+		}
 	});
 
 	//Button for updating table after setting a filter.
@@ -163,6 +273,12 @@ $(document).ready(function(){
 		$('div.form-control.success').removeClass('success');// Change
 		event.preventDefault();
 		$(".input-invalid").hide();
-		modifyMaterial();
+		function_name = $("#function").val();
+		if(function_name == "delete"){
+			deleteMaterial()
+		}
+		else{
+			modifyMaterial();
+		}
 	});
 });

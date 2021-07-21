@@ -1,6 +1,5 @@
 //Function responsible for editing Material.
 function modifyMaterial(){
-	function_name = $("#function").val()
 	console.log($('form#material').serialize());
 	$('div#loading-cover').show();
 	 //Process the inputs using a defined function for adding/editing material.
@@ -163,12 +162,12 @@ function modifyMaterial(){
 			else{
 				$("div#invnumform").addClass('success');
 			}
-			if(data.errors.mat_property_inv_num){
-				$("div#propertyinvnumform").addClass('error');
-				$("div#propertyinvnumform small").html(data.errors.mat_property_inv_num);
+			if(data.errors.mat_supplier){
+				$("div#supplierform").addClass('error');
+				$("div#supplierform small").html(data.errors.mat_supplier);
 			}
 			else{
-				$("div#invnumform").addClass('success');
+				$("div#supplierform").addClass('success');
 			}
 			if(data.errors.mat_lastinv_year){
 				$("div#lastyearinvform").addClass('error');

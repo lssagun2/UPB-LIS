@@ -16,8 +16,7 @@
 	 	"mat_call_num" => trim($_POST['call_number']),
 	 	"mat_title" => trim($_POST['title']),
 	 	"mat_author" => trim($_POST['author']),
-	 	"mat_volume" => trim($_POST['volume']),  
-	 	"mat_year" => trim($_POST['year']), 
+	 	"mat_volume" => trim($_POST['volume']),
 	 	"mat_edition" => trim($_POST['edition']), 
 	 	"mat_publisher" => trim($_POST['publisher']),
 	 	"mat_pub_year" => trim($_POST['pub_year']),
@@ -28,12 +27,14 @@
 	 	"mat_source" => trim($_POST['source']),
 	 	"mat_price_currency" => trim($_POST['currency']),
 	 	"mat_price_value" => trim($_POST['price']),
+	 	"mat_donor" => trim($_POST['donor']),
 	 	"acquisition_year" => trim($_POST['acquisition_year']),
 	 	"acquisition_month" => trim($_POST['acquisition_month']),
 	 	"acquisition_day" => trim($_POST['acquisition_day']),
-	 	"mat_property_inv_num" => trim($_POST['property_inv_num']),
+	 	"mat_supplier" => trim($_POST['supplier']),
 	 	"mat_inv_num" => trim($_POST['inv_num']),
-	 	"mat_lastinv_year" => trim($_POST['last_year_inventoried'])
+	 	"mat_lastinv_year" => trim($_POST['last_year_inventoried']),
+	 	"mat_remarks" => trim($_POST['remarks'])
 	];
 	$errors = validateMaterial($conn, $info, $initialInfo);	//check for errors in the material information
 	if(!empty($errors)){ 				//there are errors in the input

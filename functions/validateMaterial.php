@@ -81,12 +81,12 @@
 		 		$info['mat_inv_num2'] = $inventory_item_number[1];
 		 	}
 
-		 	//storing property inventory number into multiple columns if format is correct
-			if(preg_match('/[a-zA-Z]{1,8}-[0-9]{1,8}$/i', $info['mat_property_inv_num'])){	//checks if format of property inventory number is <letters>-<numbers>
-		 		$property_inventory_number = explode("-", $info['mat_property_inv_num']);
-		 		$info['mat_property_inv_num1'] = $property_inventory_number[0];
-		 		$info['mat_property_inv_num2'] = $property_inventory_number[1];
-		 	}
+		 // 	//storing property inventory number into multiple columns if format is correct
+			// if(preg_match('/[a-zA-Z]{1,8}-[0-9]{1,8}$/i', $info['mat_property_inv_num'])){	//checks if format of property inventory number is <letters>-<numbers>
+		 // 		$property_inventory_number = explode("-", $info['mat_property_inv_num']);
+		 // 		$info['mat_property_inv_num1'] = $property_inventory_number[0];
+		 // 		$info['mat_property_inv_num2'] = $property_inventory_number[1];
+		 // 	}
 
 		 	//storing call number into multiple columns if format is correct 
 			$call_number = explode(" ", $info['mat_call_num']);

@@ -1,6 +1,5 @@
 <?php
 	//Contains SQL query for adding row inside Database.
-	require $_SERVER['DOCUMENT_ROOT']."/upb-lis/config.php";
 	function add($conn, $table, $info){
 		$columns = "";
 		$values = "";

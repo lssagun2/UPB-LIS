@@ -108,6 +108,18 @@ h1 {
   transition: 0.2s ease;
   border-radius: 50px;
 }
+.delete {
+  background-color: #ffad0d;
+  color: #000;
+  float: right;
+  margin: 8px 5px;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  opacity: 0.9;
+  transition: 0.2s ease;
+  border-radius: 50px;
+}
 
 #editStaffTable {
   margin-left: 25%;
@@ -348,7 +360,7 @@ h1 {
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   line-height: 25px;
-  width: 150%;
+  width: 210%;
   border-bottom: 1px solid #fff;
   border-collapse: collapse;
   margin-right: 10px;
