@@ -65,7 +65,7 @@
 			"mat_id" => $insert_id,
 			"change_type" => "add",
 			"change_date" => date("Y-m-d H:i:s"),
-			"change_prev_info" => NULL
+			"change_prev_info" => json_encode($info)
 		];
 		add($conn, "CHANGES", $change_info);	//add the information to the CHANGES table
 		$data["success"] = true;
