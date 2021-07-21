@@ -150,10 +150,14 @@
 												<tr>
 													<td style="text-align: center; vertical-align: middle;"><?php echo $row['change_date']; ?></td>
 													<td style="text-align: center; vertical-align: middle;">
-														<?php if (empty($row['staff_firstname'].$row['staff_lastname'])){
-															echo "---removed staff---"." ". $row['change_type'] ."ed material with accession number ".$row['mat_acc_num'];
-														} else echo $row['staff_firstname'] ." ". $row['staff_lastname']
-													." ". $row['change_type'] ."ed material with accession number ".$row['mat_acc_num']; ?></td>
+											<?php if (empty($row['staff_firstname'].$row['staff_lastname'])){
+												echo "---removed staff---"." ". $row['change_type'] ."ed material with accession number ".$row['mat_acc_num'];
+											
+											} if (empty($row['mat_acc_num'])){
+												echo $row['staff_firstname'] ." ". $row['staff_lastname']." ". $row['change_type'] ."ed material with accession number ---deleted---";
+
+											} else echo $row['staff_firstname'] ." ". $row['staff_lastname']." ". $row['change_type'] ."ed material with accession number ".$row['mat_acc_num']; ?></td>
+													
 													<td style="text-align: center; vertical-align: middle;"><button type="button" id="<?php echo $row['change_id']; ?>" type-id="<?php echo $row['change_type']; ?>" class="view"
 														>View</button></td>
 													</tr>
@@ -218,28 +222,26 @@ $(document).ready(function() {
 			switch(type){
 			case "add": // For added changes information
 		      $('div#tableModal').show();
-					$('#acc_num').val(data.mat_acc_num);
-					$('#barcode').val(data.mat_barcode);
-					$('#call_number').val(data.mat_call_num);
-					$('#title').val(data.mat_title);
-					$('#author').val(data.mat_author)
-			  	    $('#volume').val(data.mat_volume);
-			 		$('#year').val(data.mat_year);
-			 		$('#edition').val(data.mat_edition);
-				 	$('#publisher').val(data.mat_publisher);
-					$('#pub_year').val(data.mat_pub_year);
-			 		$('#circ_type').val(data.mat_circ_type)
-					$('#type').val(data.mat_type);
-					$('#status').val(data.mat_status);
-					$('#location').val(data.mat_location);
-					$('#source').val(data.mat_source);
-					$('#currency').val(data.mat_price_currency);
-					$('#price').val(data.mat_price_value);
-					/*
-					$('#acquisition_year').val(data.acquisition_year);
-					$('#acquisition_month').val(data.acquisition_month);
-					$('#acquisition_day').val(data.acquisition_day);
-					*/
+		      		var add = JSON.parse(data.change_prev_info);
+					$('#acc_num').val(add.mat_acc_num);
+					$('#barcode').val(add.mat_barcode);
+					$('#call_number').val(add.mat_call_num);
+					$('#title').val(add.mat_title);
+					$('#author').val(add.mat_author)
+			  	    $('#volume').val(add.mat_volume);
+			 		$('#year').val(add.mat_year);
+			 		$('#edition').val(add.mat_edition);
+				 	$('#publisher').val(add.mat_publisher);
+					$('#pub_year').val(add.mat_pub_year);
+			 		$('#circ_type').val(add.mat_circ_type)
+					$('#type').val(add.mat_type);
+					$('#status').val(add.mat_status);
+					$('#location').val(add.mat_location);
+					$('#source').val(add.mat_source);
+					$('#donor').val(add.mat_donor);
+					$('#currency').val(add.mat_price_currency);
+					$('#price').val(add.mat_price_value);
+
 					var date = data.mat_acquisition_date.split("-");
 		
 					if(date.length != 1){
@@ -247,11 +249,47 @@ $(document).ready(function() {
 						$('#acquisition_month').val(date[1]);
 						$('#acquisition_day').val(date[2]);
 					}
-					$('#property_inv_num').val(data.mat_property_inv_num);
+					$('#supplier').val(data.mat_supplier);
 					$('#inv_num').val(data.mat_inv_num);
 					$('#last_year_inventoried').val(data.mat_lastinv_year);
+					$('#remarks').val(data.mat_remarks);
 		      break;
-		  case "edit": // For edited changes information
+
+		      case "delet": // For deleted changes information
+		      $('div#tableModal').show();
+					var del = JSON.parse(data.change_prev_info);
+					$('#acc_num').val(del.mat_acc_num);
+					$('#barcode').val(del.mat_barcode);
+					$('#call_number').val(del.mat_call_num);
+					$('#title').val(del.mat_title);
+					$('#author').val(del.mat_author)
+				  	$('#volume').val(del.mat_volume);
+			 		$('#year').val(del.mat_year);
+			 		$('#edition').val(del.mat_edition);
+				 	$('#publisher').val(del.mat_publisher);
+					$('#pub_year').val(del.mat_pub_year);
+			 		$('#circ_type').val(del.mat_circ_type)
+					$('#type').val(del.mat_type);
+					$('#status').val(del.mat_status);
+					$('#location').val(delmat_location);
+					$('#source').val(del.mat_source);
+					$('#currency').val(del.mat_price_currency);
+					$('#price').val(del.mat_price_value);
+
+					var date2 = prev.mat_acquisition_date.split("-");
+		
+					if(date2.length != 1){
+						$('#acquisition_year').val(date2[0]);
+						$('#acquisition_month').val(date2[1]);
+						$('#acquisition_day').val(date2[2]);
+					}
+					$('#supplier').val(prev.mat_supplier);
+					$('#inv_num').val(prev.mat_inv_num);
+					$('#last_year_inventoried').val(prev.mat_lastinv_year);
+					$('#remarks').val(prev.mat_remarks);
+		    break;
+
+		  	case "edit": // For edited changes information
 		      $('div#tableModal2').show();
 		      //CURRENT INFO
 					$('#acc_num1').val(data.mat_acc_num);
@@ -259,7 +297,7 @@ $(document).ready(function() {
 					$('#call_number1').val(data.mat_call_num);
 					$('#title1').val(data.mat_title);
 					$('#author1').val(data.mat_author)
-				  $('#volume1').val(data.mat_volume);
+				  	$('#volume1').val(data.mat_volume);
 			 		$('#year1').val(data.mat_year);
 			 		$('#edition1').val(data.mat_edition);
 				 	$('#publisher1').val(data.mat_publisher);
@@ -269,6 +307,7 @@ $(document).ready(function() {
 					$('#status1').val(data.mat_status);
 					$('#location1').val(data.mat_location);
 					$('#source1').val(data.mat_source);
+					$('#donor1').val(data.mat_donor);
 					$('#currency1').val(data.mat_price_currency);
 					$('#price1').val(data.mat_price_value);
 					var date1 = data.mat_acquisition_date.split("-");
@@ -277,14 +316,11 @@ $(document).ready(function() {
 						$('#acquisition_month1').val(date1[1]);
 						$('#acquisition_day1').val(date1[2]);
 					}
-					/*
-					$('#acquisition_year1').val(data.acquisition_year);
-					$('#acquisition_month1').val(data.acquisition_month);
-					$('#acquisition_day1').val(data.acquisition_day);
-					*/
-					$('#property_inv_num1').val(data.mat_property_inv_num);
+
+					$('#supplier1').val(data.mat_supplier);
 					$('#inv_num1').val(data.mat_inv_num);
 					$('#last_year_inventoried1').val(data.mat_lastinv_year);
+					$('#remarks1').val(data.mat_remarks);
 
 					//PREVIOUS INFO
 		    		var prev = JSON.parse(data.change_prev_info);
@@ -305,11 +341,7 @@ $(document).ready(function() {
 					$('#source2').val(prev.mat_source);
 					$('#currency2').val(prev.mat_price_currency);
 					$('#price2').val(prev.mat_price_value);
-					/*
-					$('#acquisition_year2').val(prev.acquisition_year);
-					$('#acquisition_month2').val(prev.acquisition_month);
-					$('#acquisition_day2').val(prev.acquisition_day);
-					*/
+
 					var date2 = prev.mat_acquisition_date.split("-");
 		
 					if(date2.length != 1){
@@ -317,9 +349,10 @@ $(document).ready(function() {
 						$('#acquisition_month2').val(date2[1]);
 						$('#acquisition_day2').val(date2[2]);
 					}
-					$('#property_inv_num2').val(prev.mat_property_inv_num);
+					$('#supplier2').val(prev.mat_supplier);
 					$('#inv_num2').val(prev.mat_inv_num);
 					$('#last_year_inventoried2').val(prev.mat_lastinv_year);
+					$('#remarks2').val(prev.mat_remarks);
 
 					//RESET COLOR HIGHLIGHTS
 						$('#acc_num1').css('background', 'white');
@@ -352,6 +385,8 @@ $(document).ready(function() {
 						$('#location2').css('background', 'white');
 						$('#source1').css('background', 'white');
 						$('#source2').css('background', 'white');
+						$('#donor1').css('background', 'white');
+						$('#donor2').css('background', 'white');
 						$('#currency1').css('background', 'white');
 						$('#currency2').css('background', 'white');
 						$('#price1').css('background', 'white');
@@ -362,12 +397,14 @@ $(document).ready(function() {
 						$('#acquisition_month2').css('background', 'white');
 						$('#acquisition_day1').css('background', 'white');
 						$('#acquisition_day2').css('background', 'white');
-						$('#property_inv_num1').css('background', 'white');
-						$('#property_inv_num2').css('background', 'white');
+						$('#supplier1').css('background', 'white');
+						$('#supplier2').css('background', 'white');
 						$('#inv_num1').css('background', 'white');
 						$('#inv_num2').css('background', 'white');
 						$('#last_year_inventoried1').css('background', 'white');
 						$('#last_year_inventoried2').css('background', 'white');
+						$('#remarks1').css('background', 'white');
+						$('#remarks2').css('background', 'white');
 
 					//HIGHLIGHT EDITS - Turn edited inputs to gray
 					if(data.mat_acc_num!=prev.mat_acc_num){
@@ -415,6 +452,9 @@ $(document).ready(function() {
 					} if(data.mat_source!=prev.mat_source){
 						$('#source1').css('background', '#DCDCDC');
 						$('#source2').css('background', '#DCDCDC');
+					} if(data.mat_donor!=prev.mat_donor){
+						$('#donor1').css('background', '#DCDCDC');
+						$('#donor2').css('background', '#DCDCDC');
 					} if(data.mat_price_currency!=prev.mat_price_currency){
 						$('#currency1').css('background', '#DCDCDC');
 						$('#currency2').css('background', '#DCDCDC');
@@ -430,17 +470,21 @@ $(document).ready(function() {
 					} if(date1[2]!=date2[2]){
 						$('#acquisition_day1').css('background', '#DCDCDC');
 						$('#acquisition_day2').css('background', '#DCDCDC');
-					} if(data.mat_property_inv_num!=prev.mat_property_inv_num){
-						$('#property_inv_num1').css('background', '#DCDCDC');
-						$('#property_inv_num2').css('background', '#DCDCDC');				
+					} if(data.mat_supplier!=prev.mat_supplier){
+						$('#supplier1').css('background', '#DCDCDC');
+						$('#supplier2').css('background', '#DCDCDC');				
 					} if(data.mat_inv_num!=prev.mat_inv_num){
 						$('#inv_num1').css('background', '#DCDCDC');
 						$('#inv_num2').css('background', '#DCDCDC');
 					} if(data.mat_lastinv_year!=prev.mat_lastinv_year){
 						$('#last_year_inventoried1').css('background', '#DCDCDC');
 						$('#last_year_inventoried2').css('background', '#DCDCDC');
+					} if(data.mat_remarks!=prev.mat_remarks){
+						$('#remarks1').css('background', '#DCDCDC');
+						$('#remarks2').css('background', '#DCDCDC');
 					}
-		      break;
+			break;
+
 		  default:
 		    	alert("Error!");
 		  }

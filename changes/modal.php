@@ -89,14 +89,17 @@
       <input type = "text" id = "acquisition_year" name = "acquisition_year" placeholder = "Year.." value="" style="display: inline-block; width: 32%;" readonly>
       </div>
 
-      <label for = "property_inv_num">Property Inventory Number</label>
-      <input type = "text" id = "property_inv_num" name = "property_inv_num" placeholder = "Property Inventory Number.." value="" readonly>
-
+      <label for = "supplier">Supplier</label>
+      <input type = "text" id = "supplier" name = "supplier" placeholder = "Supplier.." value="" readonly>
+          
       <label for = "inv_num">Inventory Item Number</label>
       <input type = "text" id = "inv_num" name = "inv_num" placeholder = "Inventory Item Number.." value="" readonly>
 
       <label for = "last_year_inventoried">Last Year Inventoried</label>
       <input type = "text" id = "last_year_inventoried" name = "last_year_inventoried" value="" readonly>
+      
+      <label for = "remarks">Remarks</label>
+      <input type = "text" id = "remarks" name = "remarks" placeholder = "Remarks.." value="" readonly>
     </div>
   </form>
 </div>
@@ -158,8 +161,11 @@
          <label for = "location">Location</label>
          <input type = "text" id = "location1" name = "location" placeholder = "Location.." value="" readonly>
 
-          <label for = "source">Source</label>
+          <label for = "source1">Source</label>
           <input type = "text" id = "source1" name = "source" placeholder = "Material Source.." value="" readonly>
+
+          <label for = "donor1">Donor</label>
+          <input type = "text" id = "donor1" name = "donor" placeholder = "Donor.." value="">
 
           <label for = "currency">Price</label>
           <div class="form-control" id = "priceform">
@@ -174,14 +180,17 @@
           <input type = "text" id = "acquisition_year1" name = "acquisition_year" placeholder = "Year.." value="" style="display: inline-block; width: 32%;" readonly>
           </div>
 
-          <label for = "property_inv_num">Property Inventory Number</label>
-          <input type = "text" id = "property_inv_num1" name = "property_inv_num" placeholder = "Property Inventory Number.." value="" readonly>
-
+          <label for = "supplier1">Supplier</label>
+          <input type = "text" id = "supplier1" name = "supplier" placeholder = "Supplier.." value="" readonly>
+          
           <label for = "inv_num">Inventory Item Number</label>
           <input type = "text" id = "inv_num1" name = "inv_num" placeholder = "Inventory Item Number.." value="" readonly>
 
           <label for = "last_year_inventoried">Last Year Inventoried</label>
           <input type = "text" id = "last_year_inventoried1" name = "last_year_inventoried" value="" readonly>
+          
+          <label for = "remarks1">Remarks</label>
+          <input type = "text" id = "remarks1" name = "remarks" placeholder = "Remarks.." value="" readonly>
         </div>
         <div class="column">
 
@@ -236,6 +245,9 @@
           <label for = "source">Source</label>
           <input type = "text" id = "source2" name = "source" placeholder = "Material Source.." value="" readonly>
 
+          <label for = "donor2">Donor</label>
+         <input type = "text" id = "donor2" name = "donor" placeholder = "Donor.." value="">
+
           <label for = "currency2">Price</label>
           <div class="form-control" id = "priceform2">
           <input type = "text" id="currency2" name="currency" placeholder = "Currency.." value="" style="display: inline-block; width: 48%;" readonly>
@@ -249,14 +261,17 @@
           <input type = "text" id = "acquisition_year2" name = "acquisition_year" placeholder = "Year.." value="" style="display: inline-block; width: 32%;" readonly>
           </div>
 
-          <label for = "property_inv_num">Property Inventory Number</label>
-          <input type = "text" id = "property_inv_num2" name = "property_inv_num" placeholder = "Property Inventory Number.." value="" readonly>
-
+          <label for = "supplier2">Supplier</label>
+          <input type = "text" id = "supplier2" name = "supplier" placeholder = "Supplier.." value="" readonly>
+          
           <label for = "inv_num">Inventory Item Number</label>
           <input type = "text" id = "inv_num2" name = "inv_num" placeholder = "Inventory Item Number.." value="" readonly>
 
           <label for = "last_year_inventoried">Last Year Inventoried</label>
           <input type = "text" id = "last_year_inventoried2" name = "last_year_inventoried" value="" readonly>
+
+          <label for = "remarks2">Remarks</label>
+          <input type = "text" id = "remarks2" name = "remarks" placeholder = "Remarks.." value="" readonly>
         </div>
       </div>
     </div>
