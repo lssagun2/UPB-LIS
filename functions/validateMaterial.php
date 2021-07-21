@@ -25,16 +25,16 @@
 				$errors['mat_barcode'] = "Barcode already exists!";
 			}
 		}
-		//check if the price is not empty
-		if(!empty($info['mat_price_value'])){
-			//check if the price is not numeric
-			if(!is_numeric($info['mat_price_value'])){
-				$errors['mat_price'] = "Price should be numeric!";
-			}
-		}
-		else{
-			$info['mat_price_value'] = 0;
-		}
+		// //check if the price is not empty
+		// if(!empty($info['mat_price_value'])){
+		// 	//check if the price is not numeric
+		// 	if(!is_numeric($info['mat_price_value'])){
+		// 		$errors['mat_price'] = "Price should be numeric!";
+		// 	}
+		// }
+		// else{
+		// 	$info['mat_price_value'] = 0;
+		// }
 		// check if at least 1 field in acquisition date has an input from user
 		if(!(empty($info['acquisition_year']) && $info['acquisition_month'] == "00" && $info['acquisition_day'] == "00")){
 			$year = date("Y");
