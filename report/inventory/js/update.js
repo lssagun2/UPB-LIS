@@ -38,25 +38,26 @@ function update(){
 				);
 			}
 			tr.append("<td style = 'text-align: left'>" + material.mat_acc_num + "</td>");
-			tr.append("<td>" + material.mat_barcode + "</td>");
 			tr.append("<td style = 'text-align: left'>" + material.mat_call_num + "</td>");
 			tr.append("<td style = 'text-align: left'>" + material.mat_title + "</td>");
 			tr.append("<td style = 'text-align: left'>" + material.mat_author + "</td>");
-			tr.append("<td style = 'text-align: center'>" + material.mat_volume + "</td>");
-			tr.append("<td style = 'text-align: center'>" + material.mat_year + "</td>");
-			tr.append("<td style = 'text-align: center'>" + material.mat_edition+ "</td>");
 			tr.append("<td style = 'text-align: left'>" + material.mat_publisher + "</td>");
+			tr.append("<td style = 'text-align: center'>" + material.mat_volume + "</td>");
+			tr.append("<td style = 'text-align: center'>" + material.mat_edition+ "</td>");
 			tr.append("<td style = 'text-align: center'>" + material.mat_pub_year + "</td>");
+			tr.append("<td style = 'text-align: center'>" + material.mat_source + "</td>");
+			tr.append("<td style = 'text-align: center'>" + (material.mat_price_value != 0 ? material.mat_price_currency + " " + material.mat_price_value : "") + "</td>");
+			tr.append("<td>" + material.mat_donor + "</td>");
+			tr.append("<td>" + material.mat_barcode + "</td>");
 			tr.append("<td>" + material.mat_circ_type + "</td>");
 			tr.append("<td>" + material.mat_type + "</td>");
 			tr.append("<td>" + material.mat_status + "</td>");
 			tr.append("<td>" + material.mat_location + "</td>");
-			tr.append("<td>" + material.mat_source + "</td>");
-			tr.append("<td>" + (material.mat_price_value != 0 ? material.mat_price_currency + " " + material.mat_price_value : "") + "</td>");
+			tr.append("<td>" + material.mat_supplier + "</td>");
 			tr.append("<td>" + (material.mat_acquisition_date != "0000-00-00" ? material.mat_acquisition_date : "") + "</td>");
 			tr.append("<td>" + material.mat_inv_num + "</td>");
-			tr.append("<td>" + material.mat_property_inv_num + "</td>");
 			tr.append("<td style = 'text-align: center'>" + material.mat_lastinv_year + "</td>");
+			tr.append("<td style = 'text-align: center'>" + material.mat_remarks + "</td>");
 		});
 		$('div#loading-cover').hide();
 	})

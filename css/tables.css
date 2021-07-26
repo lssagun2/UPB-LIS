@@ -341,7 +341,7 @@ h1 {
   padding: 16px;
 }
 
-.modal input[type=text], select {
+.modal input[type=text], .modal input[type=date], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

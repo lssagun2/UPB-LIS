@@ -4,6 +4,7 @@ $(document).ready(function(){
 		$('div.form-control.success').removeClass('success');// Change
 		event.preventDefault();
 		var function_name = $("#function").val();
+		console.log($('form#material-edit').serialize());
 		$('div#loading-cover').show();
 		$.ajax({
 			type 		: 'POST',
@@ -30,14 +31,6 @@ $(document).ready(function(){
 				else{
 					$("div#accnumform").addClass('success');
 				}
-				
-				if(data.errors.mat_barcode){
-					$("div#barcodeform").addClass('error');
-					$("div#barcodeform small").html(data.errors.mat_barcode);
-				}
-				else{
-					$("div#barcodeform").addClass('success');
-				}
 				if(data.errors.mat_call_num){
 					$("div#callnumberform").addClass('error');
 					$("div#callnumberform small").html(data.errors.mat_call_num);
@@ -59,19 +52,19 @@ $(document).ready(function(){
 				else{
 					$("div#authorform").addClass('success');
 				}
+				if(data.errors.mat_publisher){
+					$("div#publisherform").addClass('error');
+					$("div#publisherform small").html(data.errors.mat_publisher);
+				}
+				else{
+					$("div#publisherform").addClass('success');
+				}
 				if(data.errors.mat_volume){
 					$("div#volumeform").addClass('error');
 					$("div#volumeform small").html(data.errors.mat_volume);
 				}
 				else{
 					$("div#volumeform").addClass('success');
-				}
-				if(data.errors.mat_year){
-					$("div#yearform").addClass('error');
-					$("div#yearform small").html(data.errors.mat_year);
-				}
-				else{
-					$("div#yearform").addClass('success');
 				}
 				if(data.errors.mat_edition){
 					$("div#editionform").addClass('error');
@@ -80,19 +73,40 @@ $(document).ready(function(){
 				else{
 					$("div#editionform").addClass('success');
 				}
-				if(data.errors.mat_publisher){
-					$("div#publisherform").addClass('error');
-					$("div#publisherform small").html(data.errors.mat_publisher);
-				}
-				else{
-					$("div#publisherform").addClass('success');
-				}
 				if(data.errors.mat_pub_year){
 					$("div#publisheryearform").addClass('error');
 					$("div#publisheryearform small").html(data.errors.mat_pub_year);
 				}
 				else{
 					$("div#publisheryearform").addClass('success');
+				}
+				if(data.errors.mat_source){
+					$("div#sourceform").addClass('error');
+					$("div#sourceform small").html(data.errors.mat_source);
+				}
+				else{
+					$("div#sourceform").addClass('success');
+				}
+				if(data.errors.mat_price){
+					$("div#priceform").addClass('error');
+					$("div#priceform small").html(data.errors.mat_price);
+				}
+				else{
+					$("div#priceform").addClass('success');
+				}
+				if(data.errors.mat_donor){
+					$("div#donorform").addClass('error');
+					$("div#donorform small").html(data.errors.mat_donor);
+				}
+				else{
+					$("div#donorform").addClass('success');
+				}
+				if(data.errors.mat_barcode){
+					$("div#barcodeform").addClass('error');
+					$("div#barcodeform small").html(data.errors.mat_barcode);
+				}
+				else{
+					$("div#barcodeform").addClass('success');
 				}
 				if(data.errors.mat_circ_type){
 					$("div#circulationtypeform").addClass('error');
@@ -115,20 +129,6 @@ $(document).ready(function(){
 				else{
 					$("div#statusform").addClass('success');
 				}
-				if(data.errors.mat_status){
-					$("div#statusform").addClass('error');
-					$("div#statusform small").html(data.errors.mat_status);
-				}
-				else{
-					$("div#statusform").addClass('success');
-				}
-				if(data.errors.mat_source){
-					$("div#sourceform").addClass('error');
-					$("div#sourceform small").html(data.errors.mat_source);
-				}
-				else{
-					$("div#sourceform").addClass('success');
-				}
 				if(data.errors.mat_location){
 					$("div#locationform").addClass('error');
 					$("div#locationform small").html(data.errors.mat_location);
@@ -136,19 +136,12 @@ $(document).ready(function(){
 				else{
 					$("div#locationform").addClass('success');
 				}
-				if(data.errors.mat_source){
-					$("div#sourceform").addClass('error');
-					$("div#sourceform small").html(data.errors.mat_source);
+				if(data.errors.mat_supplier){
+					$("div#supplierform").addClass('error');
+					$("div#supplierform small").html(data.errors.mat_supplier);
 				}
 				else{
-					$("div#sourceform").addClass('success');
-				}
-				if(data.errors.mat_price){
-					$("div#priceform").addClass('error');
-					$("div#priceform small").html(data.errors.mat_price);
-				}
-				else{
-					$("div#priceform").addClass('success');
+					$("div#supplierform").addClass('success');
 				}
 				if(data.errors.mat_acquisition_date){
 					$("div#acquisitiondateform").addClass('error');
@@ -163,19 +156,19 @@ $(document).ready(function(){
 				else{
 					$("div#invnumform").addClass('success');
 				}
-				if(data.errors.mat_property_inv_num){
-					$("div#propertyinvnumform").addClass('error');
-					$("div#propertyinvnumform small").html(data.errors.mat_property_inv_num);
-				}
-				else{
-					$("div#invnumform").addClass('success');
-				}
 				if(data.errors.mat_lastinv_year){
 					$("div#lastyearinvform").addClass('error');
 					$("div#lastyearinvform small").html(data.errors.mat_lastinv_year);
 				}
 				else{
 					$("div#lastyearinvform").addClass('success');
+				}
+				if(data.errors.mat_remarks){
+					$("div#remarksform").addClass('error');
+					$("div#remarksform small").html(data.errors.mat_remarks);
+				}
+				else{
+					$("div#remarksform").addClass('success');
 				}
 			}
 			$('div#loading-cover').hide();

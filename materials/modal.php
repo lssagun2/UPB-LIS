@@ -310,69 +310,20 @@
 			<small>Error message</small>
 			</div>
 
-			<div class="form-control" id = "acquisitiondateform">
-			<label style="display: block;">Acquisition Date</label>
-			<select id = "acquisition_month" name = "acquisition_month" style="display: inline-block; width: 33%;">
-				<option value="00">Select a month</option>
-				<option value="01">January</option>
-				<option value="02">February</option>
-				<option value="03">March</option>
-				<option value="04">April</option>
-				<option value="05">May</option>
-				<option value="06">June</option>
-				<option value="07">July</option>
-				<option value="08">August</option>
-				<option value="09">September</option>
-				<option value="10">October</option>
-				<option value="11">November</option>
-				<option value="12">December</option>
-			</select>
-			<select id = "acquisition_day" name = "acquisition_day" style="display: inline-block; width: 33%;">
-				<option value="00">Select a day</option>
-				<option value="01">1</option>
-				<option value="02">2</option>
-				<option value="03">3</option>
-				<option value="04">4</option>
-				<option value="05">5</option>
-				<option value="06">6</option>
-				<option value="07">7</option>
-				<option value="08">8</option>
-				<option value="09">9</option>
-				<option value="10">10</option>
-				<option value="11">11</option>
-				<option value="12">12</option>
-				<option value="13">13</option>
-				<option value="14">14</option>
-				<option value="15">15</option>
-				<option value="16">16</option>
-				<option value="17">17</option>
-				<option value="18">18</option>
-				<option value="19">19</option>
-				<option value="20">20</option>
-				<option value="21">21</option>
-				<option value="22">22</option>
-				<option value="23">23</option>
-				<option value="24">24</option>
-				<option value="25">25</option>
-				<option value="26">26</option>
-				<option value="27">27</option>
-				<option value="28">28</option>
-				<option value="29">29</option>
-				<option value="30">30</option>
-				<option value="31">31</option>
-			</select>
-			<input type = "text" id = "acquisition_year" name = "acquisition_year" placeholder = "Year.." value="" style="display: inline-block; width: 33%; height:50px">
-			<i class="fas fa-check-circle"></i>
-			<i class="fas fa-exclamation-circle"></i>
-			<small>Please check the date</small>
-			</div>
-
 			<div class="form-control" id = "supplierform">
 			<label for = "supplier">Supplier</label>
 			<input type = "text" id = "supplier" name = "supplier" placeholder = "Supplier.." value="">
 			<i class="fas fa-check-circle"></i>
 			<i class="fas fa-exclamation-circle"></i>
 			<small>Error message</small>
+			</div>
+
+			<div class="form-control" id = "acquisitiondateform">
+			<label style="display: block;">Acquisition Date</label>
+			<input type = "date" id = "acquisition_date" name = "acquisition_date" placeholder = "Acquisition Date.." value="" style="width: 85%; display: inline-block;"><button type = "button" id = "reset-acquisition-date" style="width: 15%; display: inline-block;">Reset</button>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Please check the date</small>
 			</div>
 
 			<div class="form-control" id = "invnumform">

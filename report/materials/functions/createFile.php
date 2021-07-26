@@ -112,7 +112,7 @@
       break;
   }
   //creation of the main query to retrieve material information
-  $query = "SELECT mat_acc_num, mat_barcode, mat_call_num, mat_title, mat_author, mat_volume, mat_year, mat_edition, mat_publisher, mat_pub_year, mat_circ_type, mat_type, mat_status, mat_location, mat_source, CONCAT(mat_price_currency, ' ', mat_price_value) AS mat_price, mat_acquisition_date, mat_inv_num, mat_property_inv_num, mat_lastinv_year FROM MATERIAL $condition $sort";
+  $query = "SELECT mat_acc_num, mat_call_num, mat_title, mat_author, mat_publisher, mat_volume, mat_edition, mat_pub_year, mat_source, CONCAT(mat_price_currency, ' ', mat_price_value) AS mat_price, mat_donor, mat_barcode, mat_circ_type, mat_type, mat_status, mat_location, mat_supplier, (CASE WHEN mat_acquisition_date = '0000-00-00' THEN '' ELSE mat_acquisition_date END) AS mat_acquisition_date, mat_inv_num, (CASE WHEN mat_lastinv_year = '0' THEN '' ELSE mat_lastinv_year END) AS mat_lastinv_year, mat_remarks FROM MATERIAL $condition $sort";
   $result = $conn->query($query);
   $materials = $result->fetch_all(MYSQLI_ASSOC);
   $directory = $_SERVER['DOCUMENT_ROOT']."/upb-lis/report/common/";
@@ -152,7 +152,7 @@
   }
   fputcsv($file, ["Number of Materials:", $result->num_rows]);  //add number of materials
   fputcsv($file, []); //empty row
-  fputcsv($file, ['Accession Number', 'Barcode', 'Call Number', 'Title', 'Author', 'Volume', 'Year', 'Edition', 'Publisher', 'Publication Year', 'Circulation Type', 'Type', 'Status', 'Location', 'Source', 'Price', 'Acquisition Date', 'Inventory Item Number', 'Property Inventory Number', 'Last Year Inventoried']);  //add column names
+  fputcsv($file, ['Accession Number', 'Call Number', 'Title', 'Author', 'Publisher', 'Volume', 'Edition', 'Publication Year', 'Source', 'Price', 'Donor', 'Barcode', 'Circulation Type', 'Type', 'Status', 'Location',  'Supplier', 'Acquisition Date', 'Inventory Item Number', 'Last Year Inventoried', 'Remarks']);  //add column names
   foreach ($materials as $material) {
       fputcsv($file, $material);  //add materials into a row in the CSV file
   }

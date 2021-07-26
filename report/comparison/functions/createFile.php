@@ -159,18 +159,18 @@
   $start = "WHERE row_number > $start_num";   //start from the specific row number
    //creation of the columns and main query depending on the category of the chosen table
   if(!$comparison && intval($_POST["category"]) === 1){
-     $columns = ['Date Inventoried', 'Time Inventoried', 'Inventoried By', 'Accession Number', 'Barcode', 'Call Number', 'Title', 'Author', 'Volume', 'Year', 'Edition', 'Publisher', 'Publication Year', 'Circulation Type', 'Type', 'Status', 'Location', 'Source', 'Price', 'Acquisition Date', 'Inventory Item Number', 'Property Inventory Number', 'Last Year Inventoried'];
+     $columns = ['Date Inventoried', 'Time Inventoried', 'Inventoried By', 'Accession Number', 'Call Number', 'Title', 'Author', 'Publisher', 'Volume', 'Edition', 'Publication Year', 'Source', 'Price', 'Donor', 'Barcode', 'Circulation Type', 'Type', 'Status', 'Location',  'Supplier', 'Acquisition Date', 'Inventory Item Number', 'Last Year Inventoried', 'Remarks'];
     $query = "
-      SELECT DATE_FORMAT(date_$year1, '%M %e, %Y') AS inv_date, DATE_FORMAT(date_$year1, '%r') AS inv_time, CONCAT(staff_firstname, ' ', staff_lastname) AS name, mat_acc_num, mat_barcode, mat_call_num, mat_title, mat_author, mat_volume, mat_year, mat_edition, mat_publisher, mat_pub_year, mat_circ_type, mat_type, mat_status, mat_location, mat_source, CONCAT(mat_price_currency, ' ', mat_price_value) AS mat_price, mat_acquisition_date, mat_inv_num, mat_property_inv_num, mat_lastinv_year
+      SELECT DATE_FORMAT(date_$year1, '%M %e, %Y') AS inv_date, DATE_FORMAT(date_$year1, '%r') AS inv_time, CONCAT(staff_firstname, ' ', staff_lastname) AS name, mat_acc_num, mat_call_num, mat_title, mat_author, mat_publisher, mat_volume, mat_edition, mat_pub_year, mat_source, CONCAT(mat_price_currency, ' ', mat_price_value) AS mat_price, mat_donor, mat_barcode, mat_circ_type, mat_type, mat_status, mat_location, mat_supplier, (CASE WHEN mat_acquisition_date = '0000-00-00' THEN '' ELSE mat_acquisition_date END) AS mat_acquisition_date, mat_inv_num, (CASE WHEN mat_lastinv_year = '0' THEN '' ELSE mat_lastinv_year END) AS mat_lastinv_year, mat_remarks
       FROM {$inv_query}INVENTORY
         INNER JOIN {$mat_query}MATERIAL ON INVENTORY.mat_id = MATERIAL.mat_id
         INNER JOIN STAFF ON INVENTORY.staff_id_$year1 = STAFF.staff_id
       $sort";
   }
   else{
-    $columns = ['Accession Number', 'Barcode', 'Call Number', 'Title', 'Author', 'Volume', 'Year', 'Edition', 'Publisher', 'Publication Year', 'Circulation Type', 'Type', 'Status', 'Location', 'Source', 'Price', 'Acquisition Date', 'Inventory Item Number', 'Property Inventory Number', 'Last Year Inventoried'];
+    $columns = ['Accession Number', 'Call Number', 'Title', 'Author', 'Publisher', 'Volume', 'Edition', 'Publication Year', 'Source', 'Price', 'Donor', 'Barcode', 'Circulation Type', 'Type', 'Status', 'Location',  'Supplier', 'Acquisition Date', 'Inventory Item Number', 'Last Year Inventoried', 'Remarks'];
     $query = "
-      SELECT mat_acc_num, mat_barcode, mat_call_num, mat_title, mat_author, mat_volume, mat_year, mat_edition, mat_publisher, mat_pub_year, mat_circ_type, mat_type, mat_status, mat_location, mat_source, CONCAT(mat_price_currency, ' ', mat_price_value) AS mat_price, mat_acquisition_date, mat_inv_num, mat_property_inv_num, mat_lastinv_year
+      SELECT mat_acc_num, mat_call_num, mat_title, mat_author, mat_publisher, mat_volume, mat_edition, mat_pub_year, mat_source, CONCAT(mat_price_currency, ' ', mat_price_value) AS mat_price, mat_donor, mat_barcode, mat_circ_type, mat_type, mat_status, mat_location, mat_supplier, (CASE WHEN mat_acquisition_date = '0000-00-00' THEN '' ELSE mat_acquisition_date END) AS mat_acquisition_date, mat_inv_num, (CASE WHEN mat_lastinv_year = '0' THEN '' ELSE mat_lastinv_year END) AS mat_lastinv_year, mat_remarks
       FROM {$inv_query}INVENTORY
         INNER JOIN {$mat_query}MATERIAL ON INVENTORY.mat_id = MATERIAL.mat_id";
   }

@@ -35,35 +35,9 @@
 		// else{
 		// 	$info['mat_price_value'] = 0;
 		// }
-		// check if at least 1 field in acquisition date has an input from user
-		if(!(empty($info['acquisition_year']) && $info['acquisition_month'] == "00" && $info['acquisition_day'] == "00")){
-			$year = date("Y");
-			//check if the year is invalid
-			if(empty($info['acquisition_year']) || !(is_numeric($info['acquisition_year']) && $info['acquisition_year'] > 1970 && $info['acquisition_year'] <= $year)){
-				$errors['mat_acquisition_date'] = true;
-			}
-			//check if user did not choose a month
-			else if($info['acquisition_month'] == "00"){
-				$errors['mat_acquisition_date'] = true;
-			}
-			//check if user did not choose a day
-			else if($info['acquisition_day'] == "00"){
-				$errors['mat_acquisition_date'] = true;
-			}
-			else{
-				//contains the case when the year, month, and day are all valid
-				$info['mat_acquisition_date'] = $info['acquisition_year'] . '-' . $info['acquisition_month'] . '-' . $info['acquisition_day'];
-				unset($info['acquisition_year']);
-				unset($info['acquisition_month']);
-				unset($info['acquisition_day']);
-			}
-		}
-		//case when all fields are empty
-		else{
+		// check if acquisition date has an entry
+		if($info['mat_acquisition_date'] == ""){
 			$info['mat_acquisition_date'] = "0000-00-00";
-			unset($info['acquisition_year']);
-			unset($info['acquisition_month']);
-			unset($info['acquisition_day']);
 		}
 		//format some material data if all inputs are valid
 		if(empty($errors)){

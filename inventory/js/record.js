@@ -15,8 +15,8 @@ function record(){
 	.done(function(data){
 		console.log(data);
 		if(data.success){
+			$('fieldset#material-fieldset').removeAttr("disabled");
 			var material = data.material;
-			console.log(material);
 			$('#id').val(material.mat_id);
 			$('#acc_num').val(material.mat_acc_num);
 			$('#barcode').val(material.mat_barcode);
@@ -24,7 +24,6 @@ function record(){
 			$('#title').val(material.mat_title);
 			$('#author').val(material.mat_author);
 			$('#volume').val(material.mat_volume);
-			$('#year').val(material.mat_year);
 			$('#edition').val(material.mat_edition);
 			$('#publisher').val(material.mat_publisher);
 			$('#pub_year').val(material.mat_pub_year);
@@ -33,24 +32,27 @@ function record(){
 			$('#status').val(material.mat_status);
 			$('#location').val(material.mat_location);
 			$('#source').val(material.mat_source);
+			$("div#priceform").hide();
+			$("div#donorform").hide();
 			if(material.mat_price_value != 0){
 				$('#currency').val(material.mat_price_currency);
 				$('#price').val(material.mat_price_value);
 			}
-			var date = material.mat_acquisition_date.split("-");
-			if(date.length != 1){
-				if(date[0] == "0000"){
-					$('#acquisition_year').val("");
-				}
-				else{
-					$('#acquisition_year').val(date[0]);
-				}
-				$('#acquisition_month').val(date[1]);
-				$('#acquisition_day').val(date[2]);
+			else{
+				$('#currency').val("PHP");
+				$('#price').val("");
 			}
+			if(material.mat_source == "Purchased"){
+				$("div#priceform").show();
+			}
+			else if(material.mat_source == "Donated"){
+				$("div#donorform").show();
+			}
+			$('#acquisition_date').val(material.mat_acquisition_date);
 			$('#property_inv_num').val(material.mat_property_inv_num);
 			$('#inv_num').val(material.mat_inv_num);
 			$('#last_year_inventoried').val(material.mat_lastinv_year);
+			$('#remarks').val(material.mat_remarks);
 			$('form#inventory-record').trigger('reset');
 			$('div.notif-bar').show();
 			$('div.notif-bar').html(data.message);
@@ -63,6 +65,7 @@ function record(){
 			}
 		}
 		else{
+			$('fieldset#material-fieldset').attr("disabled", "disabled");
 			$('div.notif-bar').css("background-color", "#850038");
 			$('div.notif-bar').html(data.message);
 			$('div.notif-bar').show();

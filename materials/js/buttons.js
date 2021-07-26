@@ -41,7 +41,6 @@ $(document).ready(function(){
 		$("div#donorform").hide();
 		if($('#source').val() == "Purchased"){
 			$("div#priceform").show();
-			$("input#value").show();
 		}
 		else if($('#source').val() == "Donated"){
 			$("div#donorform").show();
@@ -51,13 +50,8 @@ $(document).ready(function(){
 		$('#type').val(data[14]);
 		$('#status').val(data[15]);
 		$('#location').val(data[16]);
-		var date = data[17].split("-");
-		if(date.length != 1){
-			$('#acquisition_year').val(date[0]);
-			$('#acquisition_month').val(date[1]);
-			$('#acquisition_day').val(date[2]);
-		}
-		$('#property_inv_num').val(data[18]);
+		$('#supplier').val(data[17]);
+		$('#acquisition_date').val(data[18]);
 		$('#inv_num').val(data[19]);
 		$('#last_year_inventoried').val(data[20]);
 		$('#remarks').val(data[21]);
@@ -123,7 +117,6 @@ $(document).ready(function(){
 		$("div#donorform").hide();
 		if($('#source').val() == "Purchased"){
 			$("div#priceform").show();
-			$("input#value").show();
 		}
 		else if($('#source').val() == "Donated"){
 			$("div#donorform").show();
@@ -133,13 +126,8 @@ $(document).ready(function(){
 		$('#type').val(data[14]);
 		$('#status').val(data[15]);
 		$('#location').val(data[16]);
-		var date = data[17].split("-");
-		if(date.length != 1){
-			$('#acquisition_year').val(date[0]);
-			$('#acquisition_month').val(date[1]);
-			$('#acquisition_day').val(date[2]);
-		}
-		$('#property_inv_num').val(data[18]);
+		$('#supplier').val(data[17]);
+		$('#acquisition_date').val(data[18]);
 		$('#inv_num').val(data[19]);
 		$('#last_year_inventoried').val(data[20]);
 		$('#remarks').val(data[21]);
@@ -210,6 +198,10 @@ $(document).ready(function(){
 		if($("select#source").val() == "Donated"){
 			$("div#donorform").show();
 		}
+	});
+
+	$(document).on('click', 'button#reset-acquisition-date', function(){
+		$("#acquisition_date").val("");
 	});
 
 	//Button for updating table after setting a filter.

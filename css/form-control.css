@@ -160,7 +160,7 @@
   transition: 0.2s ease;
 }
 
-.modal input[type=text], .modal input[type=password], select {
+.modal input[type=text], .modal input[type=date], .modal input[type=password], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -196,10 +196,10 @@ select:hover {
   left: 0px;
 }
 
-.form-control.success input{
+.form-control.success input[type=text], .form-control.success input[type=date], .form-control.success select{
   border-color: #2ecc71;
 }
-.form-control.error input{
+.form-control.error input[type=text], .form-control.error input[type=date], .form-control.error select{
   border-color: #e74c3c;
 }
 
@@ -266,15 +266,15 @@ div#inventory-input-div.form-control.success i.fa-check-circle{
   right: 20px;
 }
 
-.form-control.success select{
+/*.form-control.success select{
   border-color: #2ecc71;
 }
 
 .form-control.error select{
   border-color: #e74c3c;
-}
+}*/
 
-div#priceform.form-control.error i.fa-exclamation-circle{
+/*div#priceform.form-control.error i.fa-exclamation-circle{
   right: 10px;
   top: 23px;
 }
@@ -292,4 +292,4 @@ div#acquisitiondateform.form-control.error i.fa-exclamation-circle{
 div#acquisitiondateform.form-control.success i.fa-check-circle{
   right: 10px;
   top: 23px;
-}
+}*/

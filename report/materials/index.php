@@ -241,25 +241,26 @@
                   	<thead style="position: sticky; top: 0;">
                   		<tr>
 	                      <th class = "sort" data-sort = "Accession Number">Accession Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th class = "sort" data-sort = "Barcode">Barcode<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th class = "sort" data-sort = "Call Number">Call Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th class = "sort" data-sort = "Title">Title<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-	                      <th>Author</th>
-                        <th>Volume</th>
-                        <th>Year</th>
-                        <th>Edition</th>
-                        <th>Publisher</th>
+                        <th style = "width: 7.5%;" class = "sort" data-sort = "Call Number" style = "width: 5%;">Call Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th class = "sort" data-sort = "Title" style = "width: 20%;">Title<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th style = "width: 7.5%;">Author</th>
+                        <th style = "width: 7.5%;">Publisher</th>
+                        <th style = "width: 5%;">Volume</th>
+                        <th style = "width: 5%;">Edition</th>
                         <th>Publication Year</th>
-                        <th>Circulation Type</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                        <th>Location</th>
-                        <th class = "sort" data-sort = "Source">Source<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-                        <th class = "sort" data-sort = "Price">Price<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th style = "width: 5%;" class = "sort" data-sort = "Source">Source<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th style = "width: 5%;" class = "sort" data-sort = "Price">Price<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th style = "width: 5%;">Donor<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th class = "sort" data-sort = "Barcode">Barcode<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th style = "width: 5%;">Circulation Type</th>
+                        <th style = "width: 5%;">Material Type</th>
+                        <th style = "width: 5%;">Status</th>
+                        <th style = "width: 5%;">Location</th>
+                        <th>Supplier<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
                         <th class = "sort" data-sort = "Acquisition Date">Acquisition Date<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-                        <th class = "sort" data-sort = "Inventory Item Number">Inventory Item Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
-                        <th class = "sort" data-sort = "Property Inventory Number">Property Inventory Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th style = "width: 5%;" class = "sort" data-sort = "Inventory Item Number">Inventory Item Number<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
                         <th class = "sort" data-sort = "Last Year Inventoried">Last Year Inventoried<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
+                        <th style = "width: 10%;">Remarks<i class="sort-by-asc"></i><i class="sort-by-desc"></i></th>
                       </tr>
                     </thead>
                     <tbody id = "material-content">

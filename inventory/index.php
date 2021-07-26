@@ -129,7 +129,7 @@
       margin-right: 0;
     }
 
-    .modal input[type=text], select {
+    .modal input[type=text], .modal input[type=date], .modal select {
       width: 95%;
       padding: 12px 20px;
       margin: 8px 0;
@@ -237,7 +237,7 @@
         width: 84px;
       }
 
-      .modal input[type=text], select {
+      .modal input[type=text], .modal input[type=date], select {
         width: 95%;
       }
 

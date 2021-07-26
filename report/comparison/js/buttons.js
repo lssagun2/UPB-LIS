@@ -51,7 +51,7 @@ $(document).ready(function(){
 		category = $(this).data("category");
 		if(!comparison){
 			year1 = $(this).data("year");
-			if(category == 1){
+			if(category == "inventoried"){
 				$('.inventoried-column').show();
 			}
 			else{
